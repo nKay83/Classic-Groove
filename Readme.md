@@ -3,7 +3,7 @@
 GV: Nguyễn Thanh Sang <br>
 Đề tài: cửa hàng bán đĩa than. <br>
 
-Tên của hàng: Classic Groove <br>
+> Tên của hàng: Classic Groove <br>
 
 Thành viên:
 Nguyễn Thế Anh     3121410055 <br>
