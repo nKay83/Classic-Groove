@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style/header.css" />
   <link rel="stylesheet" href="style/reset.css" />
   <link rel="stylesheet" href="style/home.css" />
+  <link rel="stylesheet" href="style/favorite.css">
   <title>Classic-Groove</title>
 </head>
 
@@ -21,8 +22,8 @@
         <!-- <?php include 'compoment/search.php' ?> -->
       </div>
       <div id="content">
-        <?php include 'compoment/home.php' ?>
-        <!-- <?php include 'compoment/favorites.php' ?> -->
+        <!-- <?php include 'compoment/home.php' ?> -->
+        <?php include 'compoment/favorites.php' ?>
         <!-- <?php include 'compoment/myCart.php' ?> -->
         <!-- <?php include 'compoment/myAccount.php' ?> -->
         <!-- <?php include 'compoment/productDetails.php' ?> -->
