@@ -5,15 +5,15 @@
 }
 :root {
   --Ora: #f2623e;
-  --Bla: #ffffff;
-  --Whi: #000000;
+  --Whi: #ffffff;
+  --Bla: #000000;
   --Lig: #1d1d20;
   --Gr1: #a1a0a0;
   --Gr2: #e9e9e9;
 }
 header {
   width: 15%;
-  background-color: black;
+  background-color: var(--Bla);
   height: 100vh;
   position: fixed;
 }
@@ -21,18 +21,18 @@ header {
 main {
   width: 85%;
   float: right;
-  background-color: brown;
+  /* background-color: brown; */
   /* height: 3000px; */
 }
 #search {
-  height: 40px;
+  height: 6vh;
   width: 100%;
-  background-color: var(--Ora);
+  background-color: yellow;
   position: fixed;
   /* z-index: 1000; */
 }
 #content {
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
 #songControl {
   display: fixed;
