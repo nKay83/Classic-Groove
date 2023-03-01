@@ -25,11 +25,11 @@ main {
   /* height: 3000px; */
 }
 #search {
-  height: 6vh;
-  width: 100%;
-  background-color: yellow;
+  height: 5vh;
+  width: 85%;
   position: fixed;
-  /* z-index: 1000; */
+  top:0;
+  right: 0;
 }
 #content {
   padding-top: 6vh;

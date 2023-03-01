@@ -1,0 +1,58 @@
+#search {
+  display: flex;
+  background-color: var(--whi);
+  align-items: center;
+  padding: 0 15px;
+}
+#search .search,
+#search .drop-menu,
+#search .price {
+  width: 25%;
+  position: relative;
+  text-align: center;
+}
+#search .search {
+  width: 50%;
+}
+#search .search input,
+#search .drop-menu select,
+#search .price input {
+  width: 90%;
+  height: 3.14vh;
+  border-radius: 20px;
+  background-color: var(--gr2);
+  color: var(--bla);
+  outline: none;
+  border: none;
+}
+
+#search .price input {
+  width: 80%;
+}
+
+#search .search input,
+#search .drop-menu select {
+  padding-left: 27px;
+}
+
+#search .search i,
+#search .drop-menu i,
+#search .price i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gr1);
+}
+
+#search .search i {
+  left: 33px;
+}
+#search .drop-menu i {
+  left: 20px;
+}
+#search .price i:nth-child(1) {
+  left: 0;
+}
+#search .price i:nth-child(2) {
+  right: 0;
+}
