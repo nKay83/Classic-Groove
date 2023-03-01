@@ -1,5 +1,5 @@
 .gray{
-    color: var(--Gr1);
+    color: var(--gr1);
 }
 #favorite .category{
     margin-top: 20px;
@@ -13,13 +13,13 @@
     margin-left: 100px;
     margin-right: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 10px;
     max-width: 1400px;
 }
 
 #favorite .grid-item {
-    background-color: var(--Bla);
+    background-color: var(--bla);
     padding: 30px;
     box-shadow: 0px 0px 5px #aaa;
     border-radius: 10px;

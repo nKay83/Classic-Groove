@@ -4,16 +4,16 @@
   padding: 0;
 }
 :root {
-  --Ora: #f2623e;
-  --Whi: #ffffff;
-  --Bla: #000000;
-  --Lig: #1d1d20;
-  --Gr1: #a1a0a0;
-  --Gr2: #e9e9e9;
+  --ora: #f2623e;
+  --whi: #ffffff;
+  --bla: #000000;
+  --lig: #1d1d20;
+  --gr1: #a1a0a0;
+  --gr2: #e9e9e9;
 }
 header {
   width: 15%;
-  background-color: var(--Bla);
+  background-color: var(--bla);
   height: 100vh;
   position: fixed;
 }
@@ -21,7 +21,7 @@ header {
 main {
   width: 85%;
   float: right;
-  /* background-color: brown; */
+  background-color: var(--lig);
   /* height: 3000px; */
 }
 #search {
@@ -32,7 +32,7 @@ main {
   /* z-index: 1000; */
 }
 #content {
-  /* padding-top: 40px; */
+  padding-top: 6vh;
 }
 #songControl {
   display: fixed;
