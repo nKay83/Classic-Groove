@@ -4,55 +4,43 @@
   align-items: center;
   padding: 0 15px;
 }
+#search .search-container,
+#search .drop-menu-container,
+#search .price-container {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+#search .search-container {
+  width: 50%;
+}
 #search .search,
 #search .drop-menu,
 #search .price {
-  width: 25%;
-  position: relative;
-  text-align: center;
-}
-#search .search {
-  width: 50%;
-}
-#search .search input,
-#search .drop-menu select,
-#search .price input {
+  height: 3vh;
   width: 90%;
-  height: 3.14vh;
-  border-radius: 20px;
   background-color: var(--gr2);
-  color: var(--bla);
-  outline: none;
+  border-radius: 25px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#search input,
+#search select {
+  height: 100%;
+  width: 95%;
+  background-color: var(--gr2);
   border: none;
+  outline: none;
+  border-radius: 20px;
+  padding-left: 3px;
 }
-
-#search .price input {
+#search .price{
+  display: flex;
+  justify-content: space-between;
+}
+#search .price input{
   width: 80%;
-}
-
-#search .search input,
-#search .drop-menu select {
-  padding-left: 27px;
-}
-
-#search .search i,
-#search .drop-menu i,
-#search .price i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gr1);
-}
-
-#search .search i {
-  left: 33px;
-}
-#search .drop-menu i {
-  left: 20px;
-}
-#search .price i:nth-child(1) {
-  left: 0;
-}
-#search .price i:nth-child(2) {
-  right: 0;
+  padding: 0;
 }
