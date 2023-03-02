@@ -1,1 +1,165 @@
+* {
+    margin: 0;
+    
+}
+
+:root {
+    --ora: #f2623e;
+    --whi: #ffffff;
+    --bla: #000000;
+    --lig: #1d1d20;
+    --gr1: #a1a0a0;
+    --gr2: #e9e9e9;
+}
+
+
+
+.background {
+    background-color: black;
+    height: 100vh;
+    max-width: 15vw;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Dosis', sans-serif;
+}
+
+.logo-placeholder {
+    width: 100%;
+    height: 25%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+img {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.top-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+    box-sizing: border-box;
+}
+.tab-title {
+    background-color: var(--lig);
+    border-radius:70px;
+    margin: 10% 3%;
+    margin-top: 0;
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.tab-icon {
+    height: 100%;
+    width: 40%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.tab-icon i {
+    color: var(--gr1);
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-info {
+    height: 100%;
+    width: 60%;
+    box-sizing: border-box;
+    color: var(--gr1);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 29px;
+    font-family: 'Dosis', sans-serif;
+}
+.tab-title:hover .tab-icon i,
+.tab-title:hover .tab-info {
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+}
+.tab-title.active .tab-icon i,
+.tab-title.active .tab-info {
+  color: var(--ora);
+}
+
+
+.button-placeholder{
+    height: 30%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+.left-button-login{
+    height: 20%;
+    width: 50%;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-button-login input{
+    height: 90%;
+    width: 90%;
+    background-color:var(--whi);
+    color: var(--bla);
+    border-radius: 20px;
+    font-size: 29px;
+    padding-bottom: 10%;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+}
+.left-button-login input:hover{
+    transform: scale(108%);
+}
+.right-button-register{
+    height: 20%;
+    width: 50%;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-button-register input{
+    height: 90%;
+    width: 90%;
+    background-color:var(--ora);
+    color: var(--whi);
+    border-radius: 20px;
+    font-size: 29px;
+    padding-bottom: 10%;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;;
+}
+.right-button-register input:hover{
+    transform: scale(108%);
+}
+.footer-placeholder{
+    height: 5%;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--gr1);
+    font-size: 20px;
+    padding-left: 5%;
+}
+.footer-placeholder p{
+    width: 30%;
+}
+.footer-placeholder p:hover{
+    color: var(--whi);
+    cursor: pointer;
+}
+
 
