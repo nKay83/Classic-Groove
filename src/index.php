@@ -26,7 +26,7 @@
         <!-- <?php include 'compoment/myCart.php' ?> -->
         <!-- <?php include 'compoment/myAccount.php' ?> -->
         <!-- <?php include 'compoment/productDetails.php' ?> -->
-
+    
       </div>
       <div id="songControl">
         <!-- <?php include 'compoment/songControl.php' ?> -->
