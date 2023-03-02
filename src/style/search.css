@@ -38,9 +38,12 @@
 }
 #search .price{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 #search .price input{
   width: 80%;
   padding: 0;
+}
+#search i{
+  color: var(--gr1);
 }
