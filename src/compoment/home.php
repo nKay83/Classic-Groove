@@ -1,10 +1,13 @@
-<?php
-echo '<div id="home">
-      <div class="slideshow">
-    <div class="left">hong</div>
-    <div class="right">
-      <div class="sub-right"Bui</div>
-      <div class="sub-right">Bao</div>
+<div id="home">
+  <div class="slideshow">
+    <div class="left">
+      <div class="poster">
+
+      </div>
     </div>
-</div>';
-?>
+    <div class="right">
+      <div class="sub-right"></div>
+      <div class="sub-right"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.gray{
+    color: var(--gr1);
+}
+#favorite .category{
+    margin-top: 20px;
+}
+#favorite .category #h2{
+    margin-left: 30px;
+}
+
+#favorite .grid-container {
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+    max-width: 1400px;
+}
+
+#favorite .grid-item {
+    background-color: var(--bla);
+    padding: 30px;
+    box-shadow: 0px 0px 5px #aaa;
+    border-radius: 10px;
+    max-width: 200px;
+}
+#favorite .grid-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+#favorite .grid-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
