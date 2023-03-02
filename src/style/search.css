@@ -17,7 +17,7 @@
 #search .search,
 #search .drop-menu,
 #search .price {
-  height: 3vh;
+  height: 4vh;
   width: 90%;
   background-color: var(--gr2);
   border-radius: 25px;
