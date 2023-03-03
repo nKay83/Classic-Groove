@@ -8,7 +8,7 @@
         <i class="fa-solid fa-house "></i>
       </div>
       <div class="tab-info">
-        Home
+        <a href="index.php?page=home">Home</a>
       </div>
     </div>
     <div class="tab-title">
@@ -16,7 +16,7 @@
         <i class="fa-regular fa-heart "></i>
       </div>
       <div class="tab-info">
-        Favorite
+        <a href="index.php?page=favorites">Favorites</a>
       </div>
     </div>
     <div class="tab-title">
@@ -24,7 +24,7 @@
         <i class="fa-brands fa-opencart "></i>
       </div>
       <div class="tab-info">
-        My cart
+        <a href="index.php?page=myCart">My cart</a>
       </div>
     </div>
     <div class="tab-title">
@@ -32,7 +32,7 @@
         <i class="fa-solid fa-user "></i>
       </div>
       <div class="tab-info">
-        My account
+        <a href="index.php?page=myAccount">My account</a>
       </div>
     </div>
   </div>

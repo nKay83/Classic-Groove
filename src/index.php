@@ -30,11 +30,31 @@
         <?php include 'compoment/search.php' ?>
       </div>
       <div id="content">
-        <!-- <?php include 'compoment/home.php' ?> -->
-        <!-- <?php include 'compoment/favorites.php' ?> -->
-        <?php include 'compoment/myCart.php' ?>
-        <!-- <?php include 'compoment/myAccount.php' ?> -->
-        <!-- <?php include 'compoment/productDetails.php' ?> -->
+        <?php
+        if (isset($_GET["page"])) {
+          switch ($_GET["page"]) {
+            case "home":
+              include 'compoment/home.php';
+              break;
+            case "favorites":
+              include 'compoment/favorites.php';
+              break;
+            case "myCart":
+              include 'compoment/myCart.php';
+              break;
+            case "myAccount":
+              include 'compoment/myAccount.php';
+              break;
+            case "productDetails":
+              include 'compoment/productDetails.php';
+              break;
+            default:
+              echo `<h1>Page not found 404</h1>`;
+          }
+        } else {
+          include("compoment/home.php");
+        }
+        ?>
 
       </div>
       <div id="songControl">
