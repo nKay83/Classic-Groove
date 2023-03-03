@@ -1,0 +1,81 @@
+#product-details {
+  display: flex;
+  flex-direction: row;
+  font-family: "Dosis", sans-serif;
+
+}
+
+#product-details .left {
+  width: 40%;
+  padding: 5%;
+}
+#product-details .left img {
+  border-radius: 30px;
+  width: 100%;
+}
+
+#product-details .right {
+  width: 60%;
+  padding-top: 5%;
+}
+#product-details .title {
+  color: var(--whi);
+  font-size: 2.7vw;
+
+}
+
+#product-details .sub-title {
+  color: var(--ora);
+  font-size: 2.5vw;
+}
+#product-details .description {
+  color: var(--gr1);
+  margin: 25px 0;
+  width: 95%;
+  text-align: justify;
+}
+
+#product-details .control {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+#product-details .control > * {
+  margin-right: 20px;
+}
+
+#product-details .price {
+  color: var(--ora);
+  font-size: 2.5vw;
+
+}
+
+#product-details .btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 13%;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#product-details .btn:hover{
+  transform: scale(108%);
+}
+#product-details .btn i{
+  font-size: 1.5vw;
+}
+#product-details .add-to-cart-btn {
+  background-color: var(--whi);
+  color: var(--ora);
+}
+#product-details .favorite-btn {
+  background-color: var(--ora);
+  color: var(--whi);
+}
+
+#product-details .songs-container{
+  margin: 8px 0;
+  color: var(--gr1);
+}
+

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style/favorite.css" />
   <link rel="stylesheet" href="style/mycart.css">
   <link rel="stylesheet" href="style/search.css" />
+  <link rel="stylesheet" href="style/productDetails.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
@@ -34,25 +35,27 @@
         if (isset($_GET["page"])) {
           switch ($_GET["page"]) {
             case "home":
-              include 'compoment/home.php';
+              include('compoment/home.php');
               break;
             case "favorites":
-              include 'compoment/favorites.php';
+              include("compoment/favorites.php");
               break;
             case "myCart":
-              include 'compoment/myCart.php';
+              include("compoment/myCart.php");
               break;
             case "myAccount":
-              include 'compoment/myAccount.php';
+              include("compoment/myAccount.php");
               break;
             case "productDetails":
-              include 'compoment/productDetails.php';
+              include("compoment/productDetails.php");
               break;
             default:
               echo `<h1>Page not found 404</h1>`;
           }
         } else {
-          include("compoment/home.php");
+          // include("compoment/home.php");
+          include("compoment/productDetails.php");
+
         }
         ?>
 
@@ -63,5 +66,5 @@
   </div>
   </main>
 </body>
-
+<script src="js/effectPages.js"></script>
 </html>
