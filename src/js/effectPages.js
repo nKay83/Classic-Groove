@@ -1,3 +1,7 @@
+$(document).ready(() => {
+  selectMenu();
+});
+
 let changeInputColorRange = (input) => {
   let value = ((input.value - input.min) / (input.max - input.min)) * 100;
   input.style.background =
@@ -6,4 +10,14 @@ let changeInputColorRange = (input) => {
     "%, #fff " +
     value +
     "%, white 100%)";
+};
+
+let selectMenu = () => {
+  let tabsTitle = document.querySelectorAll("#header .tab-title");
+  tabsTitle[0].classList.remove("active")
+  let url = window.location.href;
+  if (url.indexOf("favorites") != -1) tabsTitle[1].classList.add("active");
+  else if (url.indexOf("myCart") != -1) tabsTitle[2].classList.add("active");
+  else if (url.indexOf("myAccount") != -1) tabsTitle[3].classList.add("active");
+  else tabsTitle[0].classList.add("active");
 };

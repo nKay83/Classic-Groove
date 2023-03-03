@@ -18,7 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
   <!-- font-family: "Dosis", sans-serif; -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
+
+
+  </script>
   <title>Classic-Groove</title>
 </head>
 
@@ -68,4 +73,5 @@
   </main>
 </body>
 <script src="js/effectPages.js"></script>
+
 </html>
