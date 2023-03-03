@@ -30,6 +30,7 @@
 #home h1 {
   color: var(--whi);
   padding-left: 30px;
+  font-family: "Dosis", sans-serif;
 }
 #home .grid-container {
   padding: 10px;

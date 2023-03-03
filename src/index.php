@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style/reset.css" />
   <link rel="stylesheet" href="style/home.css" />
   <link rel="stylesheet" href="style/favorite.css" />
+  <link rel="stylesheet" href="style/mycart.css">
   <link rel="stylesheet" href="style/search.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +30,9 @@
         <?php include 'compoment/search.php' ?>
       </div>
       <div id="content">
-        <?php include 'compoment/home.php' ?>
+        <!-- <?php include 'compoment/home.php' ?> -->
         <!-- <?php include 'compoment/favorites.php' ?> -->
-        <!-- <?php include 'compoment/myCart.php' ?> -->
+        <?php include 'compoment/myCart.php' ?>
         <!-- <?php include 'compoment/myAccount.php' ?> -->
         <!-- <?php include 'compoment/productDetails.php' ?> -->
 
