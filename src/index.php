@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style/mycart.css">
   <link rel="stylesheet" href="style/search.css" />
   <link rel="stylesheet" href="style/productDetails.css">
+  <link rel="stylesheet" href="style/songControl.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
@@ -60,8 +61,8 @@
         ?>
 
       </div>
-      <div id="songControl">
-        <!-- <?php include 'compoment/songControl.php' ?> -->
+      <div id="song-control">
+        <?php include 'compoment/songControl.php' ?>
       </div>
   </div>
   </main>

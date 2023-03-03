@@ -24,7 +24,7 @@
         <span>Favorite</span>
       </div>
     </div>
-    <h1 class="title">Trach list</h1>
+    <h1 class="title">Trach list"</h1>
     <div class="songs-container"></p>
       <p>A1 Get Off Of My Cloud</p>
       <p>A2The Last Time</p>

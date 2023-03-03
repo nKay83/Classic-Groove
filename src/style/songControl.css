@@ -1,0 +1,45 @@
+#song-control {
+  background-color: var(--bla);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Dosis", sans-serif;
+  height: 7vh;
+  font-size: 2vw;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  padding: 0 10px;
+}
+
+#song-control > * {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+#song-control .control-btn {
+  padding: 0 15px;
+}
+
+#song-control .time-btn {
+  width: 40%;
+}
+
+#song-control .control-btn i {
+  color: var(--ora);
+}
+#song-control .time-btn,
+#song-control .note {
+  color: var(--whi);
+}
+
+#song-control .time-btn input {
+  width: 75%;
+  display: block;
+  margin: auto 0;
+  background: linear-gradient(to right, var(--ora) 0%, var(--ora) 50%, var(--whi) 50%, var(--whi) 100%);
+  border-radius: 8px;
+  height: 7px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
