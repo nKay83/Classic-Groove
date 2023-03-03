@@ -12,16 +12,17 @@
   <link rel="stylesheet" href="style/favorite.css" />
   <link rel="stylesheet" href="style/search.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
+  <!-- font-family: "Dosis", sans-serif; -->
+
   <title>Classic-Groove</title>
 </head>
 
 <body>
   <div id="warrper">
     <header id="header">
-    <?php include 'compoment/header.php' ?>
-    
+      <?php include 'compoment/header.php' ?>
     </header>
     <main>
       <div id="search">
@@ -33,7 +34,7 @@
         <!-- <?php include 'compoment/myCart.php' ?> -->
         <!-- <?php include 'compoment/myAccount.php' ?> -->
         <!-- <?php include 'compoment/productDetails.php' ?> -->
-    
+
       </div>
       <div id="songControl">
         <!-- <?php include 'compoment/songControl.php' ?> -->

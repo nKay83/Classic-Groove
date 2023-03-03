@@ -37,7 +37,7 @@
   margin-right: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 40px;
+  grid-gap: 35px;
   max-width: 1400px;
 }
 

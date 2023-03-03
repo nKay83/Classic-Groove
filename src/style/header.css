@@ -25,7 +25,7 @@
 
 #header img {
   width: 90%;
-  height: 90%;
+  height: auto;
   position: absolute;
   top: 5%;
   left: 5%;
@@ -51,12 +51,12 @@
 
 #header .tab-icon {
   height: 100%;
-  width: 40%;
+  width: 30%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 2vw;
 }
 
 #header .tab-icon i {
@@ -73,16 +73,16 @@
   display: flex;
   align-items: center;
   justify-content: left;
-  font-size: 29px;
+  font-size: 1.7vw;
   font-family: "Dosis", sans-serif;
 }
-#header .tab-title:hover #header .tab-icon i,
-#header .tab-title:hover #header .tab-info {
+#header .tab-title:hover .tab-icon i,
+#header .tab-title:hover .tab-info {
   color: #fff;
   transition: color 0.2s ease-in-out;
 }
-#header .tab-title.active #header .tab-icon i,
-#header .tab-title.active #header .tab-info {
+#header .tab-title.active .tab-icon i,
+#header .tab-title.active .tab-info {
   color: var(--ora);
 }
 
@@ -108,7 +108,7 @@
   background-color: var(--whi);
   color: var(--bla);
   border-radius: 20px;
-  font-size: 29px;
+  font-size: 1.7vw;
   padding-bottom: 10%;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
@@ -130,7 +130,7 @@
   background-color: var(--ora);
   color: var(--whi);
   border-radius: 20px;
-  font-size: 29px;
+  font-size: 1.7vw;
   padding-bottom: 10%;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
@@ -143,11 +143,11 @@
   width: 100%;
   box-sizing: border-box;
   color: var(--gr1);
-  font-size: 20px;
+  font-size: 1.2vw;
   padding-left: 5%;
 }
 #header .footer-placeholder p {
-  width: 30%;
+  width: 50%;
 }
 #header .footer-placeholder p:hover {
   color: var(--whi);
