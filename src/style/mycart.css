@@ -1,148 +1,170 @@
-#mycart{
-    display: flex;
-    background-color:var(--lig);
-    font-family: "Dosis", sans-serif;
-    font-size: 25px;
-    font-weight: 900;
+#mycart {
+  display: flex;
+  background-color: var(--lig);
+  font-family: "Dosis", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
 }
-.left-placeholder{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    justify-content: space-between;
+#mycart .left-placeholder {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-between;
 }
-.right-placeholder{
-    width: 30%;
-    height: 100%;
+#mycart .right-placeholder {
+  width: 30%;
+  height: 100%;
 }
-.product-placeholder{
-    width: 90%;
-    height: auto;
-    margin: 5%;
-    border: 7px var(--ora) solid;
-    border-radius: 60px;
-    background-color: var(--whi);
-    display: flex;
-    flex-direction: row;
-    padding:15px 10px;
+#mycart .product-placeholder {
+  width: 90%;
+  height: auto;
+  margin: 5%;
+  border: 7px var(--ora) solid;
+  border-radius: 60px;
+  background-color: var(--whi);
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px;
 }
-
-.product-img-placeholder{
-    display: flex;
-    height: 100%;
-    max-width: 30%;
-    justify-content: center;
-    align-items: center;
-} 
-.product-img-placeholder img{
-    transform: scale(0.8);
-    max-width: 100%;
-    height: auto;
+#mycart .product-img-placeholder {
+  display: flex;
+  height: 100%;
+  max-width: 30%;
+  justify-content: center;
+  align-items: center;
 }
-.product-info-placeholder{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 62%;
-    justify-content: center;
+.product-img-placeholder img {
+  transform: scale(0.8);
+  max-width: 100%;
+  height: auto;
 }
-.album-name{
-    overflow: hidden;
-    color: var(--bla);
-    font-size: calc(5px + 1.5vw);
+#mycart .product-info-placeholder {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 62%;
+  justify-content: center;
 }
-.album-artist{
-    color: var(--ora);
-    font-size: calc(5px + 1.5vw);
+#mycart .album-name {
+  overflow: hidden;
+  color: var(--bla);
+  font-size: calc(5px + 1.5vw);
 }
-.product-kind{
-    color: var(--gr1);
-    font-size: calc(15px + 0.5vw);
+#mycart .album-artist {
+  color: var(--ora);
+  font-size: calc(5px + 1.5vw);
 }
-
-.QPT{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    color: var(--bla);
-    font-size: calc(1px + 1.5vw);
+#mycart .product-kind {
+  color: var(--gr1);
+  font-size: calc(15px + 0.5vw);
 }
-.QPT :nth-last-child(-n+3) {
-    color: var(--ora);
+#mycart .QPT {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  color: var(--bla);
+  font-size: calc(1px + 1.5vw);
 }
-.quantity-placeholder{
-    width: 70%;
-    display: grid;
-    grid-template-columns: 2vw 2.5vw 2vw;
-    border: var(--ora) 3px solid;
-    border-radius: 30px;
-    justify-content: space-evenly;
+#mycart .QPT :nth-last-child(-n + 3) {
+  color: var(--ora);
 }
-.quantity-placeholder :nth-child(2){
-    border: var(--ora) 3px solid;
-    border-bottom: none;
-    border-top: none;
-    background-color: var(--whi);
+#mycart .quantity-placeholder {
+  width: 70%;
+  display: grid;
+  grid-template-columns: 2vw 2.5vw 2vw;
+  border: var(--ora) 3px solid;
+  border-radius: 30px;
+  justify-content: space-evenly;
 }
-.quantity-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#mycart .quantity-placeholder :nth-child(2) {
+  border: var(--ora) 3px solid;
+  border-bottom: none;
+  border-top: none;
+  background-color: var(--whi);
 }
-.quantity-placeholder :nth-child(1) , :nth-child(3){
-    cursor: pointer;
+#mycart .quantity-info {
+  display: flex;
+  height: 2.5vw;
+  font-size: calc(5px + 1.5vw);
+  justify-content: center;
+  align-items: center;
+  font-family: "Dosis", sans-serif;
+  text-align: center;
 }
-#mycart .button-placeholder{
-    position: relative;
-    width: 8%;
-    height: 100%;
+#mycart input:focus.quantity-info {
+  outline: none;
 }
-.erase-button{
-    position: absolute;
-    font-size: calc(5px + 1.5vw);
-    top:13%;
-    left: 5%;
+#mycart .quantity-placeholder :nth-child(1),
+:nth-child(3) {
+  cursor: pointer;
 }
-.check-button{
-    position: absolute;
-    border: calc(1px + 0.2vw) var(--bla) solid;
-    border-radius: calc(6px + 0.1vw);
-    height: calc(15px + 1vw);
-    width: calc(15px + 1vw);
-    bottom: 17%;
+#mycart .button-placeholder {
+  position: relative;
+  width: 8%;
+  height: 100%;
 }
-
-.totalprice-placeholder{
-    margin: 3%;
-    width: 20%;
-    border-radius: 60px;
-    height: 50%;
-    background-color: var(--whi);
-    position: fixed;
-    display: flex;
-    flex-direction: column;
+#mycart .erase-button {
+  position: absolute;
+  font-size: calc(5px + 1.5vw);
+  top: 13%;
+  left: 5%;
 }
-.totalprice-header{
-    height: 30%;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    border: 1px red solid;
+#mycart .check-button input {
+  position: absolute;
+  bottom: 17%;
+  height: calc(15px + 1vw);
+  width: calc(15px + 1vw);
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--whi);
+  border-radius: 5px;
+  border: 3px solid var(--bla);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.totalprice-info{
-    height: 40%;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    border: 1px red solid;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+#mycart .check-button input::after {
+  font-weight: 900;
+  content: "\2713";
+  font-size: calc(15px + 0.7vw);
+  color: var(--ora);
+  display: none;
 }
-.totalprice-button{
-    height: 30%;
-    width: 80%;
-    border: 1px red solid;
-    margin-left: 10%;
-    margin-right: 10%;
+#mycart .check-button input:checked::after {
+  display: block;
+}
+#mycart .totalprice-placeholder {
+  margin: 3%;
+  width: 20%;
+  border-radius: 60px;
+  height: 50%;
+  background-color: var(--whi);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+}
+#mycart .totalprice-header {
+  height: 30%;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: 1px red solid;
+}
+#mycart .totalprice-info {
+  height: 40%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px red solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+#mycart .totalprice-button {
+  height: 30%;
+  width: 80%;
+  border: 1px red solid;
+  margin-left: 10%;
+  margin-right: 10%;
 }
