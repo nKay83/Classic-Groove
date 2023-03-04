@@ -1,6 +1,9 @@
 #mycart{
     display: flex;
     background-color:var(--lig);
+    font-family: "Dosis", sans-serif;
+    font-size: 25px;
+    font-weight: 900;
 }
 .left-placeholder{
     display: flex;
@@ -19,6 +22,8 @@
     border: 7px var(--ora) solid;
     border-radius: 60px;
     background-color: var(--whi);
+    display: flex;
+    flex-direction: row;
 }
 .totalprice-placeholder{
     margin: 3%;
@@ -27,4 +32,80 @@
     height: 50%;
     background-color: var(--whi);
     position: fixed;
+}
+.product-img-placeholder{
+    display: flex;
+    height: 100%;
+    max-width: 30%;
+    justify-content: center;
+    align-items: center;
+} 
+.product-img-placeholder img{
+    transform: scale(0.8);
+    max-width: 100%;
+    height: auto;
+}
+.product-info-placeholder{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 62%;
+    justify-content: center;
+}
+.album-name{
+    overflow: hidden;
+    color: var(--bla);
+    font-size: calc(5px + 1.5vw);
+}
+.album-artist{
+    color: var(--ora);
+    font-size: calc(5px + 1.5vw);
+}
+.product-kind{
+    color: var(--gr1);
+    font-size: calc(15px + 0.5vw);
+}
+
+.QPT{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    color: var(--bla);
+    font-size: calc(1px + 1.5vw);
+}
+.QPT :nth-last-child(-n+3) {
+    color: var(--ora);
+}
+.quantity-placeholder{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 2vw 2.5vw 2vw;
+    border: var(--ora) 3px solid;
+    border-radius: 30px;
+    justify-content: space-evenly;
+}
+.quantity-placeholder :nth-child(2){
+    border: var(--ora) 3px solid;
+    border-bottom: none;
+    border-top: none;
+    background-color: var(--whi);
+}
+.quantity-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quantity-placeholder :nth-child(1) , :nth-child(3){
+    cursor: pointer;
+}
+.button-placeholder{
+    width: 8%;
+    height: 100%;
+}
+.erase-button{
+    font-size: calc(5px + 1.5vw);
+}
+.check-button{
+    
+    bottom: 0;
 }
