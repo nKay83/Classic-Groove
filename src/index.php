@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="style/search.css" />
   <link rel="stylesheet" href="style/productDetails.css">
   <link rel="stylesheet" href="style/songControl.css">
+  <link rel="stylesheet" href="style/login.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
@@ -60,8 +61,7 @@
           }
         } else {
           // include("compoment/home.php");
-          include("compoment/productDetails.php");
-
+          include("compoment/login.php");
         }
         ?>
 
@@ -73,5 +73,6 @@
   </main>
 </body>
 <script src="js/effectPages.js"></script>
+<script src="js/login.js" ></script>
 
 </html>
