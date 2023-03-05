@@ -33,9 +33,23 @@
     </div>
     <div class="right-placeholder">
         <div class="totalprice-placeholder">
-            <div class="totalprice-header"></div>
-            <div class="totalprice-info"></div>
-            <div class="totalprice-button"></div>
+            <div class="totalprice-header">
+                <h1>Summary</h1>
+            </div>
+            <div class="totalprice-info">
+                <div class="price-kind">Subtotal:</div>
+                <div class="price-detail">$125.00</div>
+                <div class="price-kind">Shipping:</div>
+                <div class="price-detail">$0.00</div>
+                <div class="price-kind">Discount:</div>
+                <div class="price-detail">$0.00</div>
+            </div>
+            <div class="totalprice-final">
+                <div class="price-kind">Total:</div>
+                <div class="price-detail">$125.00</div>
+            </div>
+            <div class="totalprice-button">
+                <button>Place order</button>
+            </div>
         </div>
     </div>
-</div>
