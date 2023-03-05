@@ -140,8 +140,9 @@
 #mycart .totalprice-placeholder {
   margin: 3%;
   width: 20%;
-  border-radius: 60px;
-  height: 50%;
+  border-radius: calc(15px + 2vw);
+  height: 30vw;
+  max-height: 50%;
   background-color: var(--whi);
   position: fixed;
   display: flex;
@@ -153,7 +154,7 @@
   height: 20%;
   width: 70%;
   margin:0% 15%;
-  border-bottom: 5px var(--ora) solid;
+  border-bottom: calc(0px + 0.5vw) var(--ora) solid;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +185,7 @@
   height: 15%;
   width: 80%;
   margin:0% 10%;
-  border-top: 5px var(--ora) solid;
+  border-top: calc(0px + 0.5vw) var(--ora) solid;
   display: grid;
   grid-template-columns: 1fr 1fr ;
 }
