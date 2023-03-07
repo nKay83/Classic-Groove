@@ -13,7 +13,7 @@
     </div>
     <div class="tab-title">
       <div class="tab-icon">
-        <i class="fa-regular fa-heart "></i>
+      <i class="fa-solid fa-heart"></i>
       </div>
       <div class="tab-info">
         <a href="index.php?page=favorites">Favorites</a>
