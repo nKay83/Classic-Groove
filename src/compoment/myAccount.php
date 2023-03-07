@@ -1,4 +1,4 @@
-<div class="body" id="myaccount">
+<div id="myaccount">
     <div class="profile">Profile</div>
     <div class="form">
         <div class="name">

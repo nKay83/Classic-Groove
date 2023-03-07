@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style/reset.css" />
   <link rel="stylesheet" href="style/home.css" />
   <link rel="stylesheet" href="style/favorite.css" />
+  <link rel="stylesheet" href="style/myAccount.css" />
   <link rel="stylesheet" href="style/mycart.css">
   <link rel="stylesheet" href="style/search.css" />
   <link rel="stylesheet" href="style/productDetails.css">
