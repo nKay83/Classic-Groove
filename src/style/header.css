@@ -49,7 +49,7 @@
   cursor: pointer;
   position: relative;
 }
-#header .tab-title:nth-child(4)::after{
+/* #header .tab-title:nth-child(4)::after{
   content: '';
   position: absolute;
   margin: 0 5%;
@@ -62,7 +62,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row: 1fr 1fr 1fr 1fr;
-}
+} */
 
 #header .tab-icon {
   height: 100%;
