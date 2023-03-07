@@ -129,7 +129,7 @@
 }
 #mycart .check-button input::after {
   font-weight: 900;
-  content: "\2713";
+  content: "✔";
   font-size: calc(15px + 0.7vw);
   color: var(--ora);
   display: none;

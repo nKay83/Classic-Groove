@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="style/productDetails.css">
   <link rel="stylesheet" href="style/songControl.css">
   <link rel="stylesheet" href="style/login.css">
+  <link rel="stylesheet" href="style/myAccount.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">

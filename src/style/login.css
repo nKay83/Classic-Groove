@@ -44,12 +44,11 @@
   width: 50%;
 }
 #login input[type="text"],
-input[type="password"] {
+#login input[type="password"] {
   font-family: "Dosis", sans-serif;
   font-size: 1vw;
   width: 100%;
   border: none;
-  height: 60px;
   border-radius: 50px;
   background-color: var(--gr2);
   color: #333;
