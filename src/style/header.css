@@ -49,20 +49,6 @@
   cursor: pointer;
   position: relative;
 }
-/* #header .tab-title:nth-child(4)::after{
-  content: '';
-  position: absolute;
-  margin: 0 5%;
-  height: 300%;
-  width: 90%;
-  background-color: var(--whi);
-  border: 3px var(--ora) solid;
-  border-radius: 30px;
-  bottom: -50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row: 1fr 1fr 1fr 1fr;
-} */
 
 #header .tab-icon {
   height: 100%;
@@ -153,3 +139,63 @@
   color: var(--whi);
   cursor: pointer;
 }
+#header .tab-notice{
+  position: absolute;
+  padding: 5% 3%;
+  right: calc(-90%);
+  color: var(--whi);
+  border-radius: 20px;
+  background-color: var(--ora);
+  height: 170%;
+  width: 80%;
+  font-size: 100%;
+  top: 10%;
+}
+#header .tab-notice::before{
+  content: '';
+  background-color: var(--ora);
+  position: absolute;
+  top: 20px;
+  left: -3px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+#header .tab-notice-headline{
+  padding-top: 1%;
+  margin-bottom: 2%;
+}
+#header .tab-notice-info{
+  font-size: 70%;
+}
+#header .tab-notice .button-placeholder{
+  display: flex;
+  justify-content: right;
+  height: auto;
+}
+#header .tab-notice input{
+  height: auto;
+  width: 25%;
+  color: var(--gr1);
+  background-color: var(--ora);
+  font-size: 80%;
+  padding:1%;
+  cursor: pointer;
+  font-family: "Dosis", sans-serif;
+  border-radius: 20px;
+  border: none;
+  margin: 1%;
+}
+#header .tab-notice .button-placeholder input:nth-child(2){
+  background-color: var(--whi);
+  color: var(--ora);
+  
+}
+#header .tab-notice .button-placeholder input:nth-child(2):hover{
+transform: scale(105%);
+}
+#header .tab-notice .button-placeholder input:nth-child(1):hover{
+  color: var(--whi);
+}
+

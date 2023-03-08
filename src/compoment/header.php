@@ -13,10 +13,18 @@
     </div>
     <div class="tab-title">
       <div class="tab-icon">
-      <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-heart"></i>
       </div>
       <div class="tab-info">
         <a href="index.php?page=favorites">Favorites</a>
+      </div>
+      <div class="tab-notice">
+        <div class="tab-notice-headline">Access Your Favorites</div>
+        <div class="tab-notice-info">Log in to see saved songs, albums, artists in Favorties</div>
+        <div class="button-placeholder">
+          <input type="button" value="Not now">
+          <input type="button" value="Log in" style="color:">
+        </div>
       </div>
     </div>
     <div class="tab-title">
@@ -26,6 +34,14 @@
       <div class="tab-info">
         <a href="index.php?page=myCart">My cart</a>
       </div>
+      <div class="tab-notice">
+        <div class="tab-notice-headline">Access Your Cart</div>
+        <div class="tab-notice-info">Log in to check, add, remove products in My Cart</div>
+        <div class="button-placeholder">
+          <input type="button" value="Not now">
+          <input type="button" value="Log in" style="color:">
+        </div>
+      </div>
     </div>
     <div class="tab-title">
       <div class="tab-icon">
@@ -33,6 +49,14 @@
       </div>
       <div class="tab-info">
         <a href="index.php?page=myAccount">My account</a>
+      </div>
+      <div class="tab-notice">
+        <div class="tab-notice-headline">Access Your Account</div>
+        <div class="tab-notice-info">Log in to see profile, purchase history in My Account </div>
+        <div class="button-placeholder">
+          <input type="button" value="Not now">
+          <input type="button" value="Log in" style="color:">
+        </div>
       </div>
     </div>
   </div>
