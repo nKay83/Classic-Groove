@@ -2,10 +2,14 @@
     <div class="profile">Profile</div>
     <div class="form">
         <div class="name">
+        <div class="fn">
             <div class="First_Name">First name</div>
             <input class="FirstName" type="text" placeholder="First name"><br>
+           </div>
+           <div class="fn">
             <div class="Last_Name">Last name</div>
-            <input class="LastName" type="text" placeholder="Last name">
+            <input class="LastName" type="text" placeholder="Last name">4
+           </div>
         </div>
         <div class="UserName">Username</div>
         <input class="username" type="text" placeholder="Username">
