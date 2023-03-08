@@ -30,22 +30,11 @@
                 </div>
             </form>
         </div>
-        <div class="right">
-
-        </div>
-    </div>
-</div>
-
-<div id="register">
-    <div class="register-form">
-        <div class="left">
-
-        </div>
-        <div class="right">
+        <div class="right register">
             <form action="" class="container">
                 <p class="header">Register</p>
                 <div class="name">
-                    <input type="text" name="fName" class="fName" placeholder="First name" require>    
+                    <input type="text" name="fName" class="fName" placeholder="First name" require>
                     <input type="text" name="lName" class="lName" placeholder="Last name" require>
                 </div>
                 <input type="text" name="phonenumber" class="text" placeholder="Phone number" require>
@@ -62,6 +51,8 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="poster">
         </div>
     </div>
 </div>

@@ -1,14 +1,18 @@
-#login,#register {
+#login {
   font-family: "Dosis", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 85vh;
 }
+#login input {
+  color: black;
+}
 #login p {
   margin-top: 10px;
 }
-#login .header,#register .header{
+#login .header,
+#login .register .header {
   font-size: 3vw;
   display: flex;
   justify-content: center;
@@ -16,7 +20,7 @@
   color: var(--ora);
   cursor: default;
 }
-#login .login-form,#register .register-form {
+#login .login-form {
   background-color: var(--whi);
   display: flex;
   top: 0;
@@ -24,24 +28,20 @@
   justify-content: center;
   align-items: center;
   height: 70vh;
-  width:70vw;
+  width: 70vw;
   border-radius: 50px;
   margin: auto;
+  position: relative;
 }
-#login .left {
+#login .left,
+#login .right {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
-  /* padding: 0px 30px 0px 30px; */
 }
 #login .container {
-  width: 50%;
-  width: 25vw;
-  padding: 40px 30px 0 30px;
-}
-#login .right {
-  width: 50%;
+  width: 80%;
 }
 #login input[type="text"],
 #login input[type="password"] {
@@ -55,7 +55,6 @@
   margin: 10px 0px 10px 0px;
   outline: none;
   padding: 0 0 0 20px;
-
 }
 #login input[type="text"]::placeholder,input[type="password"]::placeholder,/* Chrome, Firefox, Opera, Safari 10.1+ */
 #login input[type="text"]:-ms-input-placeholder,input[type="password"]:-ms-input-placeholder,  /* Internet Explorer 10-11 */
@@ -74,8 +73,7 @@
   font-weight: 800;
   position: relative;
   margin-right: 3vh;
-  margin-top: -6.25vh;  
-  position: relative;
+  margin-top: -6.25vh;
 }
 #login .bottom {
   padding: 0px 15px 0px 15px;
@@ -99,8 +97,9 @@
   justify-content: center;
   align-items: center;
 }
-#login .bottom label,#login .submit p{
-  font-size: 1vw; 
+#login .bottom label,
+#login .submit p {
+  font-size: 1vw;
 }
 #login input[type="checkbox"]:after {
   font-family: FontAwesome;
@@ -112,7 +111,8 @@
 #login input[type="checkbox"]:checked:after {
   display: block;
 }
-#login .submit ,#register .submit{
+#login .submit,
+#login .register .submit {
   width: 100%;
   display: flex;
   align-items: center;
@@ -120,7 +120,8 @@
   flex-direction: column;
   margin-top: 10px;
 }
-#login input[type="submit"],#register input[type="submit"] {
+#login input[type="submit"],
+#login .register input[type="submit"] {
   font-family: "Dosis", sans-serif;
   border: none;
   cursor: pointer;
@@ -132,14 +133,17 @@
   color: var(--whi);
   background-color: var(--ora);
 }
-#login input[type="submit"]:hover,#register input[type="submit"]:hover {
+#login input[type="submit"]:hover,
+#login .register input[type="submit"]:hover {
   box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }
-#login .circle-container,#register .circle-container{
+#login .circle-container,
+#login .register .circle-container {
   display: flex;
   flex-direction: row;
 }
-#login .circle ,#register .circle{
+#login .circle,
+#login .register .circle {
   margin: 0px 10px 0px 10px;
   width: 2.5vw;
   height: 2.5vw;
@@ -149,57 +153,65 @@
 #login .color333 {
   color: var(--gr1);
 }
-#register .left{
+#login .register .left {
   width: 50%;
 }
 
-#register .right{
+#login .register .right {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
 }
-#register .container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  flex-direction: column;
-}
-#register .name{
+#login .register .name {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
-#register .name input{
+#login .register .name input {
   font-family: "Dosis", sans-serif;
   font-size: 1vw;
   width: 45%;
-  
+
   border: none;
   border-radius: 50px;
   background-color: var(--gr2);
   margin: 10px 0px 10px 0px;
   outline: none;
   padding: 0 0 0 20px;
-  height: 3.5vh;
+  height: 4.5vh;
 }
-#register .submit p{
+#login .register .submit p {
   margin-top: 10px;
   font-size: 1.1vw;
   color: var(--gr1);
 }
-#register .text{
+#login .register .text {
   font-family: "Dosis", sans-serif;
   font-size: 1vw;
   width: 100%;
   border: none;
   border-radius: 50px;
   background-color: var(--gr2);
-  color: var(--gr1);
   margin: 10px 0px 10px 0px;
   outline: none;
   padding: 0 0 0 20px;
-  height: 3.5vh;
+  height: 4.5vh;
+}
+#login .poster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: url("../../assets/img/poster.jpg");
+  background-size: cover;
+  border-radius: 50px;
+  transition: all 0.5s ease-in-out;
+}
+
+#login .poster:hover {
+  transform: translate(-100%);
 }
