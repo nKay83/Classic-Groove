@@ -6,7 +6,9 @@
   --gr1: #a1a0a0;
   --gr2: #e9e9e9;
 }
-
+#header .bottom{
+  margin-bottom: 20px;
+}
 #header .background {
   background-color: black;
   height: 100vh;
@@ -14,11 +16,11 @@
   display: flex;
   flex-direction: column;
   font-family: "Dosis", sans-serif;
+  justify-content: space-between;
 }
 
 #header .logo-placeholder {
   width: 100%;
-  height: 25%;
   box-sizing: border-box;
   position: relative;
 }
@@ -26,16 +28,14 @@
 #header img {
   width: 90%;
   height: auto;
-  position: absolute;
-  top: 5%;
-  left: 5%;
+  display: block;
+  margin: 0 auto;
 }
 
 #header .top-menu {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 35%;
   box-sizing: border-box;
 }
 #header .tab-title {
@@ -43,7 +43,7 @@
   border-radius: 70px;
   margin: 10% 3%;
   margin-top: 0;
-  height: 25%;
+  height: 7vh;
   display: flex;
   flex-direction: row;
   cursor: pointer;
@@ -88,7 +88,6 @@
 }
 
 #header .button-placeholder {
-  height: 35%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -125,7 +124,6 @@
   transform: scale(108%);
 }
 #header .footer-placeholder {
-  height: 5%;
   width: 100%;
   box-sizing: border-box;
   color: var(--gr1);
@@ -139,20 +137,19 @@
   color: var(--whi);
   cursor: pointer;
 }
-#header .tab-notice{
+#header .tab-notice {
   position: absolute;
   padding: 5% 3%;
   right: calc(-90%);
   color: var(--whi);
   border-radius: 20px;
   background-color: var(--ora);
-  height: 170%;
   width: 80%;
   font-size: 100%;
   top: 10%;
 }
-#header .tab-notice::before{
-  content: '';
+#header .tab-notice::before {
+  content: "";
   background-color: var(--ora);
   position: absolute;
   top: 20px;
@@ -162,40 +159,38 @@
   transform: rotate(45deg);
   z-index: -1;
 }
-#header .tab-notice-headline{
+#header .tab-notice-headline {
   padding-top: 1%;
   margin-bottom: 2%;
 }
-#header .tab-notice-info{
+#header .tab-notice-info {
   font-size: 70%;
 }
-#header .tab-notice .button-placeholder{
+#header .tab-notice .button-placeholder {
   display: flex;
   justify-content: right;
   height: auto;
 }
-#header .tab-notice input{
+#header .tab-notice input {
   height: auto;
   width: 25%;
   color: var(--gr1);
   background-color: var(--ora);
   font-size: 80%;
-  padding:1%;
+  padding: 1%;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
   border-radius: 20px;
   border: none;
   margin: 1%;
 }
-#header .tab-notice .button-placeholder input:nth-child(2){
+#header .tab-notice .button-placeholder input:nth-child(2) {
   background-color: var(--whi);
   color: var(--ora);
-  
 }
-#header .tab-notice .button-placeholder input:nth-child(2):hover{
-transform: scale(105%);
+#header .tab-notice .button-placeholder input:nth-child(2):hover {
+  transform: scale(105%);
 }
-#header .tab-notice .button-placeholder input:nth-child(1):hover{
+#header .tab-notice .button-placeholder input:nth-child(1):hover {
   color: var(--whi);
 }
-
