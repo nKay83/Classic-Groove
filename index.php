@@ -5,18 +5,19 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/icons/all.css" />
-  <link rel="stylesheet" href="style/header.css">
-  <link rel="stylesheet" href="style/reset.css" />
-  <link rel="stylesheet" href="style/home.css" />
-  <link rel="stylesheet" href="style/favorite.css" />
-  <link rel="stylesheet" href="style/myAccount.css" />
-  <link rel="stylesheet" href="style/mycart.css">
-  <link rel="stylesheet" href="style/search.css" />
-  <link rel="stylesheet" href="style/productDetails.css">
-  <link rel="stylesheet" href="style/songControl.css">
-  <link rel="stylesheet" href="style/login.css">
-  <link rel="stylesheet" href="style/myAccount.css">
+  <link rel="stylesheet" href="assets/icons/all.css" />
+  <link rel="stylesheet" href="style/user/header.css">
+  <link rel="stylesheet" href="style/user/reset.css" />
+  <link rel="stylesheet" href="style/user/home.css" />
+  <link rel="stylesheet" href="style/user/favorite.css" />
+  <link rel="stylesheet" href="style/user/myAccount.css" />
+  <link rel="stylesheet" href="style/user/mycart.css">
+  <link rel="stylesheet" href="style/user/search.css" />
+  <link rel="stylesheet" href="style/user/productDetails.css">
+  <link rel="stylesheet" href="style/user/songControl.css">
+  <link rel="stylesheet" href="style/user/login.css">
+  <link rel="stylesheet" href="style/user/myAccount.css">
+  <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
@@ -33,43 +34,44 @@
 <body>
   <div id="warrper">
     <header id="header">
-      <?php include 'compoment/header.php' ?>
+      <?php include 'pages/user/header.php' ?>
     </header>
     <main>
       <div id="search">
-        <?php include 'compoment/search.php' ?>
+        <?php include 'pages/user/search.php' ?>
       </div>
       <div id="content">
         <?php
         if (isset($_GET["page"])) {
           switch ($_GET["page"]) {
             case "home":
-              include('compoment/home.php');
+              include('pages/user/home.php');
               break;
             case "favorites":
-              include("compoment/favorites.php");
+              include("pages/user/favorites.php");
               break;
             case "myCart":
-              include("compoment/myCart.php");
+              include("pages/user/myCart.php");
               break;
             case "myAccount":
-              include("compoment/myAccount.php");
+              include("pages/user/myAccount.php");
               break;
             case "productDetails":
-              include("compoment/productDetails.php");
+              include("pages/user/productDetails.php");
               break;
             default:
               echo `<h1>Page not found 404</h1>`;
           }
         } else {
-          // include("compoment/home.php");
-          include("compoment/login.php");
+          // include("pages/user/home.php");
+          // include("pages/user/login.php");
+          include("pages/admin/productManager.php");
         }
         ?>
 
       </div>
       <div id="song-control">
-        <?php include 'compoment/songControl.php' ?>
+        <?php include 'pages/user/songControl.php' ?>
       </div>
   </div>
   </main>

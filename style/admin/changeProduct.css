@@ -1,0 +1,47 @@
+#changeProduct,
+#changeSong {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#changeProduct {
+  display: none;
+}
+#changeProduct .overlay,
+#changeSong .overlay {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#changeProduct .container {
+  position: absolute;
+  z-index: 20;
+  min-width: 70vw;
+  min-height: 70vh;
+  border-radius: 50px;
+  background-color: var(--whi);
+  padding: 20px;
+}
+
+#changeSong {
+  display: none;
+}
+#changeSong .container {
+  position: absolute;
+  z-index: 20;
+  min-width: 30vw;
+  min-height: 30vh;
+  border-radius: 20px;
+  background-color: var(--whi);
+  padding: 10px;
+}

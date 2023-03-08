@@ -1,9 +1,9 @@
 <div class="background">
   <div class="top">
     <div class="logo-placeholder">
-      <img src="../assets/img/Logo.png" alt="">
+      <img src="assets/img/Logo.png" alt="logo">
     </div>
-    <div class="top-menu">m 
+    <div class="top-menu">
       <div class="tab-title active">
         <div class="tab-icon">
           <i class="fa-solid fa-house "></i>
