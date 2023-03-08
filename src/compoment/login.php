@@ -35,3 +35,33 @@
         </div>
     </div>
 </div>
+
+<div id="register">
+    <div class="register-form">
+        <div class="left">
+
+        </div>
+        <div class="right">
+            <form action="" class="container">
+                <p class="header">Register</p>
+                <div class="name">
+                    <input type="text" name="fName" class="fName" placeholder="First name" require>    
+                    <input type="text" name="lName" class="lName" placeholder="Last name" require>
+                </div>
+                <input type="text" name="phonenumber" class="text" placeholder="Phone number" require>
+                <input type="text" name="username" class="text" placeholder="Username" require>
+                <input type="password" name="password" class="text" placeholder="Password" require>
+                <input type="password" name="password" class="text" placeholder="Confirm password" require>
+                <div class="submit"><input type="submit" value="Register">
+                    <p class="color333">Or connect to your</p>
+                    <br>
+                    <div class="circle-container">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
