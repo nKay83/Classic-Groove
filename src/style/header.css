@@ -147,6 +147,7 @@
   width: 80%;
   font-size: 100%;
   top: 10%;
+  display: none;
 }
 #header .tab-notice::before {
   content: "";

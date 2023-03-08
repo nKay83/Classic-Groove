@@ -8,7 +8,7 @@
            </div>
            <div class="fn">
             <div class="Last_Name">Last name</div>
-            <input class="LastName" type="text" placeholder="Last name">4
+            <input class="LastName" type="text" placeholder="Last name">
            </div>
         </div>
         <div class="UserName">Username</div>
