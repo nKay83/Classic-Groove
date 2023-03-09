@@ -14,10 +14,14 @@ let changeInputColorRange = (input) => {
 
 let selectMenu = () => {
   let tabsTitle = document.querySelectorAll("#header .tab-title");
-  tabsTitle[0].classList.remove("active")
+  tabsTitle[0].classList.remove("active");
   let url = window.location.href;
   if (url.indexOf("favorites") != -1) tabsTitle[1].classList.add("active");
   else if (url.indexOf("myCart") != -1) tabsTitle[2].classList.add("active");
   else if (url.indexOf("myAccount") != -1) tabsTitle[3].classList.add("active");
   else tabsTitle[0].classList.add("active");
 };
+
+$("#purchaseHistory .row").click(function () {
+  $(this).children(".details").slideToggle(500);
+});

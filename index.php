@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="style/user/songControl.css">
   <link rel="stylesheet" href="style/user/login.css">
   <link rel="stylesheet" href="style/user/myAccount.css">
+  <link rel="stylesheet" href="style/user/purchaseHistory.css">
   <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,6 @@
 
 
 
-  </script>
   <title>Classic-Groove</title>
 </head>
 
@@ -65,7 +65,8 @@
         } else {
           // include("pages/user/home.php");
           // include("pages/user/login.php");
-          include("pages/admin/productManager.php");
+          // include("pages/admin/productManager.php");
+          include("pages/user/purchaseHistory.php");
         }
         ?>
 
@@ -77,6 +78,6 @@
   </main>
 </body>
 <script src="js/effectPages.js"></script>
-<script src="js/login.js" ></script>
+<script src="js/login.js"></script>
 
 </html>
