@@ -79,5 +79,6 @@
 </body>
 <script src="js/effectPages.js"></script>
 <script src="js/login.js"></script>
+<script src="js/songControl.js"></script>
 
 </html>

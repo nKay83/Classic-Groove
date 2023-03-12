@@ -15,6 +15,8 @@
   width: 30%;
   display: flex;
   justify-content: space-around;
+  height: 100%;
+  align-items: center;
 }
 #song-control .control-btn {
   padding: 0 15px;
@@ -22,24 +24,67 @@
 
 #song-control .time-btn {
   width: 40%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #song-control .control-btn i {
   color: var(--ora);
 }
+#song-control .control-btn .volume-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#song-control .control-btn .volume-container input {
+  width: 100%;
+}
+#song-control .control-btn .volume-container div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 20px;
+  top: -130%;
+  left: -150%;
+  right: -150%;
+  transform: rotate(-90deg);
+  background-color: var(--whi);
+  display: none;
+}
+#song-control .control-btn .volume-container:hover div {
+  display: flex;
+}
 #song-control .time-btn,
 #song-control .note {
   color: var(--whi);
 }
-
+#song-control .time-btn span {
+  width: 20%;
+  text-align: center;
+}
 #song-control .time-btn input {
   width: 75%;
   display: block;
   margin: auto 0;
-  background: linear-gradient(to right, var(--ora) 0%, var(--ora) 50%, var(--whi) 50%, var(--whi) 100%);
+  background: linear-gradient(
+    to right,
+    var(--ora) 0%,
+    var(--ora) 0%,
+    var(--whi) 0%,
+    var(--whi) 100%
+  );
   border-radius: 8px;
   height: 7px;
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
+  cursor: pointer;
+}
+
+#song-control i:hover {
+  transform: scale(110%);
+  cursor: pointer;
 }
