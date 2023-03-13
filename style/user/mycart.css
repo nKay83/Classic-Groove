@@ -19,7 +19,6 @@
   width: 90%;
   height: auto;
   margin: 5%;
-  border: calc(1vw - 5px) var(--ora) solid;
   border-radius: 60px;
   background-color: var(--whi);
   display: flex;
@@ -92,6 +91,13 @@
   text-align: center;
   cursor: pointer;
 }
+#mycart .quantity-info i:hover {
+  transform: scale(125%);
+  transition: 0.2s;
+}
+#mycart .quantity-info i:active {
+  transform: translateY(1px);
+}
 #mycart input:focus.quantity-info {
   outline: none;
 }
@@ -112,6 +118,10 @@
   top: 13%;
   left: 5%;
 }
+#mycart .erase-button i:active{
+  box-shadow: none;
+  transform: translateY(1px);
+}
 #mycart .check-button input {
   position: absolute;
   bottom: 17%;
@@ -126,6 +136,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 2px rgb(44, 44, 44);
+  transition: 0.2s;
+}
+#mycart .check-button input:active{
+  box-shadow: none;
+  transform: translateY(2px);
 }
 #mycart .check-button input::after {
   font-weight: 900;
@@ -206,4 +222,10 @@
   color: var(--whi);
   font-size: 130%;
   cursor:pointer;
+  box-shadow: 0 3px rgb(204, 54, 0);
+  transition: 0.3s;
+}
+#mycart .totalprice-button button:active {
+  box-shadow: none;
+  transform: translateY(3px);
 }
