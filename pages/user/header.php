@@ -59,6 +59,19 @@
             <input type="button" value="Log in" style="color:">
           </div>
         </div>
+        <div class="tab-menu">
+          <div class="tab-menu-icon"></div>
+          <div class="tab-menu-info">Profile</div>
+          <div class="tab-menu-icon"></div>
+          <div class="tab-menu-info">Purchase history</div>
+          <div class="tab-menu-icon"></div>
+          <div class="tab-menu-info">Help and support</div>
+          <div class="tab-menu-icon"></div>
+          <div class="tab-menu-info">Setting</div>
+          <div class="tab-menu-icon"></div>
+          <div class="tab-menu-info">Log out</div>
+
+        </div>
       </div>
     </div>
   </div>
