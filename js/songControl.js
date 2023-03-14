@@ -16,15 +16,15 @@ let curr_track = document.createElement("audio");
 let track_list = [
   {
     name: "CuoiThoi.mp3",
-    path: "js/CuoiThoi.mp3",
+    path: "data/songs/CuoiThoi.mp3",
   },
   {
     name: "TinhYeuTramTre.mp3",
-    path: "js/TinhYeuTramTre.mp3",
+    path: "data/songs/TinhYeuTramTre.mp3",
   },
   {
     name: "AnhDaQuenVoiCoDon.mp3",
-    path: "js/AnhDaQuenVoiCoDon.mp3",
+    path: "data/songs/AnhDaQuenVoiCoDon.mp3",
   },
 ];
 
