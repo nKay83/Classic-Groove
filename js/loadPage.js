@@ -1,17 +1,20 @@
 $(document).ready(() => {
-  loadHomePageByAjax();
+  loadPageByAjax("home");
 });
 
-const loadHomePageByAjax = () => {
+const loadPageByAjax = (pageTarget) => {
   $.ajax({
     url: "pages/user/content.php",
     type: "POST",
-    data: { page: "home" },
+    data: { page: pageTarget },
     dataType: "html",
     success: function (data) {
-      // console.log(data);
       document.querySelector("#content").innerHTML = data;
     },
   });
-  // alert("ajax done!")
+};
+
+let selectMenu = (selectedTab) => {
+  document.querySelector("#header .tab-title.active").classList.remove("active");
+  selectedTab.classList.add("active");
 };

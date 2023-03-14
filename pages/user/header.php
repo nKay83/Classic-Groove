@@ -4,21 +4,17 @@
       <img src="assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
-      <div class="tab-title active">
+      <div class="tab-title active" onclick="loadPageByAjax('home'),selectMenu(this)">
         <div class="tab-icon">
           <i class="fa-solid fa-house "></i>
         </div>
-        <div class="tab-info">
-          <a href="index.php?page=home">Home</a>
-        </div>
+        <div class="tab-info">Home</div>
       </div>
-      <div class="tab-title">
+      <div class="tab-title" onclick="loadPageByAjax('favorites'),selectMenu(this)">
         <div class="tab-icon">
           <i class="fa-solid fa-heart"></i>
         </div>
-        <div class="tab-info">
-          <a href="index.php?page=favorites">Favorites</a>
-        </div>
+        <div class="tab-info">Favorites</div>
         <div class="tab-notice">
           <div class="tab-notice-headline">Access Your Favorites</div>
           <div class="tab-notice-info">Log in to see saved songs, albums, artists in Favorties</div>
@@ -28,13 +24,11 @@
           </div>
         </div>
       </div>
-      <div class="tab-title">
+      <div class="tab-title" onclick="loadPageByAjax('myCart'),selectMenu(this)">
         <div class="tab-icon">
           <i class="fa-brands fa-opencart "></i>
         </div>
-        <div class="tab-info">
-          <a href="index.php?page=myCart">My cart</a>
-        </div>
+        <div class="tab-info">My cart</div>
         <div class="tab-notice">
           <div class="tab-notice-headline">Access Your Cart</div>
           <div class="tab-notice-info">Log in to check, add, remove products in My Cart</div>
@@ -44,13 +38,11 @@
           </div>
         </div>
       </div>
-      <div class="tab-title">
+      <div class="tab-title" onclick="loadPageByAjax('myAccout'),selectMenu(this)">
         <div class="tab-icon">
           <i class="fa-solid fa-user "></i>
         </div>
-        <div class="tab-info">
-          <a href="index.php?page=myAccount">My account</a>
-        </div>
+        <div class="tab-info">My account</div>
         <div class="tab-notice">
           <div class="tab-notice-headline">Access Your Account</div>
           <div class="tab-notice-info">Log in to see profile, purchase history in My Account </div>

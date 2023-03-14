@@ -42,34 +42,7 @@
         <?php include 'pages/user/search.php' ?>
       </div>
       <div id="content">
-        <?php
-        // if (isset($_GET["page"])) {
-        //   switch ($_GET["page"]) {
-        //     case "home":
-        //       include('pages/user/home.php');
-        //       break;
-        //     case "favorites":
-        //       include("pages/user/favorites.php");
-        //       break;
-        //     case "myCart":
-        //       include("pages/user/myCart.php");
-        //       break;
-        //     case "myAccount":
-        //       include("pages/user/myAccount.php");
-        //       break;
-        //     case "productDetails":
-        //       include("pages/user/productDetails.php");
-        //       break;
-        //     default:
-        //       echo `<h1>Page not found 404</h1>`;
-        //   }
-        // } else {
-        //   // include("pages/user/home.php");
-        //   // include("pages/user/login.php");
-        //   // include("pages/admin/productManager.php");
-        //   include("pages/user/purchaseHistory.php");
-        // }
-        ?>
+       
 
       </div>
       <div id="song-control">
