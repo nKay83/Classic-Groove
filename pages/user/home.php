@@ -21,35 +21,37 @@
           </div>
         </div>
       </div>
-      <p>Headline</p>
+      <p class="title">Headline</p>
+      <p class="gray">Captions</p>
+    </div>
+    <div class="grid-item"  onclick="loadProductDetailsByAjax('1')">
+      <div class="img-container">
+        <img src="data/imgAlbum/1_HayTraoChoAnh.jpg" alt="Album's poster">
+      </div>
+      <p class="title">Headline</p>
       <p class="gray">Captions</p>
     </div>
     <div class="grid-item">
       <div class="img-container">
         <img src="https://via.placeholder.com/250x250" alt="Placeholder">
       </div>
-      <p>Headline</p>
+      <p class="title">Headline</p>
       <p class="gray">Captions</p>
     </div>
     <div class="grid-item">
       <div class="img-container">
         <img src="https://via.placeholder.com/250x250" alt="Placeholder">
       </div>
-      <p>Headline</p>
+      <p class="title">Headline</p>
+
       <p class="gray">Captions</p>
     </div>
     <div class="grid-item">
       <div class="img-container">
         <img src="https://via.placeholder.com/250x250" alt="Placeholder">
       </div>
-      <p>Headline</p>
-      <p class="gray">Captions</p>
-    </div>
-    <div class="grid-item">
-      <div class="img-container">
-        <img src="https://via.placeholder.com/250x250" alt="Placeholder">
-      </div>
-      <p>Headline</p>
+      <p class="title">Headline</p>
+
       <p class="gray">Captions</p>
     </div>
   </div>

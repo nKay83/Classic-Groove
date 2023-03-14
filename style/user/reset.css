@@ -38,6 +38,7 @@ main {
 }
 #content {
   padding-top: 7vh;
+  color: var(--whi)
 }
 #song-control {
   position: fixed;

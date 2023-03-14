@@ -13,8 +13,20 @@ const loadPageByAjax = (pageTarget) => {
     },
   });
 };
-
+const loadProductDetailsByAjax = (albumID) => {
+  $.ajax({
+    url: "pages/user/productDetails.php",
+    type: "POST",
+    data: { albumID: albumID },
+    dataType: "html",
+    success: function (data) {
+      document.querySelector("#content").innerHTML = data;
+    },
+  });
+};
 let selectMenu = (selectedTab) => {
-  document.querySelector("#header .tab-title.active").classList.remove("active");
+  document
+    .querySelector("#header .tab-title.active")
+    .classList.remove("active");
   selectedTab.classList.add("active");
 };

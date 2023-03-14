@@ -14,10 +14,6 @@ if (isset($_POST["page"])) {
     case "myAccount":
       echo file_get_contents('myAccount.php');
       break;
-    case "productDetails":
-      include("productDetails.php");
-
-      break;
     default:
       echo `<h1>Page not found 404</h1>`;
   }
