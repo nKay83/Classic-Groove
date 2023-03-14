@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='shortcut icon' href='assets/img/LogoWeb.ico' />
   <link rel="stylesheet" href="assets/icons/all.css" />
   <link rel="stylesheet" href="style/user/header.css">
   <link rel="stylesheet" href="style/user/reset.css" />
@@ -42,32 +43,32 @@
       </div>
       <div id="content">
         <?php
-        if (isset($_GET["page"])) {
-          switch ($_GET["page"]) {
-            case "home":
-              include('pages/user/home.php');
-              break;
-            case "favorites":
-              include("pages/user/favorites.php");
-              break;
-            case "myCart":
-              include("pages/user/myCart.php");
-              break;
-            case "myAccount":
-              include("pages/user/myAccount.php");
-              break;
-            case "productDetails":
-              include("pages/user/productDetails.php");
-              break;
-            default:
-              echo `<h1>Page not found 404</h1>`;
-          }
-        } else {
-          // include("pages/user/home.php");
-          // include("pages/user/login.php");
-          // include("pages/admin/productManager.php");
-          include("pages/user/purchaseHistory.php");
-        }
+        // if (isset($_GET["page"])) {
+        //   switch ($_GET["page"]) {
+        //     case "home":
+        //       include('pages/user/home.php');
+        //       break;
+        //     case "favorites":
+        //       include("pages/user/favorites.php");
+        //       break;
+        //     case "myCart":
+        //       include("pages/user/myCart.php");
+        //       break;
+        //     case "myAccount":
+        //       include("pages/user/myAccount.php");
+        //       break;
+        //     case "productDetails":
+        //       include("pages/user/productDetails.php");
+        //       break;
+        //     default:
+        //       echo `<h1>Page not found 404</h1>`;
+        //   }
+        // } else {
+        //   // include("pages/user/home.php");
+        //   // include("pages/user/login.php");
+        //   // include("pages/admin/productManager.php");
+        //   include("pages/user/purchaseHistory.php");
+        // }
         ?>
 
       </div>
@@ -80,5 +81,6 @@
 <script src="js/effectPages.js"></script>
 <script src="js/login.js"></script>
 <script src="js/songControl.js"></script>
+<script src="js/loadPage.js"></script>
 
 </html>

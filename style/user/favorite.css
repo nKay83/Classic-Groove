@@ -4,10 +4,12 @@
 #favorite .category{
     margin-top: 20px;
 }
-#favorite .category #h2{
+#favorite .category h2{
     margin-left: 30px;
 }
-
+#favorite h2{
+    color: var(--whi);
+}
 #favorite .grid-container {
     padding: 10px;
     margin-left: 100px;

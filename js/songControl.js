@@ -16,24 +16,15 @@ let curr_track = document.createElement("audio");
 let track_list = [
   {
     name: "CuoiThoi.mp3",
-    artist: "Broke For Free",
-    image:
-      "https://images.pexels.com/photos/2264753/pexels-photo-2264753.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
     path: "js/CuoiThoi.mp3",
   },
   {
-    name: "Enthusiast",
-    artist: "Tours",
-    image:
-      "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3",
+    name: "TinhYeuTramTre.mp3",
+    path: "js/TinhYeuTramTre.mp3",
   },
   {
-    name: "Shipping Lanes",
-    artist: "Chad Crouch",
-    image:
-      "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
+    name: "AnhDaQuenVoiCoDon.mp3",
+    path: "js/AnhDaQuenVoiCoDon.mp3",
   },
 ];
 
@@ -49,7 +40,7 @@ function loadTrack(track_index) {
   // now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
 
   updateTimer = setInterval(seekUpdate, 1000);
-  // curr_track.addEventListener("ended", nextTrack);
+  curr_track.addEventListener("ended", nextTrack);
 }
 
 function resetValues() {
@@ -75,6 +66,19 @@ function pauseTrack() {
   curr_track.pause();
   isPlaying = false;
   playpause_btn.innerHTML = '<i class="fa-duotone fa-play"></i>';
+}
+function nextTrack() {
+  if (track_index < track_list.length - 1) track_index += 1;
+  else track_index = 0;
+  loadTrack(track_index);
+  playTrack();
+}
+
+function prevTrack() {
+  if (track_index > 0) track_index -= 1;
+  else track_index = track_list.length;
+  loadTrack(track_index);
+  playTrack();
 }
 
 function seekTo() {

@@ -39,10 +39,31 @@
 #purchaseHistory .general i {
   color: var(--gr1);
 }
+#purchaseHistory .row .general span{
+  text-align: center;
+}
+#purchaseHistory .row .general div{
+  user-select: none;
+}
 #purchaseHistory .row:nth-of-type(1) .general span {
   position: relative;
 }
-#purchaseHistory .row:nth-of-type(1) .general span:nth-of-type(1):before {
+#purchaseHistory .row .general span:nth-of-type(1) {
+  width: 10%;
+}
+#purchaseHistory .row .general span:nth-of-type(2) {
+  width: 20%;
+}
+#purchaseHistory .row .general span:nth-of-type(3) {
+  width: 30%;
+}
+#purchaseHistory .row .general span:nth-of-type(4) {
+  width: 20%;
+}
+#purchaseHistory .row .general span:nth-of-type(5) {
+  width: 20%;
+}
+#purchaseHistory .row .general span:nth-of-type(1):before {
   position: absolute;
   content: "No.";
   top: -50px;

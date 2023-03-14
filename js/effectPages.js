@@ -2,7 +2,8 @@ $(document).ready(() => {
   selectMenu();
 });
 
-let changeInputColorRange = (input) => {
+let changeInputColorRange = () => {
+  let input = document.querySelector(".seek_slider")
   let value = ((input.value - input.min) / (input.max - input.min)) * 100;
   input.style.background =
     "linear-gradient(to right, #f2623e 0%, #f2623e " +

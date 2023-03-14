@@ -3,6 +3,7 @@
   background-color: var(--whi);
   align-items: center;
   padding: 0 15px;
+  font-family: "Dosis", sans-serif;
 }
 #search .search-container,
 #search .drop-menu-container,
