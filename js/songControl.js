@@ -13,26 +13,25 @@ let updateTimer;
 
 let curr_track = document.createElement("audio");
 
-let track_list = [
-  {
-    name: "CuoiThoi.mp3",
-    path: "data/songs/CuoiThoi.mp3",
-  },
-  {
-    name: "TinhYeuTramTre.mp3",
-    path: "data/songs/TinhYeuTramTre.mp3",
-  },
-  {
-    name: "AnhDaQuenVoiCoDon.mp3",
-    path: "data/songs/AnhDaQuenVoiCoDon.mp3",
-  },
-];
-
+let track_list;
+async function playTrackList(albumID) {
+  await $.ajax({
+    url: "js/songs.php",
+    type: "post",
+    dataType: "json",
+    data: { albumID: albumID },
+    success: function (data) {
+      track_list = data;
+    },
+  });
+  loadTrack(0);
+}
 function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
-  curr_track.src = track_list[track_index].path;
+  curr_track.src = "data/songs/" + track_list[track_index].songLink;
   curr_track.load();
+  playTrack();
 
   // track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
   track_name.textContent = track_list[track_index].name;
@@ -48,8 +47,6 @@ function resetValues() {
   total_duration.textContent = "00:00";
   seek_slider.value = 0;
 }
-
-loadTrack(track_index);
 
 function playpauseTrack() {
   if (!isPlaying) playTrack();

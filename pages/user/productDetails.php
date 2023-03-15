@@ -23,7 +23,6 @@ if ($result->num_rows > 0) {
     array_push($songs, $row);
   }
 }
-
 ?>
 
 
@@ -52,7 +51,8 @@ if ($result->num_rows > 0) {
         <span>Favorite</span>
       </div>
     </div>
-    <h1 class="title">Track list</h1>
+    <h1 class="title">Track list <i class="fa-regular fa-circle-play"
+        onclick="playTrackList(<?php echo $album['albumID']?>)"></i></h1>
     <div class="songs-container">
       <?php
       foreach ($songs as $song) {
