@@ -1,6 +1,6 @@
 #song-control {
   background-color: var(--bla);
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: center;
   font-family: "Dosis", sans-serif;

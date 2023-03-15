@@ -25,6 +25,7 @@ async function playTrackList(albumID) {
     },
   });
   loadTrack(0);
+  $("#song-control").css("display", "flex");
 }
 function loadTrack(track_index) {
   clearInterval(updateTimer);
