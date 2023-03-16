@@ -70,17 +70,14 @@
   <div class="bottom">
     <div class="button-placeholder">
       <div class="left-button-login">
-        <input type="button" value="Log in">
+        <input type="button" value="Log in" onclick="loadPageByAjax('login')">
       </div>
       <div class="right-button-register">
-        <input type="button" value="Sign up">
+        <input type="button" value="Sign up" onclick="signUp()">
       </div>
     </div>
     <div class="footer-placeholder">
       <p>About us</p>
     </div>
   </div>
-
-
-
 </div>

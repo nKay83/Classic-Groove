@@ -12,3 +12,4 @@ let changeInputColorRange = () => {
 $("#purchaseHistory .row").click(function () {
   $(this).children(".details").slideToggle(500);
 });
+

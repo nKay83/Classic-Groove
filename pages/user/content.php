@@ -13,6 +13,9 @@ if (isset($_POST["page"])) {
     case "myAccount":
       include("myAccount.php");
       break;
+    case "login":
+      include("login.php");
+      break;
     default:
       echo `<h1>Page not found 404</h1>`;
   }

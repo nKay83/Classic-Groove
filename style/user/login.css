@@ -39,6 +39,11 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+  transition: all 0.5s ease-in-out;
+}
+#login .right {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 #login .container {
   width: 80%;
@@ -155,6 +160,7 @@
 }
 #login .register .left {
   width: 50%;
+ 
 }
 
 #login .register .right {
@@ -206,12 +212,16 @@
   right: 0;
   bottom: 0;
   width: 50%;
-  background-image: url("../../assets/img/poster.jpg");
-  background-size: cover;
+  background-image: url("../../assets/img/LoginPoster.jpg");
   border-radius: 50px;
   transition: all 0.5s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
 }
 
-#login .poster:hover {
+/* #login .poster:hover {
   transform: translate(-100%);
-}
+  background-position: left;
+
+} */
