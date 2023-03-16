@@ -12,4 +12,12 @@ let changeInputColorRange = () => {
 $("#purchaseHistory .row").click(function () {
   $(this).children(".details").slideToggle(500);
 });
+$("#productManager .row").click(function () {
+  $(this).children(".song-list").slideToggle(500);
+});
+$(function(){
+  $("#scrollbar").mCustomScrollbar({
+      theme:"rounded-dark"
+      });
+})
 

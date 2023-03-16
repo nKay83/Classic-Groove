@@ -1,0 +1,262 @@
+#productManager{
+    font-family: "Dosis", sans-serif;
+    margin: 0px 40px 0px 40px;
+}
+#productManager .title{
+    margin-top: 1rem;
+    color: var(--whi)
+}
+#productManager .button{
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#productManager button:hover{
+    cursor: pointer;
+}
+#productManager .button button{
+    font-family: "Dosis", sans-serif;
+    border-radius: 15px;    
+    height: 2.5vw;
+    width: 5vw;
+    border: none;
+    font-size: 1vw;
+    font-weight: 1000;
+}
+#productManager .button .left{
+    background-color: #2267cf;
+    color: var(--whi);
+}
+#productManager .button .right{
+    background-color: var(--whi);
+    color: #2267cf;
+}
+#productManager .container{
+    margin-top: 60px;
+}
+#productManager .row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+#productManager .general {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.5vw;
+    font-size: 1.5vw;
+    color: var(--bla);
+    border-radius: 20px;
+    background-color: var(--gr2);
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 1000;
+  }
+  
+#productManager .general div,
+#productManager .general i {
+    color: var(--gr1);
+}
+#productManager .row:nth-of-type(1) .general span {
+    position: relative;
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(1):before {
+    position: absolute;
+    content: "No.";
+    top: -50px;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(2):before {
+    position: absolute;
+    content: "Album id";
+    top: -50px;
+    left: -30px;
+    right: -30px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(3):before {
+    position: absolute;
+    content: "Album name";
+    top: -50px;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(4):before {
+    position: absolute;
+    content: "Artist";
+    top: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(5):before {
+    position: absolute;
+    content: "Kind";
+    top: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(6):before {
+    position: absolute;
+    content: "Add date";
+    top: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(7):before {
+    position: absolute;
+    content: "Quantity";
+    top: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(8):before {
+    position: absolute;
+    content: "Price";
+    top: -50px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    color: var(--whi);
+}
+#productManager .row:nth-of-type(1) .general span:nth-of-type(9):before {
+    position: absolute;
+    content: "Status";
+    top: -50px;
+    color: var(--whi);
+}
+#productManager .song-list {
+    background-color: var(--whi);
+    border-radius: 0 0 20px 20px;
+    display: inline-block;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 20px 0px 20px;
+    flex-direction: column;
+    position: relative;
+    font-weight: 1000;
+}
+.clearfix {
+    clear: both;
+}
+
+#productManager .song-list {
+    width: 96%;
+    display: flex;
+}
+#productManager .song-list .left{
+    width: 56.5%;
+    float: left;
+    height: 80%;
+    margin-right: 20px;
+}
+#productManager .list-container{
+    background-color: var(--whi);
+    display: flex;
+    height: 24vw;
+    width: 100%;
+    border-radius: 50px;
+    position: relative;
+    align-items: center;
+
+}
+#productManager .left hr{
+    height: 2.5px;
+    background-color: #2267cf;
+    border: none;
+}
+#productManager .song-list .song-detail{
+    display: flex;
+    justify-content: space-between;
+    height: 2.5vw;
+    font-size: 1.5vw;
+    color: var(--bla);
+}
+#productManager .left .margin{
+    margin-top:50px;
+}
+
+#productManager .left:nth-of-type(1) span{
+    position: relative;
+}
+
+#productManager .left span:nth-of-type(1):before {
+    position: absolute;
+    content: "No.";
+    top: -40px;
+    color: var(--bla);
+}
+#productManager .left span:nth-of-type(2):before {
+    position: absolute;
+    content: "Song id";
+    top: -40px;
+    left:-30px;
+    right:-30px;
+    text-align: center;
+    color: var(--bla);
+}
+#productManager .left span:nth-of-type(3):before {
+    position: absolute;
+    content: "Song name";
+    top: -40px;
+    left: -30px;
+    right: -30px;
+    text-align: center;
+    color: var(--bla);
+}
+#productManager .left span:nth-of-type(4):before {
+    position: absolute;
+    content: "Song file";
+    top: -40px;
+
+    color: var(--bla);
+}
+#productManager .song-list .right{
+    border-left: 2.5px solid #2267cf;
+    padding-left: 10px;
+    height: 100%;
+    display: flex;
+    width: 40.5%;
+    position: relative;
+}
+#productManager .right .describe,#productManager .right .image{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    align-items: center;
+    width: 50%;
+}
+#productManager .right label{
+    font-size: 1.5vw;
+}
+#productManager .right textarea,#productManager .right img{
+    padding: 1em;
+    border-radius: 20px;
+    border: 2px solid #2267cf;
+    outline: none;
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    width: 12vw;
+    height: 15vw;
+    transition: all 0.2s;
+    resize: none;
+}
+  
+#productManager .right textarea:focus {
+    cursor: text;
+    border-color: #2267cf;
+  }
+  

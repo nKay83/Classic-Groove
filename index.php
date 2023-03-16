@@ -19,15 +19,16 @@
   <link rel="stylesheet" href="style/user/login.css">
   <link rel="stylesheet" href="style/user/myAccount.css">
   <link rel="stylesheet" href="style/user/purchaseHistory.css">
+  <link rel="stylesheet" href="style/admin/productManager.css">
   <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/assets/icons/scrollbar.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
   <title>Classic-Groove</title>
 </head>
