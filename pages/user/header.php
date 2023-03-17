@@ -38,9 +38,9 @@
           </div>
         </div>
       </div>
-      <div class="tab-title" onclick="loadPageByAjax('myAccout'),selectMenu(this)">
+      <div class="tab-title" onclick="loadPageByAjax('myAccount'),selectMenu(this)">
         <div class="tab-icon">
-          <i class="fa-solid fa-user "></i>
+          <i class="fa-solid fa-user"></i>
         </div>
         <div class="tab-info">My account</div>
         <div class="tab-notice">
@@ -52,16 +52,11 @@
           </div>
         </div>
         <div class="tab-menu">
-          <div class="tab-menu-icon"></div>
-          <div class="tab-menu-info">Profile</div>
-          <div class="tab-menu-icon"></div>
-          <div class="tab-menu-info">Purchase history</div>
-          <div class="tab-menu-icon"></div>
-          <div class="tab-menu-info">Help and support</div>
-          <div class="tab-menu-icon"></div>
-          <div class="tab-menu-info">Setting</div>
-          <div class="tab-menu-icon"></div>
-          <div class="tab-menu-info">Log out</div>
+          <div class="tab-icons"> <i class="fa-solid fa-user"></i></div>
+          <div class="tab-icons"> <i class="fa-solid fa-list-ul"></i></div>
+          <div class="tab-icons"> <i class="fa-regular fa-gear"></i></div>
+          <div class="tab-icons"> <i class="fa-regular fa-circle-question"></i></div>
+          <div class="tab-icons"> <i class="fa-solid fa-right-from-bracket"></i></div>
 
         </div>
       </div>

@@ -11,7 +11,7 @@ if (isset($_POST["page"])) {
       include("myCart.php");
       break;
     case "myAccount":
-      include("myAccount.php");
+      include("../admin/productManager.php");
       break;
     case "login":
       include("login.php");

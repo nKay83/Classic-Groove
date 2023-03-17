@@ -25,12 +25,12 @@
     font-weight: 1000;
 }
 #productManager .button .left{
-    background-color: #2267cf;
+    background-color: var(--ora);
     color: var(--whi);
 }
 #productManager .button .right{
     background-color: var(--whi);
-    color: #2267cf;
+    color:var(--ora);
 }
 #productManager .container{
     margin-top: 60px;
@@ -68,13 +68,13 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(1):before {
     position: absolute;
     content: "No.";
-    top: -50px;
+    top: -2.8vw;
     color: var(--whi);
 }
 #productManager .row:nth-of-type(1) .general span:nth-of-type(2):before {
     position: absolute;
     content: "Album id";
-    top: -50px;
+    top: -2.8vw;
     left: -30px;
     right: -30px;
     text-align: center;
@@ -83,13 +83,13 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(3):before {
     position: absolute;
     content: "Album name";
-    top: -50px;
+        top: -2.8vw;;
     color: var(--whi);
 }
 #productManager .row:nth-of-type(1) .general span:nth-of-type(4):before {
     position: absolute;
     content: "Artist";
-    top: -50px;
+        top: -2.8vw;;
     left: 0px;
     right: 0px;
     text-align: center;
@@ -98,7 +98,7 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(5):before {
     position: absolute;
     content: "Kind";
-    top: -50px;
+        top: -2.8vw;;
     left: 0px;
     right: 0px;
     text-align: center;
@@ -107,7 +107,7 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(6):before {
     position: absolute;
     content: "Add date";
-    top: -50px;
+        top: -2.8vw;;
     left: 0px;
     right: 0px;
     text-align: center;
@@ -116,7 +116,7 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(7):before {
     position: absolute;
     content: "Quantity";
-    top: -50px;
+        top: -2.8vw;;
     left: 0px;
     right: 0px;
     text-align: center;
@@ -125,7 +125,7 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(8):before {
     position: absolute;
     content: "Price";
-    top: -50px;
+        top: -2.8vw;;
     left: 0px;
     right: 0px;
     text-align: center;
@@ -134,7 +134,7 @@
 #productManager .row:nth-of-type(1) .general span:nth-of-type(9):before {
     position: absolute;
     content: "Status";
-    top: -50px;
+        top: -2.8vw;;
     color: var(--whi);
 }
 #productManager .song-list {
@@ -147,6 +147,7 @@
     flex-direction: column;
     position: relative;
     font-weight: 1000;
+    overflow:hidden ;
 }
 .clearfix {
     clear: both;
@@ -161,11 +162,12 @@
     float: left;
     height: 80%;
     margin-right: 20px;
+    overflow: hidden;
 }
 #productManager .list-container{
     background-color: var(--whi);
     display: flex;
-    height: 24vw;
+    height: 20vw;
     width: 100%;
     border-radius: 50px;
     position: relative;
@@ -174,7 +176,7 @@
 }
 #productManager .left hr{
     height: 2.5px;
-    background-color: #2267cf;
+    background-color: var(--ora);
     border: none;
 }
 #productManager .song-list .song-detail{
@@ -224,7 +226,7 @@
     color: var(--bla);
 }
 #productManager .song-list .right{
-    border-left: 2.5px solid #2267cf;
+    border-left: 2.5px solid var(--ora);
     padding-left: 10px;
     height: 100%;
     display: flex;
@@ -244,7 +246,7 @@
 #productManager .right textarea,#productManager .right img{
     padding: 1em;
     border-radius: 20px;
-    border: 2px solid #2267cf;
+    border: 2px solid var(--ora);
     outline: none;
     font-family: "Dosis", sans-serif;
     font-weight: 500;
