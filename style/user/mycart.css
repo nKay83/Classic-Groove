@@ -111,11 +111,12 @@
   position: relative;
   width: 8%;
   height: 100%;
+  color: var(--bla);
 }
 #mycart .erase-button {
   position: absolute;
   font-size: calc(5px + 1.5vw);
-  top: 13%;
+  top: 9%;
   left: 5%;
 }
 #mycart .erase-button i:active{
@@ -165,6 +166,7 @@
   flex-direction: column;
   font-size: calc(0px + 1.5vw);
   cursor:default;
+  color: var(--bla);
 }
 #mycart .totalprice-header {
   height: 20%;

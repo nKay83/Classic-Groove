@@ -71,7 +71,7 @@
         <input type="button" value="Sign up" onclick="signUp()">
       </div>
     </div>
-    <div class="footer-placeholder">
+    <div class="footer-placeholder" onclick="loadPageByAjax('footer'),selectMenu(this)">
       <p>About us</p>
     </div>
   </div>
