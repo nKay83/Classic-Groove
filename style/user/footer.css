@@ -25,9 +25,22 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    margin: 5% 5%;
+    border: var(--whi) solid 3px;
+    border-radius: 15px;
 }
-
+#footer:hover .footer-placeholder{
+    filter: blur(7px);
+    transition: 0.5s;
+}
+#footer .footer-placeholder:hover{
+    filter: blur(0px);
+    transform: scale(103%);
+    box-sizing: border-box;
+    transition: 0.5s;
+}
 #footer .footer-placeholder:nth-of-type(2) {
+    border: var(--ora) solid 3px;
     background-image: url('https://scontent.fsgn2-9.fna.fbcdn.net/v/t1.15752-9/336849497_177451538428241_6263802258215232354_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=9uDNPy9tmPMAX_F0hrU&_nc_ht=scontent.fsgn2-9.fna&oh=03_AdRt8nNJCEFZ-V8nH8qsrYGd9apvb_n9LyHH-TnWrJoIlQ&oe=64417DFC');
 }
 
@@ -36,6 +49,7 @@
 }
 
 #footer .footer-placeholder:nth-of-type(4) {
+    border: var(--ora) solid 3px;
     background-image: url('HaiDuong');
 }
 
@@ -59,7 +73,7 @@
     justify-content: center;
   } */
 #footer .name-placeholder {
-    margin-top: 60vh;
+    margin-top: 70vh;
     font-size: calc(10px + 1vw);
     color: var(--whi);
     text-align: center;
