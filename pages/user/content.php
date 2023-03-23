@@ -3,7 +3,7 @@ if (isset($_POST["page"])) {
   switch ($_POST["page"]) {
     case "home":
       // include("../admin/accountManager.php");
-      include("footer.php");
+      include("home.php");
       break;
     case "favorites":
       include("favorites.php");
@@ -17,9 +17,9 @@ if (isset($_POST["page"])) {
     case "login":
       include("login.php");
       break;
-      // case "footer":
-      //   include("footer.php");
-      //   break;
+      case "footer":
+        include("footer.php");
+        break;
     default:
       echo `<h1>Page not found 404</h1>`;
   }
