@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style/user/header.css">
   <link rel="stylesheet" href="style/user/reset.css" />
   <link rel="stylesheet" href="style/user/home.css" />
+  <link rel="stylesheet" href="style/user/footer.css" />
   <link rel="stylesheet" href="style/user/favorite.css" />
   <link rel="stylesheet" href="style/user/myAccount.css" />
   <link rel="stylesheet" href="style/user/mycart.css">
@@ -20,10 +21,12 @@
   <link rel="stylesheet" href="style/user/myAccount.css">
   <link rel="stylesheet" href="style/user/purchaseHistory.css">
   <link rel="stylesheet" href="style/admin/productManager.css">
-  <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="/assets/icons/scrollbar.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Admin page -->
+  <link rel="stylesheet" href="style/admin/accountManager.css">
+  <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

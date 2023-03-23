@@ -16,22 +16,23 @@ a, a:visited, a:hover, a:active {
   --gr2: #e9e9e9;
 }
 header {
-  width: 15%;
+  width: 13%;
   background-color: var(--bla);
   height: 100vh;
   position: fixed;
 }
 
 main {
-  width: 85%;
+  width: 87%;
   float: right;
   background-color: var(--lig);
   min-height: 100vh;
 }
 #search {
-  height: 7vh;
-  width: 85%;
+  height: 6vh;
+  width: 87%;
   position: fixed;
+  padding: 0;
   top:0;
   right: 0;
   z-index: 1000000;
@@ -42,7 +43,7 @@ main {
 }
 #song-control {
   position: fixed;
-  width: 85%;
+  width: 87%;
   bottom: 0;
   right: 0;
   z-index: 10000;

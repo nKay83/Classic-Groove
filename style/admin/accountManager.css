@@ -1,0 +1,153 @@
+:root {
+    --ora: #f2623e;
+    --whi: #ffffff;
+    --bla: #000000;
+    --lig: #1d1d20;
+    --gr1: #a1a0a0;
+    --gr2: #e9e9e9;
+  }
+#accountManager{
+    font-family: "Dosis", sans-serif;
+    height: 91vh;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+#accountManager .button-placeholder{
+    width: 30%;
+    height: 4vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    font-size: calc(5px + 1vw);
+}
+#accountManager .edit-button,
+#accountManager .save-button,
+#accountManager .delete-button{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    height: 3vw;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--ora);
+    border-radius: 30px;
+    padding: 5%;
+    cursor: pointer;
+}
+#accountManager .delete-button{
+    background-color: var(--whi);
+    color: var(--bla);
+}
+#accountManager .title-list{
+    width: 90%;
+    height:5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+}
+#accountManager .title-list .title-placeholder{
+    width:98%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
+    justify-content: center;
+    margin: auto;
+    font-size: calc(5px + 1vw);
+}
+#accountManager .title-list .title-placeholder .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    height: 70%;
+    width: 100%;
+    margin: auto;
+}
+#accountManager .account-list{
+    width: 90%;
+    height:75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+}   
+#accountManager .account-placeholder{
+    width: 98%;
+    height: 7%;
+    background-color: var(--gr2);
+    border-radius: 30px;
+    color: var(--bla);
+    position: relative;
+}
+#accountManager .account-placeholder .account-info{
+    display: grid;
+    margin: auto;
+    width: 100%;
+    height: 100%;;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
+    justify-content: center;
+}
+#accountManager .account-placeholder .account-info .account-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border-right: var(--gr1) solid 4px;
+    height: 70%;
+    width: 100%;
+    margin: auto;
+}   
+#accountManager .account-placeholder .account-info .account-item:nth-of-type(7){
+    border: none;
+}
+#accountManager .account-placeholder .account-details{
+    position: absolute;
+    width: 90%;
+    min-height: 200%;
+    height: 6vw;
+    background-color: var(--whi);
+    top:100%;
+    left: 5%;
+    border-radius: 0px 0px  40px 40px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 0.5fr 0.5fr 1fr 0.7fr 0.7fr;
+    padding: 0 3% 1% 3%;
+}
+#accountManager .account-placeholder .account-details .detail{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0 0 0 15%;
+}
+#accountManager .account-placeholder .account-details .detail:nth-child(n+6){
+    background-color: var(--gr2);
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    border-radius: 30px;
+    color: var(--gr1);
+    overflow: hidden;
+    padding: 0 0 0 10%;
+}
+#accountManager .account-placeholder .delete-account{
+    position: absolute;
+    top: 12px;
+    right: -4%;
+}
+#accountManager .account-placeholder .delete-account input{
+    height: 2.5vw;
+    width: 2.5vw;
+    max-height: 25px;
+    max-width: 25px;
+    border: var(--whi) solid 3px;
+    background-color: var(--bla);
+    border-radius: 5px;
+}
+
