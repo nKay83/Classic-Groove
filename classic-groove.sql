@@ -18,8 +18,7 @@ CREATE TABLE `Album` (
 CREATE TABLE `BaiHat` (
   `maBaiHat` int PRIMARY KEY,
   `tenBaiHat` nvarchar(100),
-  `file` nvarchar(100),
-  `album` int
+  `linkFile` nvarchar(100)
 );
 
 CREATE TABLE `HoaDon` (
@@ -33,9 +32,9 @@ CREATE TABLE `HoaDon` (
 
 CREATE TABLE `TaiKhoan` (
   `maTaiKhoan` int PRIMARY KEY,
-  `Quyen` int,
+  `vaiTro` int,
   `MatKhau` nvarchar(100),
-  `username` nvarchar(1000),
+  `nguoiDungname` nvarchar(1000),
   `TrangThai` nvarchar(20)
 );
 
@@ -49,8 +48,8 @@ CREATE TABLE `VaiTro` (
   `tenVaiTro` nvarchar(100)
 );
 
-CREATE TABLE `User` (
-  `maUser` int PRIMARY KEY,
+CREATE TABLE `nguoiDung` (
+  `manguoiDung` int PRIMARY KEY,
   `taikhoan` int,
   `tenKH` nvarchar(100),
   `SDT` nvarchar(12),
@@ -77,8 +76,8 @@ CREATE TABLE `NhaCungCap` (
 
 CREATE TABLE `YeuThich` (
   `album` int,
-  `user` int,
-  PRIMARY KEY (`album`, `user`)
+  `nguoiDung` int,
+  PRIMARY KEY (`album`, `nguoiDung`)
 );
 
 CREATE TABLE `ChiTietPhieuNhap` (
@@ -105,42 +104,11 @@ CREATE TABLE `KhuyenMai` (
   `phanTram` int
 );
 
-ALTER TABLE `TheLoai` ADD FOREIGN KEY (`maLoai`) REFERENCES `Album` (`theLoai`);
-
 CREATE TABLE `BaiHat_Album` (
-  `BaiHat_album` int,
+  `BaiHat_maBaiHat` int,
   `Album_maAlbum` int,
-  PRIMARY KEY (`BaiHat_album`, `Album_maAlbum`)
+  PRIMARY KEY (`BaiHat_maBaiHat`, `Album_maAlbum`)
 );
-
-ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`BaiHat_album`) REFERENCES `BaiHat` (`album`);
-
-ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`Album_maAlbum`) REFERENCES `Album` (`maAlbum`);
-
-
-ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `HoaDon` (`khachHang`);
-
-ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `PhieuNhap` (`nguoiNhap`);
-
-ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `YeuThich` (`album`);
-
-ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `YeuThich` (`user`);
-
-ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `ChiTietPhieuNhap` (`album`);
-
-ALTER TABLE `PhieuNhap` ADD FOREIGN KEY (`maPhieuNhap`) REFERENCES `ChiTietPhieuNhap` (`phieuNhap`);
-
-ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `ChiTietHoaDon` (`album`);
-
-ALTER TABLE `HoaDon` ADD FOREIGN KEY (`maHoaDon`) REFERENCES `ChiTietHoaDon` (`hoaDon`);
-
-ALTER TABLE `TaiKhoan` ADD FOREIGN KEY (`Quyen`) REFERENCES `VaiTro` (`maVaiTro`);
-
-ALTER TABLE `User` ADD FOREIGN KEY (`taikhoan`) REFERENCES `TaiKhoan` (`maTaiKhoan`);
-
-ALTER TABLE `KhuyenMai` ADD FOREIGN KEY (`maKhuyenMai`) REFERENCES `HoaDon` (`khuyenMai`);
-
-ALTER TABLE `NhaCungCap` ADD FOREIGN KEY (`maNCC`) REFERENCES `ChiTietPhieuNhap` (`NCC`);
 
 CREATE TABLE `VaiTro_Quyen` (
   `VaiTro_maVaiTro` int,
@@ -148,7 +116,36 @@ CREATE TABLE `VaiTro_Quyen` (
   PRIMARY KEY (`VaiTro_maVaiTro`, `Quyen_maCTQ`)
 );
 
+ALTER TABLE `Album` ADD FOREIGN KEY (`theLoai`) REFERENCES `TheLoai` (`maLoai`);
+
+ALTER TABLE `HoaDon` ADD FOREIGN KEY (`khachHang`) REFERENCES `nguoiDung` (`manguoiDung`);
+
+ALTER TABLE `PhieuNhap` ADD FOREIGN KEY (`nguoiNhap`) REFERENCES `nguoiDung` (`manguoiDung`);
+
+ALTER TABLE `YeuThich` ADD FOREIGN KEY (`album`) REFERENCES `Album` (`maAlbum`);
+
+ALTER TABLE `YeuThich` ADD FOREIGN KEY (`nguoiDung`) REFERENCES `nguoiDung` (`manguoiDung`);
+
+ALTER TABLE `ChiTietPhieuNhap` ADD FOREIGN KEY (`album`) REFERENCES `Album` (`maAlbum`);
+
+ALTER TABLE `ChiTietPhieuNhap` ADD FOREIGN KEY (`phieuNhap`) REFERENCES `PhieuNhap` (`maPhieuNhap`);
+
+ALTER TABLE `ChiTietHoaDon` ADD FOREIGN KEY (`album`) REFERENCES `Album` (`maAlbum`);
+
+ALTER TABLE `ChiTietHoaDon` ADD FOREIGN KEY (`hoaDon`) REFERENCES `HoaDon` (`maHoaDon`);
+
+ALTER TABLE `TaiKhoan` ADD FOREIGN KEY (`vaiTro`) REFERENCES `VaiTro` (`maVaiTro`);
+
+ALTER TABLE `nguoiDung` ADD FOREIGN KEY (`taikhoan`) REFERENCES `TaiKhoan` (`maTaiKhoan`);
+
+ALTER TABLE `HoaDon` ADD FOREIGN KEY (`KhuyenMai`) REFERENCES `KhuyenMai` (`makhuyenMai`);
+
+ALTER TABLE `ChiTietPhieuNhap` ADD FOREIGN KEY (`NCC`) REFERENCES `NhaCungCap` (`maNCC`);
+
+ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`BaiHat_maBaiHat`) REFERENCES `BaiHat` (`maBaiHat`);
+
+ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`Album_maAlbum`) REFERENCES `Album` (`maAlbum`);
+
 ALTER TABLE `VaiTro_Quyen` ADD FOREIGN KEY (`VaiTro_maVaiTro`) REFERENCES `VaiTro` (`maVaiTro`);
 
 ALTER TABLE `VaiTro_Quyen` ADD FOREIGN KEY (`Quyen_maCTQ`) REFERENCES `Quyen` (`maCTQ`);
-
