@@ -20,3 +20,25 @@ INSERT INTO songs (name, songLink,albumID) VALUES ("Chúng ta không thuộc v�
 INSERT INTO table_name (name, file) VALUES (,);
 INSERT INTO table_name (name, file) VALUES (,);
 INSERT INTO table_name (name, file) VALUES (,); -->
+
+# Folder structure
+- models
+    - User
+- views
+    - assets
+    - images
+    - ...
+- controllers    
+    - LoginController
+        - login()
+    - RegisterController
+    - UserController
+        - index()
+        - create()
+        - update()
+        - store()
+        - destroy()
+    - ...
+- utils
+    - DatabaseConection
+    

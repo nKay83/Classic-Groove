@@ -25,8 +25,9 @@ const loadProductDetailsByAjax = (albumID) => {
   });
 };
 let selectMenu = (selectedTab) => {
-  document
-    .querySelector("#header .tab-title.active")
-    .classList.remove("active");
+  let tabActive = document.querySelector("#header .tab-title.active")
+  if (tabActive != null)
+    tabActive.classList.remove("active");
   selectedTab.classList.add("active");
 };
+ 
