@@ -277,3 +277,21 @@
   background-color: #000000;
   border-radius: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  #header .tab-icon {
+    font-size: calc(5px + 1.2vw);
+  }
+
+  #header .tab-info {
+    font-size: calc(5px + 1.2vw);
+  }
+
+  #header .tab-title {
+    background-color: var(--lig);
+    border-radius: 70px;
+    margin: 10% auto;
+    height: 7vh;
+    width: 90%;
+  }
+}

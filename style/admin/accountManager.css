@@ -42,7 +42,7 @@
     color: var(--bla);
 }
 #accountManager .title-list{
-    width: 90%;
+    width: 100%;
     height:5vh;
     display: flex;
     flex-direction: column;
@@ -68,23 +68,28 @@
     width: 100%;
     margin: auto;
 }
-#accountManager .account-list{
-    width: 90%;
-    height:75vh;
+#accountManager .list{
+    width: 100%;
+    max-height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: calc(5px + 1vw);
+    background-color: var(--whi);
+    height: 75vh;
+    border-radius: 30px 30px 0 0;
+    overflow-y: scroll;
 }   
-#accountManager .account-placeholder{
+#accountManager .placeholder{
     width: 98%;
-    height: 7%;
-    background-color: var(--gr2);
-    border-radius: 30px;
+    /* height: 75px; */
+    margin: 0 1%;
     color: var(--bla);
     position: relative;
+    padding: 13px 0 ;
+    border-bottom: 4px solid var(--ora);
 }
-#accountManager .account-placeholder .account-info{
+#accountManager .placeholder .info{
     display: grid;
     margin: auto;
     width: 100%;
@@ -93,20 +98,30 @@
     grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
     justify-content: center;
 }
-#accountManager .account-placeholder .account-info .account-item{
+#accountManager .placeholder .info .item{
     display: flex;
     justify-content: center;
     align-items: center;
     justify-self: center;
-    border-right: var(--gr1) solid 4px;
+    border-right: var(--ora) solid 4px;
     height: 70%;
     width: 100%;
     margin: auto;
 }   
-#accountManager .account-placeholder .account-info .account-item:nth-of-type(7){
+#accountManager .placeholder .info .item:nth-of-type(7){
     border: none;
 }
-#accountManager .account-placeholder .account-details{
+::-webkit-scrollbar{
+    background-color: var(--whi);
+    width: 5px;
+    border: 50px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--ora);
+
+}
+
+/* #accountManager .placeholder .details{
     position: absolute;
     width: 90%;
     min-height: 200%;
@@ -120,13 +135,13 @@
     grid-template-columns: 0.5fr 0.5fr 1fr 0.7fr 0.7fr;
     padding: 0 3% 1% 3%;
 }
-#accountManager .account-placeholder .account-details .detail{
+#accountManager .placeholder .details .detail{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center; 
     align-items: center;
     padding: 0 0 0 15%;
 }
-#accountManager .account-placeholder .account-details .detail:nth-child(n+6){
+#accountManager .placeholder .details .detail:nth-child(n+6){
     background-color: var(--gr2);
     width: 90%;
     height: 80%;
@@ -136,12 +151,12 @@
     overflow: hidden;
     padding: 0 0 0 10%;
 }
-#accountManager .account-placeholder .delete-account{
+#accountManager .placeholder .delete-account{
     position: absolute;
     top: 12px;
     right: -4%;
 }
-#accountManager .account-placeholder .delete-account input{
+#accountManager .placeholder .delete-account input{
     height: 2.5vw;
     width: 2.5vw;
     max-height: 25px;
@@ -149,5 +164,5 @@
     border: var(--whi) solid 3px;
     background-color: var(--bla);
     border-radius: 5px;
-}
+} */
 

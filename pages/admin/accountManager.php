@@ -24,18 +24,19 @@
         <div class="title">Status</div>
         </div>
     </div>
-    <div class="account-list">
-        <div class="account-placeholder">
-            <div class="account-info">
-                <div class="account-item">01</div>
-                <div class="account-item">CUS001</div>
-                <div class="account-item">0902561608</div>
-                <div class="account-item">2023/02/26</div>
-                <div class="account-item">1000</div>
-                <div class="account-item">Offline </div>
-                <div class="account-item"><i class="fa-regular fa-circle-info"></i> </div>
+    <div class="list">
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
             </div>
-            <div class="account-details">
+            
+            <!-- <div class="details">
                 <div class="detail">First name</div>
                 <div class="detail">Last name</div>
                 <div class="detail">Email</div>
@@ -47,7 +48,162 @@
                 <div class="detail">buibuibaobao</div>
                 <div class="detail">buibaodaptrai</div>
             </div>
-            <div class="delete-account"><input type="checkbox"></div>
+            <div class="delete-account"><input type="checkbox"></div> -->
         </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        <div class="placeholder">
+            <div class="info">
+                <div class="item">01</div>
+                <div class="item">CUS001</div>
+                <div class="item">0902561608</div>
+                <div class="item">2023/02/26</div>
+                <div class="item">1000</div>
+                <div class="item">Offline </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+            </div>
+        </div>
+        
     </div>
 </div>
