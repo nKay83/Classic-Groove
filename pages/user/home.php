@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
   <div class="slideshow">
     <div class="left">
       <div class="poster">
-
+git aa
       </div>
     </div>
     <div class="right">

@@ -1,107 +1,154 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2023 at 08:28 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+CREATE TABLE `TheLoai` (
+  `maLoai` int PRIMARY KEY,
+  `tenLoai` nvarchar(100)
+);
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE `Album` (
+  `maAlbum` int PRIMARY KEY,
+  `tenAlbum` nvarchar(100),
+  `gia` int,
+  `moTa` nvarchar(1000),
+  `hinh` nvarchar(100),
+  `tacGia` nvarchar(100),
+  `TrangThai` int,
+  `soLuong` int,
+  `theLoai` int
+);
+
+CREATE TABLE `BaiHat` (
+  `maBaiHat` int PRIMARY KEY,
+  `tenBaiHat` nvarchar(100),
+  `file` nvarchar(100),
+  `album` int
+);
+
+CREATE TABLE `HoaDon` (
+  `maHoaDon` int PRIMARY KEY,
+  `tongTien` int,
+  `thoiGianDat` date,
+  `trangThai` nvarchar(20),
+  `khachHang` int,
+  `khuyenMai` int
+);
+
+CREATE TABLE `TaiKhoan` (
+  `maTaiKhoan` int PRIMARY KEY,
+  `Quyen` int,
+  `MatKhau` nvarchar(100),
+  `username` nvarchar(1000),
+  `TrangThai` nvarchar(20)
+);
+
+CREATE TABLE `Quyen` (
+  `maCTQ` int PRIMARY KEY,
+  `NoiDungQuyen` nvarchar(100)
+);
+
+CREATE TABLE `VaiTro` (
+  `maVaiTro` int PRIMARY KEY,
+  `tenVaiTro` nvarchar(100)
+);
+
+CREATE TABLE `User` (
+  `maUser` int PRIMARY KEY,
+  `taikhoan` int,
+  `tenKH` nvarchar(100),
+  `SDT` nvarchar(12),
+  `diaChi` nvarchar(100),
+  `email` nvarchar(100),
+  `TrangThai` nvarchar(20)
+);
+
+CREATE TABLE `PhieuNhap` (
+  `maPhieuNhap` int PRIMARY KEY,
+  `ngayNhap` date,
+  `nguoiNhap` int,
+  `TongGia` int
+);
+
+CREATE TABLE `NhaCungCap` (
+  `maNCC` int PRIMARY KEY,
+  `tenNCC` nvarchar(100),
+  `diaChi` nvarchar(100),
+  `SDT` nvarchar(12),
+  `email` nvarchar(100),
+  `TrangThai` nvarchar(20)
+);
+
+CREATE TABLE `YeuThich` (
+  `album` int,
+  `user` int,
+  PRIMARY KEY (`album`, `user`)
+);
+
+CREATE TABLE `ChiTietPhieuNhap` (
+  `album` int,
+  `phieuNhap` int,
+  `gia` nvarchar(100),
+  `SoLuong` nvarchar(100),
+  `NCC` int,
+  PRIMARY KEY (`album`, `phieuNhap`)
+);
+
+CREATE TABLE `ChiTietHoaDon` (
+  `album` int,
+  `hoaDon` int,
+  `soLuong` nvarchar(100),
+  PRIMARY KEY (`album`, `hoaDon`)
+);
+
+CREATE TABLE `KhuyenMai` (
+  `maKhuyenMai` int PRIMARY KEY,
+  `dieuKien` int,
+  `batDau` date,
+  `ketThuc` date,
+  `phanTram` int
+);
+
+ALTER TABLE `TheLoai` ADD FOREIGN KEY (`maLoai`) REFERENCES `Album` (`theLoai`);
+
+CREATE TABLE `BaiHat_Album` (
+  `BaiHat_album` int,
+  `Album_maAlbum` int,
+  PRIMARY KEY (`BaiHat_album`, `Album_maAlbum`)
+);
+
+ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`BaiHat_album`) REFERENCES `BaiHat` (`album`);
+
+ALTER TABLE `BaiHat_Album` ADD FOREIGN KEY (`Album_maAlbum`) REFERENCES `Album` (`maAlbum`);
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `HoaDon` (`khachHang`);
 
---
--- Database: `classic-groove`
---
+ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `PhieuNhap` (`nguoiNhap`);
 
--- --------------------------------------------------------
+ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `YeuThich` (`album`);
 
---
--- Table structure for table `albums`
---
+ALTER TABLE `User` ADD FOREIGN KEY (`maUser`) REFERENCES `YeuThich` (`user`);
 
-CREATE TABLE `albums` (
-  `albumID` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `price` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `imageLink` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `ChiTietPhieuNhap` (`album`);
 
---
--- Dumping data for table `albums`
---
+ALTER TABLE `PhieuNhap` ADD FOREIGN KEY (`maPhieuNhap`) REFERENCES `ChiTietPhieuNhap` (`phieuNhap`);
 
-INSERT INTO `albums` (`albumID`, `description`, `price`, `name`, `imageLink`) VALUES
-(1, 'MV “Hãy trao cho anh” của Sơn Tùng M-TP đã phá vỡ mọi kỷ lục trên bảng xếp hạng Youtube tại Việt Nam cũng như châu lục và toàn thế giới. “Hãy trao cho anh” đã tự thiết lập nên những kỷ lục lịch sử của làng nhạc Việt: đạt 1 triệu views chỉ trong 8 phút, 2 triệu views trong 14 phút, 5 triệu views trong 1 giờ, 10 triệu views trong 3 giờ và tính đến thời điểm hiện tại, MV “Hãy trao cho anh” đã cán mốc 12 triệu lượt xem trong vòng chưa đến 18 giờ. MV được xem nhiều nhất thế giới trong ngày 1/7, đồng thời đứng thứ 14 trên top trending YouTube toàn cầu. Tính riêng ở khu vực châu lục, Sơn Tùng nghiễm nhiên sở hữu MV được xem nhiều nhất Châu Á trong ngày 1/7.', 125, 'Hãy trao cho anh', '1_HayTraoChoAnh.jpg'),
-(2, 'Bao Bui Bao Bui Bao Bui Bao Bui Bao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao BuiBao Bui Bao Bui Bao Bui Bao Bui', 250, 'Lavied', '2_Lavied.jpg');
+ALTER TABLE `Album` ADD FOREIGN KEY (`maAlbum`) REFERENCES `ChiTietHoaDon` (`album`);
 
--- --------------------------------------------------------
+ALTER TABLE `HoaDon` ADD FOREIGN KEY (`maHoaDon`) REFERENCES `ChiTietHoaDon` (`hoaDon`);
 
---
--- Table structure for table `songs`
---
+ALTER TABLE `TaiKhoan` ADD FOREIGN KEY (`Quyen`) REFERENCES `VaiTro` (`maVaiTro`);
 
-CREATE TABLE `songs` (
-  `songID` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `songLink` varchar(100) NOT NULL,
-  `albumID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `User` ADD FOREIGN KEY (`taikhoan`) REFERENCES `TaiKhoan` (`maTaiKhoan`);
 
---
--- Dumping data for table `songs`
---
+ALTER TABLE `KhuyenMai` ADD FOREIGN KEY (`maKhuyenMai`) REFERENCES `HoaDon` (`khuyenMai`);
 
-INSERT INTO `songs` (`songID`, `name`, `songLink`, `albumID`) VALUES
-(1, 'Anh đã quen với cô đơn', '1_AnhDaQuenVoiCoDon.mp3', 2),
-(2, 'Bình Yên Những Phút Giây', '2_BinhYenNhungPhutGiay.mp3', 1),
-(3, 'Chắc ai đó sẽ về', '3_ChacAiDoSeVe.mp3', 1),
-(4, 'Chúng ta không thuộc về nhau', '4_ChungTaKhongThuocVeNhau.mp3', 1),
-(5, 'Hãy trao cho anh', '5_HayTraoChoAnh.mp3', 1),
-(6, 'Cưới thôi', '6_CuoiThoi.mp3', 2),
-(7, 'Tình yêu chậm trễ', '7_TinhYeuChamTre.mp3', 2);
+ALTER TABLE `NhaCungCap` ADD FOREIGN KEY (`maNCC`) REFERENCES `ChiTietPhieuNhap` (`NCC`);
 
---
--- Indexes for dumped tables
---
+CREATE TABLE `VaiTro_Quyen` (
+  `VaiTro_maVaiTro` int,
+  `Quyen_maCTQ` int,
+  PRIMARY KEY (`VaiTro_maVaiTro`, `Quyen_maCTQ`)
+);
 
---
--- Indexes for table `albums`
---
-ALTER TABLE `albums`
-  ADD PRIMARY KEY (`albumID`);
+ALTER TABLE `VaiTro_Quyen` ADD FOREIGN KEY (`VaiTro_maVaiTro`) REFERENCES `VaiTro` (`maVaiTro`);
 
---
--- Indexes for table `songs`
---
-ALTER TABLE `songs`
-  ADD PRIMARY KEY (`songID`);
+ALTER TABLE `VaiTro_Quyen` ADD FOREIGN KEY (`Quyen_maCTQ`) REFERENCES `Quyen` (`maCTQ`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `albums`
---
-ALTER TABLE `albums`
-  MODIFY `albumID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `songs`
---
-ALTER TABLE `songs`
-  MODIFY `songID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
