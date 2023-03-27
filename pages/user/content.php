@@ -4,7 +4,7 @@ if (isset($_POST["page"])) {
     case "home":
       // include("../admin/accountManager.php");
       // include("../home.php");
-      include("../admin/distributor.php");
+      include("../admin/productManager.php");
       break;
     case "favorites":
       // include("favorites.php");
@@ -14,7 +14,7 @@ if (isset($_POST["page"])) {
       include("myCart.php");
       break;
     case "myAccount":
-      include("../admin/productManager.php");
+      include("../admin/distributor.php");
       break;
     // case"myAccount":
     //   include("myAccount.php");

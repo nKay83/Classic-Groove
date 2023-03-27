@@ -1,264 +1,388 @@
-#productManager{
-    font-family: "Dosis", sans-serif;
-    margin: 0px 40px 0px 40px;
-}
-#productManager .title{
-    margin-top: 1rem;
-    color: var(--whi)
-}
-#productManager .button{
-    width: 15%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#productManager button:hover{
-    cursor: pointer;
-}
-#productManager .button button{
-    font-family: "Dosis", sans-serif;
-    border-radius: 15px;    
-    height: 2.5vw;
-    width: 5vw;
-    border: none;
-    font-size: 1vw;
-    font-weight: 1000;
-}
-#productManager .button .left{
-    background-color: var(--ora);
-    color: var(--whi);
-}
-#productManager .button .right{
-    background-color: var(--whi);
-    color:var(--ora);
-}
-#productManager .container{
-    margin-top: 60px;
-}
-#productManager .row {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px 0;
-}
-#productManager .general {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2.5vw;
-    font-size: 1.5vw;
-    color: var(--bla);
-    border-radius: 20px;
-    background-color: var(--gr2);
-    padding: 0 20px;
-    cursor: pointer;
-    font-weight: 1000;
-  }
-  
-#productManager .general div,
-#productManager .general i {
-    color: var(--gr1);
-}
-#productManager .row:nth-of-type(1) .general span {
-    position: relative;
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(1):before {
-    position: absolute;
-    content: "No.";
-    top: -2.8vw;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(2):before {
-    position: absolute;
-    content: "Album id";
-    top: -2.8vw;
-    left: -30px;
-    right: -30px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(3):before {
-    position: absolute;
-    content: "Album name";
-        top: -2.8vw;;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(4):before {
-    position: absolute;
-    content: "Artist";
-        top: -2.8vw;;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(5):before {
-    position: absolute;
-    content: "Kind";
-        top: -2.8vw;;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(6):before {
-    position: absolute;
-    content: "Add date";
-        top: -2.8vw;;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(7):before {
-    position: absolute;
-    content: "Quantity";
-        top: -2.8vw;;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(8):before {
-    position: absolute;
-    content: "Price";
-        top: -2.8vw;;
-    left: 0px;
-    right: 0px;
-    text-align: center;
-    color: var(--whi);
-}
-#productManager .row:nth-of-type(1) .general span:nth-of-type(9):before {
-    position: absolute;
-    content: "Status";
-        top: -2.8vw;;
-    color: var(--whi);
-}
-#productManager .song-list {
-    background-color: var(--whi);
-    border-radius: 0 0 20px 20px;
-    display: inline-block;
-    justify-content: center;
-    height: 100%;
-    padding: 0px 20px 0px 20px;
-    flex-direction: column;
-    position: relative;
-    font-weight: 1000;
-    overflow:hidden ;
-}
-.clearfix {
-    clear: both;
+:root {
+    --ora: #f2623e;
+    --whi: #ffffff;
+    --bla: #000000;
+    --lig: #1d1d20;
+    --gr1: #a1a0a0;
+    --gr2: #e9e9e9;
 }
 
-#productManager .song-list {
-    width: 96%;
-    display: flex;
+#productManager {
+    font-family: "Dosis", sans-serif;
+    height: 91vh;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+    /* position: relative; */
 }
-#productManager .song-list .left{
-    width: 56.5%;
-    float: left;
-    height: 80%;
-    margin-right: 20px;
+
+#productManager .button-placeholder {
+    width: 40%;
+    height: 4vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    font-size: calc(5px + 1vw);
+}
+
+#productManager .edit-button,
+#productManager .save-button,
+#productManager .delete-button,
+#productManager .save-button {
+    flex-direction: row;
+    display: flex;
+    height: 2.5vw;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--ora);
+    border-radius: 30px;
+    padding: 5%;
+    cursor: pointer;
+}
+
+#productManager .delete-button {
+    background-color: var(--whi);
+    color: var(--bla);
+}
+
+#productManager .title-list {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+}
+
+#productManager .title-list .title-placeholder {
+    width: 97%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.2fr 0.3fr 0.5fr 0.5fr 0.3fr 0.3fr 0.2fr 0.3fr 0.2fr;
+    justify-content: center;
+    margin: auto;
+    font-size: calc(5px + 1vw);
+}
+
+#productManager .title-list .title-placeholder .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    height: 70%;
+    width: 100%;
+    margin: auto;
+}
+
+#productManager .list {
+    width: 100%;
+    max-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+    background-color: var(--whi);
+    height: 75vh;
+    border-radius: 30px 30px 0 0;
+    overflow-y: scroll;
+}
+
+#productManager .placeholder {
+    width: 98%;
+    /* height: 75px; */
+    margin: 0 1%;
+    color: var(--bla);
+    position: relative;
+    padding: 13px 0;
+    border-bottom: 4px solid var(--ora);
+}
+
+#productManager .placeholder .info {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.2fr 0.3fr 0.5fr 0.5fr 0.3fr 0.3fr 0.2fr 0.3fr 0.2fr;
+    justify-content: center;
+}
+
+#productManager .placeholder .info .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border-right: var(--ora) solid 4px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
     overflow: hidden;
 }
-#productManager .list-container{
-    background-color: var(--whi);
-    display: flex;
-    height: 20vw;
-    width: 100%;
-    border-radius: 50px;
-    position: relative;
-    align-items: center;
 
-}
-#productManager .left hr{
-    height: 2.5px;
-    background-color: var(--ora);
+#productManager .placeholder .info .item:nth-of-type(9) {
     border: none;
 }
-#productManager .song-list .song-detail{
+
+::-webkit-scrollbar {
+    background-color: var(--whi);
+    width: 5px;
+    border: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--ora);
+
+}
+
+#productManager .modal-placeholder {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: opacity(50%);
+    height: 94vh;
+    width: 87vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#productManager .modal-box {
+    background-color: var(--whi);
+    border-radius: 30px;
+    width: 75%;
+    height: 70vh;
+    margin: 13vh auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    color: var(--ora);
+}
+
+
+#productManager .modal-box .modal-header {
+    text-align: center;
     display: flex;
-    justify-content: space-between;
-    height: 2.5vw;
-    font-size: 1.5vw;
-    color: var(--bla);
-}
-#productManager .left .margin{
-    margin-top:50px;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(2px + 1vw);
+    grid-column: 1 / span 2;
 }
 
-#productManager .left:nth-of-type(1) span{
-    position: relative;
+#productManager .modal-box .modal-left {
+    width: 100%;
+    border-right: #f2623e solid 3px;
 }
-
-#productManager .left span:nth-of-type(1):before {
-    position: absolute;
-    content: "No.";
-    top: -40px;
-    color: var(--bla);
+#productManager .modal-box .modal-right {
+    width: 100%;
 }
-#productManager .left span:nth-of-type(2):before {
-    position: absolute;
-    content: "Song id";
-    top: -40px;
-    left:-30px;
-    right:-30px;
-    text-align: center;
-    color: var(--bla);
+#productManager .modal-box .modal-right .title-list {
+    width: 100%;
+    height: 3vh;
+    font-size: calc(3px + 1vw);
 }
-#productManager .left span:nth-of-type(3):before {
-    position: absolute;
-    content: "Song name";
-    top: -40px;
-    left: -30px;
-    right: -30px;
-    text-align: center;
-    color: var(--bla);
-}
-#productManager .left span:nth-of-type(4):before {
-    position: absolute;
-    content: "Song file";
-    top: -40px;
-
-    color: var(--bla);
-}
-#productManager .song-list .right{
-    border-left: 2.5px solid var(--ora);
-    padding-left: 10px;
+#productManager .modal-box .modal-right .title-list .title-placeholder{
+    width: 97%;
     height: 100%;
-    display: flex;
-    width: 40.5%;
-    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 4fr 2fr 1fr;
+    justify-content: center;
+    margin: auto;
 }
-#productManager .right .describe,#productManager .right .image{
+#productManager .modal-box .modal-right .list {
+    width: 100%;
+    max-height: 49vh;
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
     align-items: center;
-    width: 50%;
+    font-size: calc(3px + 1vw);
+    background-color: var(--whi);
+    height: auto;
+    border-radius: 30px 30px 0 0;
+    overflow-y: scroll;
 }
-#productManager .right label{
-    font-size: 1.5vw;
+#productManager .modal-box .modal-right .list .placeholder {
+    width: 98%;
+    height: 60px;
+    margin: 0 1%;
+    color: var(--bla);
+    position: relative;
+    padding: 13px 0;
+    border-bottom: 4px solid var(--ora);
 }
-#productManager .right textarea,#productManager .right img{
-    padding: 1em;
-    border-radius: 20px;
-    border: 2px solid var(--ora);
-    outline: none;
+#productManager .modal-box .modal-right .list .add-button {
+    cursor: pointer;
+    height: 3.5vw;
+    padding-top: 1vw;
+    color: #f2623e;
+
+}
+#productManager .modal-right .list .placeholder .info {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 4fr 2fr 1fr;
+    justify-content: center;
+}
+#productManager .modal-right .list .placeholder .info .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border-right: var(--gr1) solid 4px;
+    color: var(--gr1);
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+#productManager .modal-right .list .placeholder .info .item:nth-of-type(5) {
+    border: none;
+}
+
+
+#productManager .modal-box .modal-left .modal-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 3fr;
+    height: 100%;
+}
+#productManager .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n){
+    margin: 0 ;
+}
+#productManager .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n) .item-input{
+    width: 115%;
+}
+
+#productManager .modal-box .modal-left .modal-info .modal-item:last-child .item-header,
+#productManager .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-header {
+    height: 35%;
+}
+#productManager .modal-box .modal-left .modal-info .modal-item:last-child .item-input,
+#productManager .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-input {
+    height: 150%;
+    margin-top: -60px;
+}
+
+
+#productManager .modal-box .modal-info .modal-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    width: 80%;
+    margin: 0 10%;
+    font-size: calc(5px + 1vw)
+}
+
+#productManager .modal-box .modal-info .modal-item .item-header {
+    padding: 0 5%;
+    width: 90%;
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 0;
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input input {
+    width: 100%;
+    height: 90%;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--gr2);
+    color: var(--bla);
+    padding: 0 5%;
+    font-weight: 600;
     font-family: "Dosis", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    width: 12vw;
-    height: 15vw;
-    transition: all 0.2s;
-    resize: none;
+    font-size: calc(4px + 1vw);
+    cursor: pointer;
 }
-  
-#productManager .right textarea:focus {
-    cursor: text;
-    border-color: #2267cf;
-  }
-  
+#productManager .modal-box .modal-info .modal-item .item-input textarea {
+    width: 100%;
+    height: 90%;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--gr2);
+    color: var(--bla);
+    padding: 0 5%;
+    font-weight: 600;
+    font-family: "Dosis", sans-serif;
+    font-size: calc(4px + 1vw);
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
+    color: var(--gr1);
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input input:focus {
+    outline-color: var(--ora);
+    outline-width: 2px;
+
+
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input select {
+    width: 100%;
+    height: 90%;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--gr2);
+    color: var(--bla);
+    padding: 0 5%;
+    font-weight: 600;
+    font-family: "Dosis", sans-serif;
+    font-size: calc(4px + 1vw);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+}
+
+#productManager .modal-box .modal-info .modal-item .item-input select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ora);
+}
+
+#productManager .modal-box .modal-button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column: 1 / span 2;
+}
+
+#productManager .modal-box .button-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 70%;
+    color: var(--whi);
+    margin: 0px 0px 0px 30%;
+    column-gap: 0%;
+}
+
+#productManager .modal-box .edit-button,
+#productManager .modal-box .back-button {
+    flex-direction: row;
+    display: flex;
+    height: 2.5vw;
+    width: 70%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--ora);
+    border-radius: 30px;
+    padding: 5%;
+    cursor: pointer;
+    font-size: calc(5px + 1vw);
+}
+
+#productManager .modal-box .back-button {
+    background-color: var(--bla);
+    color: var(--whi);
+}
