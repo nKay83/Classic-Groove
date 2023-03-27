@@ -25,9 +25,64 @@ const loadProductDetailsByAjax = (albumID) => {
   });
 };
 let selectMenu = (selectedTab) => {
-  let tabActive = document.querySelector("#header .tab-title.active")
-  if (tabActive != null)
-    tabActive.classList.remove("active");
+  let tabActive = document.querySelector("#header .tab-title.active");
+  if (tabActive != null) tabActive.classList.remove("active");
   selectedTab.classList.add("active");
 };
- 
+
+const loadLoginByAjax = (pageTarget) => {
+  const login = document.querySelector("#login");
+  if (login == null) {
+    $.ajax({
+      url: "pages/user/content.php",
+      type: "POST",
+      data: { page: "login" },
+      dataType: "html",
+      success: function (data) {
+        document.querySelector("#content").innerHTML = data;
+        if (pageTarget == "signUp") {
+          document.querySelector("#content").innerHTML = data;
+          const poster = document.querySelector("#login .poster");
+          poster.style.transform = "translateX(-100%)";
+          poster.style.backgroundPosition = "left";
+          const left = document.querySelector("#login .left");
+          left.style.transform = "translateX(50%)";
+          left.style.zIndex = "1";
+          left.style.opacity = "0";
+          const right = document.querySelector("#login .right");
+          right.style.transform = "translateX(100%)";
+          right.style.opacity = "1";
+          right.style.zIndex = "2";
+        }
+      },
+    });
+  }
+  else{
+    if (pageTarget == "signUp") {
+      const poster = document.querySelector("#login .poster");
+      poster.style.transform = "translateX(-100%)";
+      poster.style.backgroundPosition = "left";
+      const left = document.querySelector("#login .left");
+      left.style.transform = "translateX(50%)";
+      left.style.zIndex = "1";
+      left.style.opacity = "0";
+      const right = document.querySelector("#login .right");
+      right.style.transform = "translateX(100%)";
+      right.style.opacity = "1";
+      right.style.zIndex = "2";
+    }
+    else{
+      const poster = document.querySelector("#login .poster");
+      poster.style.transform = "translateX(0)";
+      poster.style.backgroundPosition = "right";
+      const left = document.querySelector("#login .left");
+      left.style.transform = "translateX(0)";
+      left.style.zIndex = "2";
+      left.style.opacity = "1";
+      const right = document.querySelector("#login .right");
+      right.style.transform = "translateX(50%)";
+      right.style.zIndex = "1";
+      right.style.opacity = "0";
+    }
+  }
+};
