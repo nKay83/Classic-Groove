@@ -1,5 +1,5 @@
-<div id="accountManager">
-    <h1>Profile management</h1>
+<div id="distributor">
+    <h1>Distributor management</h1>
     <div class="button-placeholder">
         <div class="edit-button">
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
@@ -20,11 +20,12 @@
     </div>
     <div class="title-list">
         <div class="title-placeholder">
-            <div class="title" style="padding-right: 10px;">No.</div>
-            <div class="title">Profile ID</div>
-            <div class="title">Profile name</div>
+            <div class="title">No.</div>
+            <div class="title">Distributor ID</div>
+            <div class="title">Distributor name</div>
             <div class="title">Phone number</div>
-            <div class="title">Role</div>
+            <div class="title">Email</div>
+            <div class="title">Address</div>
             <div class="title">Status</div>
         </div>
     </div>
@@ -32,17 +33,18 @@
         <div class="placeholder">
             <div class="info">
                 <div class="item">01</div>
-                <div class="item">CUS001</div>
-                <div class="item">Bùi Hồng Bảo</div>
+                <div class="item">BITI</div>
+                <div class="item">Bitis</div>
                 <div class="item">0900000000</div>
-                <div class="item">CUS</div>
+                <div class="item">bibibi@gmail.com</div>
+                <div class="item">Ho Chi Minh City</div>
                 <div class="item">Available</div>
-                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+                <!-- <div class="item"><i class="fa-regular fa-circle-info"></i> </div> -->
             </div>
         </div>
 
     </div>
-    <div class="modal-placeholder">
+    <!-- <div class="modal-placeholder">
         <div class="modal-box">
             <div class="modal-header">
                 <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Profile details</h1>
@@ -100,5 +102,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

@@ -3,10 +3,12 @@ if (isset($_POST["page"])) {
   switch ($_POST["page"]) {
     case "home":
       // include("../admin/accountManager.php");
-      include("../admin/accountManager.php");
+      // include("../home.php");
+      include("../admin/distributor.php");
       break;
     case "favorites":
-      include("favorites.php");
+      // include("favorites.php");
+      include("../admin/accountManager.php");
       break;
     case "myCart":
       include("myCart.php");

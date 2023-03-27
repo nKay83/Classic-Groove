@@ -7,7 +7,7 @@
     --gr2: #e9e9e9;
 }
 
-#accountManager {
+#distributor {
     font-family: "Dosis", sans-serif;
     height: 91vh;
     width: 95%;
@@ -16,7 +16,7 @@
     /* position: relative; */
 }
 
-#accountManager .button-placeholder {
+#distributor .button-placeholder {
     width: 40%;
     height: 4vw;
     display: grid;
@@ -25,10 +25,10 @@
     font-size: calc(5px + 1vw);
 }
 
-#accountManager .edit-button,
-#accountManager .save-button,
-#accountManager .delete-button,
-#accountManager .save-button{
+#distributor .edit-button,
+#distributor .save-button,
+#distributor .delete-button,
+#distributor .save-button{
     flex-direction: row;
     display: flex;
     height: 2.5vw;
@@ -42,12 +42,12 @@
     cursor: pointer;
 }
 
-#accountManager .delete-button {
+#distributor .delete-button {
     background-color: var(--whi);
     color: var(--bla);
 }
 
-#accountManager .title-list {
+#distributor .title-list {
     width: 100%;
     height: 5vh;
     display: flex;
@@ -56,18 +56,18 @@
     font-size: calc(5px + 1vw);
 }
 
-#accountManager .title-list .title-placeholder {
+#distributor .title-list .title-placeholder {
     width: 97%;
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
+    grid-template-columns: 0.2fr 0.3fr 0.4fr 0.4fr 0.6fr 0.6fr 0.2fr;
     justify-content: center;
     margin: auto;
     font-size: calc(5px + 1vw);
 }
 
-#accountManager .title-list .title-placeholder .title {
+#distributor .title-list .title-placeholder .title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,7 @@
     margin: auto;
 }
 
-#accountManager .list {
+#distributor .list {
     width: 100%;
     max-height: 75vh;
     display: flex;
@@ -90,7 +90,7 @@
     overflow-y: scroll;
 }
 
-#accountManager .placeholder {
+#distributor .placeholder {
     width: 98%;
     /* height: 75px; */
     margin: 0 1%;
@@ -100,18 +100,17 @@
     border-bottom: 4px solid var(--ora);
 }
 
-#accountManager .placeholder .info {
+#distributor .placeholder .info {
     display: grid;
     margin: auto;
     width: 100%;
     height: 100%;
-    ;
     grid-template-rows: 1fr;
-    grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
+    grid-template-columns:0.2fr 0.3fr 0.4fr 0.4fr 0.6fr 0.6fr 0.2fr;
     justify-content: center;
 }
 
-#accountManager .placeholder .info .item {
+#distributor .placeholder .info .item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,9 +119,10 @@
     height: 70%;
     width: 100%;
     margin: auto;
+    box-sizing: content-box;
 }
 
-#accountManager .placeholder .info .item:nth-of-type(7) {
+#distributor .placeholder .info .item:nth-of-type(7) {
     border: none;
 }
 
@@ -137,7 +137,7 @@
 
 }
 
-#accountManager .modal-placeholder {
+#distributor .modal-placeholder {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: opacity(50%);
     height: 94vh;
@@ -147,7 +147,7 @@
     right: 0;
 }
 
-#accountManager .modal-box {
+#distributor .modal-box {
     background-color: var(--whi);
     border-radius: 30px;
     width: 50%;
@@ -159,7 +159,7 @@
     color: var(--ora);
 }
 
-#accountManager .modal-box .modal-header {
+#distributor .modal-box .modal-header {
     text-align: center;
     display: flex;
     align-items: center;
@@ -167,13 +167,13 @@
     font-size: calc(2px + 1vw);
 }
 
-#accountManager .modal-box .modal-info {
+#distributor .modal-box .modal-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
-#accountManager .modal-box .modal-info .modal-item {
+#distributor .modal-box .modal-info .modal-item {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr;
@@ -182,19 +182,19 @@
     font-size: calc(5px + 1vw)
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-header {
+#distributor .modal-box .modal-info .modal-item .item-header {
     padding: 0 5%;
     width: 90%;
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input {
+#distributor .modal-box .modal-info .modal-item .item-input {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1% 0;
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input input {
+#distributor .modal-box .modal-info .modal-item .item-input input {
     width: 100%;
     height: 90%;
     border-radius: 30px;
@@ -208,18 +208,18 @@
     cursor: pointer;
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
+#distributor .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
     color: var(--gr1);
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input input:focus {
+#distributor .modal-box .modal-info .modal-item .item-input input:focus {
     outline-color: var(--ora);
     outline-width: 2px;
 
 
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input select {
+#distributor .modal-box .modal-info .modal-item .item-input select {
     width: 100%;
     height: 90%;
     border-radius: 30px;
@@ -237,18 +237,18 @@
 
 }
 
-#accountManager .modal-box .modal-info .modal-item .item-input select:focus {
+#distributor .modal-box .modal-info .modal-item .item-input select:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--ora);
 }
 
-#accountManager .modal-box .modal-button {
+#distributor .modal-box .modal-button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-#accountManager .modal-box .button-layout {
+#distributor .modal-box .button-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
@@ -258,8 +258,8 @@
     column-gap: 10%;
 }
 
-#accountManager .modal-box .edit-button,
-#accountManager .modal-box .back-button {
+#distributor .modal-box .edit-button,
+#distributor .modal-box .back-button {
     flex-direction: row;
     display: flex;
     height: 2.5vw;
@@ -274,7 +274,7 @@
     font-size: calc(5px + 1vw);
 }
 
-#accountManager .modal-box .back-button {
+#distributor .modal-box .back-button {
     background-color: var(--bla);
     color: var(--whi);
 }

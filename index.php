@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="style/admin/accountManager.css">
   <link rel="stylesheet" href="style/admin/changeProduct.css">
   <link rel="stylesheet" href="style/admin/structureManager.css">
-
+  <link rel="stylesheet" href="style/admin/distributor.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
