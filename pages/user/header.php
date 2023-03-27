@@ -65,10 +65,10 @@
   <div class="bottom">
     <div class="button-placeholder">
       <div class="left-button-login">
-        <input type="button" value="Log in" onclick="loadPageByAjax('login')">
+        <input type="button" value="Log in" onclick="loadLoginByAjax('logIn')">
       </div>
       <div class="right-button-register">
-        <input type="button" value="Sign up" onclick="signUp()">
+        <input type="button" value="Sign up" onclick="loadLoginByAjax('signUp')">
       </div>
     </div>
     <div class="footer-placeholder" onclick="loadPageByAjax('footer'),selectMenu(this)">
