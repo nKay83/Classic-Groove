@@ -30,14 +30,6 @@ CREATE TABLE HoaDon (
   khuyenMai int
 );
 
-CREATE TABLE TaiKhoan (
-  maTaiKhoan int PRIMARY KEY,
-  vaiTro int,
-  MatKhau nvarchar(100),
-  nguoiDungname nvarchar(1000),
-  TrangThai nvarchar(20)
-);
-
 CREATE TABLE Quyen (
   maCTQ int PRIMARY KEY,
   NoiDungQuyen nvarchar(100)
@@ -49,13 +41,13 @@ CREATE TABLE VaiTro (
 );
 
 CREATE TABLE nguoiDung (
-  manguoiDung int PRIMARY KEY,
-  taikhoan int,
-  tenKH nvarchar(100),
+  maNguoiDung int PRIMARY KEY,
+  hoTen nvarchar(100),
   SDT nvarchar(12),
   diaChi nvarchar(100),
   email nvarchar(100),
-  TrangThai nvarchar(20)
+  TrangThai nvarchar(20),
+  vaiTro int
 );
 
 CREATE TABLE PhieuNhap (
@@ -116,15 +108,22 @@ CREATE TABLE VaiTro_Quyen (
   PRIMARY KEY (VaiTro_maVaiTro, Quyen_maCTQ)
 );
 
+CREATE TABLE GioHang (
+  maKhachHang int,
+  maAlbum int,
+  soLuong int,
+  PRIMARY KEY (maKhachHang, maAlbum)
+);
+
 ALTER TABLE Album ADD FOREIGN KEY (theLoai) REFERENCES TheLoai (maLoai);
 
-ALTER TABLE HoaDon ADD FOREIGN KEY (khachHang) REFERENCES nguoiDung (manguoiDung);
+ALTER TABLE HoaDon ADD FOREIGN KEY (khachHang) REFERENCES nguoiDung (maNguoiDung);
 
-ALTER TABLE PhieuNhap ADD FOREIGN KEY (nguoiNhap) REFERENCES nguoiDung (manguoiDung);
+ALTER TABLE PhieuNhap ADD FOREIGN KEY (nguoiNhap) REFERENCES nguoiDung (maNguoiDung);
 
 ALTER TABLE YeuThich ADD FOREIGN KEY (album) REFERENCES Album (maAlbum);
 
-ALTER TABLE YeuThich ADD FOREIGN KEY (nguoiDung) REFERENCES nguoiDung (manguoiDung);
+ALTER TABLE YeuThich ADD FOREIGN KEY (nguoiDung) REFERENCES nguoiDung (maNguoiDung);
 
 ALTER TABLE ChiTietPhieuNhap ADD FOREIGN KEY (album) REFERENCES Album (maAlbum);
 
@@ -134,11 +133,9 @@ ALTER TABLE ChiTietHoaDon ADD FOREIGN KEY (album) REFERENCES Album (maAlbum);
 
 ALTER TABLE ChiTietHoaDon ADD FOREIGN KEY (hoaDon) REFERENCES HoaDon (maHoaDon);
 
-ALTER TABLE TaiKhoan ADD FOREIGN KEY (vaiTro) REFERENCES VaiTro (maVaiTro);
+ALTER TABLE nguoiDung ADD FOREIGN KEY (vaiTro) REFERENCES VaiTro (maVaiTro);
 
-ALTER TABLE nguoiDung ADD FOREIGN KEY (taikhoan) REFERENCES TaiKhoan (maTaiKhoan);
-
-ALTER TABLE HoaDon ADD FOREIGN KEY (KhuyenMai) REFERENCES KhuyenMai (makhuyenMai);
+ALTER TABLE HoaDon ADD FOREIGN KEY (khuyenMai) REFERENCES KhuyenMai (maKhuyenMai);
 
 ALTER TABLE ChiTietPhieuNhap ADD FOREIGN KEY (NCC) REFERENCES NhaCungCap (maNCC);
 
@@ -149,3 +146,7 @@ ALTER TABLE BaiHat_Album ADD FOREIGN KEY (Album_maAlbum) REFERENCES Album (maAlb
 ALTER TABLE VaiTro_Quyen ADD FOREIGN KEY (VaiTro_maVaiTro) REFERENCES VaiTro (maVaiTro);
 
 ALTER TABLE VaiTro_Quyen ADD FOREIGN KEY (Quyen_maCTQ) REFERENCES Quyen (maCTQ);
+
+ALTER TABLE GioHang ADD FOREIGN KEY (maAlbum) REFERENCES Album (maAlbum);
+
+ALTER TABLE GioHang ADD FOREIGN KEY (maKhachHang) REFERENCES nguoiDung (maNguoiDung);

@@ -35,8 +35,17 @@ main {
   min-height: 100vh;
 }
 
-
+#search {
+  height: 6vh;
+  width: 87%;
+  position: fixed;
+  padding: 0;
+  top: 0;
+  right: 0;
+  z-index: 1000000;
+}
 #content {
+  padding-top: 6vh;
   color: var(--whi);
   font-family: "Dosis", sans-serif;
 }

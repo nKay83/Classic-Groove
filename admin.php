@@ -18,6 +18,7 @@
   <!-- Admin page -->
   <link rel="stylesheet" href="views/style/admin/accountManager.css">
   <link rel="stylesheet" href="views/style/admin/changeProduct.css">
+  <link rel="stylesheet" href="views/style/admin/search.css">
   <link rel="stylesheet" href="views/style/admin/structureManager.css">
   <link rel="stylesheet" href="views/style/admin/distributor.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
@@ -34,6 +35,9 @@
       <?php include 'views/pages/admin/header.php' ?>
     </header>
     <main>
+    <div id="search">
+        <?php include 'views/pages/user/search.php' ?>
+      </div>
       <div id="content">
           abcd
       </div>
