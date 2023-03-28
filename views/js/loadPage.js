@@ -4,7 +4,7 @@ $(document).ready(() => {
 
 const loadPageByAjax = (pageTarget) => {
   $.ajax({
-    url: "pages/user/content.php",
+    url: "views/pages/user/content.php",
     type: "POST",
     data: { page: pageTarget },
     dataType: "html",
@@ -15,7 +15,7 @@ const loadPageByAjax = (pageTarget) => {
 };
 const loadProductDetailsByAjax = (albumID) => {
   $.ajax({
-    url: "pages/user/productDetails.php",
+    url: "views/pages/user/productDetails.php",
     type: "POST",
     data: { albumID: albumID },
     dataType: "html",
@@ -34,7 +34,7 @@ const loadLoginByAjax = (pageTarget) => {
   const login = document.querySelector("#login");
   if (login == null) {
     $.ajax({
-      url: "pages/user/content.php",
+      url: "views/pages/user/content.php",
       type: "POST",
       data: { page: "login" },
       dataType: "html",

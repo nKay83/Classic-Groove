@@ -16,7 +16,7 @@ let curr_track = document.createElement("audio");
 let track_list;
 async function playTrackList(albumID) {
   await $.ajax({
-    url: "js/songs.php",
+    url: "views/js/songs.php",
     type: "post",
     dataType: "json",
     data: { albumID: albumID },
