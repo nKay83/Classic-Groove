@@ -2,7 +2,7 @@
     <div class="left-placeholder">
         <div class="product-placeholder">
             <div class="product-img-placeholder">
-                <img src="assets/img/product.png" alt="">
+                <img src="views/assets/img/product.png" alt="">
             </div>
             <div class="product-info-placeholder">
                 <div class="album-name">GRRR Live! (Exclusive Red Limited Edition)</div>
