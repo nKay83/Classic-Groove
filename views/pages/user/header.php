@@ -1,7 +1,7 @@
 <div class="background">
   <div class="top">
     <div class="logo-placeholder">
-      <img src="assets/img/Logo.png" alt="logo">
+      <img src="views/assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
       <div class="tab-title active" onclick="loadPageByAjax('home'),selectMenu(this)">
