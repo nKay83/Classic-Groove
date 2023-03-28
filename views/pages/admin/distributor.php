@@ -1,16 +1,16 @@
-<div id="distributor">
-    <h1>Distributor management</h1>
+<div id="producer">
+    <h1>Producer management</h1>
     <div class="button-placeholder">
         <div class="edit-button">
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
             <div class="info-placeholder">Edit</div>
         </div>
         <div class="save-button">
-            <div class="icon-placeholder"><i class="fa-solid fa-plus"></i></div>
+            <div class="icon-placeholder"><i class="fa-solid fa-handshake"></i></div>
             <div class="info-placeholder">New</div>
         </div>
         <div class="save-button">
-            <div class="icon-placeholder"><i class="fa-duotone fa-check"></i></div>
+            <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
             <div class="info-placeholder">Save</div>
         </div>
         <div class="delete-button">
@@ -21,8 +21,8 @@
     <div class="title-list">
         <div class="title-placeholder">
             <div class="title">No.</div>
-            <div class="title">Distributor ID</div>
-            <div class="title">Distributor name</div>
+            <div class="title">Producer ID</div>
+            <div class="title">Producer name</div>
             <div class="title">Phone number</div>
             <div class="title">Email</div>
             <div class="title">Address</div>
@@ -39,53 +39,35 @@
                 <div class="item">bibibi@gmail.com</div>
                 <div class="item">Ho Chi Minh City</div>
                 <div class="item">Available</div>
-                <!-- <div class="item"><i class="fa-regular fa-circle-info"></i> </div> -->
             </div>
         </div>
 
     </div>
-    <!-- <div class="modal-placeholder">
+    <div class="modal-placeholder">
         <div class="modal-box">
             <div class="modal-header">
-                <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Profile details</h1>
+                <h1><i class="fa-regular fa-pen-to-square"></i> Edit producer</h1>
             </div>
             <div class="modal-info">
                 <div class="modal-item">
-                    <div class="item-header">Profile id</div>
+                    <div class="item-header">Producer id</div>
                     <div class="item-input"><input type="text" value="CUS001"></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Profile name</div>
+                    <div class="item-header">Producer name</div>
                     <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Email</div>
-                    <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Phone number</div>
                     <div class="item-input"><input type="text" value="0900000000"></div>
                 </div>
                 <div class="modal-item">
+                    <div class="item-header">Email</div>
+                    <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+                </div>
+                <div class="modal-item">
                     <div class="item-header">Address</div>
                     <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Role</div>
-                    <div class="item-input"><select name="" id="">
-                            <option value="CUS">Customer</option>
-                            <option value="EM">Employee</option>
-                            <option value="AD">Admin</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Account name</div>
-                    <div class="item-input"><input type="text" value="baohongbui313"></div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Password</div>
-                    <div class="item-input"><input type="text" value="baobaobuibui"></div>
                 </div>
             </div>
             <div class="modal-button">
@@ -93,11 +75,53 @@
                 <div class="button-layout">
                     <div class="edit-button">
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                        <div class="info-placeholder">Edit</div>
+                        <div class="info-placeholder">Save</div>
                     </div>
                     <div class="back-button">
-                        <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="info-placeholder">Back</div>
+                        <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="info-placeholder">Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-placeholder">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1><i class="fa-regular fa-handshake"></i> New producer</h1>
+            </div>
+            <div class="modal-info">
+                <div class="modal-item">
+                    <div class="item-header">Producer id</div>
+                    <div class="item-input"><input type="text" value="CUS001"></div>
+                </div>
+                <div class="modal-item">
+                    <div class="item-header">Producer name</div>
+                    <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
+                </div>
+                <div class="modal-item">
+                    <div class="item-header">Phone number</div>
+                    <div class="item-input"><input type="text" value="0900000000"></div>
+                </div>
+                <div class="modal-item">
+                    <div class="item-header">Email</div>
+                    <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+                </div>
+                <div class="modal-item">
+                    <div class="item-header">Address</div>
+                    <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
+                </div>
+            </div>
+            <div class="modal-button">
+                <div class="button-layout"></div>
+                <div class="button-layout">
+                    <div class="edit-button">
+                        <div class="icon-placeholder"><i class="fa-solid fa-handshake"></i></div>
+                        <div class="info-placeholder">Add</div>
+                    </div>
+                    <div class="back-button">
+                        <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="info-placeholder">Cancel</div>
                     </div>
                 </div>
             </div>
