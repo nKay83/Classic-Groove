@@ -19,7 +19,7 @@
                         <label><a href="#" class="color333">Forgot password?</a></label>
                     </div>
                 </div>
-                <div class="submit"><input type="submit" value="Login">
+                <div class="submit"><input type="button" value="Login">
                     <p class="color333">Or connect to your</p>
                     <br>
                     <div class="circle-container">
