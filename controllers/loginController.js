@@ -1,21 +1,24 @@
-const login = async () => {
+const login = () => {
   localStorage.clear();
   if (!checkInputLogin()) return;
   let username = document.querySelector("#username-field").value;
   let password = document.querySelector("#password-field").value;
-  let user = await getUserByUsername(username);
-  if (user == null) alert("Sai tên đăng nhập");
-  else {
-    user = JSON.parse(user);
-    if (user.matKhau != password) {
-      alert("Sai mật khẩu");
-    } else {
-      localStorage.setItem("user", JSON.stringify(user));
-      if (user.vaiTro != 1) window.location.href = "admin.php";
-      else loadPageByAjax("home");
-    }
-  }
+  $.ajax({
+    url: "controllers/user.php",
+    type: "POST",
+    data: { user: username, pass: password, work: "checkLogin" },
+    success: function (res) {
+      if (res == "cus") {
+        window.location.reload();
+      }else if(res == "emp")
+        window.location.href="admin.php";
+      else{
+        alert(res);
+      }
+    },
+  });
 };
+
 const checkInputLogin = () => {
   let username = document.querySelector("#username-field").value;
   if (username == "") {
@@ -30,12 +33,4 @@ const checkInputLogin = () => {
     return false;
   }
   return true;
-};
-
-const getUserByUsername = (username) => {
-  return $.ajax({
-    url: "controllers/user.php",
-    type: "POST",
-    data: { user: username, pass: "password", work: "checkLogin" },
-  });
 };
