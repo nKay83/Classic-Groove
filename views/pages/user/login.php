@@ -1,7 +1,7 @@
 <div id="login">
     <div class="login-form">
         <div class="left">
-            <form method="post" action="login.php" class="container">
+            <form class="container">
                 <p class="header">Login</p>
                 <input type="text" id="username-field" name="username" placeholder="Username" required>
                 <br>
@@ -19,7 +19,7 @@
                         <label><a href="#" class="color333">Forgot password?</a></label>
                     </div>
                 </div>
-                <div class="submit"><input type="button" value="Login">
+                <div class="submit"><input type="button" value="Login" onclick="login()">
                     <p class="color333">Or connect to your</p>
                     <br>
                     <div class="circle-container">
