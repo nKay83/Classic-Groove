@@ -41,7 +41,7 @@
                 <input type="text" name="username" class="text" placeholder="Username" require>
                 <input type="password" name="password" class="text" placeholder="Password" require>
                 <input type="password" name="password" class="text" placeholder="Confirm password" require>
-                <div class="submit"><input type="submit" value="Register">
+                <div class="submit"><input type="button" value="Register">
                     <p class="color333">Or connect to your</p>
                     <br>
                     <div class="circle-container">

@@ -129,8 +129,8 @@
   flex-direction: column;
   margin-top: 10px;
 }
-#login input[type="submit"],
-#login .register input[type="submit"] {
+#login input[type="button"],
+#login .register input[type="button"] {
   font-family: "Dosis", sans-serif;
   border: none;
   cursor: pointer;
@@ -142,8 +142,8 @@
   color: var(--whi);
   background-color: var(--ora);
 }
-#login input[type="submit"]:hover,
-#login .register input[type="submit"]:hover {
+#login input[type="button"]:hover,
+#login .register input[type="button"]:hover {
   box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }
 #login .circle-container,
