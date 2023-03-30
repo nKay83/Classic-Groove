@@ -63,14 +63,26 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="button-placeholder">
-      <div class="left-button-login">
-        <input type="button" value="Log in" onclick="loadLoginByAjax('logIn')">
+    <?php
+    if (!isset($_SESSION['userID'])) {
+      echo '
+      <div class="button-placeholder">
+        <div class="left-button-login">
+          <input type="button" value="Log in" onclick="loadLoginByAjax(\'logIn\')">
+        </div>
+        <div class="right-button-register">
+          <input type="button" value="Sign up" onclick="loadLoginByAjax(\'signUp\')">
+        </div>
+      </div>';
+    } else {
+      echo '
+      <div class="info-placeholder">
+        <h3>Hello ' . $_SESSION['userName'] . '</h3>
+        <input type="button" value="Logout" onclick=\'logout()\' >
       </div>
-      <div class="right-button-register">
-        <input type="button" value="Sign up" onclick="loadLoginByAjax('signUp')">
-      </div>
-    </div>
+      ';
+    }
+    ?>
     <div class="footer-placeholder" onclick="loadPageByAjax('footer'),selectMenu(this)">
       <p>About us</p>
     </div>

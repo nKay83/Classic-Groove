@@ -1,5 +1,4 @@
 <?php
-include("../util/connect.php");
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
@@ -19,7 +18,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
               echo "Sai mật khẩu";
             } else {
               session_start();
-              $_SESSION['user'] = $user['maNguoiDung'];
+              $_SESSION['userID'] = $user['maNguoiDung'];
+              $_SESSION['userName'] = $user['hoTen'];
               if ($user['vaiTro'] == 1) {
                 echo "cus";
               } else {

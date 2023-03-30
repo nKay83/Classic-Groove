@@ -10,9 +10,8 @@ const login = () => {
     success: function (res) {
       if (res == "cus") {
         window.location.reload();
-      }else if(res == "emp")
-        window.location.href="admin.php";
-      else{
+      } else if (res == "emp") window.location.href = "admin.php";
+      else {
         alert(res);
       }
     },
@@ -33,4 +32,13 @@ const checkInputLogin = () => {
     return false;
   }
   return true;
+};
+const logout = () => {
+  $.ajax({
+    url: "util/logout.php",
+    type: "GET",
+    success: function () {
+      window.location.href = "index.php";
+    },
+  });
 };
