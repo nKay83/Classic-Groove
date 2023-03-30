@@ -21,4 +21,8 @@ class DataProvider
     }
     return $result;
   }
+  public static function getUserByUsername($username){
+    $sql = "select * from nguoidung where username='" . $username . "'";
+    return self::excuteQuery($sql);
+  }
 }

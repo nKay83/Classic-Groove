@@ -33,15 +33,12 @@
         <div class="right register">
             <form action="" class="container">
                 <p class="header">Register</p>
-                <div class="name">
-                    <input type="text" name="fName" class="fName" placeholder="First name" require>
-                    <input type="text" name="lName" class="lName" placeholder="Last name" require>
-                </div>
-                <input type="text" name="phonenumber" class="text" placeholder="Phone number" require>
-                <input type="text" name="username" class="text" placeholder="Username" require>
-                <input type="password" name="password" class="text" placeholder="Password" require>
-                <input type="password" name="password" class="text" placeholder="Confirm password" require>
-                <div class="submit"><input type="button" value="Register">
+                <input type="text" name="Name" class="text name" placeholder="Name">
+                <input type="text" name="phonenumber" class="text phonenumber" placeholder="Phone number">
+                <input type="text" name="username" class="text username" placeholder="Username">
+                <input type="password" name="password" class="text password" placeholder="Password">
+                <input type="password" name="password" class="text confirmPassword" placeholder="Confirm password">
+                <div class="submit"><input type="button" value="Register" onclick="register()">
                     <p class="color333">Or connect to your</p>
                     <br>
                     <div class="circle-container">

@@ -1,12 +1,11 @@
 const login = () => {
-  localStorage.clear();
   if (!checkInputLogin()) return;
   let username = document.querySelector("#username-field").value;
   let password = document.querySelector("#password-field").value;
   $.ajax({
     url: "controllers/user.php",
     type: "POST",
-    data: { user: username, pass: password, work: "checkLogin" },
+    data: { user: username, pass: password, action: "checkLogin" },
     success: function (res) {
       if (res == "cus") {
         window.location.reload();
@@ -40,5 +39,86 @@ const logout = () => {
     success: function () {
       window.location.href = "index.php";
     },
+  });
+};
+
+const register = () => {
+  // loadLoginByAjax('logIn');
+  if (!checkInputRegister()) return;
+};
+
+const checkInputRegister = async () => {
+  let name = document.querySelector("#login .register .name");
+  let phone = document.querySelector("#login .register .phonenumber");
+  let username = document.querySelector("#login .register .username");
+  let password = document.querySelector("#login .register .password");
+  let confirmPassword = document.querySelector(
+    "#login .register .confirmPassword"
+  );
+  if (name.value == "") {
+    alert("Chưa nhập name!");
+    name.focus();
+    return false;
+  }
+  if (phone.value == "") {
+    alert("Chưa nhập phone number!");
+    phone.focus();
+    return false;
+  }
+  if (!isVietnamesePhoneNumberValid(phone.value)) {
+    alert("Số điện thoại không hợp lệ!");
+    phone.focus();
+    return false;
+  }
+  if (username.value == "") {
+    alert("Chưa nhập username!");
+    username.focus();
+    return false;
+  }
+  console.log(await isUsernameExist(username.value));
+  if (await isUsernameExist(username.value)) {
+    alert("Username đã tồn tại!");
+    username.focus();
+    return false;
+  }
+  if (password.value == "") {
+    alert("Chưa nhập password!");
+    password.focus();
+    return false;
+  }
+  if (!isPasswordValid(password)) {
+    alert(
+      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+    );
+    password.focus();
+    return false;
+  }
+
+  if (confirmPassword.value == "") {
+    alert("Chưa nhập confirm password!");
+    confirmPassword.focus();
+    return false;
+  }
+  if (confirmPassword.value != password.value) {
+    alert("Mật khẩu không khớp!");
+    confirmPassword.focus();
+    return false;
+  }
+};
+
+function isVietnamesePhoneNumberValid(number) {
+  return /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/.test(number);
+}
+function isPasswordValid(password) {
+  return /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/.test(
+    password
+  );
+}
+
+const isUsernameExist = (username) => {
+  return $.ajax({
+    url: "controllers/user.php",
+    type: "POST",
+    data: { user: username, action: "checkUsernameExist" },
   });
 };

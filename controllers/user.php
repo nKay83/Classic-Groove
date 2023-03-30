@@ -3,12 +3,11 @@ require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
   case 'POST':
-    switch ($_POST['work']) {
+    switch ($_POST['action']) {
       case 'checkLogin':
         $username = $_POST['user'];
         $password = $_POST['pass'];
-        $sql = "select * from nguoidung where username='" . $username . "'";
-        $result = $dp->excuteQuery($sql);
+        $result = $dp->getUserByUsername($username);
         if ($result != null) {
           if (mysqli_num_rows($result) == 0) {
             echo "Tài khoản không tồn tại";
@@ -27,6 +26,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
               }
             }
           }
+        }
+        break;
+      case 'checkUsernameExist':
+        $username = $_POST['user'];
+        $result = $dp->getUserByUsername($username);
+        if (mysqli_num_rows($result) != 0){
+          echo true;
+        } else {
+          echo false;
         }
         break;
     }

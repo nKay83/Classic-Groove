@@ -173,26 +173,6 @@
   align-items: center;
   width: 50%;
 }
-#login .register .name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-#login .register .name input {
-  font-family: "Dosis", sans-serif;
-  font-size: 1vw;
-  width: 45%;
-
-  border: none;
-  border-radius: 50px;
-  background-color: var(--gr2);
-  margin: 10px 0px 10px 0px;
-  outline: none;
-  padding: 0 0 0 20px;
-  height: 4.5vh;
-}
 #login .register .submit p {
   margin-top: 10px;
   font-size: 1.1vw;
