@@ -25,4 +25,8 @@ class DataProvider
     $sql = "select * from nguoidung where username='" . $username . "'";
     return self::excuteQuery($sql);
   }
+  public static function getNewUserId(){
+    $sql ="SELECT MAX(maNguoiDung) FROM nguoidung";
+    return self::excuteQuery($sql)->fetch_assoc()['MAX(maNguoiDung)'] + 1;
+  }
 }

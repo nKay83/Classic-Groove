@@ -31,10 +31,25 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       case 'checkUsernameExist':
         $username = $_POST['user'];
         $result = $dp->getUserByUsername($username);
-        if (mysqli_num_rows($result) != 0){
+        if (mysqli_num_rows($result) != 0) {
           echo true;
         } else {
           echo false;
+        }
+        break;
+      case 'register':
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $username = $_POST['user'];
+        $password = $_POST['pass'];
+        $sql = "INSERT INTO nguoidung (maNguoiDung, hoTen, SDT, TrangThai, username, matkhau, vaitro)
+        VALUES (" . $dp->getNewUserId() . ", '" . $name . "', '" . $phone . "',
+        'Hoạt động','" . $username . "','" . $password . "', 1);";
+        $result = $dp->excuteQuery($sql);
+        if ($result) {
+          echo "Success";
+        } else {
+          echo "Error";
         }
         break;
     }

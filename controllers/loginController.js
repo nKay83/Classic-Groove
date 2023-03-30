@@ -42,9 +42,31 @@ const logout = () => {
   });
 };
 
-const register = () => {
-  // loadLoginByAjax('logIn');
-  if (!checkInputRegister()) return;
+const register = async () => {
+  if (!(await checkInputRegister())) return;
+  let name = document.querySelector("#login .register .name").value;
+  let phone = document.querySelector("#login .register .phonenumber").value;
+  let username = document.querySelector("#login .register .username").value;
+  let password = document.querySelector("#login .register .password").value;
+  $.ajax({
+    url: "controllers/user.php",
+    type: "POST",
+    data: {
+      name: name,
+      phone: phone,
+      user: username,
+      pass: password,
+      action: "register",
+    },
+    success: function (res) {
+      if (res == "Success") {
+        alert("Tạo tài khoản thành công!");
+        loadLoginByAjax("logIn");
+        document.querySelector("#username-field").value = username;
+        document.querySelector("#password-field").value = password;
+      } else alert("Tạo tài khoản thất bại!");
+    },
+  });
 };
 
 const checkInputRegister = async () => {
@@ -75,7 +97,6 @@ const checkInputRegister = async () => {
     username.focus();
     return false;
   }
-  console.log(await isUsernameExist(username.value));
   if (await isUsernameExist(username.value)) {
     alert("Username đã tồn tại!");
     username.focus();
@@ -86,7 +107,7 @@ const checkInputRegister = async () => {
     password.focus();
     return false;
   }
-  if (!isPasswordValid(password)) {
+  if (!isPasswordValid(password.value)) {
     alert(
       "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
     );
@@ -104,6 +125,7 @@ const checkInputRegister = async () => {
     confirmPassword.focus();
     return false;
   }
+  return true;
 };
 
 function isVietnamesePhoneNumberValid(number) {
