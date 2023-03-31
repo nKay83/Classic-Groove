@@ -111,7 +111,8 @@
 }
 
 #header .left-button-login input,
-#header .right-button-register input {
+#header .right-button-register input,
+#header .info-placeholder input {
   height: 90%;
   width: 80%;
   background-color: var(--whi);
@@ -129,15 +130,29 @@
 }
 
 #header .right-button-register input:hover,
-#header .left-button-login input:hover {
+#header .left-button-login input:hover,
+#header .info-placeholder input:hover {
   transform: scale(105%);
   transition: 0.3s;
 }
 
+#header .info-placeholder input{
+  width: 75%;
+  padding: 3%;
+}
+
 #header .right-button-register input:active,
-#header .left-button-login input:active {
+#header .left-button-login input:active,
+#header .info-placeholder input:active {
   transform: translateY(2px);
   transition: 0.3s;
+}
+#header .info-placeholder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--gr1);
 }
 
 #header .footer-placeholder {

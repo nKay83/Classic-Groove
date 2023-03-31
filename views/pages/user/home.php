@@ -21,7 +21,6 @@
   <div class="slideshow">
     <div class="left">
       <div class="poster">
-git aa
       </div>
     </div>
     <div class="right">
@@ -34,11 +33,11 @@ git aa
     <?php
     foreach ($albums as $album) {
       echo '
-      <div class="grid-item" onclick="loadProductDetailsByAjax('.$album["albumID"] .')" >
+      <div class="grid-item" onclick="loadProductDetailsByAjax(' . $album["albumID"] . ')" >
         <div class="img-container">
-          <img src="data/imgAlbum/'.$album["imageLink"].'" alt="album\'s poster">
+          <img src="data/imgAlbum/' . $album["imageLink"] . '" alt="album\'s poster">
         </div>
-        <p class="title">'.$album["name"].'</p>
+        <p class="title">' . $album["name"] . '</p>
         <p class="gray">Captions</p>
       </div>';
     }

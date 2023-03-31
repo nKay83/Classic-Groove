@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +31,7 @@
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  
+
 
   <title>Classic-Groove</title>
 </head>
@@ -56,5 +59,6 @@
 <script src="views/js/songControl.js"></script>
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
-
+<!-- controllers -->
+<Script src="controllers/loginController.js"></Script>
 </html>
