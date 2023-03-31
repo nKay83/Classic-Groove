@@ -1,20 +1,14 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "classic-groove";
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-// $sql = "SELECT * FROM albums";
-// $result = $conn->query($sql);
-// $albums = array();
-// if ($result->num_rows > 0) {
-//   while ($row = $result->fetch_assoc()) {
-//     array_push($albums, $row);
-//   }
-// }
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$sql = "SELECT * FROM album";
+$result = $dp->excuteQuery($sql);
+$albums = array();
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    array_push($albums, $row);
+  }
+}
 ?>
 
 <div id="home">
@@ -31,14 +25,14 @@
   <h1>Features</h1>
   <div class="grid-container">
     <?php
-    foreach ($albums as $album) {
+    foreach ($albums as $al) {
       echo '
-      <div class="grid-item" onclick="loadProductDetailsByAjax(' . $album["albumID"] . ')" >
+      <div class="grid-item" onclick="loadProductDetailsByAjax(' . $al["maAlbum"] . ')" >
         <div class="img-container">
-          <img src="data/imgAlbum/' . $album["imageLink"] . '" alt="album\'s poster">
+          <img src="data/imgAlbum/' . $al["hinh"] . '.jpg" alt="album\'s poster">
         </div>
-        <p class="title">' . $album["name"] . '</p>
-        <p class="gray">Captions</p>
+        <p class="title">' . $al["tenAlbum"] . '</p>
+        <p class="gray">' . $al["tacGia"] . '</p>
       </div>';
     }
     ?>
