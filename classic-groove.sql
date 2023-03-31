@@ -30,6 +30,13 @@ CREATE TABLE HoaDon (
   khuyenMai int
 );
 
+CREATE TABLE ChiTietHoaDon (
+  album int,
+  hoaDon int,
+  soLuong nvarchar(100),
+  PRIMARY KEY (album, hoaDon)
+);
+
 CREATE TABLE Quyen (
   maCTQ int PRIMARY KEY,
   NoiDungQuyen nvarchar(100)
@@ -81,12 +88,7 @@ CREATE TABLE ChiTietPhieuNhap (
   PRIMARY KEY (album, phieuNhap)
 );
 
-CREATE TABLE ChiTietHoaDon (
-  album int,
-  hoaDon int,
-  soLuong nvarchar(100),
-  PRIMARY KEY (album, hoaDon)
-);
+
 
 CREATE TABLE KhuyenMai (
   maKhuyenMai int PRIMARY KEY,

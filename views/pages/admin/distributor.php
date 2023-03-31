@@ -1,5 +1,5 @@
 <div id="producer">
-    <h1>Producer management</h1>
+    <h1><i class="fa-solid fa-handshake"></i> Producer management</h1>
     <div class="button-placeholder">
         <div class="edit-button">
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>

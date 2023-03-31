@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Admin page -->
   <link rel="stylesheet" href="views/style/admin/accountManager.css">
+  <link rel="stylesheet" href="views/style/admin/orderManager.css">
   <link rel="stylesheet" href="views/style/admin/changeProduct.css">
   <link rel="stylesheet" href="views/style/admin/search.css">
   <link rel="stylesheet" href="views/style/admin/structureManager.css">
@@ -25,8 +26,10 @@
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  
 
-  <title>Ad</title>
+  <title>Administrator</title>
 </head>
 
 <body>
@@ -49,5 +52,7 @@
 <script src="views/js/songControl.js"></script>
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
+<script src="views/js/modalBox.js"></script>
+
 
 </html>

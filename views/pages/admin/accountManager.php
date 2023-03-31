@@ -1,5 +1,5 @@
 <div id="accountManager">
-    <h1>Profile management</h1>
+    <h1><i class="fa-solid fa-user"></i> Account management</h1>
     <div class="button-placeholder">
         <div class="edit-button">
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
@@ -21,8 +21,8 @@
     <div class="title-list">
         <div class="title-placeholder">
             <div class="title" style="padding-right: 10px;">No.</div>
-            <div class="title">Profile ID</div>
-            <div class="title">Profile name</div>
+            <div class="title">Account ID</div>
+            <div class="title">Account name</div>
             <div class="title">Phone number</div>
             <div class="title">Role</div>
             <div class="title">Status</div>
@@ -45,15 +45,15 @@
     <div class="modal-placeholder">
         <div class="modal-box">
             <div class="modal-header">
-                <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Profile details</h1>
+                <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Account details</h1>
             </div>
             <div class="modal-info">
                 <div class="modal-item">
-                    <div class="item-header">Profile id</div>
+                    <div class="item-header">Account id</div>
                     <div class="item-input"><input type="text" value="CUS001"></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Profile name</div>
+                    <div class="item-header">Account name</div>
                     <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
                 </div>
                 <div class="modal-item">
@@ -104,15 +104,15 @@
     <!-- <div class="modal-placeholder">
         <div class="modal-box">
             <div class="modal-header">
-                <h1><i class="fa-regular fa-pen-to-square"></i> Edit profile</h1>
+                <h1><i class="fa-regular fa-pen-to-square"></i> Edit Account</h1>
             </div>
             <div class="modal-info">
                 <div class="modal-item">
-                    <div class="item-header">Profile id</div>
+                    <div class="item-header">Account id</div>
                     <div class="item-input"><input type="text" value="CUS001"></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Profile name</div>
+                    <div class="item-header">Account name</div>
                     <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
                 </div>
                 <div class="modal-item">
@@ -163,15 +163,15 @@
     <!-- <div class="modal-placeholder">
         <div class="modal-box">
             <div class="modal-header">
-                <h1><i class="fa-solid fa-user-plus"></i> New profile</h1>
+                <h1><i class="fa-solid fa-user-plus"></i> New Account</h1>
             </div>
             <div class="modal-info">
                 <div class="modal-item">
-                    <div class="item-header">Profile id</div>
+                    <div class="item-header">Account id</div>
                     <div class="item-input"><input type="text" value="CUS001"></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Profile name</div>
+                    <div class="item-header">Account name</div>
                     <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
                 </div>
                 <div class="modal-item">
