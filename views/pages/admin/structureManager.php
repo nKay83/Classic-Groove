@@ -1,9 +1,121 @@
-<div id="structure">
-    <div class="silder-change-placeholder">
+<div id="struture">
+    <h1>Struture management</h1>
+    <div class="button-placeholder">
+        <div class="edit-button">
+            <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
+            <div class="info-placeholder">Edit</div>
+        </div>
+        <div class="save-button">
+            <div class="icon-placeholder"><i class="fa-solid fa-plus"></i></div>
+            <div class="info-placeholder">New</div>
+        </div>
+        <div class="save-button">
+            <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
+            <div class="info-placeholder">Save</div>
+        </div>
+        <div class="cancel-button">
+            <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
+            <div class="info-placeholder">Cancel</div>
+        </div>
+    </div>
+    <div class="layout">
+
+        <div class="left">
+            <div class="header">
+                <h1>Manage silder</h1>
+            </div>
+            <div class="title-list">
+                <div class="title-placeholder">
+                    <div class="title" style="padding-right: 10px;">No.</div>
+                    <div class="title" style="padding-right: 15px;">Slide name</div>
+                    <div class="title" style="padding-right: 15px;">Silde file</div>
+                    <div class="title" style="padding-right: 15px;">Linked to</div>
+                    <div class="title"></div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">Bui hong bao</div>
+                        <div class="item">Bùi Hồng Bảo.img</div>
+                        <div class="item">http:?</div>
+                        <div class="item"><i class="fa-regular fa-xmark"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="product-placeholder">
+
+            </div>
+            <div class="product-placeholder">
+
+        </div>
+        </div>
         
     </div>
-    <div class="homepage-product-placeholder">
-        <div class="bestseller-product"></div>
-        <div class="new-product"></div>
-    </div>
-</div>

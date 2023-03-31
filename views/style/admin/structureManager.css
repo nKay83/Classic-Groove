@@ -1,10 +1,3 @@
-#structure{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.5fr;
-    height: 94vh;
-    padding: 0 3%;
-}
 :root {
     --ora: #f2623e;
     --whi: #ffffff;
@@ -12,11 +5,206 @@
     --lig: #1d1d20;
     --gr1: #a1a0a0;
     --gr2: #e9e9e9;
-  }
-#structure .silder-change-placeholder{
+}
+
+#struture {
+    font-family: "Dosis", sans-serif;
+    height: 91vh;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+    /* position: relative; */
+}
+#struture .layout{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr;
+}
+#struture .layout .left{
+    width: 95%;
+    height: 95%;
+    margin: auto 0;
+    background-color: var(--whi);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 2fr 15fr 2fr;
+    color: var(--ora);
+}
+#struture .layout .left .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#struture .layout .left .title-list {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+}
+
+#struture .layout .left .title-list .title-placeholder {
+    width: 97%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr ;
+    justify-content: center;
+    margin: auto;
+    font-size: calc(5px + 1vw);
+}
+
+#struture .layout .left .title-list .title-placeholder .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    height: 70%;
+    width: 100%;
+    margin: auto;
+}
+#struture .list {
+    width: 100%;
+    max-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+    /* background-color: var(--whi); */
+    /* height: 75vh; */
+    border-radius: 30px 30px 0 0;
+    overflow-y: scroll;
+}
+
+#struture .placeholder {
+    width: 98%;
+    height: 13%;
+    margin: 0 1%;
+    color: var(--bla);
+    position: relative;
+    padding: 13px 0;
+    border-bottom: 4px solid var(--ora);
+}
+
+#struture .placeholder .info {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr ;
+    justify-content: center;
+}
+
+#struture .placeholder .info .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border-right: var(--ora) solid 4px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    color: var(--bla);
+}
+#struture .placeholder .info .item:nth-of-type(5) {
+    border: none;
+}
+
+#struture .button-placeholder {
+    width: 35%;
+    height: 3.5vw;
+    display: grid;
+    justify-self: right;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    font-size: calc(5px + 1vw);
+    margin-right: 3%;
+}
+
+#struture .edit-button,
+#struture .save-button,
+#struture .cancel-button,
+#struture .save-button
+{
+    flex-direction: row;
+    display: flex;
+    height: 2.5vw;
+    width: 90%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--ora);
+    border-radius: 30px;
+    padding: 5%;
+    cursor: pointer;
+    color: var(--whi);
+}
+
+#struture .cancel-button {
     background-color: var(--whi);
-    margin: 2%;
-    border-radius: 50px;
+    color: var(--bla);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#struture .layout .right{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    margin: auto 0;
+    color: var(--ora);
+}
+
+#struture .layout .right .product-placeholder{
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    background-color: var(--whi);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+}
+#struture .layout .right .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#struture .layout .right .list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+    color: var(--bla);
+}
+
+#struture .layout .right .list .title-placeholder {
+    width: 97%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-columns: 2fr 3fr 3fr;
+    justify-content: center;
+    margin: auto;
+    font-size: calc(5px + 1vw);
 }

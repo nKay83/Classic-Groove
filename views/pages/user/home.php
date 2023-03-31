@@ -1,20 +1,20 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "classic-groove";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-$sql = "SELECT * FROM albums";
-$result = $conn->query($sql);
-$albums = array();
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
-    array_push($albums, $row);
-  }
-}
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "classic-groove";
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
+// $sql = "SELECT * FROM albums";
+// $result = $conn->query($sql);
+// $albums = array();
+// if ($result->num_rows > 0) {
+//   while ($row = $result->fetch_assoc()) {
+//     array_push($albums, $row);
+//   }
+// }
 ?>
 
 <div id="home">
