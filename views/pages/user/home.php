@@ -1,13 +1,27 @@
 <?php
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
+
 $sql = "SELECT * FROM album";
 $result = $dp->excuteQuery($sql);
-$albums = array();
+$album = array();
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
-    array_push($albums, $row);
+    array_push($album, $row);
   }
+}
+$albums = array();
+// $name = $_POST['name'];
+$category = $_POST['category'];
+// $price = $_POST['price'];
+if ($category != 0) {
+  for ($i = 0; $i < count($album); $i++) {
+    if ($album[$i]['theLoai'] == $category) {
+      array_push($albums, $album[$i]);
+    }
+  }
+} else {
+  $albums = $album;
 }
 ?>
 

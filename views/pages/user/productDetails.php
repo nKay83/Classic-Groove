@@ -6,10 +6,10 @@ $albumID = $_POST["albumID"];
 $sql = "SELECT * FROM album where maAlbum = " . $albumID;
 $result = $dp->excuteQuery($sql);
 $album = $result->fetch_assoc();
-$album["gia"] = number_format((float) $album["gia"], 2, '.', '');
 
 //handle album's song
-$sql = "SELECT * FROM baihat_album join baihat on baihat_album.BaiHat_maBaiHat = baihat.maBaiHat where Album_maAlbum = " . $albumID;
+$sql = "SELECT * FROM baihat_album join baihat on baihat_album.BaiHat_maBaiHat = baihat.maBaiHat
+where Album_maAlbum = " . $albumID;
 $result = $dp->excuteQuery($sql);
 $songs = array();
 if ($result->num_rows > 0) {
@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
     </p>
     <div class="control">
       <h2 class="price">
-        <?php echo "$" . $album["gia"] ?>
+        <?php echo "$" . number_format((float) $album["gia"], 2, '.', '') ?>
       </h2>
       <div class="btn add-to-cart-btn">
         <i class="fa-brands fa-opencart "></i>
