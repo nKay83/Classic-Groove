@@ -1,15 +1,15 @@
 <div id="productManager">
   <h1><i class="fa-solid fa-album"></i> Product management</h1>
   <div class="button-placeholder">
-    <div class="edit-button" onclick="openEditbox()">
+    <div class="edit-button" onclick="openEditalbum()">
       <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
       <div class="info-placeholder">Edit</div>
     </div>
-    <div class="new-button" onclick="openNewbox()">
+    <div class="new-button" onclick="openNewalbum()">
       <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
       <div class="info-placeholder">New</div>
     </div>
-    <div class="restock-button" onclick="openRestockbox()">
+    <div class="restock-button" onclick="openRestockalbum()">
       <div class="icon-placeholder"><i class="fa-solid fa-rotate-left"></i></div>
       <div class="info-placeholder">Restock</div>
     </div>
@@ -45,7 +45,7 @@
         <div class="item">CUS</div>
         <div class="item">1000</div>
         <div class="item">Available</div>
-        <div class="item" onclick="openDetailbox()"><i class="fa-regular fa-circle-info"></i></div>
+        <div class="item" onclick="openDetailalbum()"><i class="fa-regular fa-circle-info"></i></div>
       </div>
     </div>
   </div>
@@ -124,7 +124,7 @@
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
             <div class="info-placeholder">Edit</div>
           </div>
-          <div class="back-button" onclick="closeDetailbox()" >
+          <div class="back-button" onclick="closeDetailalbum()" >
             <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
             <div class="info-placeholder">Back</div>
           </div>
@@ -208,7 +208,7 @@
             <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
             <div class="info-placeholder">Save</div>
           </div>
-          <div class="back-button" onclick="closeEditbox()">
+          <div class="back-button" onclick="closeEditalbum()">
             <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
             <div class="info-placeholder">Cancel</div>
           </div>
@@ -292,7 +292,7 @@
             <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
             <div class="info-placeholder">Add</div>
           </div>
-          <div class="back-button" onclick="closeNewbox()">
+          <div class="back-button" onclick="closeEditalbum()">
             <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
             <div class="info-placeholder">Cancel</div>
           </div>
@@ -376,7 +376,7 @@
             <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
             <div class="info-placeholder">Add</div>
           </div>
-          <div class="back-button" onclick="closeRestockbox()">
+          <div class="back-button" onclick="closeEditalbum()">
             <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
             <div class="info-placeholder">Cancel</div>
           </div>

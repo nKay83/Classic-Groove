@@ -123,8 +123,9 @@
     overflow: hidden;
 }
 
-#orderManager .placeholder .info .item:nth-of-type(8) {
+#orderManager .placeholder .info .item:last-child {
     border: none;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -146,6 +147,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    display: none;
 }
 
 #orderManager .modal-box {

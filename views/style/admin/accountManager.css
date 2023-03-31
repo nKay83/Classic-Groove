@@ -28,7 +28,7 @@
 #accountManager .edit-button,
 #accountManager .save-button,
 #accountManager .delete-button,
-#accountManager .save-button{
+#accountManager .new-button{
     flex-direction: row;
     display: flex;
     height: 2.5vw;
@@ -122,8 +122,9 @@
     margin: auto;
 }
 
-#accountManager .placeholder .info .item:nth-of-type(7) {
+#accountManager .placeholder .info .item:last-child {
     border: none;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -145,6 +146,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    display: none;
 }
 
 #accountManager .modal-box {

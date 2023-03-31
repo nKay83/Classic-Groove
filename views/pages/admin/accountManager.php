@@ -1,11 +1,11 @@
 <div id="accountManager">
     <h1><i class="fa-solid fa-user"></i> Account management</h1>
     <div class="button-placeholder">
-        <div class="edit-button">
+        <div class="edit-button" onclick="openEditAccount()">
             <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
             <div class="info-placeholder">Edit</div>
         </div>
-        <div class="save-button">
+        <div class="new-button" onclick="openNewAccount()">
             <div class="icon-placeholder"><i class="fa-solid fa-user-plus"></i></div>
             <div class="info-placeholder">New</div>
         </div>
@@ -37,12 +37,12 @@
                 <div class="item">0900000000</div>
                 <div class="item">CUS</div>
                 <div class="item">Available</div>
-                <div class="item"><i class="fa-regular fa-circle-info"></i> </div>
+                <div class="item" onclick="openDetailAccount()"><i class="fa-regular fa-circle-info"></i> </div>
             </div>
         </div>
 
     </div>
-    <div class="modal-placeholder">
+    <div class="modal-placeholder" id="detail-account">
         <div class="modal-box">
             <div class="modal-header">
                 <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Account details</h1>
@@ -93,7 +93,7 @@
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                         <div class="info-placeholder">Edit</div>
                     </div>
-                    <div class="back-button">
+                    <div class="back-button" onclick="closeDetailAccount()">
                         <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                         <div class="info-placeholder">Back</div>
                     </div>
@@ -101,7 +101,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="modal-placeholder">
+    <div class="modal-placeholder" id="edit-account">
         <div class="modal-box">
             <div class="modal-header">
                 <h1><i class="fa-regular fa-pen-to-square"></i> Edit Account</h1>
@@ -152,15 +152,15 @@
                         <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                         <div class="info-placeholder">Save</div>
                     </div>
-                    <div class="back-button">
+                    <div class="back-button" onclick="closeEditAccount()">
                         <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                         <div class="info-placeholder">Cancel</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- <div class="modal-placeholder">
+    </div>
+    <div class="modal-placeholder" id="new-account">
         <div class="modal-box">
             <div class="modal-header">
                 <h1><i class="fa-solid fa-user-plus"></i> New Account</h1>
@@ -211,12 +211,12 @@
                         <div class="icon-placeholder"><i class="fa-solid fa-user-plus"></i></div>
                         <div class="info-placeholder">Add</div>
                     </div>
-                    <div class="back-button">
+                    <div class="back-button" onclick="closeNewAccount()">
                         <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                         <div class="info-placeholder">Cancel</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
