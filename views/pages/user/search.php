@@ -1,3 +1,16 @@
+<?php
+require("util/dataProvider.php");
+$dp = new DataProvider();
+
+$sql = "SELECT * FROM theloai ";
+$result = $dp->excuteQuery($sql);
+$category = array();
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    array_push($category, $row);
+  }
+}
+?>
 <div class="search-container">
   <div class="search">
     <i class="fa-solid fa-magnifying-glass"></i>
@@ -8,10 +21,13 @@
 
   <div class="drop-menu">
     <i class="fa-sharp fa-regular fa-bars-filter"></i>
-    <select name="" id="drop-menu-btn">
-      <option value="">All kind of music you know</option>
-      <option value="">b</option>
-      <option value="">c</option>
+    <select name="" id="drop-menu-btn" onchange="filter()">
+      <option value="0">All</option>
+      <?php
+      foreach ($category as $cat) {
+        echo "<option value='" . $cat['maLoai'] . "'>" . $cat['tenLoai'] . "</option>";
+      }
+      ?>
     </select>
   </div>
 </div>
