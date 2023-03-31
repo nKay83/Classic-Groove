@@ -1,22 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "classic-groove";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
 //handle content album
 $albumID = $_POST["albumID"];
-$sql = "SELECT * FROM albums where albumID = " . $albumID;
-$result = $conn->query($sql);
+$sql = "SELECT * FROM album where maAlbum = " . $albumID;
+$result = $dp->excuteQuery($sql);
 $album = $result->fetch_assoc();
-$album["price"] = number_format((float) $album["price"], 2, '.', '');
+$album["gia"] = number_format((float) $album["gia"], 2, '.', '');
 
 //handle album's song
-$sql = "SELECT * FROM songs where albumID = " . $albumID;
-$result = $conn->query($sql);
+$sql = "SELECT * FROM baihat_album join baihat on baihat_album.BaiHat_maBaiHat = baihat.maBaiHat where Album_maAlbum = " . $albumID;
+$result = $dp->excuteQuery($sql);
 $songs = array();
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
@@ -28,19 +22,21 @@ if ($result->num_rows > 0) {
 
 <div id="product-details">
   <div class="left">
-    <img src=<?php echo "data/imgAlbum/" . $album["imageLink"] ?> alt="">
+    <img src=<?php echo "data/imgAlbum/" . $album["hinh"] . ".jpg" ?> alt="hinh">
   </div>
   <div class="right">
     <p class="title">
-      <?php echo $album["name"] ?>
+      <?php echo $album["tenAlbum"] ?>
     </p>
-    <p class="sub-title">The Rolling Stones</p>
+    <p class="sub-title">
+      <?php echo $album['tacGia'] ?>
+    </p>
     <p class="description">
-      <?php echo $album["description"] ?>
+      <?php echo $album["moTa"] ?>
     </p>
     <div class="control">
       <h2 class="price">
-        <?php echo "$" . $album["price"] ?>
+        <?php echo "$" . $album["gia"] ?>
       </h2>
       <div class="btn add-to-cart-btn">
         <i class="fa-brands fa-opencart "></i>
@@ -52,11 +48,13 @@ if ($result->num_rows > 0) {
       </div>
     </div>
     <h1 class="title">Track list <i class="fa-regular fa-circle-play"
-        onclick="playTrackList(<?php echo $album['albumID']?>)"></i></h1>
+        onclick="playTrackList(<?php echo $album['maAlbum'] ?>)"></i></h1>
     <div class="songs-container">
       <?php
+      $i = 1;
       foreach ($songs as $song) {
-        echo "<p>${song['name']}</p>";
+        echo "<p>${i}. ${song['tenBaiHat']}</p>";
+        $i++;
       }
       ?>
     </div>
