@@ -123,8 +123,9 @@
     overflow: hidden;
 }
 
-#productManager .placeholder .info .item:nth-of-type(9) {
+#productManager .placeholder .info .item:last-child {
     border: none;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -146,6 +147,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    display: none;
 }
 
 #productManager .modal-box {
@@ -158,6 +160,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 6fr 1fr;
     color: var(--ora);
+    
 }
 
 
