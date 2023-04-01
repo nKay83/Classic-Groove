@@ -17,11 +17,12 @@ let track_list;
 async function playTrackList(albumID) {
   await $.ajax({
     url: "views/js/songs.php",
-    type: "post",
+    type: "POST",
     dataType: "json",
     data: { albumID: albumID },
     success: function (data) {
       track_list = data;
+      // console.log(data);
     },
   });
   loadTrack(0);
@@ -30,12 +31,12 @@ async function playTrackList(albumID) {
 function loadTrack(track_index) {
   clearInterval(updateTimer);
   resetValues();
-  curr_track.src = "data/songs/" + track_list[track_index].songLink;
+  curr_track.src = "data/songs/" + track_list[track_index].linkFile + ".mp3";
   curr_track.load();
   playTrack();
 
   // track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
-  track_name.textContent = track_list[track_index].name;
+  track_name.textContent = track_list[track_index].tenBaiHat;
   // track_artist.textContent = track_list[track_index].artist;
   // now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
 

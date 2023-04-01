@@ -1,15 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "classic-groove";
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require("../../util/dataProvider.php");
+$dp = new DataProvider();
 $albumID = $_POST["albumID"];
-$sql = "SELECT * FROM songs where albumID = " . $albumID;
-$result = $conn->query($sql);
+$sql = "SELECT * FROM baihat_album join baihat on baihat_album.BaiHat_maBaiHat = baihat.maBaiHat
+where Album_maAlbum = " . $albumID;
+$result = $dp->excuteQuery($sql);
 $songs = array();
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
