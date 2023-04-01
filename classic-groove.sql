@@ -1,9 +1,9 @@
-gi-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 08:45 AM
+-- Generation Time: Apr 01, 2023 at 01:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -153,7 +153,7 @@ CREATE TABLE `chitietphieunhap` (
 --
 
 CREATE TABLE `giohang` (
-  `maKhachHang` int(11) NOT NULL,
+  `maKhachHang` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `maAlbum` int(11) NOT NULL,
   `soLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -169,7 +169,7 @@ CREATE TABLE `hoadon` (
   `tongTien` int(11) DEFAULT NULL,
   `thoiGianDat` date DEFAULT NULL,
   `trangThai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `khachHang` int(11) DEFAULT NULL,
+  `khachHang` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `khuyenMai` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -190,32 +190,45 @@ CREATE TABLE `khuyenmai` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `loainguoidung`
+--
+
+CREATE TABLE `loainguoidung` (
+  `maloai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tenLoai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `trangThai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `loainguoidung`
+--
+
+INSERT INTO `loainguoidung` (`maloai`, `tenLoai`, `trangThai`) VALUES
+('KH', 'Khách hàng', 'Hoạt động'),
+('NV', 'Nhân viên', 'Hoạt động');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nguoidung`
 --
 
 CREATE TABLE `nguoidung` (
-  `maNguoiDung` int(11) NOT NULL,
+  `maNguoiDung` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `hoTen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `SDT` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `diaChi` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `TrangThai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `username` varchar(100) DEFAULT NULL,
-  `matKhau` varchar(100) DEFAULT NULL,
-  `vaiTro` int(11) DEFAULT NULL
+  `loainguoidung` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `nguoidung`
 --
 
-INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `username`, `matKhau`, `vaiTro`) VALUES
-(1, 'Bùi Hồng Bảo', '0908141453', 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh', 'hongbao2003@gmail.com', 'Hoạt động', 'baobui3103', '123456', 1),
-(2, 'Nguyễn Văn Admin', '1234567899', 'Thành phố admin', 'admin@gmail.com', 'Hoạt động', 'admin', 'admin', 2),
-(3, 'Lavied', '0908141453', NULL, NULL, 'Hoạt động', 'Lavied3103', 'Bao123456@', 1),
-(4, 'Quang', '0902561608', NULL, NULL, 'Hoạt động', 'Koituine', '19GnauQ07.', 1),
-(5, 'Trần Hải Dương', '0978883096', NULL, NULL, 'Hoạt động', 'haiduong316', 'Haiduong1@', 1),
-(6, 'Bùi Bảo', '0908141453', NULL, NULL, 'Hoạt động', 'baobui123456', 'Bao123456789@', 1);
+INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `loainguoidung`) VALUES
+('baobui3103', 'Bao', '0908141453', NULL, NULL, 'Hoạt động', 'KH');
 
 -- --------------------------------------------------------
 
@@ -241,7 +254,7 @@ CREATE TABLE `nhacungcap` (
 CREATE TABLE `phieunhap` (
   `maPhieuNhap` int(11) NOT NULL,
   `ngayNhap` date DEFAULT NULL,
-  `nguoiNhap` int(11) DEFAULT NULL,
+  `nguoiNhap` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `TongGia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -255,6 +268,27 @@ CREATE TABLE `quyen` (
   `maCTQ` int(11) NOT NULL,
   `NoiDungQuyen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `taikhoan`
+--
+
+CREATE TABLE `taikhoan` (
+  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ngayTao` date DEFAULT NULL,
+  `TrangThai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `matKhau` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `vaiTro` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`username`, `ngayTao`, `TrangThai`, `matKhau`, `vaiTro`) VALUES
+('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1);
 
 -- --------------------------------------------------------
 
@@ -318,7 +352,7 @@ CREATE TABLE `vaitro_quyen` (
 
 CREATE TABLE `yeuthich` (
   `album` int(11) NOT NULL,
-  `nguoiDung` int(11) NOT NULL
+  `nguoiDung` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -382,11 +416,17 @@ ALTER TABLE `khuyenmai`
   ADD PRIMARY KEY (`maKhuyenMai`);
 
 --
+-- Indexes for table `loainguoidung`
+--
+ALTER TABLE `loainguoidung`
+  ADD PRIMARY KEY (`maloai`);
+
+--
 -- Indexes for table `nguoidung`
 --
 ALTER TABLE `nguoidung`
   ADD PRIMARY KEY (`maNguoiDung`),
-  ADD KEY `vaiTro` (`vaiTro`);
+  ADD KEY `loainguoidung` (`loainguoidung`);
 
 --
 -- Indexes for table `nhacungcap`
@@ -406,6 +446,13 @@ ALTER TABLE `phieunhap`
 --
 ALTER TABLE `quyen`
   ADD PRIMARY KEY (`maCTQ`);
+
+--
+-- Indexes for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `vaiTro` (`vaiTro`);
 
 --
 -- Indexes for table `theloai`
@@ -483,13 +530,20 @@ ALTER TABLE `hoadon`
 -- Constraints for table `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  ADD CONSTRAINT `nguoidung_ibfk_1` FOREIGN KEY (`vaiTro`) REFERENCES `vaitro` (`maVaiTro`);
+  ADD CONSTRAINT `nguoidung_ibfk_2` FOREIGN KEY (`loainguoidung`) REFERENCES `loainguoidung` (`maloai`);
 
 --
 -- Constraints for table `phieunhap`
 --
 ALTER TABLE `phieunhap`
   ADD CONSTRAINT `phieunhap_ibfk_1` FOREIGN KEY (`nguoiNhap`) REFERENCES `nguoidung` (`maNguoiDung`);
+
+--
+-- Constraints for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`vaiTro`) REFERENCES `vaitro` (`maVaiTro`),
+  ADD CONSTRAINT `taikhoan_ibfk_2` FOREIGN KEY (`username`) REFERENCES `nguoidung` (`maNguoiDung`);
 
 --
 -- Constraints for table `vaitro_quyen`

@@ -8,6 +8,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $username = $_POST['user'];
         $password = $_POST['pass'];
         $result = $dp->getUserByUsername($username);
+        $sql = "Select hoTen from nguoidung where manguoidung ='" . $username . "'";
+        $name = $dp->excuteQuery($sql)->fetch_assoc()["hoTen"];
         if ($result != null) {
           if (mysqli_num_rows($result) == 0) {
             echo "Tài khoản không tồn tại";
@@ -17,8 +19,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
               echo "Sai mật khẩu";
             } else {
               session_start();
-              $_SESSION['userID'] = $user['maNguoiDung'];
-              $_SESSION['userName'] = $user['hoTen'];
+              $_SESSION['userID'] = $username;
+              $_SESSION['userName'] = $name;
               if ($user['vaiTro'] == 1) {
                 echo "cus";
               } else {
@@ -42,11 +44,13 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $phone = $_POST['phone'];
         $username = $_POST['user'];
         $password = $_POST['pass'];
-        $sql = "INSERT INTO nguoidung (maNguoiDung, hoTen, SDT, TrangThai, username, matkhau, vaitro)
-        VALUES (" . $dp->getNewUserId() . ", '" . $name . "', '" . $phone . "',
-        'Hoạt động','" . $username . "','" . $password . "', 1);";
-        $result = $dp->excuteQuery($sql);
-        if ($result) {
+        $sql1 = "INSERT INTO nguoidung
+        VALUES ('" . $username . "','" . $name . "','" . $phone . "', null, null, 'Hoạt động', 'KH')";
+        $result1 = $dp->excuteQuery($sql1);
+        $sql2 = "INSERT INTO taikhoan
+        VALUES ('" . $username . "','" . (new Datetime())->format('Y-m-d') . "','Hoạt động','" . $password . "',1);";
+        $result2 = $dp->excuteQuery($sql2);
+        if ($result1 && $result2) {
           echo "Success";
         } else {
           echo "Error";

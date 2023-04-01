@@ -36,11 +36,9 @@
   font-family: "Dosis", sans-serif;
 }
 #home .grid-container {
-  padding: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
+  padding: 10px 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
   grid-gap: 35px;
 }
 

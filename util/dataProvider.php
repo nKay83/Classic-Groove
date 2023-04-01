@@ -22,7 +22,7 @@ class DataProvider
     return $result;
   }
   public static function getUserByUsername($username){
-    $sql = "select * from nguoidung where username='" . $username . "'";
+    $sql = "select * from taikhoan where username='" . $username . "'";
     return self::excuteQuery($sql);
   }
   public static function getNewUserId(){
