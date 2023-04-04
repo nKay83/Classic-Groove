@@ -2,7 +2,10 @@ $(document).ready(() => {
   loadHomeByAjax("", 0, "0");
 });
 
-const loadPageByAjax = (pageTarget) => {
+const loadPageByAjax = async (pageTarget) => {
+  if (pageTarget == "favorites" && (await isLogin())) {
+    // document.querySelector()
+  }
   $.ajax({
     url: "views/pages/user/content.php",
     type: "POST",
@@ -38,10 +41,34 @@ const loadProductDetailsByAjax = (albumID) => {
     },
   });
 };
-let selectMenu = (selectedTab) => {
+
+const tabNoticeNotNow = (input) => {
+  input.parentElement.parentElement.style.display = "none";
+};
+const tabNoticeLogIn = (input) => {
+  tabNoticeNotNow(input);
+  loadLoginByAjax("signIn");
+};
+const hideTabNotice = () => {
+  let tabNoticeAll = document.querySelectorAll("#header .tab-notice");
+  tabNoticeAll.forEach((element) => {
+    element.style.display = "none";
+  });
+};
+const selectMenu = async (selectedTab, pageTarget) => {
+  console.log(2);
+  hideTabNotice();
+  let loginPage = document.querySelector("#login");
+  if (!(await isLogin())) {
+    if (!loginPage) {
+      selectedTab.childNodes[5].style.display = "block";
+    }
+    return;
+  }
   let tabActive = document.querySelector("#header .tab-title.active");
   if (tabActive != null) tabActive.classList.remove("active");
   selectedTab.classList.add("active");
+  loadPageByAjax(pageTarget);
 };
 
 const loadLoginByAjax = (pageTarget) => {
@@ -98,8 +125,8 @@ const loadLoginByAjax = (pageTarget) => {
     }
   }
 };
-$("#content").on('keypress',"#login #password-field",function(e) {
-  if(e.which == 13) {
-      login();
+$("#content").on("keypress", "#login #password-field", function (e) {
+  if (e.which == 13) {
+    login();
   }
 });

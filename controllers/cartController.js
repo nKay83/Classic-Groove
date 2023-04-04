@@ -1,5 +1,5 @@
 const addToCart = async () => {
-  if (await isLogin()) {
+  if (await isLogin) {
     alert("yes");
   } else {
     alert("no");

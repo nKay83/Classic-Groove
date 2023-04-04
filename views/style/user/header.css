@@ -6,7 +6,9 @@
   --gr1: #a1a0a0;
   --gr2: #e9e9e9;
 }
-
+#header {
+  user-select: none;
+}
 #header .bottom {
   margin-bottom: 20px;
 }
@@ -61,7 +63,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(-3px + 1.2vw)
+  font-size: calc(-3px + 1.2vw);
 }
 
 #header .tab-icon i {
@@ -136,7 +138,7 @@
   transition: 0.3s;
 }
 
-#header .info-placeholder input{
+#header .info-placeholder input {
   width: 75%;
   padding: 3%;
 }
@@ -147,7 +149,7 @@
   transform: translateY(2px);
   transition: 0.3s;
 }
-#header .info-placeholder{
+#header .info-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,7 +188,7 @@
   background-color: var(--ora);
   width: 80%;
   font-size: 100%;
-  top: 10%;
+  top: -30%;
   display: none;
 }
 
@@ -218,12 +220,10 @@
 }
 
 #header .tab-notice input {
-  height: auto;
-  width: 25%;
   color: var(--gr1);
   background-color: var(--ora);
   font-size: 80%;
-  padding: 1%;
+  padding: 2px;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
   border-radius: 20px;
@@ -267,7 +267,7 @@
 }
 
 #header .tab-title:nth-of-type(4) {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #header .tab-title:nth-of-type(4):hover .tab-menu {
@@ -292,7 +292,6 @@
   background-color: #000000;
   border-radius: 20px;
 }
-
 @media screen and (max-width: 768px) {
   #header .tab-icon {
     font-size: calc(5px + 1.2vw);
