@@ -38,13 +38,13 @@ if ($result->num_rows > 0) {
                             </div>
                         </div>
                         <div class="QPT-info">$' . number_format((float) $al["gia"], 2, '.', '') . '</div>
-                        <div class="QPT-info">$' . number_format((float) ($al['gia'] * $al['soLuong']), 2, '.', '') . '</div>
+                        <div class="QPT-info total">$' . number_format((float) ($al['gia'] * $al['soLuong']), 2, '.', '') . '</div>
                     </div>
                 </div>
                 <div class="button-placeholder">
                     <div class="erase-button"><i class="fa-solid fa-xmark fa-lg"></i></div>
                     <div class="check-button">
-                        <input type="checkbox">
+                        <input type="checkbox" onchange="summary(this)">
                     </div>
                 </div>
             </div>
@@ -59,15 +59,15 @@ if ($result->num_rows > 0) {
             </div>
             <div class="totalprice-info">
                 <div class="price-kind">Subtotal:</div>
-                <div class="price-detail">$125.00</div>
+                <div class="price-detail subtotal">$0.00</div>
                 <div class="price-kind">Shipping:</div>
-                <div class="price-detail">$0.00</div>
+                <div class="price-detail shipping">$0.00</div>
                 <div class="price-kind">Discount:</div>
-                <div class="price-detail">$0.00</div>
+                <div class="price-detail discount">$0.00</div>
             </div>
             <div class="totalprice-final">
                 <div class="price-kind">Total:</div>
-                <div class="price-detail">$125.00</div>
+                <div class="price-detail total-final">$0.00</div>
             </div>
             <div class="totalprice-button">
                 <button>Place order</button>
