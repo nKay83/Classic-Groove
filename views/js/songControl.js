@@ -123,3 +123,8 @@ function seekUpdate() {
     changeInputColorRange();
   }
 }
+const closeSong = () => {
+  curr_track.pause();
+  isPlaying = false;
+  document.querySelector("#song-control").style.display = "none";
+};

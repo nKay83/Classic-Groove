@@ -1,9 +1,6 @@
 <div class="control-btn">
   <div>
-    <i class="fa-solid fa-album-collection"></i>
-  </div>
-  <div>
-    <i class="fa-solid fa-heart"></i>
+    <i class="fa-solid fa-circle-xmark" onclick="closeSong()"></i>
   </div>
   <div class="prev-track" onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></div>
   <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-duotone fa-play"></i></div>
