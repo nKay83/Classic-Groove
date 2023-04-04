@@ -22,6 +22,51 @@ const deleteFromCart = (albumID, input) => {
     },
   });
 };
+const checkChangeQuantity = (input, change) => {
+  let currentQuantityInput = input
+    .closest(".product-placeholder")
+    .querySelector("input.quantity-info");
+  let currentQuantity = parseInt(currentQuantityInput.value);
+  if (currentQuantity == 99 && change == 1) return null;
+  if (currentQuantity == 1 && change == -1) return null;
+  if (currentQuantity > 99) {
+    currentQuantityInput.value = 99;
+    currentQuantity = 99;
+  }
+  if (currentQuantity < 1) {
+    currentQuantityInput.value = 1;
+    currentQuantity = 1;
+  }
+  let quantity = currentQuantity + change;
+  currentQuantityInput.value = quantity;
+  return quantity;
+};
+
+const updateTotalPrice = (input, quantity) => {
+  let eachPriceInput = input
+    .closest(".product-placeholder")
+    .querySelector(".each")
+    .innerHTML.substring(1);
+  let eachPrice = parseFloat(eachPriceInput);
+  let priceTotalInput = input
+    .closest(".product-placeholder")
+    .querySelector(".total");
+  total = (Math.round(quantity * eachPrice * 100) / 100).toFixed(2);
+  priceTotalInput.innerHTML = "$" + total;
+};
+
+const changeQuantity = (albumID, change, input) => {
+  let quantity = checkChangeQuantity(input, change);
+  if (quantity == null) return;
+  updateTotalPrice(input, quantity);
+  $.ajax({
+    url: "util/cart.php?quantity=" + quantity + "&" + "albumID=" + albumID,
+    type: "PUT",
+    success: function (res) {
+      if (res != "Success") alert(res);
+    },
+  });
+};
 const summary = (input) => {
   let price = parseFloat(
     input

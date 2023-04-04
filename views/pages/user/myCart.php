@@ -32,12 +32,12 @@ if ($result->num_rows > 0) {
                         <div class="QPT-info">Total</div>
                         <div class="QPT-info">
                             <div class="quantity-placeholder">
-                                <div class="quantity-info"><i class="fa-solid fa-minus fa-xs"></i></div>
-                                <input type="text" class="quantity-info" value="' . $al['ghsl'] . '">
-                                <div class="quantity-info"><i class="fa-solid fa-plus-large fa-xs"></i></div>
+                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',-1,this)><i class="fa-solid fa-minus fa-xs"></i></div>
+                                <input type="text" class="quantity-info" value="' . $al['ghsl'] . '"onchange=changeQuantity(' . $al['maAlbum'] . ',0,this)>
+                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',1,this)><i class="fa-solid fa-plus-large fa-xs"></i></div>
                             </div>
                         </div>
-                        <div class="QPT-info">$' . number_format((float) $al["gia"], 2, '.', '') . '</div>
+                        <div class="QPT-info each">$' . number_format((float) $al["gia"], 2, '.', '') . '</div>
                         <div class="QPT-info total">$' . number_format((float) ($al['gia'] * $al['ghsl']), 2, '.', '') . '</div>
                     </div>
                 </div>

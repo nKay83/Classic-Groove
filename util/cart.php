@@ -24,6 +24,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         break;
     }
     break;
+  case 'PUT':
+    $userID = $_SESSION['userID'];
+    $albumID = $_GET['albumID'];
+    $quantity = $_GET['quantity'];
+    $sql = "UPDATE giohang
+          SET soLuong = " . $quantity .
+      " WHERE maKhachHang = '" . $userID . "' and maAlbum = " . $albumID;
+    $result = $dp->excuteQuery($sql);
+    if ($result) {
+      echo "Success";
+    } else {
+      echo "Error";
+    }
+    break;
   case 'DELETE':
     $albumID = $_GET['albumID'];
     $userID = $_SESSION['userID'];
