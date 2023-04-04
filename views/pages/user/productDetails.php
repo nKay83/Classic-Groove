@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
       <h2 class="price">
         <?php echo "$" . number_format((float) $album["gia"], 2, '.', '') ?>
       </h2>
-      <div class="btn add-to-cart-btn">
+      <div class="btn add-to-cart-btn" onclick="addToCart()">
         <i class="fa-brands fa-opencart "></i>
         <span>Add to cart</span>
       </div>

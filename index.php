@@ -61,4 +61,6 @@
 <script src="views/js/login.js"></script>
 <!-- controllers -->
 <Script src="controllers/loginController.js"></Script>
+<Script src="controllers/cartController.js"></Script>
+
 </html>

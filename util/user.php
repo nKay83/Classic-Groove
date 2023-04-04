@@ -2,6 +2,14 @@
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
+  case 'GET':
+    switch ($_GET['action']) {
+      case 'isLogin':
+        session_start();
+        echo isset($_SESSION['userID']);
+        break;
+    }
+    break;
   case 'POST':
     switch ($_POST['action']) {
       case 'checkLogin':

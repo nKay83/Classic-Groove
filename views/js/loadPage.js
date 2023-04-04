@@ -98,5 +98,8 @@ const loadLoginByAjax = (pageTarget) => {
     }
   }
 };
-
-
+$("#content").on('keypress',"#login #password-field",function(e) {
+  if(e.which == 13) {
+      login();
+  }
+});

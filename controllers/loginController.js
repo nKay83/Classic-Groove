@@ -3,7 +3,7 @@ const login = () => {
   let username = document.querySelector("#username-field").value;
   let password = document.querySelector("#password-field").value;
   $.ajax({
-    url: "controllers/user.php",
+    url: "util/user.php",
     type: "POST",
     data: { user: username, pass: password, action: "checkLogin" },
     success: function (res) {
@@ -49,7 +49,7 @@ const register = async () => {
   let username = document.querySelector("#login .register .username").value;
   let password = document.querySelector("#login .register .password").value;
   $.ajax({
-    url: "controllers/user.php",
+    url: "util/user.php",
     type: "POST",
     data: {
       name: name,
@@ -139,8 +139,14 @@ function isPasswordValid(password) {
 
 const isUsernameExist = (username) => {
   return $.ajax({
-    url: "controllers/user.php",
+    url: "util/user.php",
     type: "POST",
     data: { user: username, action: "checkUsernameExist" },
+  });
+};
+const isLogin = () => {
+  return $.ajax({
+    url: "util/user.php?action=isLogin",
+    type: "GET",
   });
 };
