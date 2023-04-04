@@ -56,7 +56,6 @@ const hideTabNotice = () => {
   });
 };
 const selectMenu = async (selectedTab, pageTarget) => {
-  console.log(2);
   hideTabNotice();
   let loginPage = document.querySelector("#login");
   if (!(await isLogin())) {
@@ -68,6 +67,7 @@ const selectMenu = async (selectedTab, pageTarget) => {
   let tabActive = document.querySelector("#header .tab-title.active");
   if (tabActive != null) tabActive.classList.remove("active");
   selectedTab.classList.add("active");
+  if (pageTarget == "home") return;
   loadPageByAjax(pageTarget);
 };
 

@@ -4,7 +4,7 @@
       <img src="views/assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
-      <div class="tab-title active" onclick="loadHomeByAjax(),selectMenu(this)">
+      <div class="tab-title active" onclick="loadHomeByAjax(),selectMenu(this,'home')">
         <div class="tab-icon">
           <i class="fa-solid fa-house "></i>
         </div>
@@ -33,8 +33,8 @@
           <div class="tab-notice-headline">Access Your Cart</div>
           <div class="tab-notice-info">Log in to check, add, remove products in My Cart</div>
           <div class="button-placeholder">
-            <input type="button" value="Not now">
-            <input type="button" value="Log in" style="color:">
+            <input type="button" value="Not now" onclick="tabNoticeNotNow(this)">
+            <input type="button" value="Log in" style="color:" onclick="tabNoticeLogIn(this)">
           </div>
         </div>
       </div>
@@ -47,8 +47,8 @@
           <div class="tab-notice-headline">Access Your Account</div>
           <div class="tab-notice-info">Log in to see profile, purchase history in My Account </div>
           <div class="button-placeholder">
-            <input type="button" value="Not now">
-            <input type="button" value="Log in" style="color:">
+            <input type="button" value="Not now" onclick="tabNoticeNotNow(this)">
+            <input type="button" value="Log in" style="color:" onclick="tabNoticeLogIn(this)">
           </div>
         </div>
         <div class="tab-menu">
