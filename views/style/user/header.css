@@ -263,6 +263,7 @@
   font-size: calc(4px + 1.2vw);
   transform: translateX(220%);
   transition: all 1000ms ease-in;
+  display: none;
   /* box-shadow: -5vw 0 var(--ora);  */
 }
 

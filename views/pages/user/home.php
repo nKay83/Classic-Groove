@@ -29,7 +29,6 @@ if ($name != "" || $category != 0 || $price != 0) {
     $f = true;
   }
 }
-echo $sql;
 $result = $dp->excuteQuery($sql);
 $album = array();
 if ($result->num_rows > 0) {
