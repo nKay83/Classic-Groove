@@ -15,9 +15,15 @@ $("#purchaseHistory .row").click(function () {
 $("#productManager .row").click(function () {
   $(this).children(".song-list").slideToggle(500);
 });
-$(function(){
+$(function () {
   $("#scrollbar").mCustomScrollbar({
-      theme:"rounded-dark"
-      });
-})
+    theme: "rounded-dark",
+  });
+});
 
+const changeToolTip = (input) => {
+  let val = parseInt(input.value);
+  let tooltip = document.querySelector("#search .tooltiptext");
+  if (val == 0) tooltip.innerHTML = "All";
+  else tooltip.innerHTML = (val - 1) * 100 + " - " + val * 100 + " $";
+};

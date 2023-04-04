@@ -4,7 +4,7 @@
       <img src="views/assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
-      <div class="tab-title active" onclick="loadPageByAjax('home'),selectMenu(this)">
+      <div class="tab-title active" onclick="loadHomeByAjax(),selectMenu(this)">
         <div class="tab-icon">
           <i class="fa-solid fa-house "></i>
         </div>

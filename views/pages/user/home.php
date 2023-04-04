@@ -2,26 +2,40 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 
-$sql = "SELECT * FROM album";
+$name = $_POST['name'];
+$category = $_POST['category'];
+$price = $_POST['price'];
+$whereSQl = "";
+$sql = "SELECT * FROM album ";
+$f = false;
+if ($name != "" || $category != 0 || $price != 0) {
+  $sql = $sql . "where ";
+  if ($name != "") {
+    $sql = $sql . "tenAlbum LIKE '%" . $name . "%' ";
+    $f = true;
+  }
+  if ($category != 0) {
+    if ($f) {
+      $sql = $sql . "and ";
+    }
+    $sql = $sql . "theLoai = " . $category . " ";
+    $f = true;
+  }
+  if ($price != 0) {
+    if ($f) {
+      $sql = $sql . "and ";
+    }
+    $sql = $sql . "gia >= " . ($price - 1) * 100 . " and gia <= " . $price * 100;
+    $f = true;
+  }
+}
+echo $sql;
 $result = $dp->excuteQuery($sql);
 $album = array();
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     array_push($album, $row);
   }
-}
-$albums = array();
-// $name = $_POST['name'];
-$category = $_POST['category'];
-// $price = $_POST['price'];
-if ($category != 0) {
-  for ($i = 0; $i < count($album); $i++) {
-    if ($album[$i]['theLoai'] == $category) {
-      array_push($albums, $album[$i]);
-    }
-  }
-} else {
-  $albums = $album;
 }
 ?>
 
@@ -39,14 +53,15 @@ if ($category != 0) {
   <h1>Features</h1>
   <div class="grid-container">
     <?php
-    foreach ($albums as $al) {
+    foreach ($album as $al) {
       echo '
       <div class="grid-item" onclick="loadProductDetailsByAjax(' . $al["maAlbum"] . ')" >
         <div class="img-container">
           <img src="data/imgAlbum/' . $al["hinh"] . '.jpg" alt="album\'s poster">
         </div>
         <p class="title">' . $al["tenAlbum"] . '</p>
-        <p class="gray">' . $al["tacGia"] . '</p>
+        <p class="gray artist">' . $al["tacGia"] . '</p>
+        <p class="price">' . $al["gia"] . ' $</p>
       </div>';
     }
     ?>

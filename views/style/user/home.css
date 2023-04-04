@@ -65,6 +65,14 @@
   line-height: 1.5;
   color: var(--whi);
 }
+#home .grid-item .artist {
+  color: var(--ora);
+}
+#home .grid-item .price {
+  color: var(--gr1);
+  font-size: 22px;
+  
+}
 #home .img-container{
   position: relative;
   background-color: brown;

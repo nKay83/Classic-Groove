@@ -13,7 +13,10 @@ const loadPageByAjax = (pageTarget) => {
     },
   });
 };
-const loadHomeByAjax = (name, category, price) => {
+const loadHomeByAjax = () => {
+  let name = document.querySelector("#search #search-btn").value;
+  let category = document.querySelector("#search #drop-menu-btn").value;
+  let price = document.querySelector("#search #price-ptn ").value;
   $.ajax({
     url: "views/pages/user/home.php",
     type: "POST",
@@ -96,7 +99,4 @@ const loadLoginByAjax = (pageTarget) => {
   }
 };
 
-const filter = () => {
-  let category = parseInt(document.querySelector("#drop-menu-btn").value);
-  loadHomeByAjax("", category, "0");
-};
+

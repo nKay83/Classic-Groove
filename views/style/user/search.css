@@ -48,3 +48,30 @@
 #search i{
   color: var(--gr1);
 }
+
+#search .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted var(--bla);
+}
+
+#search .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--gr2);
+  color: var(--bla);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 140%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+#search .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
