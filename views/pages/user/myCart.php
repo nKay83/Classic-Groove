@@ -38,11 +38,11 @@ if ($result->num_rows > 0) {
                             </div>
                         </div>
                         <div class="QPT-info">$' . number_format((float) $al["gia"], 2, '.', '') . '</div>
-                        <div class="QPT-info total">$' . number_format((float) ($al['gia'] * $al['soLuong']), 2, '.', '') . '</div>
+                        <div class="QPT-info total">$' . number_format((float) ($al['gia'] * $al['ghsl']), 2, '.', '') . '</div>
                     </div>
                 </div>
                 <div class="button-placeholder">
-                    <div class="erase-button"><i class="fa-solid fa-xmark fa-lg"></i></div>
+                    <div class="erase-button" onclick=deleteFromCart(' . $al['maAlbum'] . ',this)><i class="fa-solid fa-xmark fa-lg"></i></div>
                     <div class="check-button">
                         <input type="checkbox" onchange="summary(this)">
                     </div>

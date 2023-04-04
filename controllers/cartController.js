@@ -11,6 +11,17 @@ const addToCart = (albumID) => {
     },
   });
 };
+
+const deleteFromCart = (albumID, input) => {
+  $.ajax({
+    url: "util/cart.php?albumID=" + albumID,
+    type: "DELETE",
+    success: function (res) {
+      if (res != "Success") alert(res);
+      input.closest(".product-placeholder").remove();
+    },
+  });
+};
 const summary = (input) => {
   let price = parseFloat(
     input
