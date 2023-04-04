@@ -21,12 +21,14 @@ class DataProvider
     }
     return $result;
   }
-  public static function getUserByUsername($username){
+  public static function getUserByUsername($username)
+  {
     $sql = "select * from taikhoan where username='" . $username . "'";
     return self::excuteQuery($sql);
   }
-  public static function getNewUserId(){
-    $sql ="SELECT MAX(maNguoiDung) FROM nguoidung";
-    return self::excuteQuery($sql)->fetch_assoc()['MAX(maNguoiDung)'] + 1;
+  public static function getAlbumInCart($albumID, $userID)
+  {
+    $sql = "SELECT * FROM giohang where maKhachHang = '" . $userID . "' and maAlbum = " . $albumID;
+    return self::excuteQuery($sql);
   }
 }
