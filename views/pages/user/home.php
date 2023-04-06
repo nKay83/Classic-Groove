@@ -65,6 +65,14 @@ if ($result->num_rows > 0) {
     }
     ?>
   </div>
+  <div class="pagination-placeholder">
+      <div class="pagination-box">
+        <div class="item"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="item">1  OF 10</div>
+        <div class="item"><i class="fa-solid fa-chevron-right"></i></div>
+
+      </div>
+    </div>
 </div>
 <!-- 
 <div class="grid-item">

@@ -1,21 +1,9 @@
 <div id="accountManager">
-    <h1><i class="fa-solid fa-user"></i> Account management</h1>
+    <h1><i class="fa-solid fa-user fa-sm"></i> Account management</h1>
     <div class="button-placeholder">
-        <div class="edit-button" onclick="openEditAccount()">
-            <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-            <div class="info-placeholder">Edit</div>
-        </div>
         <div class="new-button" onclick="openNewAccount()">
-            <div class="icon-placeholder"><i class="fa-solid fa-user-plus"></i></div>
+            <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
             <div class="info-placeholder">New</div>
-        </div>
-        <div class="save-button">
-            <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
-            <div class="info-placeholder">Save</div>
-        </div>
-        <div class="delete-button">
-            <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
-            <div class="info-placeholder">Delete</div>
         </div>
     </div>
     <div class="title-list">
@@ -89,7 +77,7 @@
             <div class="modal-button">
                 <div class="button-layout"></div>
                 <div class="button-layout">
-                    <div class="edit-button">
+                    <div class="edit-button" onclick="openEditAccount()">
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                         <div class="info-placeholder">Edit</div>
                     </div>

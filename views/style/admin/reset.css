@@ -31,9 +31,22 @@ header {
 main {
   width: 87%;
   float: right;
-  background-color: var(--lig);
+  /* background-color: var(--lig); */
   min-height: 100vh;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.056) 1px,
+    transparent 1px
+  ),
+  linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.056) 1px,
+    transparent 1px
+  ),
+  linear-gradient(to bottom, var(--lig), var(--lig));
+  background-size: 10px 10px, 10px 10px, 100% 100%;
 }
+
 
 #search {
   height: 6vh;

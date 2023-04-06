@@ -17,23 +17,21 @@
 }
 
 #productManager .button-placeholder {
-    width: 55%;
+    width: 20%;
     height: 4vw;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     font-size: calc(5px + 1vw);
+    column-gap: 5%;
 }
 
-#productManager .edit-button,
-#productManager .save-button,
-#productManager .delete-button,
 #productManager .new-button,
 #productManager .restock-button {
     flex-direction: row;
     display: flex;
     height: 2.5vw;
-    width: 80%;
+    width: 7vw;
     margin: auto;
     justify-content: space-evenly;
     align-items: center;
@@ -42,7 +40,11 @@
     padding: 5%;
     cursor: pointer;
 }
-
+#productManager .new-button:active,
+#productManager .restock-button:active {
+    transform: translateY(3px);
+    transition: 0.1s;
+}
 #productManager .delete-button {
     background-color: var(--whi);
     color: var(--bla);
@@ -80,14 +82,14 @@
 
 #productManager .list {
     width: 100%;
-    max-height: 75vh;
+    max-height: 83vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: calc(5px + 1vw);
     background-color: var(--whi);
-    height: 75vh;
-    border-radius: 30px 30px 0 0;
+    height: 83vh;
+    /* border-radius: 30px 30px 0 0; */
     overflow-y: scroll;
 }
 
@@ -140,7 +142,7 @@
 }
 
 #productManager .modal-placeholder {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: opacity(50%);
     height: 94vh;
     width: 87vw;
@@ -160,7 +162,17 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 6fr 1fr;
     color: var(--ora);
-    
+    animation: loader 0.4s;
+    animation-iteration-count: 1;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.7);
+}
+@keyframes loader{
+    from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes back {
+    from {opacity: 1;}
+  to {opacity: 0;}
 }
 
 
@@ -171,6 +183,10 @@
     justify-content: center;
     font-size: calc(2px + 1vw);
     grid-column: 1 / span 2;
+    width: 30%;
+    margin: 0% 35%;
+    margin-bottom: 1%;
+
 }
 
 #productManager .modal-box .modal-left {
@@ -362,20 +378,21 @@
 
 #productManager .modal-box .button-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    width: 70%;
+    width: 90%;
     color: var(--whi);
-    margin: 0px 0px 0px 30%;
-    column-gap: 0%;
+    margin-left: 10%;
 }
 
 #productManager .modal-box .edit-button,
-#productManager .modal-box .back-button {
+#productManager .modal-box .back-button,
+#productManager .modal-box .delete-button,
+#productManager .modal-box .save-button{
     flex-direction: row;
     display: flex;
     height: 2.5vw;
-    width: 70%;
+    width: 75%;
     margin: auto;
     justify-content: space-evenly;
     align-items: center;
@@ -384,9 +401,21 @@
     padding: 5%;
     cursor: pointer;
     font-size: calc(5px + 1vw);
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.7);
+}
+#productManager .modal-box .edit-button:active,
+#productManager .modal-box .back-button:active,
+#productManager .modal-box .delete-button:active,
+#productManager .modal-box .save-button:active{
+    transform: translateY(3px);
+    transition: 0.1s;
 }
 
 #productManager .modal-box .back-button {
     background-color: var(--bla);
     color: var(--whi);
+}
+#productManager .modal-box .delete-button{
+    background-color: var(--ora);
+    color: var(--bla);
 }

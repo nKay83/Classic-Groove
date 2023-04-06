@@ -28,6 +28,10 @@
         <div class="tab-icon"><i class="fa-solid fa-user"></i></div>
         <div class="tab-info">Account</div>
       </div>
+      <div class="tab-title" onclick="loadPageByAjax('supplyRecord'),selectMenu(this)">
+        <div class="tab-icon"><i class="fa-regular fa-box-open"></i></div>
+        <div class="tab-info">Supply</div>
+      </div>
       <div class="tab-title" onclick="loadPageByAjax('distributor'),selectMenu(this)">
         <div class="tab-icon"><i class="fa-solid fa-handshake"></i></div>
         <div class="tab-info">Producer</div>
@@ -36,6 +40,7 @@
         <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
         <div class="tab-info">Structure</div>
       </div>
+      
       </div>
     </div>
   </div>

@@ -1,11 +1,5 @@
 <div id="orderManager">
     <h1><i class="fa-regular fa-list"></i> Order management</h1>
-    <div class="button-placeholder">
-        <div class="edit-button" onclick="openEditorder()">
-            <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-            <div class="info-placeholder">Edit</div>
-        </div>
-    </div>
     <div class="title-list">
         <div class="title-placeholder">
             <div class="title" style="padding-right: 10px;">No.</div>
@@ -100,7 +94,7 @@
             <div class="modal-button">
                 <div class="button-layout"></div>
                 <div class="button-layout">
-                    <div class="edit-button">
+                    <div class="edit-button" onclick="openEditorder()">
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                         <div class="info-placeholder">Edit</div>
                     </div>
@@ -114,11 +108,11 @@
     </div>
     <div class="modal-placeholder" id="edit-order">
         <div class="modal-box">
-            <div class="modal-header">
+            <div class="modal-header ">
                 <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Edit order</h1>
             </div>
             <div class="modal-left">
-                <div class="modal-info">
+                <div class="modal-info ">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
                         <div class="item-input"><input type="text" value="CUS001"></div>
@@ -151,8 +145,8 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-right">
-                <div class="title-list">
+            <div class="modal-right ">
+                <div class="title-list ">
                     <div class="title-placeholder">
                         <div class="title" style="padding-right: 10px;">No.</div>
                         <div class="title" style="padding-right: 15px;">Album ID</div>
@@ -180,7 +174,7 @@
             <div class="modal-button">
                 <div class="button-layout"></div>
                 <div class="button-layout">
-                    <div class="edit-button">
+                    <div class="edit-button" >
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                         <div class="info-placeholder">Edit</div>
                     </div>

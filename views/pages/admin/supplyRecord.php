@@ -1,6 +1,6 @@
-<div id="productManager">
-  <h1><i class="fa-solid fa-album"></i>&#09; Product management</h1>
-  <!-- <div class="button-placeholder">
+<div id="supplyRecord">
+  <h1><i class="fa-regular fa-box-open"></i> Supply record</h1>
+  <div class="button-placeholder">
     <div class="new-button" onclick="openNewalbum()">
       <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
       <div class="info-placeholder">New</div>
@@ -9,17 +9,16 @@
       <div class="icon-placeholder"><i class="fa-solid fa-rotate-left"></i></div>
       <div class="info-placeholder">Restock</div>
     </div>
-  </div> -->
+  </div>
   <div class="title-list">
     <div class="title-placeholder">
       <div class="title" style="padding-right: 10px;">No.</div>
-      <div class="title" style="padding-right: 15px;">Album ID</div>
-      <div class="title" style="padding-right: 15px;">Album name</div>
-      <div class="title" style="padding-right: 10px;">Artist name</div>
-      <div class="title">Kind</div>
-      <div class="title">Price</div>
-      <div class="title">Quanitity</div>
+      <div class="title" style="padding-right: 15px;">Record ID</div>
+      <div class="title" style="padding-right: 15px;">Accoutn ID</div>
+      <div class="title" style="padding-right: 10px;">Record date</div>
+      <div class="title">Total cost</div>
       <div class="title">Status</div>
+      <div class="title"></div>
     </div>
   </div>
   <div class="list">
@@ -29,8 +28,6 @@
         <div class="item">CUS001</div>
         <div class="item">Bùi Hồng Bảo</div>
         <div class="item">09000000000</div>
-        <div class="item">Jazz</div>
-        <div class="item">CUS</div>
         <div class="item">1000</div>
         <div class="item">Available</div>
         <div class="item" onclick="openDetailalbum()"><i class="fa-regular fa-circle-info"></i></div>
