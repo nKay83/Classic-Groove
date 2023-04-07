@@ -7,7 +7,7 @@
                 <br>
                 <div>
                     <input type="password" id="password-field" name="password" placeholder="Password" required>
-                    <i class="fa-thin fa-eye-slash" id="eyeicon"></i>
+                    <i class="fa-thin fa-eye-slash" id="eyeicon" onclick="eyePassword()"></i>
                 </div>
                 <br>
                 <div class="bottom">
