@@ -55,7 +55,11 @@ if ($result->num_rows > 0) {
     <div class="right-placeholder">
         <div class="totalprice-placeholder">
             <div class="totalprice-header">
-                <h1>Summary</h1>
+                <h1>Checkout</h1>
+            </div>
+            <div class="checkout-address">
+                Address
+                <textarea name="" id="" cols="20" rows="5"></textarea>
             </div>
             <div class="totalprice-info">
                 <div class="price-kind">Subtotal:</div>
@@ -74,3 +78,27 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </div>
+    <div class="modal-placeholder" id="orderSuccess">
+        <div class="modal-box">
+            <div class="modal-info-placeholder">
+                <div class="modal-info">
+                    <div class="img-placeholder">
+                            <img src="views/assets/img/fast-delivery.png" alt="">
+                    </div>
+                </div>
+                <div class="modal-info">Your order is being processed and shipped in shortly !</div>
+                <div class="modal-info">Thank you for buying our albums</div>
+            </div>
+            <div class="modal-button-placeholder">
+                <div class="home-button">
+                    <div class="button-item">
+                    <i class="fa-solid fa-house "></i>
+                    </div>
+                    <div class="button-item">
+                        Back to home
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

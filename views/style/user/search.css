@@ -52,7 +52,6 @@
 #search .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted var(--bla);
 }
 
 #search .tooltip .tooltiptext {
