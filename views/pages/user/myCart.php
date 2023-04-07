@@ -32,9 +32,13 @@ if ($result->num_rows > 0) {
                         <div class="QPT-info">Total</div>
                         <div class="QPT-info">
                             <div class="quantity-placeholder">
-                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',-1,this)><i class="fa-solid fa-minus fa-xs"></i></div>
+                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',-1,this)>
+                                    <i class="fa-solid fa-minus fa-xs"></i>
+                                </div>
                                 <input type="text" class="quantity-info" value="' . $al['ghsl'] . '"onchange=changeQuantity(' . $al['maAlbum'] . ',0,this)>
-                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',1,this)><i class="fa-solid fa-plus-large fa-xs"></i></div>
+                                <div class="quantity-info" onclick=changeQuantity(' . $al['maAlbum'] . ',1,this)>
+                                    <i class="fa-solid fa-plus-large fa-xs"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="QPT-info each">$' . number_format((float) $al["gia"], 2, '.', '') . '</div>
@@ -42,9 +46,11 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
                 <div class="button-placeholder">
-                    <div class="erase-button" onclick=deleteFromCart(' . $al['maAlbum'] . ',this)><i class="fa-solid fa-xmark fa-lg"></i></div>
+                    <div class="erase-button" onclick=deleteFromCart(' . $al['maAlbum'] . ',this)>
+                        <i class="fa-solid fa-xmark fa-lg"></i>
+                    </div>
                     <div class="check-button">
-                        <input type="checkbox" onchange="summary(this)">
+                        <input type="checkbox" value="'.$al['maAlbum'].'" onchange="summary(this)">
                     </div>
                 </div>
             </div>
@@ -59,7 +65,7 @@ if ($result->num_rows > 0) {
             </div>
             <div class="checkout-address">
                 Address
-                <textarea name="" id="" cols="20" rows="5"></textarea>
+                <textarea name="" id="checkout-address" cols="20" rows="5"></textarea>
             </div>
             <div class="totalprice-info">
                 <div class="price-kind">Subtotal:</div>
@@ -73,7 +79,7 @@ if ($result->num_rows > 0) {
                 <div class="price-kind">Total:</div>
                 <div class="price-detail total-final">$0.00</div>
             </div>
-            <div class="totalprice-button">
+            <div class="totalprice-button" onclick="order()">
                 <button>Place order</button>
             </div>
         </div>
