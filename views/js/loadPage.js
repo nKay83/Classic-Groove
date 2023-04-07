@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  loadHomeByAjax("", 0, "0");
+  loadHomeByAjax(1);
 });
 
 const loadPageByAjax = async (pageTarget) => {
@@ -16,14 +16,19 @@ const loadPageByAjax = async (pageTarget) => {
     },
   });
 };
-const loadHomeByAjax = () => {
+const loadHomeByAjax = (currentPage) => {
   let name = document.querySelector("#search #search-btn").value;
   let category = document.querySelector("#search #drop-menu-btn").value;
   let price = document.querySelector("#search #price-ptn ").value;
   $.ajax({
     url: "views/pages/user/home.php",
     type: "POST",
-    data: { name: name, category: category, price: price },
+    data: {
+      name: name,
+      category: category,
+      price: price,
+      currentPage: currentPage,
+    },
     dataType: "html",
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
