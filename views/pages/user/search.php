@@ -14,14 +14,14 @@ if ($result->num_rows > 0) {
 <div class="search-container">
   <div class="search">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" id="search-btn" placeholder="What do you want to listen or buy?" onchange="loadHomeByAjax()">
+    <input type="text" id="search-btn" placeholder="What do you want to listen or buy?" onchange="loadHomeByAjax(1)">
   </div>
 </div>
 <div class="drop-menu-container">
 
   <div class="drop-menu">
     <i class="fa-sharp fa-regular fa-bars-filter"></i>
-    <select name="" id="drop-menu-btn" onchange="loadHomeByAjax()">
+    <select name="" id="drop-menu-btn" onchange="loadHomeByAjax(1)">
       <option value="0">All</option>
       <?php
       foreach ($category as $cat) {
@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
   <div class="price">
     <i class="fa-regular fa-coin"></i>
     <input type="range" min="0" max="5" value="0" name="" id="price-ptn" step="1"
-    list="markers" onchange="changeToolTip(this);loadHomeByAjax()">
+    list="markers" onchange="changeToolTip(this);loadHomeByAjax(1)">
     <i class="fa-regular fa-coins"></i>
     <span class="tooltiptext">All</span>
   </div>

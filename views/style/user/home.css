@@ -71,7 +71,6 @@
 #home .grid-item .price {
   color: var(--gr1);
   font-size: 22px;
-  
 }
 #home .img-container{
   position: relative;
@@ -108,6 +107,7 @@
   height: 70px;
   justify-content: center;
   align-items: center;
+  margin-top: 3vh;
 }
 #home .pagination-placeholder .pagination-box{
   width: 200px;

@@ -26,6 +26,7 @@ header {
   background-color: var(--bla);
   height: 100vh;
   position: fixed;
+  z-index: 20;
 }
 
 main {
