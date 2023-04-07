@@ -8,7 +8,7 @@
   <div class="volume-container">
     <i class="fa-sharp fa-solid fa-volume"></i>
     <div>
-      <input type="range" value="99" min="1" max="100" class="volume_slider" onchange="setVolume()">
+      <input type="range" value="99" min="1" max="100" class="volume_slider" onchange="setVolume()" oninput="setVolume()">
     </div>
   </div>
 </div>
