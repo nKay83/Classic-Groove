@@ -5,7 +5,7 @@
                 <p class="header">Login</p>
                 <input type="text" id="username-field" name="username" placeholder="Username" required>
                 <br>
-                <div>
+                <div style="position:relative">
                     <input type="password" id="password-field" name="password" placeholder="Password" required>
                     <i class="fa-thin fa-eye-slash" id="eyeicon" onclick="eyePassword()"></i>
                 </div>
@@ -36,8 +36,14 @@
                 <input type="text" name="Name" class="text name" placeholder="Name">
                 <input type="text" name="phonenumber" class="text phonenumber" placeholder="Phone number">
                 <input type="text" name="username" class="text username" placeholder="Username">
-                <input type="password" name="password" class="text password" placeholder="Password">
-                <input type="password" name="password" class="text confirmPassword" placeholder="Confirm password">
+                <div style="position:relative">
+                    <input type="password" name="password" class="text password" id="password-field2" placeholder="Password">
+                    <i class="fa-thin fa-eye-slash" id="eyeicon2" onclick="eyePassword2()"></i>
+                </div>
+                <div style="position:relative">
+                    <input type="password" name="password" class="text confirmPassword" id="password-field3" placeholder="Confirm password">
+                    <i class="fa-thin fa-eye-slash" id="eyeicon3" onclick="eyePassword3()"></i>
+                </div>
                 <div class="submit"><input type="button" value="Register" onclick="register()">
                     <p class="color333">Or connect to your</p>
                     <br>
