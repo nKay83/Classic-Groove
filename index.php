@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,5 +62,5 @@
 <!-- controllers -->
 <Script src="controllers/loginController.js"></Script>
 <Script src="controllers/cartController.js"></Script>
-
+<Script src="controllers/orderController.js"></Script>
 </html>

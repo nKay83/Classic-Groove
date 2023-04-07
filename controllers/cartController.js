@@ -97,35 +97,3 @@ const summary = (input) => {
   totalInput.innerHTML = "$" + total;
 };
 
-const order = async () => {
-  if (!checkMyCart()) return;
-  await deleteFromOrder();
-  alert("Đặt hàng thành công");
-};
-
-const checkMyCart = () => {
-  let albums = document.querySelectorAll(
-    "#mycart .check-button input[type='checkbox']:checked"
-  );
-  let address = document.querySelector("#mycart #checkout-address");
-  if (albums.length == 0) {
-    alert("Chưa chọn Album!");
-    return false;
-  }
-  if (address.value == "") {
-    alert("Chưa nhập địa chỉ!");
-    address.focus();
-    return false;
-  }
-  return true;
-};
-
-const deleteFromOrder = async () => {
-  let albums = document.querySelectorAll(
-    "#mycart .check-button input[type='checkbox']:checked"
-  );
-  for (let album of albums) {
-    await deleteByAlbumID(parseInt(album.value));
-    album.closest(".product-placeholder").remove();
-  }
-};
