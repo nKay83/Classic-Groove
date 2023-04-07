@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
                 <div class="modal-info">Thank you for buying our albums</div>
             </div>
             <div class="modal-button-placeholder">
-                <div class="home-button">
+                <div class="home-button" onclick="loadHomeByAjax(1)">
                     <div class="button-item">
                     <i class="fa-solid fa-house "></i>
                     </div>

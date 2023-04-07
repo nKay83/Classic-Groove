@@ -4,7 +4,7 @@ const order = async () => {
   let address = document.querySelector("#mycart #checkout-address").value;
   await createOrder(address, total);
   await deleteFromOrder();
-  alert("Đặt hàng thành công");
+  document.querySelector("#orderSuccess").style.display = "flex";
 };
 
 const getTotal = () => {
