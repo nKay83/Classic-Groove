@@ -227,10 +227,10 @@
   color: var(--gr1);
   background-color: var(--ora);
   font-size: 80%;
-  padding: 2px;
+  padding: 7px 15px;
   cursor: pointer;
   font-family: "Dosis", sans-serif;
-  border-radius: 20px;
+  border-radius: 10px;
   border: none;
   margin: 1%;
 }

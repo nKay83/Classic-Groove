@@ -22,7 +22,7 @@
   width: 90%;
   background-color: var(--gr2);
   border-radius: 25px;
-  padding-left: 5px;
+ padding: 0 20px;
   display: flex;
   align-items: center;
 }
@@ -35,14 +35,14 @@
   border: none;
   outline: none;
   border-radius: 20px;
-  padding-left: 3px;
+  padding-left: 10px;
 }
 #search .price{
   display: flex;
   justify-content: space-around;
 }
 #search .price input{
-  width: 80%;
+  width: 70%;
   padding: 0;
 }
 #search i{

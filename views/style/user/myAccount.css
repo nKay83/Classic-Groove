@@ -1,125 +1,110 @@
 #myaccount {
-  display: flex;
-  flex-direction: column;
   font-family: "Dosis", sans-serif;
   font-size: 25px;
   font-weight: 900;
-  background-color: var(--lig);
   color: var(--whi);
-  padding: 20px 0px 0px 50px;
+  width: 100%;
+  /* height: 94vh; */
+  padding: 0 2%;
+}
+#myaccount h2{
+  color: var(--whi);
+  margin-top: 2%;
+  font-size: 30px;
+}
+
+#myaccount .flex-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 }
-#myaccount input {
-  margin-bottom: 10px;
-}
-#myaccount .profile {
-  font-size: 30px;
-}
-#myaccount .name {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-#myaccount .form {
-}
-#myaccount .FirstName {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 90%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .LastName {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 90%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .username {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 95%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .password {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 95%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .EmailAddress {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 95%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .PhoneNumber {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 95%;
-  height: 40px;
-  border-radius: 50px;
-}
-#myaccount .idnumber {
-  font-family: "Dosis", sans-serif;
-  background-color: var(--gr2);
-  padding-left: 10px;
-  font-size: 20px;
-  width: 95%;
-  height: 40px;
-  border-radius: 50px;
+
+#myaccount .flex-container .top-container {
+  width: 70%;
+  background: var(--whi);
+  border-radius: 30px;
+  margin-top: 2%;
+  color: var(--bla);
+  padding: 2%;
 }
 
-#myaccount .button {
-  margin: 20px 0px 0px 0px;
+#myaccount .flex-container .top-container .container-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.8fr 1fr 0.8fr 1fr 0.8fr 1fr;
+}
+
+#myaccount .flex-container .top-container .container-info .title {
+  padding: 0% 5%;
+  margin-bottom: 1%;
+  color: var(--ora);
+}
+
+#myaccount .flex-container .top-container .container-info .info {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+#myaccount .flex-container .top-container .container-info .info input {
   width: 95%;
+  border-radius: 20px;
+  padding: 2%;
+  padding-left: 3%;
+  font-size: calc(5px + 1vw);
+  background-color: var(--gr2);
+  font-family: "Dosis", sans-serif;
+  border: none;
+  outline: none;
 }
-#myaccount .btn1 {
-  font-size: 2vw;
+#myaccount .flex-container .top-container .contain-button{
+  width: 98.5%;
+  display: flex;
+  justify-content: right;
+  margin-top: 2%;
+}
+#myaccount .flex-container .top-container .contain-button .button-placeholder{
+  width: 20%;
+  padding: 1%;
+  background-color: var(--ora);
   color: var(--whi);
-  background: var(--ora);
-  padding: 5px 10px 5px 10px;
-  text-align: center;
-  border-radius: 50px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  box-shadow: 0 2px 3px 2px rgba(253, 83, 26, 0.7);
   cursor: pointer;
 }
-#myaccount .btn2 {
-  font-size: 2vw;
-  text-align: center;
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
-  color: var(--gr1);
-  background: var(--gr2);
-  border-radius: 50px;
-  cursor: pointer;
+#myaccount .flex-container .top-container .contain-button .button-placeholder:active{
+  transition: 0.3s ease-in-out;
+  transform: translateY(8px);
+  
 }
-#myaccount .btn1:hover,
-btn1:focus,
-btn1:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+#myaccount .flex-container .top-container .contain-button .button-placeholder .item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#myaccount .btn2:hover,
-btn2:focus,
-btn2:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+
+#myaccount .flex-container .bottom-container{
+  width: 70%;
+  background: var(--whi);
+  border-radius: 30px;
+  margin-top: 2%;
+  color: var(--bla);
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+}
+
+#myaccount .flex-container .bottom-container .order-placeholder{
+  width: 100%;
+  height: 200px;
+  border-bottom: 3px var(--ora) solid;
+  padding-bottom: 2.5%;
+  padding-top: 2.5%;
 }

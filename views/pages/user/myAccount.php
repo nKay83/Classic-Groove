@@ -1,33 +1,37 @@
 <div id="myaccount">
-    <div class="profile">Profile</div>
-    <div class="form">
-        <div class="name">
-        <div class="fn">
-            <div class="First_Name">First name</div>
-            <input class="FirstName" type="text" placeholder="First name"><br>
-           </div>
-           <div class="fn">
-            <div class="Last_Name">Last name</div>
-            <input class="LastName" type="text" placeholder="Last name">
-           </div>
+    <div class="flex-container">
+        <h2>My profile</h2>
+        <div class="top-container">
+            <div class="container-info">
+                <div class="title">Name</div>
+                <div class="title">Phone number</div>
+                <div class="info"><input type="text"></div>
+                <div class="info"><input type="text"></div>
+                <div class="title">Username</div>
+                <div class="title">Password</div>
+                <div class="info"><input type="text"></div>
+                <div class="info"><input type="password"></div>
+                <div class="title">Address</div>
+                <div class="title">Email</div>
+                <div class="info"><input type="text"></div>
+                <div class="info"><input type="text"></div>
+            </div>
+            <div class="contain-button">
+                <div class="button-placeholder">
+                    <div class="item"><i class="fa-regular fa-floppy-disk"></i></div>
+                    <div class="item">Save change</div>
+                </div> 
+            </div>
         </div>
-        <div class="UserName">Username</div>
-        <input class="username" type="text" placeholder="Username">
+        <h2>Purchase history</h2>
+        <div class="bottom-container">
+            <div class="order-placeholder"></div>
+            <div class="order-placeholder"></div>
+            <div class="order-placeholder"></div>
+            <div class="order-placeholder"></div>
+            <div class="order-placeholder"></div>
+            <div class="order-placeholder"></div>
 
-        <div class="Password">Password</div>
-        <input class="password" type="password" placeholder="Password">
-
-        <div class="email">Email address</div>
-        <input class="EmailAddress" type="text" placeholder="Email address">
-
-        <div class="Phone_Number">Phone number</div>
-        <input class="PhoneNumber" type="text" placeholder="Phone number">
-
-        <div class="Id_Number">Id number</div>
-        <input class="idnumber" type="text" placeholder="Id number">
-        <div class="button">
-            <a href="#" class="btn1">Edit profile <i class="far fa-edit"></i></a>
-            <a href="#" class="btn2">Save change</a>
         </div>
     </div>
 </div>
