@@ -26,6 +26,15 @@ class DataProvider
     $sql = "select * from taikhoan where username='" . $username . "'";
     return self::excuteQuery($sql);
   }
+  public static function getNewHoaDonId()
+  {
+    $sql = "SELECT MAX(maHoaDon) FROM hoadon";
+    $result = self::excuteQuery($sql);
+    if (mysqli_num_rows($result) != 0) {
+      return self::excuteQuery($sql)->fetch_assoc()['MAX(maHoaDon)'] + 1;
+    }
+    return 1;
+  }
   public static function getAlbumInCart($albumID, $userID)
   {
     $sql = "SELECT * FROM giohang where maKhachHang = '" . $userID . "' and maAlbum = " . $albumID;

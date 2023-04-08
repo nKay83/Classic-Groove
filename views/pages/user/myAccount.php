@@ -1,4 +1,5 @@
 <div id="myaccount">
+<<<<<<< HEAD
     <div class="flex-container">
         <h2>My profile</h2>
         <div class="top-container">

@@ -1,8 +1,6 @@
 const order = async () => {
   if (!checkMyCart()) return;
-  let total = getTotal();
-  let address = document.querySelector("#mycart #checkout-address").value;
-  await createOrder(address, total);
+  await createOrder();
   await deleteFromOrder();
   document.querySelector("#orderSuccess").style.display = "flex";
 };
@@ -13,15 +11,38 @@ const getTotal = () => {
   return total;
 };
 
-const createOrder = async (address, total) => {
+const createOrder = async () => {
+  let albums = getAlbums();
+  let total = getTotal();
+  let address = document.querySelector("#mycart #checkout-address").value;
   await $.ajax({
     url: "util/order.php",
     type: "POST",
-    data: { address: address, total: total, action: "createOrder" },
+    data: {
+      address: address,
+      total: total,
+      albums: albums,
+      action: "createOrder",
+    },
     success: function (res) {
       if (res != "Success") alert(res);
     },
   });
+};
+const getAlbums = () => {
+  let listAlbum = [];
+  let albums = document.querySelectorAll(
+    "#mycart .check-button input[type='checkbox']:checked"
+  );
+  for (let album of albums) {
+    let quantity = album
+      .closest(".product-placeholder")
+      .querySelector("input.quantity-info").value;
+    let albumID = album.value;
+    listAlbum.push({ quantity: quantity, albumID: albumID });
+  }
+  console.log(listAlbum);
+  return JSON.stringify(listAlbum);
 };
 const checkMyCart = () => {
   let albums = document.querySelectorAll(
