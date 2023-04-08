@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 01:49 PM
+-- Generation Time: Apr 08, 2023 at 03:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -158,6 +158,13 @@ CREATE TABLE `giohang` (
   `soLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `giohang`
+--
+
+INSERT INTO `giohang` (`maKhachHang`, `maAlbum`, `soLuong`) VALUES
+('laviedd', 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -170,8 +177,16 @@ CREATE TABLE `hoadon` (
   `thoiGianDat` date DEFAULT NULL,
   `trangThai` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `khachHang` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `khuyenMai` int(11) DEFAULT NULL
+  `khuyenMai` int(11) DEFAULT NULL,
+  `diaChiGiaoHang` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`maHoaDon`, `tongTien`, `thoiGianDat`, `trangThai`, `khachHang`, `khuyenMai`, `diaChiGiaoHang`) VALUES
+(1, 215, '2023-04-08', 'Đang xử lý', 'baobui3103', NULL, 'aaaa');
 
 -- --------------------------------------------------------
 
@@ -228,7 +243,8 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `loainguoidung`) VALUES
-('baobui3103', 'Bao', '0908141453', NULL, NULL, 'Hoạt động', 'KH');
+('baobui3103', 'Bao', '0908141453', NULL, NULL, 'Hoạt động', 'KH'),
+('laviedd', 'Bùi Hồng Bảo', '0908141453', NULL, NULL, 'Hoạt động', 'KH');
 
 -- --------------------------------------------------------
 
@@ -288,7 +304,8 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`username`, `ngayTao`, `TrangThai`, `matKhau`, `vaiTro`) VALUES
-('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1);
+('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1),
+('laviedd', '2023-04-04', 'Hoạt động', 'Lavied31@', 1);
 
 -- --------------------------------------------------------
 
@@ -479,6 +496,16 @@ ALTER TABLE `vaitro_quyen`
 ALTER TABLE `yeuthich`
   ADD PRIMARY KEY (`album`,`nguoiDung`),
   ADD KEY `nguoiDung` (`nguoiDung`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  MODIFY `maHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
