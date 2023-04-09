@@ -1,0 +1,45 @@
+#notice {
+    position: fixed;
+    background-color: var(--ora);
+    /* margin: 5% 15%; */
+    border-radius: 15px;
+    padding: 15px 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--whi);
+    font-size: 20px;
+    top: 7vh;
+    left: calc(240px + 64vw);
+    animation: popup;
+    animation-duration: 0.8s;
+    font-family: "Dosis", sans-serif;
+    /* display: none; */
+    z-index: 10;
+    border-bottom: 3px solid;
+}
+
+#notice .cart-adding,
+#notice .favor-adding,
+#notice .favor-removing {
+    /* display: none; */
+}
+
+#notice .cart-adding i,
+#notice .favor-adding i,
+#notice .favor-removing i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+@keyframes popup {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

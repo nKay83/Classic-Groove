@@ -22,6 +22,7 @@ session_start();
   <link rel="stylesheet" href="views/style/user/songControl.css">
   <link rel="stylesheet" href="views/style/user/login.css">
   <link rel="stylesheet" href="views/style/user/myAccount.css">
+  <link rel="stylesheet" href="views/style/user/notice.css">
   <link rel="stylesheet" href="views/style/user/purchaseHistory.css">
   <link rel="stylesheet" href="views/style/admin/productManager.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,8 +52,13 @@ session_start();
       <div id="song-control">
         <?php include 'views/pages/user/songControl.php' ?>
       </div>
-  </div>
+      <div id="notice">
+      <p class="cart-adding"><i class="fa-solid fa-cart-circle-plus"></i> Added to your Cart</p>
+      <!-- <p class="favor-adding"><i class="fa-solid fa-heart-circle-plus"></i> Added to your Favorite</p>
+      <p class="favor-removing"><i class="fa-solid fa-heart-circle-xmark"></i> Removed from your Favorite</p> -->
+    </div>
   </main>
+</div>
 </body>
 <!-- views -->
 <script src="views/js/effectPages.js"></script>
