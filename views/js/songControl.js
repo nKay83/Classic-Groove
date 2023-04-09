@@ -58,13 +58,13 @@ function playpauseTrack() {
 function playTrack() {
   curr_track.play();
   isPlaying = true;
-  playpause_btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+  playpause_btn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
 }
 
 function pauseTrack() {
   curr_track.pause();
   isPlaying = false;
-  playpause_btn.innerHTML = '<i class="fa-duotone fa-play"></i>';
+  playpause_btn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 }
 function nextTrack() {
   if (track_index < track_list.length - 1) track_index += 1;

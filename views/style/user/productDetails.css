@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: row;
   font-family: "Dosis", sans-serif;
+  height: 94vh;
+  position: relative;
 }
 
 #product-details .left {
@@ -11,6 +13,7 @@
 #product-details .left img {
   border-radius: 30px;
   width: 100%;
+  background-color: var(--lig);
 }
 
 #product-details .right {
@@ -44,7 +47,8 @@
 
 #product-details .price {
   color: var(--ora);
-  font-size: 2.5vw;
+  font-size: 2vw;
+  margin-bottom: 3%;
 }
 
 #product-details .btn {
@@ -55,9 +59,15 @@
   width: 13%;
   border-radius: 20px;
   cursor: pointer;
+  box-shadow: 0 3px 3px 2px rgba(0,0,0,0.7);
+  transition: 0.3s ease-in-out;
+  user-select: none;
+  padding: 1%;
+  min-width: 100px;
 }
-#product-details .btn:hover {
-  transform: scale(108%);
+#product-details .btn:active {
+  transition: 0.3s ease-in-out;
+  transform: translateY(3px);
 }
 #product-details .btn i {
   font-size: 1.5vw;
@@ -93,4 +103,17 @@
   to {
     transform: rotate(-360deg);
   }
+}
+
+#product-details .notice{
+  background-color: var(--whi);
+  width: 70%;
+  margin: 5% 15%;
+  border-radius: 15px;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ora);
+  font-size: 20px;
 }

@@ -1,9 +1,9 @@
 <div class="control-btn">
   <div>
-    <i class="fa-solid fa-circle-xmark" onclick="closeSong()"></i>
+    <i class="fa-solid fa-caret-down fa-xl" onclick="closeSong()"></i>
   </div>
   <div class="prev-track" onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></div>
-  <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-duotone fa-play"></i></div>
+  <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-solid fa-circle-play"></i></div>
   <div class="next-track" onclick="nextTrack()"><i class="fa-solid fa-forward-step"></i></div>
   <div class="volume-container">
     <i class="fa-sharp fa-solid fa-volume"></i>

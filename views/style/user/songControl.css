@@ -1,13 +1,11 @@
 #song-control {
-  background-color: var(--bla);
+  background-color: var(--lig);
   display: none;
   justify-content: space-around;
   align-items: center;
   font-family: "Dosis", sans-serif;
   height: 7vh;
-  font-size: 2vw;
-  border-top-right-radius: 100px;
-  border-top-left-radius: 100px;
+  font-size: 1.5vw;
   padding: 0 10px;
 }
 
@@ -29,7 +27,7 @@
 }
 
 #song-control .control-btn i {
-  color: var(--ora);
+  color: var(--gr1);
 }
 #song-control .control-btn .volume-container {
   position: relative;
@@ -60,6 +58,7 @@
 #song-control .time-btn,
 #song-control .note {
   color: var(--whi);
+  font-size: 1.3vw;
 }
 #song-control .time-btn span {
   width: 20%;
@@ -85,6 +84,6 @@
 }
 
 #song-control i:hover {
-  transform: scale(110%);
+  color: var(--whi);
   cursor: pointer;
 }

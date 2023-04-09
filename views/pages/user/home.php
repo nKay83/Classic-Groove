@@ -43,7 +43,7 @@ for ($j = 1; $j < 2; $j++) {
   for ($i = 0; $i < $max; $i++) {
     array_push($album, $album[$i]);
   }
-  $pa = new Pagination($album, 10, $currentPage);
+  $pa = new Pagination($album, 12, $currentPage);
 }
 ?>
 
@@ -100,4 +100,18 @@ for ($j = 1; $j < 2; $j++) {
   </div>
   <p class="title">Headline</p>
   <p class="gray">Captions</p>
+</div> -->
+
+
+<!-- <div class="grid-item" onclick="loadProductDetailsByAjax(' . $album[$i][" maAlbum"] . ')" >
+    <div class="flex-container">
+      <div class="img-container">
+            <img src="data/imgAlbum/' . $album[$i]["hinh"] . '.jpg" alt="album\' s poster">
+      </div>
+      <div class="info-placeholder">
+        <div><p class="title">' . $album[$i]["tenAlbum"] . '</p></div>
+        <div><p class="gray artist">' . $album[$i]["tacGia"] . '</p></div>
+        <div> <p class="price">' . $album[$i]["gia"] . ' $</p></div>
+      </div>
+    </div>
 </div> -->

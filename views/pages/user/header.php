@@ -26,9 +26,9 @@
       </div>
       <div class="tab-title" onclick="selectMenu(this,'myCart')">
         <div class="tab-icon">
-          <i class="fa-brands fa-opencart "></i>
+        <i class="fa-regular fa-cart-shopping"></i>
         </div>
-        <div class="tab-info">My cart</div>
+        <div class="tab-info">Cart</div>
         <div class="tab-notice" onclick="event.stopPropagation()">
           <div class="tab-notice-headline">Access Your Cart</div>
           <div class="tab-notice-info">Log in to check, add, remove products in My Cart</div>
@@ -42,7 +42,7 @@
         <div class="tab-icon">
           <i class="fa-solid fa-user"></i>
         </div>
-        <div class="tab-info">My account</div>
+        <div class="tab-info">Account</div>
         <div class="tab-notice" onclick="event.stopPropagation()">
           <div class="tab-notice-headline">Access Your Account</div>
           <div class="tab-notice-info">Log in to see profile, purchase history in My Account </div>

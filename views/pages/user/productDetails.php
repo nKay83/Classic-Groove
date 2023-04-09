@@ -23,6 +23,9 @@ if ($result->num_rows > 0) {
 <div id="product-details">
   <div class="left">
     <img src=<?php echo "data/imgAlbum/" . $album["hinh"] . ".jpg" ?> alt="hinh">
+    <div class="notice">
+      <p>Added to your Cart</p>
+    </div>
   </div>
   <div class="right">
     <p class="title">
@@ -34,12 +37,12 @@ if ($result->num_rows > 0) {
     <p class="description">
       <?php echo $album["moTa"] ?>
     </p>
+    <h2 class="price">
+      <?php echo "$" . number_format((float) $album["gia"], 2, '.', '') ?>
+    </h2>
     <div class="control">
-      <h2 class="price">
-        <?php echo "$" . number_format((float) $album["gia"], 2, '.', '') ?>
-      </h2>
       <div class="btn add-to-cart-btn" onclick="addToCart(<?php echo $album['maAlbum'] ?>)">
-        <i class="fa-brands fa-opencart "></i>
+        <i class="fa-regular fa-cart-shopping"></i>
         <span>Add to cart</span>
       </div>
       <div class="btn favorite-btn">
@@ -59,4 +62,5 @@ if ($result->num_rows > 0) {
       ?>
     </div>
   </div>
+
 </div>
