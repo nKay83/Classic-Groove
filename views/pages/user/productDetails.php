@@ -23,9 +23,6 @@ if ($result->num_rows > 0) {
 <div id="product-details">
   <div class="left">
     <img src=<?php echo "data/imgAlbum/" . $album["hinh"] . ".jpg" ?> alt="hinh">
-    <div class="notice">
-      <p>Added to your Cart</p>
-    </div>
   </div>
   <div class="right">
     <p class="title">
@@ -62,5 +59,10 @@ if ($result->num_rows > 0) {
       ?>
     </div>
   </div>
+  <div class="notice">
+      <p class="cart-adding"><i class="fa-solid fa-cart-circle-plus"></i> Added to your Cart</p>
+      <!-- <p class="favor-adding"><i class="fa-solid fa-heart-circle-plus"></i> Added to your Favorite</p> -->
+      <!-- <p class="favor-removing"><i class="fa-solid fa-heart-circle-xmark"></i> Removed from your Favorite</p> -->
+    </div>
 
 </div>

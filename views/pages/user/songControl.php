@@ -1,6 +1,9 @@
 <div class="control-btn">
   <div>
-    <i class="fa-solid fa-caret-down fa-xl" onclick="closeSong()"></i>
+  <i class="fa-solid fa-circle-caret-down fa-xl" onclick="closeSong()" style="
+    margin-bottom: 20px;
+    font-size: calc(10px + 1vw);
+"></i>
   </div>
   <div class="prev-track" onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></div>
   <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-solid fa-circle-play"></i></div>
