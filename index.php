@@ -54,6 +54,8 @@ session_start();
       </div>
       <div id="notice">
       <p class="cart-adding"><i class="fa-solid fa-cart-circle-plus"></i> Added to your Cart</p>
+      <!-- <p class="order-removing"><i class="fa-solid fa-cart-circle-plus"></i> Cancel your Order</p> -->
+      <!-- <p class="cart-removing"><i class="fa-solid fa-cart-circle-xmark"></i> Removed from your Cart</p> -->
       <!-- <p class="favor-adding"><i class="fa-solid fa-heart-circle-plus"></i> Added to your Favorite</p>
       <p class="favor-removing"><i class="fa-solid fa-heart-circle-xmark"></i> Removed from your Favorite</p> -->
     </div>
