@@ -38,13 +38,13 @@ if ($result->num_rows > 0) {
     array_push($album, $row);
   }
 }
-for ($j = 1; $j < 2; $j++) {
+for ($j = 1; $j < 3; $j++) {
   $max = count($album);
   for ($i = 0; $i < $max; $i++) {
     array_push($album, $album[$i]);
   }
-  $pa = new Pagination($album, 12, $currentPage);
 }
+$pa = new Pagination($album, 12, $currentPage);
 ?>
 
 <div id="home">

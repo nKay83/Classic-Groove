@@ -128,3 +128,5 @@ const closeSong = () => {
   isPlaying = false;
   document.querySelector("#song-control").style.display = "none";
 };
+
+

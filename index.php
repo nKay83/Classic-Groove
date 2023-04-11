@@ -49,26 +49,36 @@ session_start();
       <div id="content">
 
       </div>
+      <div onclick="customNotice('fa-solid fa-cart-circle-plus','Added to your Cart')">baobui</div>
+
       <div id="song-control">
         <?php include 'views/pages/user/songControl.php' ?>
       </div>
       <div id="notice">
-      <p class="cart-adding"><i class="fa-solid fa-cart-circle-plus"></i> Added to your Cart</p>
-      <!-- <p class="order-removing"><i class="fa-solid fa-cart-circle-plus"></i> Cancel your Order</p> -->
-      <!-- <p class="cart-removing"><i class="fa-solid fa-cart-circle-xmark"></i> Removed from your Cart</p> -->
-      <!-- <p class="favor-adding"><i class="fa-solid fa-heart-circle-plus"></i> Added to your Favorite</p>
-      <p class="favor-removing"><i class="fa-solid fa-heart-circle-xmark"></i> Removed from your Favorite</p> -->
-    </div>
-  </main>
-</div>
+
+      </div>
+    </main>
+  </div>
 </body>
 <!-- views -->
 <script src="views/js/effectPages.js"></script>
 <script src="views/js/songControl.js"></script>
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
+<script src="views/js/notice.js"></script>
 <!-- controllers -->
 <Script src="controllers/loginController.js"></Script>
 <Script src="controllers/cartController.js"></Script>
 <Script src="controllers/orderController.js"></Script>
+
 </html>
+
+
+<!-- <div class="container">
+  <span class="slide"></span>
+  <p class="cart-adding"><i class="fa-solid fa-cart-circle-plus"></i> Added to your Cart</p>
+  <p class="order-removing"><i class="fa-solid fa-cart-circle-plus"></i> Cancel your Order</p>
+  <p class="cart-removing"><i class="fa-solid fa-cart-circle-xmark"></i> Removed from your Cart</p>
+  <p class="favor-adding"><i class="fa-solid fa-heart-circle-plus"></i> Added to your Favorite</p>
+  <p class="favor-removing"><i class="fa-solid fa-heart-circle-xmark"></i> Removed from your Favorite</p>
+</div> -->
