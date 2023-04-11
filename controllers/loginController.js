@@ -20,13 +20,13 @@ const login = () => {
 const checkInputLogin = () => {
   let username = document.querySelector("#username-field").value;
   if (username == "") {
-    alert("Chưa nhập username!");
+    customNotice("", "Chưa nhập username!");
     document.querySelector("#username-field").focus();
     return false;
   }
   let password = document.querySelector("#password-field").value;
   if (password == "") {
-    alert("Chưa nhập password!");
+    customNotice("", "Chưa nhập password!");
     document.querySelector("#password-field").focus();
     return false;
   }
@@ -78,7 +78,7 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    alert("Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập name!");
     name.focus();
     return false;
   }
