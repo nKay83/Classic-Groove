@@ -20,7 +20,7 @@
                 <div class="button-placeholder">
                     <div class="item"><i class="fa-regular fa-floppy-disk"></i></div>
                     <div class="item">Save change</div>
-                </div> 
+                </div>
             </div>
         </div>
         <h2>Purchase history</h2>
