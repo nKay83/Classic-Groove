@@ -26,7 +26,7 @@
       </div>
       <div class="tab-title" onclick="selectMenu(this,'myCart')">
         <div class="tab-icon">
-        <i class="fa-regular fa-cart-shopping"></i>
+          <i class="fa-regular fa-cart-shopping"></i>
         </div>
         <div class="tab-info">Cart</div>
         <div class="tab-notice" onclick="event.stopPropagation()">
@@ -74,11 +74,14 @@
           <input type="button" value="Sign up" onclick="loadLoginByAjax(\'signUp\'); hideTabNotice()">
         </div>
       </div>';
-    } else {
+    }
+    else {
       echo '
-      <div class="info-placeholder">
+      <div class="info-placeholder" onclick=\'logout()\'>
         <h3>Hello ' . $_SESSION['userName'] . '</h3>
-        <input type="button" value="Logout" onclick=\'logout()\' >
+        <div class="log-out-button">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
       </div>
       ';
     }

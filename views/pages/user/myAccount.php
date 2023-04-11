@@ -25,13 +25,132 @@
         </div>
         <h2>Purchase history</h2>
         <div class="bottom-container">
-            <div class="order-placeholder"></div>
-            <div class="order-placeholder"></div>
-            <div class="order-placeholder"></div>
-            <div class="order-placeholder"></div>
-            <div class="order-placeholder"></div>
-            <div class="order-placeholder"></div>
-
+            <div class="order-placeholder">
+                <div class="order-header">
+                    <div class="order-date">April 11, 2023</div>
+                    <div class="order-id">123456</div>
+                    <div class="order-status">Pending</div>
+                </div>
+                <div class="order-details">
+                    <div class="product-placeholder">
+                        <div class="img-placeholder">
+                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+                        </div>
+                        <div class="info-placeholder">
+                            <div class="album-name">She will be loved</div>
+                            <div class="sub-total">$100.00</div>
+                            <div class="artists-name">Maroon 5</div>
+                            <div></div>
+                            <div class="price">Price: $100.00</div>
+                            <div></div>
+                            <div class="quantity">Quantity: 1</div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <div class="total-title">Total billed:</div>
+                    <div class="total-bill">$100.00</div>
+                </div>
+                <div class="order-address">
+                    <div class="shipping-address">Ship to baobuibaobui</div>
+                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                </div>
+            </div>  
+            <div class="order-placeholder">
+                <div class="order-header">
+                    <div class="order-date">April 11, 2023</div>
+                    <div class="order-id">123456</div>
+                    <div class="order-status">Pending</div>
+                </div>
+                <div class="order-details">
+                    <div class="product-placeholder">
+                        <div class="img-placeholder">
+                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+                        </div>
+                        <div class="info-placeholder">
+                            <div class="album-name">She will be loved</div>
+                            <div class="sub-total">$100.00</div>
+                            <div class="artists-name">Maroon 5</div>
+                            <div></div>
+                            <div class="price">Price: $100.00</div>
+                            <div></div>
+                            <div class="quantity">Quantity: 1</div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <div class="total-title">Total billed:</div>
+                    <div class="total-bill">$100.00</div>
+                </div>
+                <div class="order-address">
+                    <div class="shipping-address">Ship to baobuibaobui</div>
+                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                </div>
+            </div>  
+            <div class="order-placeholder">
+                <div class="order-header">
+                    <div class="order-date">April 11, 2023</div>
+                    <div class="order-id">123456</div>
+                    <div class="order-status">Pending</div>
+                </div>
+                <div class="order-details">
+                    <div class="product-placeholder">
+                        <div class="img-placeholder">
+                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+                        </div>
+                        <div class="info-placeholder">
+                            <div class="album-name">She will be loved</div>
+                            <div class="sub-total">$100.00</div>
+                            <div class="artists-name">Maroon 5</div>
+                            <div></div>
+                            <div class="price">Price: $100.00</div>
+                            <div></div>
+                            <div class="quantity">Quantity: 1</div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="product-placeholder">
+                        <div class="img-placeholder">
+                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+                        </div>
+                        <div class="info-placeholder">
+                            <div class="album-name">She will be loved</div>
+                            <div class="sub-total">$100.00</div>
+                            <div class="artists-name">Maroon 5</div>
+                            <div></div>
+                            <div class="price">Price: $100.00</div>
+                            <div></div>
+                            <div class="quantity">Quantity: 1</div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="product-placeholder">
+                        <div class="img-placeholder">
+                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+                        </div>
+                        <div class="info-placeholder">
+                            <div class="album-name">She will be loved</div>
+                            <div class="sub-total">$100.00</div>
+                            <div class="artists-name">Maroon 5</div>
+                            <div></div>
+                            <div class="price">Price: $100.00</div>
+                            <div></div>
+                            <div class="quantity">Quantity: 1</div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <div class="total-title">Total billed:</div>
+                    <div class="total-bill">$100.00</div>
+                </div>
+                <div class="order-address">
+                    <div class="shipping-address">Ship to baobuibaobui</div>
+                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                </div>
+            </div>  
         </div>
     </div>
 </div>

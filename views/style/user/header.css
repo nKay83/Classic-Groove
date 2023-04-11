@@ -115,13 +115,12 @@
 }
 
 #header .left-button-login input,
-#header .right-button-register input,
-#header .info-placeholder input {
+#header .right-button-register input {
   height: 90%;
   width: 80%;
   background-color: var(--whi);
   color: var(--bla);
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: calc(-1px + 1.2vw);
   padding-bottom: 5%;
   cursor: pointer;
@@ -134,16 +133,12 @@
 }
 
 #header .right-button-register input:hover,
-#header .left-button-login input:hover,
-#header .info-placeholder input:hover {
+#header .left-button-login input:hover {
   transform: scale(105%);
   transition: 0.3s;
 }
 
-#header .info-placeholder input {
-  width: 75%;
-  padding: 3%;
-}
+
 
 #header .right-button-register input:active,
 #header .left-button-login input:active,
@@ -153,11 +148,37 @@
 }
 
 #header .info-placeholder {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 1fr;
   justify-content: center;
   align-items: center;
-  color: var(--gr1);
+  color: var(--ora);
+  height: auto;
+  background: var(--whi);
+  border-radius: 15px;
+  margin: 0px 10%;
+  cursor: pointer;
+  font-size: calc(-3px + 1.2vw);
+  padding: 3%;
+  transition: 0.2s ease-in-out;
+}
+#header .info-placeholder:hover,
+#header .info-placeholder:hover h3 ,
+#header .info-placeholder:hover .log-out-button
+{
+  transform: scale(105%);
+  transition: 0.2s;
+}
+
+#header .info-placeholder h3 {
+  text-align: center;
+}
+
+#header .log-out-button {
+  margin-top: 4px;
+  padding-left: 10px;
+  border-left: 3px var(--whi) solid;
 }
 
 #header .footer-placeholder {
@@ -297,6 +318,9 @@
   background-color: #000000;
   border-radius: 20px;
 }
+
+
+
 
 @media screen and (max-width: 768px) {
   #header .tab-icon {
