@@ -22,7 +22,12 @@ const deleteByAlbumID = (albumID) => {
     url: "util/cart.php?albumID=" + albumID,
     type: "DELETE",
     success: function (res) {
-      if (res != "Success") alert(res);
+      if (res == "Success") {
+        summary();
+        customNotice("fa-solid fa-cart-circle-xmark", "Removed from your Cart");
+      } else {
+        alert(res);
+      }
     },
   });
 };
