@@ -31,13 +31,21 @@ const checkChangeQuantity = (input, change) => {
     .closest(".product-placeholder")
     .querySelector("input.quantity-info");
   let currentQuantity = parseInt(currentQuantityInput.value);
-  if (currentQuantity == 99 && change == 1) return null;
-  if (currentQuantity == 1 && change == -1) return null;
+  if (currentQuantity == 99 && change == 1) {
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99");
+    return null;
+  }
+  if (currentQuantity == 1 && change == -1) {
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1");
+    return null;
+  }
   if (currentQuantity > 99) {
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99");
     currentQuantityInput.value = 99;
     currentQuantity = 99;
   }
   if (currentQuantity < 1) {
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1");
     currentQuantityInput.value = 1;
     currentQuantity = 1;
   }

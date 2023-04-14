@@ -3,6 +3,21 @@ session_start();
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
+    case 'GET':
+        switch ($_GET['action']) {
+            case 'getQuantity':
+                $albumID = $_GET['albumID'];
+                $sql = "SELECT soLuong FROM album WHERE maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    echo $row['soLuong'];
+                } else {
+                    echo "error";
+                }
+                break;
+        }
+        break;
     case 'POST':
         switch ($_POST['action']) {
             case 'favorite':
