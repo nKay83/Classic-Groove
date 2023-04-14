@@ -1,3 +1,11 @@
+<?php
+session_start();
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$result = $dp->getUserByUsername($_SESSION['userID']);
+$userInfo = $result->fetch_assoc();
+print_r($userInfo)
+    ?>
 <div id="myaccount">
     <div class="flex-container">
         <h2>My profile</h2>
@@ -5,19 +13,19 @@
             <div class="container-info">
                 <div class="title">Name</div>
                 <div class="title">Phone number</div>
-                <div class="info"><input type="text"></div>
-                <div class="info"><input type="text"></div>
-                <div class="title">Username</div>
+                <div class="info"><input type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
+                <div class="info"><input type="text" value="<?php echo $userInfo['SDT'] ?>"></div>
+                <div class=" title">Username</div>
                 <div class="title">Password</div>
-                <div class="info"><input type="text"></div>
-                <div class="info"><input type="password"></div>
+                <div class="info"><input disabled type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
+                <div class="info"><input type="password" value="<?php echo $userInfo['hoTen'] ?>"></div>
                 <div class="title">Address</div>
                 <div class="title">Email</div>
-                <div class="info"><input type="text"></div>
-                <div class="info"><input type="text"></div>
+                <div class="info"><input type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
+                <div class="info"><input type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
             </div>
             <div class="contain-button">
-                <div class="button-placeholder">
+                <div class="button-placeholder" onclick="abc()">
                     <div class="item"><i class="fa-regular fa-floppy-disk"></i></div>
                     <div class="item">Save change</div>
                 </div>
@@ -56,7 +64,7 @@
                     <div class="shipping-address">Ship to baobuibaobui</div>
                     <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
                 </div>
-            </div>  
+            </div>
             <div class="order-placeholder">
                 <div class="order-header">
                     <div class="order-date">April 11, 2023</div>
@@ -88,7 +96,7 @@
                     <div class="shipping-address">Ship to baobuibaobui</div>
                     <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
                 </div>
-            </div>  
+            </div>
             <div class="order-placeholder">
                 <div class="order-header">
                     <div class="order-date">April 11, 2023</div>
@@ -150,7 +158,7 @@
                     <div class="shipping-address">Ship to baobuibaobui</div>
                     <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </div>

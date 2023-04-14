@@ -83,7 +83,6 @@ const checkInputRegister = async () => {
     return false;
   }
   if (phone.value == "") {
-    alert("Chưa nhập phone number!");
     phone.focus();
     return false;
   }
