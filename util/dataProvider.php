@@ -40,4 +40,13 @@ class DataProvider
     $sql = "SELECT * FROM giohang where maKhachHang = '" . $userID . "' and maAlbum = " . $albumID;
     return self::excuteQuery($sql);
   }
+  public static function isFavorite($albumID, $userID)
+  {
+    $sql = "SELECT * FROM yeuthich where album = " . $albumID . " and nguoiDung ='" . $userID . "'";
+    $result = self::excuteQuery($sql);
+    if ($result->num_rows > 0) {
+      return true;
+    }
+    return false;
+  }
 }

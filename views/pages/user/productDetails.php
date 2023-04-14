@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 //handle content album
@@ -42,21 +43,27 @@ if ($result->num_rows > 0) {
         <i class="fa-regular fa-cart-shopping"></i>
         <span>Add to cart</span>
       </div>
-      <div class="btn favorite-btn">
-        <i class="fa-solid fa-heart"></i>
-        <span>Favorite</span>
-      </div>
+      <?php if (isset($_SESSION['userID']) && $dp->isFavorite($albumID, $_SESSION['userID'])): ?>
+        <div class="btn favorite-btn" onclick="disLike(<?php echo $album['maAlbum'] ?>)">
+          <i class="fa-solid fa-heart-circle-xmark"></i>
+          <span>Disliked</span>
+        </div>
+      <?php else: ?>
+        <div class="btn favorite-btn" onclick="addToFavorite(<?php echo $album['maAlbum'] ?>)">
+          <i class="fa-solid fa-heart"></i>
+          <span>Favorite</span>
+        </div>
+      <?php endif ?>
     </div>
     <h1 class="title">Track list <i class="fa-regular fa-circle-play"
         onclick="playTrackList(<?php echo $album['maAlbum'] ?>)"></i></h1>
     <div class="songs-container">
       <?php
-      $i = 1;
-      foreach ($songs as $song) {
-        echo "<p>${i}. ${song['tenBaiHat']}</p>";
-        $i++;
+      for ($i = 0; $i < count($songs); $i++) {
+        echo '<p>' . ($i + 1) . ". " . $songs[$i]['tenBaiHat'] . '</p>';
       }
       ?>
+
     </div>
-    </div>
+  </div>
 </div>

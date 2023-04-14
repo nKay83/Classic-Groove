@@ -71,7 +71,7 @@ const changeQuantity = (albumID, change, input) => {
     },
   });
 };
-const summary = (input) => {
+const summary = () => {
   let albums = document.querySelectorAll(
     "#mycart .check-button input[type='checkbox']:checked"
   );

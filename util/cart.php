@@ -6,11 +6,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
   case 'POST':
     switch ($_POST['action']) {
       case 'addToCart':
-        if(isset($_SESSION['userID']) == false){
+        if (!isset($_SESSION['userID'])) {
           echo "You are not logged in!";
           break;
         }
         $albumID = $_POST['albumID'];
+        if (!isset($_SESSION['userID'])) {
+          echo "You are not logged in!";
+          break;
+        }
         $userID = $_SESSION['userID'];
         $result = $dp->getAlbumInCart($albumID, $userID);
         if (mysqli_num_rows($result) != 0) {

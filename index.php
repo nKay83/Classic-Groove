@@ -49,7 +49,6 @@ session_start();
       <div id="content">
 
       </div>
-      <div onclick="customNotice('fa-solid fa-cart-circle-plus','Added to your Cart')">baobui</div>
 
       <div id="song-control">
         <?php include 'views/pages/user/songControl.php' ?>
@@ -70,6 +69,7 @@ session_start();
 <Script src="controllers/loginController.js"></Script>
 <Script src="controllers/cartController.js"></Script>
 <Script src="controllers/orderController.js"></Script>
+<script src="controllers/favoriteController.js"></script>
 
 </html>
 

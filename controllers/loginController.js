@@ -20,13 +20,13 @@ const login = () => {
 const checkInputLogin = () => {
   let username = document.querySelector("#username-field").value;
   if (username == "") {
-    customNotice("", "Chưa nhập username!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập username!");
     document.querySelector("#username-field").focus();
     return false;
   }
   let password = document.querySelector("#password-field").value;
   if (password == "") {
-    customNotice("", "Chưa nhập password!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập password!");
     document.querySelector("#password-field").focus();
     return false;
   }
