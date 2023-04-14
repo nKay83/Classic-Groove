@@ -50,11 +50,11 @@ const checkMyCart = () => {
   );
   let address = document.querySelector("#mycart #checkout-address");
   if (albums.length == 0) {
-    alert("Chưa chọn Album!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa chọn Album!");
     return false;
   }
   if (address.value == "") {
-    alert("Chưa nhập địa chỉ!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập địa chỉ!");
     address.focus();
     return false;
   }

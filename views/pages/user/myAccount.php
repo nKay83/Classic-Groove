@@ -17,8 +17,12 @@ print_r($userInfo)
                 <div class="info"><input type="text" value="<?php echo $userInfo['SDT'] ?>"></div>
                 <div class=" title">Username</div>
                 <div class="title">Password</div>
-                <div class="info"><input disabled type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
-                <div class="info"><input type="password" value="<?php echo $userInfo['hoTen'] ?>"></div>
+                <div class="info"><input type="text"></div>
+                <div style="position: relative">
+                    <div class="info"><input type="password" id="password-field4"></div>
+                    <i class="fa-thin fa-eye-slash" id="eyeicon4" onclick="eyePasswordProfile()"></i>
+                </div>
+                
                 <div class="title">Address</div>
                 <div class="title">Email</div>
                 <div class="info"><input type="text" value="<?php echo $userInfo['hoTen'] ?>"></div>
