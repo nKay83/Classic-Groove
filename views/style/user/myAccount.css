@@ -231,3 +231,28 @@
   transition: 0.2s ease-in-out;
 
 }
+
+#myaccount input[type="text"]::placeholder,input[type="password"]::placeholder,/* Chrome, Firefox, Opera, Safari 10.1+ */
+#myaccount input[type="text"]:-ms-input-placeholder,input[type="password"]:-ms-input-placeholder,  /* Internet Explorer 10-11 */
+    #myaccount input[type="text"]:-ms-input-placeholder,input[type="password"]:-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--gr1);
+  opacity: 1; /* Firefox */
+}
+#myaccount input[type="password"]::-ms-reveal,
+#myaccount input[type="password"]::-ms-clear {
+  display: none;
+}
+
+#myaccount .container-info i{
+  color: var(--gr1);
+  float: right;
+  font-size: 1.3vw;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 7%;
+  bottom: 0;
+}

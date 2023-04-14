@@ -10,7 +10,11 @@
                 <div class="title">Username</div>
                 <div class="title">Password</div>
                 <div class="info"><input type="text"></div>
-                <div class="info"><input type="password"></div>
+                <div style="position: relative">
+                    <div class="info"><input type="password" id="password-field4"></div>
+                    <i class="fa-thin fa-eye-slash" id="eyeicon4" onclick="eyePasswordProfile()"></i>
+                </div>
+                
                 <div class="title">Address</div>
                 <div class="title">Email</div>
                 <div class="info"><input type="text"></div>
