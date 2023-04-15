@@ -349,3 +349,11 @@
 #myaccount .container-info input:disabled:hover {
   cursor: no-drop;
 }
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-address
+  .cancel-button.disabled {
+  opacity: 0.5;
+}

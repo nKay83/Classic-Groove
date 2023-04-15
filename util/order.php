@@ -13,7 +13,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $hoaDonID = $dp->getNewHoaDonId();
         $sql1 = "INSERT INTO hoadon
         VALUES (" . $hoaDonID . "," . $total . ",'" . (new Datetime())->format('Y-m-d') . "',
-        'Đang xử lý','" . $userID . "',null,'" . $address . "')";
+        'Chờ xác nhận','" . $userID . "',null,'" . $address . "')";
         $result1 = $dp->excuteQuery($sql1);
         $error = false;
         foreach ($albums as $album) {
@@ -25,6 +25,22 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           }
         }
         if ($result1 && !$error) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
+    }
+    break;
+  case 'DELETE':
+    switch ($_GET['action']) {
+      case 'cancelOrder':
+        $orderID = $_GET['orderID'];
+        $sql1 = "DELETE FROM chitiethoadon WHERE hoaDon = " . $orderID;
+        $result2 = $dp->excuteQuery($sql1);
+        $sql2 = "DELETE FROM hoadon WHERE maHoaDon = " . $orderID;
+        $result1 = $dp->excuteQuery($sql2);
+        if ($result1 && $result2) {
           echo "Success";
         } else {
           echo "Error";

@@ -55,7 +55,10 @@ const checkMyCart = () => {
     return false;
   }
   if (address.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập địa chỉ!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập địa chỉ!"
+    );
     address.focus();
     return false;
   }
@@ -70,4 +73,17 @@ const deleteFromOrder = async () => {
     await deleteByAlbumID(parseInt(album.value));
     album.closest(".product-placeholder").remove();
   }
+};
+const cancelOrder = (orderID) => {
+  $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=cancelOrder",
+    type: "DELETE",
+    success: function (res) {
+      if (res != "Success") alert(res);
+      else {
+        customNotice("fa-solid fa-cart-circle-plus", "Cancel your Order");
+        loadPageByAjax("myAccount");
+      }
+    },
+  });
 };

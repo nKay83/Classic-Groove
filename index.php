@@ -73,9 +73,3 @@ session_start();
 <script src="controllers/userController.js"></script>
 
 </html>
-
-
-<!-- <div class="container">
-  <span class="slide"></span>
-  <p class="order-removing"><i class="fa-solid fa-cart-circle-plus"></i> Cancel your Order</p>
-</div> -->

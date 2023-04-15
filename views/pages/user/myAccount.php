@@ -92,7 +92,7 @@ for ($i = 0; $i < count($bill); $i++) {
                             <?= date("F j, Y", strtotime($b['thoiGianDat'])); ?>
                         </div>
                         <div class="order-id">Bill ID:
-                            <?= str_pad($b['maHoaDon'], 6, "0", STR_PAD_LEFT) ?>
+                            <?= str_pad($b['maHoaDon'], 5, "0", STR_PAD_LEFT) ?>
                         </div>
                         <div class="order-status">
                             <?= $b['trangThai'] ?>
@@ -108,13 +108,15 @@ for ($i = 0; $i < count($bill); $i++) {
                                     <div class="album-name">
                                         <?= $detail['tenAlbum'] ?>
                                     </div>
-                                    <div class="sub-total">$<?= $detail['gia'] * $detail['sl'] ?>
+                                    <div class="sub-total">$
+                                        <?= $detail['gia'] * $detail['sl'] ?>
                                     </div>
                                     <div class="artists-name">
                                         <?= $detail['tacGia'] ?>
                                     </div>
                                     <div></div>
-                                    <div class="price">Price: $<?= $detail['gia'] ?>
+                                    <div class="price">Price: $
+                                        <?= $detail['gia'] ?>
                                     </div>
                                     <div></div>
                                     <div class="quantity">Quantity:
@@ -133,14 +135,20 @@ for ($i = 0; $i < count($bill); $i++) {
                         }
                         ?>
                         <div class="total-bill">
-                            $<?php echo $total?>
+                            $
+                            <?php echo $total ?>
                         </div>
                     </div>
                     <div class="order-address">
                         <div class="shipping-address">Ship to
                             <?= $b['diaChiGiaoHang'] ?>
                         </div>
-                        <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                        <?php if ($b['trangThai'] == 'Chờ xác nhận'): ?>
+                            <div class="cancel-button" onclick="cancelOrder(
+                            <?= $b['maHoaDon'] ?>)">
+                                <i class="fa-solid fa-xmark"></i>Cancel
+                            </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
