@@ -3,15 +3,18 @@ require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 session_start();
 $userID = $_SESSION['userID'];
-$sql = "SELECT giohang.soLuong as ghsl, album.*, theloai.* FROM giohang join album on giohang.maAlbum = album.maAlbum
+$sql1 = "SELECT giohang.soLuong as ghsl, album.*, theloai.* FROM giohang join album on giohang.maAlbum = album.maAlbum
         join theloai on album.theloai = theloai.maLoai where maKhachHang = '" . $userID . "'";
-$result = $dp->excuteQuery($sql);
+$result1 = $dp->excuteQuery($sql1);
 $album = array();
-if ($result->num_rows > 0) {
+if ($result1->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         array_push($album, $row);
     }
 }
+$sql2 = "select diaChi from nguoiDung where maNguoiDung='" . $userID . "'";
+$result2 = $dp->excuteQuery($sql2);
+$address = $result2->fetch_assoc()['diaChi'];
 ?>
 <div id="mycart">
     <div class="left-placeholder">
@@ -42,7 +45,8 @@ if ($result->num_rows > 0) {
                                 </div>
                                 <input type="text" class="quantity-info" value="<?= $al['ghsl'] ?>"
                                     onchange="changeQuantity(<?= $al['maAlbum'] ?>,0,this);summary()">
-                                <div class="quantity-info" onclick="changeQuantity(<?= $al['maAlbum'] ?>,1,this);summary()">
+                                <div class="quantity-info" onclick="
+                                changeQuantity(<?= $al['maAlbum'] ?>,1,this);summary()">
                                     <i class="fa-solid fa-plus-large fa-xs"></i>
                                 </div>
                             </div>
@@ -73,7 +77,7 @@ if ($result->num_rows > 0) {
             </div>
             <div class="checkout-address">
                 Address
-                <textarea name="" id="checkout-address" cols="20" rows="5"></textarea>
+                <textarea name="" id="checkout-address" cols="20" rows="5"><?php echo $address ?></textarea>
             </div>
             <div class="totalprice-info">
                 <div class="price-kind">Subtotal:</div>
