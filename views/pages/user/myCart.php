@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
                         <i class="fa-solid fa-xmark fa-lg"></i>
                     </div>
                     <div class="check-button">
-                        <input type="checkbox" value="' .$al['maAlbum'].'" onchange="summary(this)">
+                        <input type="checkbox" value="<?= $al['maAlbum'] ?>" onchange="summary(this)">
                     </div>
                 </div>
             </div>

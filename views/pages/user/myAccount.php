@@ -4,8 +4,48 @@ require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $result = $dp->getUserByUsername($_SESSION['userID']);
 $userInfo = $result->fetch_assoc();
-print_r($userInfo)
-    ?>
+//get bill
+$sql1 = "SELECT * FROM hoadon WHERE khachHang = '" . $_SESSION['userID'] . "'";
+$result1 = $dp->excuteQuery($sql1);
+$bill = array();
+while ($row = $result1->fetch_assoc()) {
+    array_push($bill, $row);
+}
+//get bill detail
+$sql2 = "Select album.*,chitiethoadon.*, chitiethoadon.soLuong as sl from chitiethoadon join album on
+chitiethoadon.album = album.maAlbum where hoaDon in (";
+for ($i = 0; $i < count($bill); $i++) {
+    if ($i != count($bill) - 1) {
+        $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ",";
+    } else {
+        $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ")";
+    }
+}
+//sort bill by date desc
+for ($i = 0; $i < count($bill); $i++) {
+    for ($j = $i + 1; $j < count($bill); $j++) {
+        if (strtotime($bill[$i]['thoiGianDat']) < strtotime($bill[$j]['thoiGianDat'])) {
+            $temp = $bill[$i];
+            $bill[$i] = $bill[$j];
+            $bill[$j] = $temp;
+        }
+    }
+}
+$result2 = $dp->excuteQuery($sql2);
+$billDetail = array();
+while ($row = $result2->fetch_assoc()) {
+    array_push($billDetail, $row);
+}
+//handle detail bil to bill
+for ($i = 0; $i < count($bill); $i++) {
+    $bill[$i]['detail'] = array();
+    for ($j = 0; $j < count($billDetail); $j++) {
+        if ($bill[$i]['maHoaDon'] == $billDetail[$j]['hoaDon']) {
+            array_push($bill[$i]['detail'], $billDetail[$j]);
+        }
+    }
+}
+?>
 <div onload="" id="myaccount">
     <div class="flex-container">
         <h2>My profile</h2>
@@ -44,133 +84,67 @@ print_r($userInfo)
         </div>
 
         <h2>Purchase history</h2>
-        <div class="bottom-container">
-            <div class="order-placeholder">
-                <div class="order-header">
-                    <div class="order-date">April 11, 2023</div>
-                    <div class="order-id">123456</div>
-                    <div class="order-status">Pending</div>
-                </div>
-                <div class="order-details">
-                    <div class="product-placeholder">
-                        <div class="img-placeholder">
-                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
+        <?php foreach ($bill as $b): ?>
+            <div class="bottom-container">
+                <div class="order-placeholder">
+                    <div class="order-header">
+                        <div class="order-date">
+                            <?= date("F j, Y", strtotime($b['thoiGianDat'])); ?>
                         </div>
-                        <div class="info-placeholder">
-                            <div class="album-name">She will be loved</div>
-                            <div class="sub-total">$100.00</div>
-                            <div class="artists-name">Maroon 5</div>
-                            <div></div>
-                            <div class="price">Price: $100.00</div>
-                            <div></div>
-                            <div class="quantity">Quantity: 1</div>
-                            <div></div>
+                        <div class="order-id">Bill ID:
+                            <?= str_pad($b['maHoaDon'], 6, "0", STR_PAD_LEFT) ?>
+                        </div>
+                        <div class="order-status">
+                            <?= $b['trangThai'] ?>
                         </div>
                     </div>
-                </div>
-                <div class="order-total">
-                    <div class="total-title">Total billed:</div>
-                    <div class="total-bill">$100.00</div>
-                </div>
-                <div class="order-address">
-                    <div class="shipping-address">Ship to baobuibaobui</div>
-                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                    <div class="order-details">
+                        <?php foreach ($b['detail'] as $detail): ?>
+                            <div class="product-placeholder">
+                                <div class="img-placeholder">
+                                    <img src="./data/imgAlbum/<?= $detail['hinh'] ?>.jpg" alt="">
+                                </div>
+                                <div class="info-placeholder">
+                                    <div class="album-name">
+                                        <?= $detail['tenAlbum'] ?>
+                                    </div>
+                                    <div class="sub-total">$<?= $detail['gia'] * $detail['sl'] ?>
+                                    </div>
+                                    <div class="artists-name">
+                                        <?= $detail['tacGia'] ?>
+                                    </div>
+                                    <div></div>
+                                    <div class="price">Price: $<?= $detail['gia'] ?>
+                                    </div>
+                                    <div></div>
+                                    <div class="quantity">Quantity:
+                                        <?= $detail['sl'] ?>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="order-total">
+                        <div class="total-title">Total billed:</div>
+                        <?php
+                        $total = 0; foreach ($b['detail'] as $detail) {
+                            $total += $detail['gia'] * $detail['sl'];
+                        }
+                        ?>
+                        <div class="total-bill">
+                            $<?php echo $total?>
+                        </div>
+                    </div>
+                    <div class="order-address">
+                        <div class="shipping-address">Ship to
+                            <?= $b['diaChiGiaoHang'] ?>
+                        </div>
+                        <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
+                    </div>
                 </div>
             </div>
-            <div class="order-placeholder">
-                <div class="order-header">
-                    <div class="order-date">April 11, 2023</div>
-                    <div class="order-id">123456</div>
-                    <div class="order-status">Pending</div>
-                </div>
-                <div class="order-details">
-                    <div class="product-placeholder">
-                        <div class="img-placeholder">
-                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
-                        </div>
-                        <div class="info-placeholder">
-                            <div class="album-name">She will be loved</div>
-                            <div class="sub-total">$100.00</div>
-                            <div class="artists-name">Maroon 5</div>
-                            <div></div>
-                            <div class="price">Price: $100.00</div>
-                            <div></div>
-                            <div class="quantity">Quantity: 1</div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-total">
-                    <div class="total-title">Total billed:</div>
-                    <div class="total-bill">$100.00</div>
-                </div>
-                <div class="order-address">
-                    <div class="shipping-address">Ship to baobuibaobui</div>
-                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
-                </div>
-            </div>
-            <div class="order-placeholder">
-                <div class="order-header">
-                    <div class="order-date">April 11, 2023</div>
-                    <div class="order-id">123456</div>
-                    <div class="order-status">Pending</div>
-                </div>
-                <div class="order-details">
-                    <div class="product-placeholder">
-                        <div class="img-placeholder">
-                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
-                        </div>
-                        <div class="info-placeholder">
-                            <div class="album-name">She will be loved</div>
-                            <div class="sub-total">$100.00</div>
-                            <div class="artists-name">Maroon 5</div>
-                            <div></div>
-                            <div class="price">Price: $100.00</div>
-                            <div></div>
-                            <div class="quantity">Quantity: 1</div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="product-placeholder">
-                        <div class="img-placeholder">
-                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
-                        </div>
-                        <div class="info-placeholder">
-                            <div class="album-name">She will be loved</div>
-                            <div class="sub-total">$100.00</div>
-                            <div class="artists-name">Maroon 5</div>
-                            <div></div>
-                            <div class="price">Price: $100.00</div>
-                            <div></div>
-                            <div class="quantity">Quantity: 1</div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="product-placeholder">
-                        <div class="img-placeholder">
-                            <img src="./data/imgAlbum/Jordi-Maroon5.jpg" alt="">
-                        </div>
-                        <div class="info-placeholder">
-                            <div class="album-name">She will be loved</div>
-                            <div class="sub-total">$100.00</div>
-                            <div class="artists-name">Maroon 5</div>
-                            <div></div>
-                            <div class="price">Price: $100.00</div>
-                            <div></div>
-                            <div class="quantity">Quantity: 1</div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-total">
-                    <div class="total-title">Total billed:</div>
-                    <div class="total-bill">$100.00</div>
-                </div>
-                <div class="order-address">
-                    <div class="shipping-address">Ship to baobuibaobui</div>
-                    <div class="cancel-button"><i class="fa-solid fa-xmark"></i>Cancel</div>
-                </div>
-            </div>
-        </div>
+        <?php endforeach ?>
     </div>
+
 </div>

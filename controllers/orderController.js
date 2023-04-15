@@ -13,6 +13,7 @@ const getTotal = () => {
 
 const createOrder = async () => {
   let albums = getAlbums();
+  console.log(albums);
   let total = getTotal();
   let address = document.querySelector("#mycart #checkout-address").value;
   await $.ajax({
