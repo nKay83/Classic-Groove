@@ -7,7 +7,7 @@
   /* height: 94vh; */
   padding: 0 2%;
 }
-#myaccount h2{
+#myaccount h2 {
   color: var(--whi);
   margin-top: 2%;
   font-size: 30px;
@@ -60,13 +60,13 @@
   border: none;
   outline: none;
 }
-#myaccount .flex-container .top-container .contain-button{
+#myaccount .flex-container .top-container .contain-button {
   width: 98.5%;
   display: flex;
   justify-content: right;
   margin-top: 2%;
 }
-#myaccount .flex-container .top-container .contain-button .button-placeholder{
+#myaccount .flex-container .top-container .contain-button .button-placeholder {
   width: 20%;
   padding: 1%;
   background-color: var(--ora);
@@ -76,20 +76,29 @@
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;
   box-shadow: 0 2px 3px 2px rgba(253, 83, 26, 0.7);
-  cursor: pointer;
+  cursor: no-drop;
+  opacity: 0.5;
 }
-#myaccount .flex-container .top-container .contain-button .button-placeholder:active{
+#myaccount
+  .flex-container
+  .top-container
+  .contain-button
+  .button-placeholder:active {
   transition: 0.3s ease-in-out;
   transform: translateY(8px);
-  
 }
-#myaccount .flex-container .top-container .contain-button .button-placeholder .item{
+#myaccount
+  .flex-container
+  .top-container
+  .contain-button
+  .button-placeholder
+  .item {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#myaccount .flex-container .bottom-container{
+#myaccount .flex-container .bottom-container {
   width: 70%;
   background: var(--gr2);
   border-radius: 30px;
@@ -101,7 +110,7 @@
   margin-bottom: 5%;
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder{
+#myaccount .flex-container .bottom-container .order-placeholder {
   width: 100%;
   height: auto;
   border-bottom: 3px var(--ora) solid;
@@ -113,7 +122,7 @@
   font-size: 20px;
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder .order-header{
+#myaccount .flex-container .bottom-container .order-placeholder .order-header {
   width: 95%;
   margin: 0 2.5%;
   display: grid;
@@ -121,32 +130,56 @@
   grid-template-rows: 1fr;
   color: var(--gr1);
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-header .order-date{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-header
+  .order-date {
   display: flex;
   justify-content: left;
   align-items: center;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-header .order-id,
-#myaccount .flex-container .bottom-container .order-placeholder .order-header .order-status{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-header
+  .order-id,
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-header
+  .order-status {
   display: flex;
   align-items: center;
   justify-content: right;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-header .order-status{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-header
+  .order-status {
   color: var(--ora);
   padding-right: 6%;
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder .order-details{
+#myaccount .flex-container .bottom-container .order-placeholder .order-details {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
   background-color: var(--whi);
   border-radius: 20px 20px 0 0;
-
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder {
   height: auto;
   width: 100%;
   display: grid;
@@ -155,65 +188,118 @@
   border-bottom: 3px solid var(--gr2);
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder .img-placeholder{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder
+  .img-placeholder {
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder .img-placeholder img{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder
+  .img-placeholder
+  img {
   height: 100%;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder .info-placeholder{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder
+  .info-placeholder {
   display: grid;
   margin: 8% 5%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   overflow: hidden;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder .info-placeholder .artists-name{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder
+  .info-placeholder
+  .artists-name {
   color: var(--ora);
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-details .product-placeholder .info-placeholder .sub-total{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-details
+  .product-placeholder
+  .info-placeholder
+  .sub-total {
   text-align: right;
   color: var(--ora);
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder .order-total{
+#myaccount .flex-container .bottom-container .order-placeholder .order-total {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr; 
+  grid-template-rows: 1fr;
   background-color: var(--whi);
   padding: 0% 4% 0 3%;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-total .total-bill{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-total
+  .total-bill {
   display: flex;
   justify-content: right;
   align-items: center;
   color: var(--ora);
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-total .total-title{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-total
+  .total-title {
   display: flex;
   justify-content: left;
-  align-items:center;
+  align-items: center;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-address{
+#myaccount .flex-container .bottom-container .order-placeholder .order-address {
   display: grid;
   grid-template-columns: 13fr 2fr;
-  grid-template-rows: 1fr; 
+  grid-template-rows: 1fr;
   background-color: var(--whi);
   padding: 1% 4% 6% 3%;
   border-radius: 0 0 20px 20px;
   width: 100%;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-address .shipping-address{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-address
+  .shipping-address {
   justify-content: left;
   display: flex;
   align-items: center;
   background-color: var(--whi);
 }
 
-#myaccount .flex-container .bottom-container .order-placeholder .order-address .cancel-button{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-address
+  .cancel-button {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -225,11 +311,15 @@
   padding: 5px 10px;
   cursor: pointer;
 }
-#myaccount .flex-container .bottom-container .order-placeholder .order-address .cancel-button:hover{
+#myaccount
+  .flex-container
+  .bottom-container
+  .order-placeholder
+  .order-address
+  .cancel-button:hover {
   color: var(--whi);
   background-color: var(--ora);
   transition: 0.2s ease-in-out;
-
 }
 
 #myaccount input[type="text"]::placeholder,input[type="password"]::placeholder,/* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -244,7 +334,7 @@
   display: none;
 }
 
-#myaccount .container-info i{
+#myaccount .container-info i {
   color: var(--gr1);
   float: right;
   font-size: 1.3vw;
@@ -255,4 +345,7 @@
   top: 0;
   right: 7%;
   bottom: 0;
+}
+#myaccount .container-info input:disabled:hover {
+  cursor: no-drop;
 }

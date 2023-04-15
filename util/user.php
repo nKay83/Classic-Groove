@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
@@ -26,7 +27,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             if ($user['matKhau'] != $password) {
               echo "Sai mật khẩu";
             } else {
-              session_start();
               $_SESSION['userID'] = $username;
               $_SESSION['userName'] = $name;
               if ($user['vaiTro'] == 1) {
@@ -65,5 +65,32 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         }
         break;
     }
+    break;
+  case 'PUT':
+    switch ($_GET['action']) {
+      case 'updateUser':
+        $fullname = $_GET['fullname'];
+        $phone = $_GET['phone'];
+        $password = $_GET['password'];
+        $address = $_GET['address'];
+        $email = $_GET['email'];
+        $sql1 = "UPDATE nguoidung
+                SET hoTen='" . $fullname . "',
+                    SDT='" . $phone . "',
+                    diaChi='" . $address . "',
+                    email='" . $email . "'
+                WHERE maNguoiDung='" . $_SESSION['userID'] . "'";
+        $result1 = $dp->excuteQuery($sql1);
+        $sql2 = "UPDATE taikhoan
+                SET matKhau='" . $password . "'
+                WHERE username='" . $_SESSION['userID'] . "'";
+        $result2 = $dp->excuteQuery($sql2);
+        if ($result1 && $result2) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
+    }
+    break;
 }
-?>

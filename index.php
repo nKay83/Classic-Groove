@@ -70,6 +70,7 @@ session_start();
 <Script src="controllers/cartController.js"></Script>
 <Script src="controllers/orderController.js"></Script>
 <script src="controllers/favoriteController.js"></script>
+<script src="controllers/userController.js"></script>
 
 </html>
 

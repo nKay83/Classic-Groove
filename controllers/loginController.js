@@ -64,7 +64,7 @@ const register = async () => {
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;
         document.querySelector("#password-field").value = password;
-      } else customNotice("fa-sharp fa-light fa-circle-exclamation", "Tạo tài khoản thất bại!"); 
+      } else customNotice("fa-sharp fa-light fa-circle-exclamation", "Tạo tài khoản thất bại!");
     },
   });
 };

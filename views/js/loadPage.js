@@ -13,6 +13,7 @@ const loadPageByAjax = async (pageTarget) => {
     dataType: "html",
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
+      if (pageTarget == "myAccount") setUserInfo();
     },
   });
 };
