@@ -57,6 +57,7 @@
 <!-- controllers -->
 <script src="controllers/albumController.js"></script>
 <script src="controllers/orderController.js"></script>
+<script src="controllers/loginController.js"></script>
 
 
 

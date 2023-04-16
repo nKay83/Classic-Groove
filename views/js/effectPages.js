@@ -15,11 +15,11 @@ $("#purchaseHistory .row").click(function () {
 $("#productManager .row").click(function () {
   $(this).children(".song-list").slideToggle(500);
 });
-$(function () {
-  $("#scrollbar").mCustomScrollbar({
-    theme: "rounded-dark",
-  });
-});
+// $(function () {
+//   $("#scrollbar").mCustomScrollbar({
+//     theme: "rounded-dark",
+//   });
+// });
 
 const changeToolTip = (input) => {
   let val = parseInt(input.value);

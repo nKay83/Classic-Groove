@@ -8,7 +8,7 @@ const login = () => {
     data: { user: username, pass: password, action: "checkLogin" },
     success: function (res) {
       if (res == "cus") {
-        window.location.reload();
+        window.location.href = "index.php"
       } else if (res == "emp") window.location.href = "admin.php";
       else {
         alert(res);
@@ -20,13 +20,19 @@ const login = () => {
 const checkInputLogin = () => {
   let username = document.querySelector("#username-field").value;
   if (username == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập username!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập username!"
+    );
     document.querySelector("#username-field").focus();
     return false;
   }
   let password = document.querySelector("#password-field").value;
   if (password == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập password!"
+    );
     document.querySelector("#password-field").focus();
     return false;
   }
@@ -60,11 +66,18 @@ const register = async () => {
     },
     success: function (res) {
       if (res == "Success") {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", "Tạo tài khoản thành công!");
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Tạo tài khoản thành công!"
+        );
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;
         document.querySelector("#password-field").value = password;
-      } else customNotice("fa-sharp fa-light fa-circle-exclamation", "Tạo tài khoản thất bại!");
+      } else
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Tạo tài khoản thất bại!"
+        );
     },
   });
 };
@@ -78,48 +91,72 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập name!");
     name.focus();
     return false;
   }
   if (phone.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập phone number!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập phone number!"
+    );
     phone.focus();
     return false;
   }
   if (!isVietnamesePhoneNumberValid(phone.value)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Số điện thoại không hợp lệ!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Số điện thoại không hợp lệ!"
+    );
     phone.focus();
     return false;
   }
   if (username.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập username!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập username!"
+    );
     username.focus();
     return false;
   }
   if (await isUsernameExist(username.value)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Username đã tồn tại!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Username đã tồn tại!"
+    );
     username.focus();
     return false;
   }
   if (password.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập password!"
+    );
     password.focus();
     return false;
   }
   if (!isPasswordValid(password.value)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !.");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+    );
     password.focus();
     return false;
   }
 
   if (confirmPassword.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập confirm password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Chưa nhập confirm password!"
+    );
     confirmPassword.focus();
     return false;
   }
   if (confirmPassword.value != password.value) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Mật khẩu không khớp!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Mật khẩu không khớp!"
+    );
     confirmPassword.focus();
     return false;
   }
@@ -148,3 +185,10 @@ const isLogin = () => {
     type: "GET",
   });
 };
+
+const getRole = () => {
+  return $.ajax({
+    url: "util/user.php?action=getRole",
+    type: "GET",
+  });
+}

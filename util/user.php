@@ -8,6 +8,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       case 'isLogin':
         echo isset($_SESSION['userID']);
         break;
+      case 'getRole':
+        echo $_SESSION['role'];
+        break;
     }
     break;
   case 'POST':
@@ -28,6 +31,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             } else {
               $_SESSION['userID'] = $username;
               $_SESSION['userName'] = $name;
+              $_SESSION['role'] = $user['vaiTro'];
               if ($user['vaiTro'] == 1) {
                 echo "cus";
               } else {
