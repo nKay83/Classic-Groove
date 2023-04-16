@@ -62,23 +62,23 @@ print_r($order[0])
                 <div class="modal-info">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
-                        <div class="item-input"><input type="text" value="CUS001"></div>
+                        <div class="item-input"><input type="text" ></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Account id</div>
-                        <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
+                        <div class="item-input"><input type="text" ></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Date of order</div>
-                        <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+                        <div class="item-input"><input type="text" ></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Total price</div>
-                        <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
+                        <div class="item-input"><input type="text" ></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Discount</div>
-                        <div class="item-input"><input type="text" value="0900000000"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Status</div>
@@ -89,6 +89,10 @@ print_r($order[0])
                                 <option value="C">Cancel</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
+                        <div class="item-header">Address</div>
+                        <div class="item-input"><input type="text" class="orderAddress"></div>
                     </div>
                 </div>
             </div>
@@ -142,23 +146,23 @@ print_r($order[0])
                 <div class="modal-info ">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
-                        <div class="item-input"><input type="text" value="CUS001"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Account id</div>
-                        <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Date of order</div>
-                        <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Total price</div>
-                        <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Discount</div>
-                        <div class="item-input"><input type="text" value="0900000000"></div>
+                        <div class="item-input"><input type="text"></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Status</div>
@@ -169,6 +173,10 @@ print_r($order[0])
                                 <option value="C">Cancel</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
+                        <div class="item-header">Address</div>
+                        <div class="item-input"><input type="text" class="orderAddress"></div>
                     </div>
                 </div>
             </div>
@@ -203,11 +211,11 @@ print_r($order[0])
                 <div class="button-layout">
                     <div class="edit-button">
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                        <div class="info-placeholder">Edit</div>
+                        <div class="info-placeholder">Save</div>
                     </div>
                     <div class="back-button" onclick="closeEditorder()">
                         <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="info-placeholder">Back</div>
+                        <div class="info-placeholder">Cancel</div>
                     </div>
                 </div>
             </div>
