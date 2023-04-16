@@ -2,8 +2,8 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $album = getAllAlbum();
-// print_r($album[0])
-  ?>
+$kinds = getKind();
+?>
 
 <div id="productManager">
   <h1><i class="fa-solid fa-album"></i>&#09; Product management</h1>
@@ -55,11 +55,13 @@ $album = getAllAlbum();
             <?= $album[$i]['soLuong'] ?>
           </div>
           <div class="item">
-            <?php if($album[$i]['TrangThai'] == 1): ?>
+            <?php if ($album[$i]['TrangThai'] == 1): ?>
               Hoạt động
             <?php endif; ?>
           </div>
-          <div class="item" onclick="openDetailalbum()"><i class="fa-regular fa-circle-info"></i></div>
+          <div class="item" onclick="openDetailalbum(<?= $album[$i]['maAlbum'] ?>)">
+            <i class="fa-regular fa-circle-info"></i>
+          </div>
         </div>
       </div>
     <?php endfor; ?>
@@ -73,41 +75,41 @@ $album = getAllAlbum();
         <div class="modal-info">
           <div class="modal-item">
             <div class="item-header">Album id</div>
-            <div class="item-input"><input type="text" value="CUS001"></div>
+            <div class="item-input"><input type="text" class="albumID"></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Album name</div>
-            <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
+            <div class="item-input"><input type="text" class="albumName"></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Kind</div>
-            <div class="item-input"><select name="" id="">
-                <option value="CUS">Customer</option>
-                <option value="EM">Employee</option>
-                <option value="AD">Admin</option>
+            <div class="item-input"><select class="albumKind" name="" id="">
+                <?php foreach ($kinds as $k): ?>
+                  <option value="<?= $k['maLoai'] ?>"><?= $k['tenLoai'] ?></option>
+                <?php endforeach ?>
               </select>
             </div>
           </div>
           <div class="modal-item">
             <div class="item-header">Artist name</div>
-            <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+            <div class="item-input"><input type="text" class="albumArtist" value="buibuibaobao@gmail.com"></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Quanitity</div>
-            <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
+            <div class="item-input"><input type="text" class="albumQuantity" value="Ho Chi Minh City"></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Price</div>
-            <div class="item-input"><input type="text" value="0900000000"></div>
+            <div class="item-input"><input type="text" class="albumPrice" value="0900000000"></div>
           </div>
 
           <div class="modal-item">
             <div class="item-header">Image</div>
-            <div class="item-input"><input type="text" value="baohongbui313"></div>
+            <div class="item-input"><input type="text" class="albumImg" value="baohongbui313"></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Describe</div>
-            <div class="item-input"><textarea cols="30" rows="6"></textarea></div>
+            <div class="item-input"><textarea cols="30" class="albumDescribe" rows="6"></textarea></div>
           </div>
         </div>
       </div>
@@ -452,5 +454,18 @@ function getAllAlbum()
     }
   }
   return $album;
+}
+function getKind()
+{
+  global $dp;
+  $sql = "SELECT * FROM theloai";
+  $result = $dp->excuteQuery($sql);
+  $kinds = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($kinds, $row);
+    }
+  }
+  return $kinds;
 }
 ?>

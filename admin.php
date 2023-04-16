@@ -54,6 +54,9 @@
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
 <script src="views/js/modalBox.js"></script>
+<!-- controllers -->
+<script src="controllers/albumController.js"></script>
+
 
 
 </html>

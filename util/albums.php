@@ -16,6 +16,34 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
+            case 'getInfoAlbum':
+                $albumID = $_GET['albumID'];
+                $sql = "SELECT * FROM album
+                        join theloai on album.theLoai = theloai.maLoai
+                        Where maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql)->fetch_assoc();
+                if ($result != null) {
+                    echo json_encode($result);
+                } else {
+                    echo "error";
+                }
+                break;
+            case 'getSongs':
+                $albumID = $_GET['albumID'];
+                $sql = "SELECT * FROM baihat_album bh_al
+                        JOIN baihat bh on bh_al.Album_maAlbum = bh.maBaiHat
+                        WHERE bh_al.Album_maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql);
+                if ($result->num_rows > 0) {
+                    $songs = array();
+                    while ($row = $result->fetch_assoc()) {
+                        $songs[] = $row;
+                    }
+                    echo json_encode($songs);
+                } else {
+                    echo "error";
+                }
+                break;
         }
         break;
     case 'POST':
@@ -54,5 +82,4 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 break;
         }
         break;
-
 }

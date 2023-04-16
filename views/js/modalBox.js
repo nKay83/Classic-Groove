@@ -3,10 +3,35 @@ function openEditalbum() {
   var editAlbum = document.querySelector("#edit-album");
   editAlbum.style.display = "block";
 }
-function openDetailalbum() {
+const openDetailalbum = async (albumID) => {
+  let infoAlbum = JSON.parse(await getInfoAlbum(albumID));
+  let songs = JSON.parse(await getSongs(albumID));
   var detailAlbum = document.querySelector("#detail-album");
   detailAlbum.style.display = "block";
-}
+  const inputAlbumID = document.querySelector("#detail-album .albumID");
+  const inputAlbumName = document.querySelector("#detail-album .albumName");
+  const inputAlbumKind = document.querySelector("#detail-album .albumKind");
+  const inputAlbumArtist = document.querySelector(
+    "#detail-album .albumArtist"
+  );
+  const inputAlbumQuantity = document.querySelector(
+    "#detail-album .albumQuantity"
+  );
+  const inputAlbumPrice = document.querySelector("#detail-album .albumPrice");
+  const inputAlbumImg = document.querySelector("#detail-album .albumImg");
+  const inputAlbumDescribe = document.querySelector(
+    "#detail-album .albumDescribe"
+  );
+
+  inputAlbumID.value = infoAlbum.maAlbum;
+  inputAlbumName.value = infoAlbum.tenAlbum;
+  inputAlbumKind.value = infoAlbum.theLoai;
+  inputAlbumArtist.value = infoAlbum.tacGia;
+  inputAlbumQuantity.value = infoAlbum.soLuong;
+  inputAlbumPrice.value = infoAlbum.gia;
+  inputAlbumImg.value = infoAlbum.hinh;
+  inputAlbumDescribe.value = infoAlbum.moTa;
+};
 function openNewalbum() {
   var newAlbum = document.querySelector("#new-album");
   newAlbum.style.display = "block";
