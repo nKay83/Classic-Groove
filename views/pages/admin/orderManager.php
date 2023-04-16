@@ -145,7 +145,7 @@ $order = getAllOrder();
                 <div class="modal-info ">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
-                        <div class="item-input"><input type="text" class="orderID" disabled></div>
+                        <div class="item-input"><input type="text" class="orderId" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Account id</div>
@@ -166,16 +166,16 @@ $order = getAllOrder();
                     <div class="modal-item">
                         <div class="item-header">Status</div>
                         <div class="item-input"><select name="" id="" class="orderStatus">
-                                <option value="P">Pending</option>
-                                <option value="S">Shipping</option>
-                                <option value="A">Approve</option>
-                                <option value="C">Cancel</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Shipping">Shipping</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Cancel">Cancel</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                         <div class="item-header">Address</div>
-                        <div class="item-input"><input type="text" disabled class="orderAdress"></div>
+                        <div class="item-input"><input type="text" disabled class="orderAddress"></div>
                     </div>
                 </div>
             </div>

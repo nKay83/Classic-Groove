@@ -89,6 +89,33 @@ let albumsInOrder = null;
 function openEditorder() {
   let editOrder = document.querySelector("#edit-order");
   editOrder.style.display = "block";
+  const InputOrderID = document.querySelector("#edit-order .orderId");
+  const InputOrderAccount = document.querySelector(
+    "#edit-order .orderAccount"
+  );
+  const InputOrderDate = document.querySelector("#edit-order .orderDate");
+  const InputOrderPrice = document.querySelector("#edit-order .orderPrice");
+  const InputOrderDiscount = document.querySelector(
+    "#edit-order .orderDiscount"
+  );
+  const InputOrderStatus = document.querySelector(
+    "#edit-order .orderStatus"
+  );
+  const InputOrderAddress = document.querySelector(
+    "#edit-order .orderAddress"
+  );
+
+  InputOrderID.value = orderInfo.maHoaDon;
+  InputOrderAccount.value = orderInfo.khachHang;
+  InputOrderDate.value = new Date(orderInfo.thoiGianDat).toLocaleDateString(
+    "en-GB"
+  );
+  console.log(orderInfo)
+  InputOrderPrice.value = orderInfo.tongTien;
+  if(orderInfo.khuyenMai == null) orderInfo.khuyenMai = "No discount";
+  InputOrderDiscount.value = orderInfo.khuyenMai;
+  InputOrderStatus.value = orderInfo.trangThai;
+  InputOrderAddress.value = orderInfo.diaChiGiaoHang;
 }
 
 const openDetailorder = async (orderID) => {
