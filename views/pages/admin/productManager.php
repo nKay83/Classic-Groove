@@ -162,7 +162,7 @@ $kinds = getKind();
         <div class="modal-info">
           <div class="modal-item">
             <div class="item-header">Album id</div>
-            <div class="item-input"><input type="text" class="albumID" disabled></div>
+            <div class="item-input"><input type="text" class="albumID" dis></div>
           </div>
           <div class="modal-item">
             <div class="item-header">Album name</div>
@@ -271,7 +271,6 @@ $kinds = getKind();
 </div>  -->
 
 <?php
-//create fuction get all album
 function getAllAlbum()
 {
   global $dp;

@@ -1,3 +1,9 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$order = getAllOrder();
+print_r($order[0])
+    ?>
 <div id="orderManager">
     <h1><i class="fa-regular fa-list"></i> Order management</h1>
     <div class="title-list">
@@ -13,18 +19,39 @@
         </div>
     </div>
     <div class="list">
-        <div class="placeholder">
-            <div class="info">
-                <div class="item">01</div>
-                <div class="item">ODR001</div>
-                <div class="item">CUS001</div>
-                <div class="item">31/3/2023</div>
-                <div class="item">1000</div>
-                <div class="item">100</div>
-                <div class="item">Pending</div>
-                <div class="item" onclick="openDetailorder()"><i class="fa-regular fa-circle-info"></i></div>
+        <?php for ($i = 0; $i < count($order); $i++): ?>
+            <div class="placeholder">
+                <div class="info">
+                    <div class="item">
+                        <?= $i + 1 ?>
+                    </div>
+                    <div class="item">
+                        <?= $order[$i]['maHoaDon'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $order[$i]['khachHang'] ?>
+                    </div>
+                    <div class="item">
+                        <?= date("d/m/Y", strtotime($order[$i]['thoiGianDat'])) ?>
+                    </div>
+                    <div class="item">
+                        <?= "$" . $order[$i]['tongTien'] ?>
+                    </div>
+                    <div class="item">
+                        <?php if ($order[$i]['khuyenMai'] == 0): ?>
+                            <div class="item" style="color: var(--gr1)">No discount</div>
+                        <?php else: ?>
+                            <?= $order[$i]['khuyenMai'] . "%" ?>
+                        <?php endif ?>
+                    </div>
+                    <div class="item">
+                        <?= $order[$i]['trangThai'] ?>
+                    </div>
+                    <div class="item" onclick="openDetailorder(<?= $order[$i]['maHoaDon'] ?>)"><i
+                            class="fa-regular fa-circle-info"></i></div>
+                </div>
             </div>
-        </div>
+        <?php endfor ?>
     </div>
     <div class="modal-placeholder" id="detail-order">
         <div class="modal-box">
@@ -174,7 +201,7 @@
             <div class="modal-button">
                 <div class="button-layout"></div>
                 <div class="button-layout">
-                    <div class="edit-button" >
+                    <div class="edit-button">
                         <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                         <div class="info-placeholder">Edit</div>
                     </div>
@@ -187,4 +214,18 @@
         </div>
     </div>
 </div>
-    
+<?php
+function getAllOrder()
+{
+    global $dp;
+    $sql = "SELECT * FROM hoadon";
+    $result = $dp->excuteQuery($sql);
+    $order = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($order, $row);
+        }
+    }
+    return $order;
+}
+?>
