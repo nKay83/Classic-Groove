@@ -2,49 +2,16 @@
 session_start();
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
+$userID = $_SESSION['userID'];
 $result = $dp->getUserByUsername($_SESSION['userID']);
 $userInfo = $result->fetch_assoc();
 //get bill
-$sql1 = "SELECT * FROM hoadon WHERE khachHang = '" . $_SESSION['userID'] . "'";
-$result1 = $dp->excuteQuery($sql1);
-$bill = array();
-while ($row = $result1->fetch_assoc()) {
-    array_push($bill, $row);
-}
+$bill = getBill();
+sortBillByDateDesc($bill);
 //get bill detail
-$sql2 = "Select album.*,chitiethoadon.*, chitiethoadon.soLuong as sl from chitiethoadon join album on
-chitiethoadon.album = album.maAlbum where hoaDon in (";
-for ($i = 0; $i < count($bill); $i++) {
-    if ($i != count($bill) - 1) {
-        $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ",";
-    } else {
-        $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ")";
-    }
-}
-//sort bill by date desc
-for ($i = 0; $i < count($bill); $i++) {
-    for ($j = $i + 1; $j < count($bill); $j++) {
-        if (strtotime($bill[$i]['thoiGianDat']) < strtotime($bill[$j]['thoiGianDat'])) {
-            $temp = $bill[$i];
-            $bill[$i] = $bill[$j];
-            $bill[$j] = $temp;
-        }
-    }
-}
-$result2 = $dp->excuteQuery($sql2);
-$billDetail = array();
-while ($row = $result2->fetch_assoc()) {
-    array_push($billDetail, $row);
-}
+$billDetail = getBillDetail($bill);
 //handle detail bil to bill
-for ($i = 0; $i < count($bill); $i++) {
-    $bill[$i]['detail'] = array();
-    for ($j = 0; $j < count($billDetail); $j++) {
-        if ($bill[$i]['maHoaDon'] == $billDetail[$j]['hoaDon']) {
-            array_push($bill[$i]['detail'], $billDetail[$j]);
-        }
-    }
-}
+filtBillDetailToBill($billDetail, $bill);
 ?>
 <div onload="" id="myaccount">
     <div class="flex-container">
@@ -156,3 +123,66 @@ for ($i = 0; $i < count($bill); $i++) {
     </div>
 
 </div>
+
+<?php
+function getBill()
+{
+    global $dp;
+    $sql1 = "SELECT * FROM hoadon WHERE khachHang = '" . $_SESSION['userID'] . "'";
+    $result1 = $dp->excuteQuery($sql1);
+    $bill = array();
+    while ($row = $result1->fetch_assoc()) {
+        array_push($bill, $row);
+    }
+    return $bill;
+}
+
+function getBillDetail($bill)
+{
+    if (count($bill) == 0) {
+        return array();
+    }
+    global $dp;
+    $sql2 = "Select album.*,chitiethoadon.*, chitiethoadon.soLuong as sl from chitiethoadon join album on
+    chitiethoadon.album = album.maAlbum where hoaDon in (";
+    for ($i = 0; $i < count($bill); $i++) {
+        if ($i != count($bill) - 1) {
+            $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ",";
+        } else {
+            $sql2 = $sql2 . $bill[$i]['maHoaDon'] . ")";
+        }
+    }
+    $result2 = $dp->excuteQuery($sql2);
+    $billDetail = array();
+    while ($row = $result2->fetch_assoc()) {
+        array_push($billDetail, $row);
+    }
+    return $billDetail;
+}
+
+function sortBillByDateDesc(&$bill)
+{
+    for ($i = 0; $i < count($bill); $i++) {
+        for ($j = $i + 1; $j < count($bill); $j++) {
+            if (strtotime($bill[$i]['thoiGianDat']) < strtotime($bill[$j]['thoiGianDat'])) {
+                $temp = $bill[$i];
+                $bill[$i] = $bill[$j];
+                $bill[$j] = $temp;
+            }
+        }
+    }
+    return $bill;
+}
+
+function filtBillDetailToBill($billDetail, &$bill)
+{
+    for ($i = 0; $i < count($bill); $i++) {
+        $bill[$i]['detail'] = array();
+        for ($j = 0; $j < count($billDetail); $j++) {
+            if ($bill[$i]['maHoaDon'] == $billDetail[$j]['hoaDon']) {
+                array_push($bill[$i]['detail'], $billDetail[$j]);
+            }
+        }
+    }
+}
+?>

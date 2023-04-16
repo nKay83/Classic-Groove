@@ -8,7 +8,7 @@ $sql1 = "SELECT giohang.soLuong as ghsl, album.*, theloai.* FROM giohang join al
 $result1 = $dp->excuteQuery($sql1);
 $album = array();
 if ($result1->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result1->fetch_assoc()) {
         array_push($album, $row);
     }
 }
