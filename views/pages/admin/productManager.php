@@ -1,3 +1,10 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$album = getAllAlbum();
+// print_r($album[0])
+  ?>
+
 <div id="productManager">
   <h1><i class="fa-solid fa-album"></i>&#09; Product management</h1>
   <!-- <div class="button-placeholder">
@@ -23,19 +30,39 @@
     </div>
   </div>
   <div class="list">
-    <div class="placeholder">
-      <div class="info">
-        <div class="item">01</div>
-        <div class="item">CUS001</div>
-        <div class="item">Bùi Hồng Bảo</div>
-        <div class="item">09000000000</div>
-        <div class="item">Jazz</div>
-        <div class="item">CUS</div>
-        <div class="item">1000</div>
-        <div class="item">Available</div>
-        <div class="item" onclick="openDetailalbum()"><i class="fa-regular fa-circle-info"></i></div>
+    <?php for ($i = 0; $i < count($album); $i++): ?>
+      <div class="placeholder">
+        <div class="info">
+          <div class="item">
+            <?= sprintf("%02d", $i + 1) ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['maAlbum'] ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['tenAlbum'] ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['tacGia'] ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['tenLoai'] ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['gia'] ?>
+          </div>
+          <div class="item">
+            <?= $album[$i]['soLuong'] ?>
+          </div>
+          <div class="item">
+            <?php if($album[$i]['TrangThai'] == 1): ?>
+              Hoạt động
+            <?php endif; ?>
+          </div>
+          <div class="item" onclick="openDetailalbum()"><i class="fa-regular fa-circle-info"></i></div>
+        </div>
       </div>
-    </div>
+    <?php endfor; ?>
   </div>
   <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">
@@ -410,3 +437,20 @@
   </div>
   <div class="overlay"></div>
 </div>  -->
+
+<?php
+//create fuction get all album
+function getAllAlbum()
+{
+  global $dp;
+  $sql = "SELECT * FROM album join theloai on album.theLoai = theloai.maLoai";
+  $result = $dp->excuteQuery($sql);
+  $album = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($album, $row);
+    }
+  }
+  return $album;
+}
+?>
