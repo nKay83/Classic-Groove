@@ -18,7 +18,7 @@ $(document).ready(async () => {
       loadHomeByAjax(1);
     }
   } else {
-    alert("url")
+    alert("url");
   }
 });
 
@@ -65,6 +65,17 @@ const loadProductDetailsByAjax = (albumID) => {
   });
 };
 
+const loadModalBoxByAjax = (modalBoxTarget, id) => {
+  $.ajax({
+    url: "views/pages/admin/modalBox.php",
+    type: "POST",
+    data: { modalBox: modalBoxTarget, id: id },
+    dataType: "html",
+    success: function (data) {
+      document.querySelector("#modal-box").innerHTML = data;
+    },
+  });
+};
 const tabNoticeNotNow = (input) => {
   input.parentElement.parentElement.style.display = "none";
 };

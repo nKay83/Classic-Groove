@@ -27,8 +27,8 @@
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  
-  
+
+
 
   <title>Administrator</title>
 </head>
@@ -39,11 +39,10 @@
       <?php include 'views/pages/admin/header.php' ?>
     </header>
     <main>
-    <div id="search">
+      <div id="search">
         <?php include 'views/pages/user/search.php' ?>
       </div>
       <div id="content">
-          abcd
       </div>
   </div>
   </main>
