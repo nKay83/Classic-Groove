@@ -2,8 +2,7 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $order = getAllOrder();
-print_r($order[0])
-    ?>
+?>
 <div id="orderManager">
     <h1><i class="fa-regular fa-list"></i> Order management</h1>
     <div class="title-list">
@@ -56,43 +55,43 @@ print_r($order[0])
     <div class="modal-placeholder" id="detail-order">
         <div class="modal-box">
             <div class="modal-header">
-                <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i> Order details</h1>
+                <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i>Order details</h1>
             </div>
             <div class="modal-left">
                 <div class="modal-info">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
-                        <div class="item-input"><input type="text" ></div>
+                        <div class="item-input"><input type="text" class="orderId" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Account id</div>
-                        <div class="item-input"><input type="text" ></div>
+                        <div class="item-input"><input type="text" class="orderAccount" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Date of order</div>
-                        <div class="item-input"><input type="text" ></div>
+                        <div class="item-input"><input type="text" class="orderDate" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Total price</div>
-                        <div class="item-input"><input type="text" ></div>
+                        <div class="item-input"><input type="text" class="orderPrice" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Discount</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderDiscount" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Status</div>
-                        <div class="item-input"><select name="" id="">
-                                <option value="P">Pending</option>
-                                <option value="S">Shipping</option>
-                                <option value="A">Approve</option>
-                                <option value="C">Cancel</option>
+                        <div class="item-input"><select name="" id="" class="orderStatus" disabled>
+                                <option value="Pending">Pending</option>
+                                <option value="Shipping">Shipping</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Cancel">Cancel</option>
                             </select>
                         </div>
                     </div>
                     <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                         <div class="item-header">Address</div>
-                        <div class="item-input"><input type="text" class="orderAddress"></div>
+                        <div class="item-input"><input type="text" class="orderAddress" disabled></div>
                     </div>
                 </div>
             </div>
@@ -146,27 +145,27 @@ print_r($order[0])
                 <div class="modal-info ">
                     <div class="modal-item">
                         <div class="item-header">Order id</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderID" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Account id</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderAccount" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Date of order</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderDate" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Total price</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderPrice" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Discount</div>
-                        <div class="item-input"><input type="text"></div>
+                        <div class="item-input"><input type="text" class="orderDiscount" disabled></div>
                     </div>
                     <div class="modal-item">
                         <div class="item-header">Status</div>
-                        <div class="item-input"><select name="" id="">
+                        <div class="item-input"><select name="" id="" class="orderStatus">
                                 <option value="P">Pending</option>
                                 <option value="S">Shipping</option>
                                 <option value="A">Approve</option>
@@ -176,7 +175,7 @@ print_r($order[0])
                     </div>
                     <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                         <div class="item-header">Address</div>
-                        <div class="item-input"><input type="text" class="orderAddress"></div>
+                        <div class="item-input"><input type="text" disabled class="orderAdress"></div>
                     </div>
                 </div>
             </div>

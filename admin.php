@@ -56,6 +56,8 @@
 <script src="views/js/modalBox.js"></script>
 <!-- controllers -->
 <script src="controllers/albumController.js"></script>
+<script src="controllers/orderController.js"></script>
+
 
 
 

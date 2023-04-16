@@ -87,3 +87,18 @@ const cancelOrder = (orderID) => {
     },
   });
 };
+
+const getOrderInfo= (orderID)=>{
+  return $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=getOrderInfo",
+    type: "GET",
+  });
+}
+
+const getAlbumsInOrder = (orderID)=>{
+  return $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=getAlbumsInOrder",
+    type: "GET",
+  });
+}
+

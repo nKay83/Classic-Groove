@@ -311,7 +311,6 @@
   font-weight: 600;
   font-family: "Dosis", sans-serif;
   font-size: calc(4px + 1vw);
-  cursor: pointer;
 }
 
 #orderManager .modal-box .modal-info .modal-item .item-input input:focus {
@@ -333,6 +332,8 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+#orderManager #edit-order select{
   cursor: pointer;
 }
 
