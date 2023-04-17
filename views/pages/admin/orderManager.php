@@ -22,7 +22,7 @@ $order = getAllOrder();
             <div class="placeholder">
                 <div class="info">
                     <div class="item">
-                        <?= $i + 1 ?>
+                        <?= sprintf("%02d", $i + 1) ?>
                     </div>
                     <div class="item">
                         <?= $order[$i]['maHoaDon'] ?>

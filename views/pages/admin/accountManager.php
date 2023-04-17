@@ -1,3 +1,9 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$account = getAllAccount();
+print_r($account);
+?>
 <div id="accountManager">
     <h1><i class="fa-solid fa-user fa-sm"></i> Account management</h1>
     <div class="button-placeholder">
@@ -17,18 +23,31 @@
         </div>
     </div>
     <div class="list">
-        <div class="placeholder">
-            <div class="info">
-                <div class="item">01</div>
-                <div class="item">CUS001</div>
-                <div class="item">Bùi Hồng Bảo</div>
-                <div class="item">0900000000</div>
-                <div class="item">CUS</div>
-                <div class="item">Available</div>
-                <div class="item" onclick="openDetailAccount()"><i class="fa-regular fa-circle-info"></i> </div>
+        <?php for ($i = 0; $i < count($account); $i++): ?>
+            <div class="placeholder">
+                <div class="info">
+                    <div class="item">
+                        <?= sprintf("%02d", $i + 1) ?>
+                    </div>
+                    <div class="item">
+                        <?= $account[$i]['username'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $account[$i]['hoTen'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $account[$i]['SDT'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $account[$i]['vaiTro'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $account[$i]['TrangThai'] ?>
+                    </div>
+                    <div class="item" onclick="openDetailAccount()"><i class="fa-regular fa-circle-info"></i> </div>
+                </div>
             </div>
-        </div>
-
+        <?php endfor ?>
     </div>
     <div class="modal-placeholder" id="detail-account">
         <div class="modal-box">
@@ -208,3 +227,19 @@
         </div>
     </div>
 </div>
+<?php
+//create function to get all account join nguoidung
+function getAllAccount()
+{
+    global $dp;
+    $sql = "SELECT * FROM taikhoan join nguoidung on taikhoan.username = nguoidung.maNguoiDung";
+    $result = $dp->excuteQuery($sql);
+    $account = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($account, $row);
+        }
+    }
+    return $account;
+}
+?>
