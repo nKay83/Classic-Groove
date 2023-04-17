@@ -49,10 +49,11 @@ print_r($account);
                     </div>
                 </div>
             </div>
-        <?php endfor ?>
+        <?php endfor; ?>
     </div>
     <div id="modal-box"></div>
 </div>
+
 <?php
 function getAllAccount()
 {

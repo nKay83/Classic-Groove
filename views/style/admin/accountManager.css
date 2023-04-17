@@ -152,7 +152,7 @@
     background-color: var(--whi);
     border-radius: 30px;
     width: 50%;
-    height: 30vw;
+    /* height: 30vw; */
     margin: 20vh auto;
     display: grid;
     grid-template-columns: 1fr;
@@ -174,7 +174,7 @@
 #accountManager .modal-box .modal-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #accountManager .modal-box .modal-info .modal-item {
@@ -210,6 +210,11 @@
     font-family: "Dosis", sans-serif;
     font-size: calc(4px + 1vw);
     cursor: pointer;
+}
+#accountManager #detail-account input,
+#accountManager #detail-account select,
+#accountManager #edit-account input.accountID{
+    cursor: default;
 }
 
 #accountManager .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
