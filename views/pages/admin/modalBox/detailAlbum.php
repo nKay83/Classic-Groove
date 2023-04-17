@@ -83,7 +83,7 @@ $album = getAlbum($albumID);
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button" onclick="openEditalbum()">
+                <div class="edit-button" onclick="loadModalBoxByAjax('editAlbum',<?= $album['maAlbum'] ?>)">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Edit</div>
                 </div>

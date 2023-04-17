@@ -1,3 +1,10 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$albumID = $_POST['id'];
+$album = getAlbum($albumID);
+$kinds = getKinds();
+?>
 <div class="modal-placeholder" id="edit-album">
     <div class="modal-box">
         <div class="modal-header ">
@@ -7,16 +14,24 @@
             <div class="modal-info">
                 <div class="modal-item">
                     <div class="item-header">Album id</div>
-                    <div class="item-input"><input type="text" class="albumID" dis></div>
+                    <div class="item-input"><input type="text" class="albumID" value="<?= $album['maAlbum'] ?>"
+                            disabled>
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Album name</div>
-                    <div class="item-input"><input type="text" class="albumName"></div>
+                    <div class="item-input"><input type="text" class="albumName" value="<?= $album['tenAlbum'] ?>">
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Kind</div>
                     <div class="item-input"><select class="albumKind" name="" id="">
+                            <option value="<?= $album['maLoai'] ?>"><?= $album['tenLoai'] ?></option>
                             <?php foreach ($kinds as $k): ?>
+                                <?php if ($k['maLoai'] == $album['maLoai']) {
+                                    continue;
+                                }
+                                ?>
                                 <option value="<?= $k['maLoai'] ?>"><?= $k['tenLoai'] ?></option>
                             <?php endforeach ?>
                         </select>
@@ -24,24 +39,27 @@
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Artist name</div>
-                    <div class="item-input"><input type="text" class="albumArtist"></div>
+                    <div class="item-input"><input type="text" class="albumArtist" value="<?= $album['tacGia'] ?>">
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Quanitity</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity"></div>
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $album['soLuong'] ?>">
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Price</div>
-                    <div class="item-input"><input type="text" class="albumPrice"></div>
+                    <div class="item-input"><input type="text" class="albumPrice" value="<?= $album['gia'] ?>"></div>
                 </div>
 
                 <div class="modal-item">
                     <div class="item-header">Image</div>
-                    <div class="item-input"><input type="text" class="albumImg"></div>
+                    <div class="item-input"><input type="text" class="albumImg" value="<?= $album['hinh'] ?>"></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Describe</div>
-                    <div class="item-input"><textarea class="albumDescribe" cols="30" rows="6"></textarea></div>
+                    <div class="item-input"><textarea class="albumDescribe" cols="30"
+                            rows="6"><?= $album['moTa'] ?></textarea></div>
                 </div>
             </div>
         </div>
@@ -75,7 +93,7 @@
                     <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>
-                <div class="back-button" onclick="closeEditalbum()">
+                <div class="back-button" onclick="loadModalBoxByAjax('detailAlbum',<?= $album['maAlbum'] ?>)">
                     <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                     <div class="info-placeholder">Cancel</div>
                 </div>
@@ -83,20 +101,17 @@
         </div>
     </div>
 </div>
-<?php function getAlbum()
+<?php
+function getAlbum($albumID)
 {
     global $dp;
-    $sql = "SELECT * FROM album join theloai on album.theLoai = theloai.maLoai";
+    $sql = "SELECT * FROM album
+            join theloai on album.theLoai = theloai.maLoai
+            WHERE album.maAlbum =" . $albumID;
     $result = $dp->excuteQuery($sql);
-    $album = array();
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            array_push($album, $row);
-        }
-    }
-    return $album;
+    return $result->fetch_assoc();
 }
-function getKind()
+function getKinds()
 {
     global $dp;
     $sql = "SELECT * FROM theloai";

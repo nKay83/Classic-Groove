@@ -4,6 +4,9 @@ if (isset($_POST["modalBox"])) {
         case 'detailAlbum':
             include("modalBox/detailAlbum.php");
             break;
+        case 'editAlbum':
+            include("modalBox/editAlbum.php");
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
