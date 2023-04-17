@@ -30,12 +30,15 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Date created</div>
-                <div class="item-input"><input type="text" value="<?= date('d/m/Y', strtotime($account['ngayTao'])) ?>" disabled>
+                <div class="item-input"><input type="text" value="<?= date('d/m/Y', strtotime($account['ngayTao'])) ?>"
+                        disabled>
                 </div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Role</div>
-                <div class="item-input"><select name="" id="">
+                <div class="item-input"><select name="" id="" <?php if ($account['vaiTro'] == 1) {
+                    echo 'disabled';
+                } ?>>
                         <option value="<?= $account['vaiTro'] ?>"> <?= $account['tenVaiTro'] ?></option>
                         <?php foreach ($role as $r): ?>
                             <?php if ($r['maVaiTro'] == $account['vaiTro']) {
@@ -94,6 +97,9 @@ function getListRole()
     $role = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            if ($row['maVaiTro'] == 1) {
+                continue;
+            }
             array_push($role, $row);
         }
     }
