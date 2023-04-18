@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="views/style/admin/productManager.css">
   <link rel="stylesheet" href="views/style/admin/reset.css">
   <link rel="stylesheet" href="views/style/admin/header.css">
+  <link rel="stylesheet" href="views/style/user/notice.css">
+
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +46,9 @@
       </div>
       <div id="content">
       </div>
+      <div id="notice">
+
+      </div>
   </div>
   </main>
 </body>
@@ -53,10 +58,14 @@
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
 <script src="views/js/modalBox.js"></script>
+<script src="views/js/notice.js"></script>
+
 <!-- controllers -->
 <script src="controllers/albumController.js"></script>
 <script src="controllers/orderController.js"></script>
 <script src="controllers/loginController.js"></script>
+<script src="controllers/userController.js"></script>
+<script src="controllers/managerAccountController.js"></script>
 
 
 

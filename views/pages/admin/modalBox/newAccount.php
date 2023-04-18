@@ -11,19 +11,19 @@ $role = getListRole();
         <div class="modal-info">
             <div class="modal-item">
                 <div class="item-header">Username</div>
-                <div class="item-input"><input type="text"></div>
+                <div class="item-input"><input class="username" type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text"></div>
+                <div class="item-input"><input class="name" type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Email</div>
-                <div class="item-input"><input type="text"></div>
+                <div class="item-input"><input class="email" type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Phone number</div>
-                <div class="item-input"><input type="text"></div>
+                <div class="item-input"><input class="phoneNumber" type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Date created</div>
@@ -31,7 +31,7 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Role</div>
-                <div class="item-input"><select name="" id="">
+                <div class="item-input"><select class="role" name="" id="">
                         <?php foreach ($role as $r): ?>
                             ?>
                             <option value="<?= $r['maVaiTro'] ?>"><?= $r['tenVaiTro'] ?></option>
@@ -46,17 +46,17 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Password</div>
-                <div class="item-input"><input type="text"></div>
+                <div class="item-input"><input class="password" type="text"></div>
             </div>
             <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                 <div class="item-header">Address</div>
-                <div class="item-input"><input type="text" class="orderAddress"></div>
+                <div class="item-input"><input type="text" class="address"></div>
             </div>
         </div>
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button">
+                <div class="edit-button" onclick="createNewAccount()">
                     <div class="icon-placeholder"><i class="fa-solid fa-user-plus"></i></div>
                     <div class="info-placeholder">Add</div>
                 </div>
