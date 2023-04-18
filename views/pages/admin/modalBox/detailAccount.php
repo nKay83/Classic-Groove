@@ -36,19 +36,12 @@ $role = getListRole();
                 <div class="item-header">Role</div>
                 <div class="item-input"><select name="" id="" disabled>
                         <option value="<?= $account['vaiTro'] ?>"> <?= $account['tenVaiTro'] ?></option>
-                        <?php foreach ($role as $r): ?>
-                            <?php if ($r['maVaiTro'] == $account['vaiTro']) {
-                                continue;
-                            }
-                            ?>
-                            <option value="<?= $r['maVaiTro'] ?>"><?= $r['tenVaiTro'] ?></option>
-                        <?php endforeach ?>
                     </select>
                 </div>
             </div>
             <div class="modal-item">
-                <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text" value="<?= $account['hoTen'] ?>" disabled></div>
+                <div class="item-header">Status</div>
+                <div class="item-input"><input type="text" value="<?= $account['TrangThai'] ?>" disabled></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Password</div>

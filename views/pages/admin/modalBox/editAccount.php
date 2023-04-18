@@ -41,18 +41,14 @@ $role = getListRole();
                 } ?>>
                         <option value="<?= $account['vaiTro'] ?>"> <?= $account['tenVaiTro'] ?></option>
                         <?php foreach ($role as $r): ?>
-                            <?php if ($r['maVaiTro'] == $account['vaiTro']) {
-                                continue;
-                            }
-                            ?>
                             <option value="<?= $r['maVaiTro'] ?>"><?= $r['tenVaiTro'] ?></option>
                         <?php endforeach ?>
                     </select>
                 </div>
             </div>
             <div class="modal-item">
-                <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text" value="<?= $account['hoTen'] ?>"></div>
+                <div class="item-header">Status</div>
+                <div class="item-input"><input type="text" value="<?= $account['TrangThai'] ?>"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Password</div>
@@ -92,7 +88,7 @@ function getAccount($accountID)
 function getListRole()
 {
     global $dp;
-    $sql = "SELECT * FROM vaitro";
+    $sql = "SELECT * FROM vaitro where maVaiTro != 1";
     $result = $dp->excuteQuery($sql);
     $role = array();
     if ($result->num_rows > 0) {

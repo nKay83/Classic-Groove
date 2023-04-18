@@ -18,7 +18,7 @@ $(document).ready(async () => {
       loadHomeByAjax(1);
     }
   } else {
-    // alert("url");
+    loadHomeByAjax(1);
   }
 });
 

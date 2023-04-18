@@ -1,45 +1,56 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$role = getListRole();
+?>
 <div class="modal-placeholder" id="new-account">
     <div class="modal-box">
         <div class="modal-header">
-            <h1><i class="fa-solid fa-user-plus"></i> New Account</h1>
+            <h1><i class="fa-solid fa-user-plus"></i>New Account</h1>
         </div>
         <div class="modal-info">
             <div class="modal-item">
-                <div class="item-header">Account id</div>
-                <div class="item-input"><input type="text" value="CUS001"></div>
+                <div class="item-header">Username</div>
+                <div class="item-input"><input type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text" value="Bùi Hồng Bảo"></div>
+                <div class="item-input"><input type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Email</div>
-                <div class="item-input"><input type="text" value="buibuibaobao@gmail.com"></div>
+                <div class="item-input"><input type="text"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Phone number</div>
-                <div class="item-input"><input type="text" value="0900000000"></div>
+                <div class="item-input"><input type="text"></div>
             </div>
             <div class="modal-item">
-                <div class="item-header">Address</div>
-                <div class="item-input"><input type="text" value="Ho Chi Minh City"></div>
+                <div class="item-header">Date created</div>
+                <div class="item-input"><input type="text" value="<?= date('d/m/Y') ?>" disabled></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Role</div>
                 <div class="item-input"><select name="" id="">
-                        <option value="CUS">Customer</option>
-                        <option value="EM">Employee</option>
-                        <option value="AD">Admin</option>
+                        <?php foreach ($role as $r): ?>
+                            ?>
+                            <option value="<?= $r['maVaiTro'] ?>"><?= $r['tenVaiTro'] ?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
             </div>
             <div class="modal-item">
-                <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text" value="baohongbui313"></div>
+                <div class="item-header">Status</div>
+                <div class="item-input"><input type="text" style="cursor:default !important" value="Hoạt động" disabled>
+                </div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Password</div>
-                <div class="item-input"><input type="text" value="baobaobuibui"></div>
+                <div class="item-input"><input type="text"></div>
+            </div>
+            <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
+                <div class="item-header">Address</div>
+                <div class="item-input"><input type="text" class="orderAddress"></div>
             </div>
         </div>
         <div class="modal-button">
@@ -57,3 +68,21 @@
         </div>
     </div>
 </div>
+<?php
+function getListRole()
+{
+    global $dp;
+    $sql = "SELECT * FROM vaitro";
+    $result = $dp->excuteQuery($sql);
+    $role = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if ($row['maVaiTro'] == 1) {
+                continue;
+            }
+            array_push($role, $row);
+        }
+    }
+    return $role;
+}
+?>
