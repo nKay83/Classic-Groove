@@ -1,4 +1,4 @@
-<?php
+00<?php
 session_start();
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
@@ -110,7 +110,7 @@ filtBillDetailToBill($billDetail, $bill);
                         <div class="shipping-address">Ship to
                             <?= $b['diaChiGiaoHang'] ?>
                         </div>
-                        <?php if ($b['trangThai'] == 'Chờ xác nhận'): ?>
+                        <?php if ($b['trangThai'] == 'Pending'): ?>
                             <div class="cancel-button" onclick="cancelOrder(
                             <?= $b['maHoaDon'] ?>)">
                                 <i class="fa-solid fa-xmark"></i>Cancel

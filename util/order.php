@@ -15,20 +15,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           echo "Error";
         }
         break;
-        case 'getAlbumsInOrder':
-          $orderID = $_GET['orderID'];
-          $sql = "SELECT * FROM chitiethoadon WHERE hoaDon = " . $orderID;
-          $result = $dp->excuteQuery($sql);
-          $albums = array();
-          if ($result) {
-            while ($row = $result->fetch_assoc()) {
-              $albums[] = $row;
-            }
-            echo json_encode($albums);
-          } else {
-            echo "Error";
+      case 'getAlbumsInOrder':
+        $orderID = $_GET['orderID'];
+        $sql = "SELECT * FROM chitiethoadon WHERE hoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql);
+        $albums = array();
+        if ($result) {
+          while ($row = $result->fetch_assoc()) {
+            $albums[] = $row;
           }
-          break;
+          echo json_encode($albums);
+        } else {
+          echo "Error";
+        }
+        break;
     }
     break;
 
@@ -61,15 +61,13 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         break;
     }
     break;
-  case 'DELETE':
+  case 'PUT':
     switch ($_GET['action']) {
       case 'cancelOrder':
         $orderID = $_GET['orderID'];
-        $sql1 = "DELETE FROM chitiethoadon WHERE hoaDon = " . $orderID;
-        $result2 = $dp->excuteQuery($sql1);
-        $sql2 = "DELETE FROM hoadon WHERE maHoaDon = " . $orderID;
-        $result1 = $dp->excuteQuery($sql2);
-        if ($result1 && $result2) {
+        $sql = "UPDATE hoadon SET trangThai = 'Cancel' WHERE maHoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql);
+        if ($result) {
           echo "Success";
         } else {
           echo "Error";

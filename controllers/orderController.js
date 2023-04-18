@@ -77,7 +77,7 @@ const deleteFromOrder = async () => {
 const cancelOrder = (orderID) => {
   $.ajax({
     url: "util/order.php?orderID=" + orderID + "&action=cancelOrder",
-    type: "DELETE",
+    type: "PUT",
     success: function (res) {
       if (res != "Success") alert(res);
       else {
