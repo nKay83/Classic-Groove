@@ -67,6 +67,29 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           echo "Error";
         }
         break;
+      case 'createNewAccount':
+        $username = $_POST['username'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $role = $_POST['role'];
+        $password = $_POST['password'];
+        $address = $_POST['address'];
+        $typeUser = ($role == 1) ? "KH" : "NV";
+        $sql1 = "INSERT INTO nguoidung
+        VALUES ('" . $username . "','" . $name . "','" . $phone . "', '" . $address . "',
+                '" . $email . "', 'Hoạt động', '" . $typeUser . "')";
+        $result1 = $dp->excuteQuery($sql1);
+        $sql2 = "INSERT INTO taikhoan
+        VALUES ('" . $username . "','" . (new Datetime())->format('Y-m-d') . "',
+                'Hoạt động','" . $password . "'," . $role . ");";
+        $result2 = $dp->excuteQuery($sql2);
+        if ($result1 && $result2) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
     }
     break;
   case 'PUT':

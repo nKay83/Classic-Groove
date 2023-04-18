@@ -77,9 +77,6 @@ function getListRole()
     $role = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['maVaiTro'] == 1) {
-                continue;
-            }
             array_push($role, $row);
         }
     }

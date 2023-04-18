@@ -4,9 +4,33 @@ const createNewAccount = async () => {
   let name = document.querySelector("#new-account .name").value;
   let email = document.querySelector("#new-account .email").value;
   let phone = document.querySelector("#new-account .phoneNumber").value;
-  let role = document.querySelector("#new-account .role").value;
+  let role = parseInt(document.querySelector("#new-account .role").value);
   let password = document.querySelector("#new-account .password").value;
   let address = document.querySelector("#new-account .address").value;
+  $.ajax({
+    url: "util/user.php",
+    type: "POST",
+    data: {
+      username: username,
+      name: name,
+      email: email,
+      phone: phone,
+      role: role,
+      password: password,
+      address: address,
+      action: "createNewAccount",
+    },
+    success: function (res) {
+      if (res == "Success") {
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Tạo tài khoản thành công!"
+        );
+      } else {
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+      }
+    },
+  });
 };
 const checkInputCreateNewAccount = async () => {
   let usernameInput = document.querySelector("#new-account .username");
