@@ -67,7 +67,7 @@ $role = getListRole();
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="save-button btnAccountSave">
+                <div class="save-button btnAccountSave" onclick="updateAccount()">
                     <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>
