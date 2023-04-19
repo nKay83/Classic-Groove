@@ -5,8 +5,10 @@ let phoneAcc = null;
 let roleAcc = null;
 let passwordAcc = null;
 let addressAcc = null;
+let isAccountDiff = false;
 
 const setAccountInfo = () => {
+  usernameAcc = document.querySelector("#edit-account .accountID").value;
   nameAcc = document.querySelector("#edit-account .nameAccount").value;
   emailAcc = document.querySelector("#edit-account .emailAccount").value;
   phoneAcc = document.querySelector("#edit-account .phoneAccount").value;
@@ -18,8 +20,39 @@ const setAccountInfo = () => {
 };
 const updateAccount = () => {
   if (!checkInputUpdateAccount()) return;
+  setAccountInfo();
+  $.ajax({
+    url:
+      "util/user.php?fullname=" +
+      nameAcc +
+      "&email=" +
+      emailAcc +
+      "&phone=" +
+      phoneAcc +
+      "&password=" +
+      passwordAcc +
+      "&address=" +
+      addressAcc +
+      "&username=" +
+      usernameAcc +
+      "&role=" +
+      roleAcc +
+      "&action=updateAccount",
+    type: "PUT",
+    success: function (res) {
+      if (res != "Success") alert(res);
+      else {
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Update successfully!!"
+        );
+        isAccountInfoChange();
+      }
+    },
+  });
 };
 const checkInputUpdateAccount = () => {
+  if (!isAccountDiff) return false;
   let nameInput = document.querySelector("#edit-account .nameAccount");
   let emailInput = document.querySelector("#edit-account .emailAccount");
   let phoneInput = document.querySelector("#edit-account .phoneAccount");
@@ -91,11 +124,11 @@ const isAccountInfoChange = () => {
   ) {
     saveBtn.style.cursor = "no-drop";
     saveBtn.style.opacity = "0.5";
-    return false;
+    isAccountDiff = false;
   } else {
     saveBtn.style.cursor = "pointer";
     saveBtn.style.opacity = "1";
-    return true;
+    isAccountDiff = true;
   }
 };
 const createNewAccount = async () => {

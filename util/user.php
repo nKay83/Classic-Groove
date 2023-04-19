@@ -117,6 +117,34 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           echo "Error";
         }
         break;
+      case 'updateAccount':
+        $username = $_GET['username'];
+        $fullname = $_GET['fullname'];
+        $phone = $_GET['phone'];
+        $password = $_GET['password'];
+        $address = $_GET['address'];
+        $email = $_GET['email'];
+        $role = $_GET['role'];
+        $typeUser = ($role == 1) ? "KH" : "NV";
+        $sql1 = "UPDATE nguoidung
+                SET hoTen='" . $fullname . "',
+                    SDT='" . $phone . "',
+                    diaChi='" . $address . "',
+                    email='" . $email . "',
+                    loaiNguoiDung='" . $typeUser . "'
+                WHERE maNguoiDung='" . $username . "'";
+        $result1 = $dp->excuteQuery($sql1);
+        // $sql2 = "UPDATE taikhoan
+        //         SET matKhau='" . $password . "',
+        //             vaiTro=" . $role . "
+        //         WHERE username='" . $username . "'";
+        // $result2 = $dp->excuteQuery($sql2);
+        if ($result1) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
     }
     break;
 }
