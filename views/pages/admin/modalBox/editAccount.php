@@ -18,15 +18,18 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Account name</div>
-                <div class="item-input"><input type="text" value="<?= $account['hoTen'] ?>"></div>
+                <div class="item-input"><input type="text" class="nameAccount" value="<?= $account['hoTen'] ?>"
+                        oninput="isAccountInfoChange()"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Email</div>
-                <div class="item-input"><input type="text" value="<?= $account['email'] ?>"></div>
+                <div class="item-input"><input type="text" class="emailAccount" value="<?= $account['email'] ?>"
+                        oninput="isAccountInfoChange()"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Phone number</div>
-                <div class="item-input"><input type="text" value="<?= $account['SDT'] ?>"></div>
+                <div class="item-input"><input type="text" class="phoneAccount" value="<?= $account['SDT'] ?>"
+                        oninput="isAccountInfoChange()"></div>
             </div>
             <div class="modal-item">
                 <div class="item-header">Date created</div>
@@ -36,9 +39,9 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Role</div>
-                <div class="item-input"><select name="" id="" <?php if ($account['vaiTro'] == 1) {
+                <div class="item-input"><select name="" class="roleAccount"id="" <?php if ($account['vaiTro'] == 1) {
                     echo 'disabled';
-                } ?>>
+                } ?>  oninput="isAccountInfoChange()">
                         <option value="<?= $account['vaiTro'] ?>"> <?= $account['tenVaiTro'] ?></option>
                         <?php foreach ($role as $r): ?>
                             <option value="<?= $r['maVaiTro'] ?>"><?= $r['tenVaiTro'] ?></option>
@@ -52,17 +55,19 @@ $role = getListRole();
             </div>
             <div class="modal-item">
                 <div class="item-header">Password</div>
-                <div class="item-input"><input type="text" value="<?= $account['matKhau'] ?>"></div>
+                <div class="item-input"><input type="text" class="passwordAccount" value="<?= $account['matKhau'] ?>"
+                        oninput="isAccountInfoChange()"></div>
             </div>
             <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                 <div class="item-header">Address</div>
-                <div class="item-input"><input type="text" class="orderAddress" value="<?= $account['diaChi'] ?>"></div>
+                <div class="item-input"><input type="text" class="addressAccount" value="<?= $account['diaChi'] ?>"
+                        oninput="isAccountInfoChange()"></div>
             </div>
         </div>
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button">
+                <div class="save-button btnAccountSave">
                     <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>

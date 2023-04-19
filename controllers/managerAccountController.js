@@ -1,3 +1,45 @@
+let nameAcc = null;
+let emailAcc = null;
+let usernameAcc = null;
+let phoneAcc = null;
+let roleAcc = null;
+let passwordAcc = null;
+let addressAcc = null;
+
+const setAccountInfo = () => {
+  alert(2)
+  nameAcc = document.querySelector("#edit-account .nameAccount").value;
+  emailAcc = document.querySelector("#edit-account .emailAccount").value;
+  phoneAcc = document.querySelector("#edit-account .phoneAccount").value;
+  roleAcc = parseInt(document.querySelector("#edit-account .roleAccount").value);
+  passwordAcc = document.querySelector("#edit-account .passwordAccount").value;
+  addressAcc = document.querySelector("#edit-account .addressAccount").value;
+  console.log(nameAcc);
+  console.log(emailAcc);
+  console.log(phoneAcc);
+  console.log(roleAcc);
+  console.log(passwordAcc);
+  console.log(addressAcc);
+};
+const isAccountInfoChange = () => {
+  let saveBtn = document.querySelector("#edit-account .btnAccountSave");
+  if (
+    nameAcc == document.querySelector("#edit-account .nameAccount").value &&
+    emailAcc == document.querySelector("#edit-account .emailAccount").value &&
+    phoneAcc == document.querySelector("#edit-account .phoneAccount").value &&
+    roleAcc == parseInt(document.querySelector("#edit-account .roleAccount").value) &&
+    passwordAcc == document.querySelector("#edit-account .passwordAccount").value &&
+    addressAcc == document.querySelector("#edit-account .addressAccount").value
+  ) {
+    saveBtn.style.cursor = "no-drop";
+    saveBtn.style.opacity = "0.5";
+    return false;
+  } else {
+    saveBtn.style.cursor = "pointer";
+    saveBtn.style.opacity = "1";
+    return true;
+  }
+};
 const createNewAccount = async () => {
   if (!(await checkInputCreateNewAccount())) return;
   let username = document.querySelector("#new-account .username").value;

@@ -73,6 +73,7 @@ const loadModalBoxByAjax = (modalBoxTarget, id) => {
     dataType: "html",
     success: function (data) {
       document.querySelector("#modal-box").innerHTML = data;
+      if (modalBoxTarget == "editAccount") setAccountInfo();
     },
   });
 };
