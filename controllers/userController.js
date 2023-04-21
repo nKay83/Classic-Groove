@@ -41,7 +41,7 @@ const checkInputUpdateUser = () => {
   if (fullnameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập Họ tên!"
+      "Please, enter your fullname!"
     );
     fullnameInput.focus();
     return false;
@@ -49,7 +49,7 @@ const checkInputUpdateUser = () => {
   if (phoneInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập số điện thoại!"
+      "Please, enter your phone number!"
     );
     phoneInput.focus();
     return false;
@@ -57,7 +57,7 @@ const checkInputUpdateUser = () => {
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Số điện thoại không hợp lệ!"
+      "Invalid phone number!"
     );
     phoneInput.focus();
     return false;
@@ -65,7 +65,7 @@ const checkInputUpdateUser = () => {
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập mật khẩu!"
+      "Please, enter your password!"
     );
     passwordInput.focus();
     return false;
@@ -73,7 +73,7 @@ const checkInputUpdateUser = () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
     );
     passwordInput.focus();
     return false;
@@ -81,18 +81,18 @@ const checkInputUpdateUser = () => {
   if (addressInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập địa chỉ!"
+      "Please, enter your address!"
     );
     addressInput.focus();
     return false;
   }
   if (emailInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập Email!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your email!");
     emailInput.focus();
     return false;
   }
   if (!isEmailValid(emailInput.value)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Email không hợp lệ!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Invalid email!");
     emailInput.focus();
     return false;
   }

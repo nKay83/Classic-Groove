@@ -51,13 +51,13 @@ const checkMyCart = () => {
   );
   let address = document.querySelector("#mycart #checkout-address");
   if (albums.length == 0) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa chọn Album!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, select the album!");
     return false;
   }
   if (address.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập địa chỉ!"
+      "Please, enter your address!"
     );
     address.focus();
     return false;
