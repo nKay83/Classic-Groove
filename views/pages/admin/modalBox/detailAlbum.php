@@ -3,7 +3,7 @@ require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $albumID = $_POST['id'];
 $album = getAlbum($albumID);
-
+$songs = getSong($albumID);
 ?>
 <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">
@@ -54,7 +54,7 @@ $album = getAlbum($albumID);
                 <div class="modal-item">
                     <div class="item-header">Describe</div>
                     <div class="item-input"><textarea cols="30" class="albumDescribe" rows="6"
-                            disabled> value="<?= $album['moTa'] ?>"</textarea>
+                            disabled><?= $album['moTa'] ?></textarea>
                     </div>
                 </div>
             </div>
@@ -69,15 +69,25 @@ $album = getAlbum($albumID);
                 </div>
             </div>
             <div class="list">
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">01</div>
-                        <div class="item">CUS001</div>
-                        <div class="item">Bùi Hồng Bảo</div>
-                        <div class="item">.mp3</div>
-                        <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
+                <?php for ($i = 0; $i < count($songs); $i++): ?>
+                    <div class="placeholder">
+                        <div class="info">
+                            <div class="item">
+                                <?= sprintf("%02d", $i + 1) ?>
+                            </div>
+                            <div class="item">
+                                <?= $songs[$i]['maBaiHat'] ?>
+                            </div>
+                            <div class="item">
+                                <?= $songs[$i]['tenBaiHat'] ?>
+                            </div>
+                            <!-- <div class="item"><?= $songs[$i]['linkFile'] ?>.mp3</div> -->
+                            <input class="item" value="<?= $songs[$i]['linkFile'] ?>.mp3"></input>
+
+                            <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
+                        </div>
                     </div>
-                </div>
+                <?php endfor ?>
             </div>
         </div>
         <div class="modal-button">
@@ -108,5 +118,20 @@ function getAlbum($albumID)
             WHERE album.maAlbum =" . $albumID;
     $result = $dp->excuteQuery($sql);
     return $result->fetch_assoc();
+}
+function getSong($albumID)
+{
+    global $dp;
+    $sql = "SELECT * FROM baihat
+        join baihat_album on baihat.maBaiHat = baihat_album.Album_maAlbum
+        WHERE baihat_album.Album_maAlbum =" . $albumID;
+    $result = $dp->excuteQuery($sql);
+    $songs = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($songs, $row);
+        }
+    }
+    return $songs;
 }
 ?>
