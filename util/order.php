@@ -73,6 +73,16 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           echo "Error";
         }
         break;
+      case 'updateOrder':
+        $status = $_GET['status'];
+        $sql = "UPDATE hoadon SET trangThai = '" . $status . "' WHERE maHoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql);
+        if ($result) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
     }
     break;
 }

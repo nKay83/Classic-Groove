@@ -44,7 +44,7 @@ const updateAccount = () => {
       else {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Update successfully!!"
+          "Update successfully!"
         );
         isAccountInfoChange();
       }

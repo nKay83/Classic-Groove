@@ -48,10 +48,6 @@ $detailOrder = getDetailOrder($orderID);
                     <div class="item-header">Status</div>
                     <div class="item-input"><select name="" id="" class="orderStatus" disabled>
                             <option value="<?= $order['trangThai'] ?>"><?= $order['trangThai'] ?></option>
-                            <option value="Pending">Pending</option>
-                            <option value="Shipping">Shipping</option>
-                            <option value="Delivered">Delivered</option>
-                            <option value="Cancel">Cancel</option>
                         </select>
                     </div>
                 </div>

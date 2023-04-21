@@ -44,7 +44,7 @@ $order = getOrder($orderID);
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Status</div>
-                    <div class="item-input"><select name="" id="" class="orderStatus">
+                    <div class="item-input"><select name="" id="" onchange="isOrderInfoChange()" class="orderStatus">
                             <option value="<?= $order['trangThai'] ?>"><?= $order['trangThai'] ?></option>
                             <?php
                             $status = array("Pending", "Shipping", "Delivered", "Cancel");
@@ -93,7 +93,7 @@ $order = getOrder($orderID);
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button">
+                <div class="edit-button btnOrderSave">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>
