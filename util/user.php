@@ -32,6 +32,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
               $_SESSION['userID'] = $username;
               $_SESSION['userName'] = $name;
               $_SESSION['role'] = $user['vaiTro'];
+              $_SESSION['permission'] = $dp->getPermissionByRoleID($user['vaiTro']);
               if ($user['vaiTro'] == 1) {
                 echo "cus";
               } else {

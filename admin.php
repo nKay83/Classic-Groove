@@ -66,6 +66,7 @@
 <script src="controllers/loginController.js"></script>
 <script src="controllers/userController.js"></script>
 <script src="controllers/managerAccountController.js"></script>
+<script src="controllers/roleController.js"></script>
 
 
 

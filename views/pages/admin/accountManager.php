@@ -2,7 +2,6 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $account = getAllAccount();
-print_r($account);
 ?>
 <div id="accountManager">
     <h1><i class="fa-solid fa-user fa-sm"></i> Account management</h1>

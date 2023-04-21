@@ -85,6 +85,32 @@ $order = getOrder($orderID);
                             color: var(--gr1)">100</div>
                     </div>
                 </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">CUS001</div>
+                        <div class="item">Bùi Hồng Bảo</div>
+                        <div class="item">2</div>
+                        <div class="item>" style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            color: var(--gr1)">100</div>
+                    </div>
+                </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">01</div>
+                        <div class="item">CUS001</div>
+                        <div class="item">Bùi Hồng Bảo</div>
+                        <div class="item">2</div>
+                        <div class="item>" style="
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            color: var(--gr1)">100</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modal-button">

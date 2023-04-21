@@ -50,4 +50,14 @@ class DataProvider
     }
     return false;
   }
+  public static function getPermissionByRoleID($roleID)
+  {
+    $sql = "SELECT Quyen_maCTQ FROM vaitro_quyen where VaiTro_maVaiTro = " . $roleID;
+    $result = Self::excuteQuery($sql);
+    $permissions = array();
+    while ($row = $result->fetch_assoc()) {
+      array_push($permissions, $row['Quyen_maCTQ']);
+    }
+    return $permissions;
+  }
 }
