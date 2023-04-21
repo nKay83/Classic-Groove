@@ -49,6 +49,10 @@ session_start();
           <div class="tab-info">Structure</div>
         </div>
       <?php endif ?>
+      <div class="tab-title" onclick="loadPageByAjax('roleManager')">
+        <div class="tab-icon"><i class="fa-regular fa-user-pen"></i></div>
+        <div class="tab-info">Permission</div>
+      </div>
     </div>
   </div>
 </div>
