@@ -60,7 +60,7 @@ const checkInputUpdateAccount = () => {
   if (nameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập họ tên!"
+      "Please, enter your fullname!"
     );
     nameInput.focus();
     return false;
@@ -68,26 +68,26 @@ const checkInputUpdateAccount = () => {
   if (emailInput.value != "" && !isEmailValid(emailInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Email không hợp lệ!"
+      "Invalid email address!"
     );
     emailInput.focus();
     return false;
   }
 
   if (nameInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
     nameInput.focus();
     return false;
   }
   if (phoneInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập phone!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your phone number!");
     phoneInput.focus();
     return false;
   }
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Số điện thoại không hợp lệ!"
+      "Invalid phone number!"
     );
     phoneInput.focus();
     return false;
@@ -95,7 +95,7 @@ const checkInputUpdateAccount = () => {
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập password!"
+      "Please, enter your password!"
     );
     passwordInput.focus();
     return false;
@@ -103,7 +103,7 @@ const checkInputUpdateAccount = () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
     );
     passwordInput.focus();
     return false;
@@ -157,7 +157,7 @@ const createNewAccount = async () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Tạo tài khoản thành công!"
+          "Account successfully created"
         );
       } else {
         customNotice("fa-sharp fa-light fa-circle-exclamation", res);
@@ -175,7 +175,7 @@ const checkInputCreateNewAccount = async () => {
   if (usernameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập username!"
+      "Please, enter your user name!"
     );
     usernameInput.focus();
     return false;
@@ -183,7 +183,7 @@ const checkInputCreateNewAccount = async () => {
   if (await isUsernameExist(usernameInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Username đã tồn tại!"
+      "Username already exists!"
     );
     usernameInput.focus();
     return false;
@@ -191,7 +191,7 @@ const checkInputCreateNewAccount = async () => {
   if (nameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập họ tên!"
+      "Please, enter your fullname!"
     );
     nameInput.focus();
     return false;
@@ -199,7 +199,7 @@ const checkInputCreateNewAccount = async () => {
   if (emailInput.value != "" && !isEmailValid(emailInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Email không hợp lệ!"
+      "Invalid email address!"
     );
     emailInput.focus();
     return false;
@@ -207,25 +207,25 @@ const checkInputCreateNewAccount = async () => {
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Số điện thoại không hợp lệ!"
+      "Invalid phone number!"
     );
     phoneInput.focus();
     return false;
   }
   if (nameInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
     nameInput.focus();
     return false;
   }
   if (phoneInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập phone!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Pleae, enter your phone number!");
     phoneInput.focus();
     return false;
   }
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập password!"
+      "Please, enter your password!"
     );
     passwordInput.focus();
     return false;
@@ -233,7 +233,7 @@ const checkInputCreateNewAccount = async () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
     );
     passwordInput.focus();
     return false;

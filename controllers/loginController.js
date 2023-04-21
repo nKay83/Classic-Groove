@@ -22,7 +22,7 @@ const checkInputLogin = () => {
   if (username == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập username!"
+      "Please, enter username!"
     );
     document.querySelector("#username-field").focus();
     return false;
@@ -31,7 +31,7 @@ const checkInputLogin = () => {
   if (password == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập password!"
+      "Please, enter your password!"
     );
     document.querySelector("#password-field").focus();
     return false;
@@ -68,7 +68,7 @@ const register = async () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Tạo tài khoản thành công!"
+          "Accout successfully created!"
         );
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;
@@ -76,7 +76,7 @@ const register = async () => {
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Tạo tài khoản thất bại!"
+          "Accout creation failed!"
         );
     },
   });
@@ -91,14 +91,14 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
     name.focus();
     return false;
   }
   if (phone.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập phone number!"
+      "Please, enter your phone number!"
     );
     phone.focus();
     return false;
@@ -106,7 +106,7 @@ const checkInputRegister = async () => {
   if (!isVietnamesePhoneNumberValid(phone.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Số điện thoại không hợp lệ!"
+      "Invalid phone number!"
     );
     phone.focus();
     return false;
@@ -114,7 +114,7 @@ const checkInputRegister = async () => {
   if (username.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập username!"
+      "Please, enter username!"
     );
     username.focus();
     return false;
@@ -122,7 +122,7 @@ const checkInputRegister = async () => {
   if (await isUsernameExist(username.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Username đã tồn tại!"
+      "Username already exists!"
     );
     username.focus();
     return false;
@@ -130,7 +130,7 @@ const checkInputRegister = async () => {
   if (password.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập password!"
+      "Please, enter your password!"
     );
     password.focus();
     return false;
@@ -138,7 +138,7 @@ const checkInputRegister = async () => {
   if (!isPasswordValid(password.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
     );
     password.focus();
     return false;
@@ -147,7 +147,7 @@ const checkInputRegister = async () => {
   if (confirmPassword.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Chưa nhập confirm password!"
+      "Please, enter confirm password!"
     );
     confirmPassword.focus();
     return false;
@@ -155,7 +155,7 @@ const checkInputRegister = async () => {
   if (confirmPassword.value != password.value) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Mật khẩu không khớp!"
+      " Confirm password incorrect!"
     );
     confirmPassword.focus();
     return false;

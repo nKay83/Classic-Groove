@@ -8,12 +8,12 @@
 }
 
 #productManager {
-  font-family: "Dosis", sans-serif;
-  height: 91vh;
-  width: 95%;
-  margin: 0 auto;
-  margin-top: 1%;
-  /* position: relative; */
+    font-family: "Dosis", sans-serif;
+    height: 92vh;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+    /* position: relative; */
 }
 
 #productManager .button-placeholder {
