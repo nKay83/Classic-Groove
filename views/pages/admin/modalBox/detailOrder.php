@@ -3,6 +3,7 @@ require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $orderID = $_POST['id'];
 $order = getOrder($orderID);
+$detailOrder = getDetailOrder($orderID);
 ?>
 <div class="modal-placeholder" id="detail-order">
     <div class="modal-box">
@@ -72,45 +73,23 @@ $order = getOrder($orderID);
                 </div>
             </div>
             <div class="list">
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">01</div>
-                        <div class="item">CUS001</div>
-                        <div class="item">Bùi Hồng Bảo</div>
-                        <div class="item">2</div>
-                        <div class="item>" style="
+                <?php for ($i = 0; $i < count($detailOrder); $i++): ?>
+                    <div class="placeholder">
+                        <div class="info">
+                            <div class="item">
+                                <?= sprintf("%02d", $i + 1) ?>
+                            </div>
+                            <div class="item"><?=$detailOrder[$i]['album']?></div>
+                            <div class="item"><?=$detailOrder[$i]['ten']?></div>
+                            <div class="item"><?=$detailOrder[$i]['soLuong']?></div>
+                            <div class="item>" style="
                             display:flex;
                             justify-content:center;
                             align-items:center;
-                            color: var(--gr1)">100</div>
+                            color: var(--gr1)"><?=$detailOrder[$i]['gia']?></div>
+                        </div>
                     </div>
-                </div>
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">01</div>
-                        <div class="item">CUS001</div>
-                        <div class="item">Bùi Hồng Bảo</div>
-                        <div class="item">2</div>
-                        <div class="item>" style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            color: var(--gr1)">100</div>
-                    </div>
-                </div>
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">01</div>
-                        <div class="item">CUS001</div>
-                        <div class="item">Bùi Hồng Bảo</div>
-                        <div class="item">2</div>
-                        <div class="item>" style="
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            color: var(--gr1)">100</div>
-                    </div>
-                </div>
+                <?php endfor; ?>
             </div>
         </div>
         <div class="modal-button">
@@ -135,5 +114,20 @@ function getOrder($orderID)
     $sql = "SELECT * FROM hoadon WHERE maHoaDon = " . $orderID;
     $result = $dp->excuteQuery($sql);
     return $result->fetch_assoc();
+}
+function getDetailOrder($orderID)
+{
+    global $dp;
+    $sql = "SELECT chitiethoadon.*, album.tenAlbum as ten, album.gia as gia
+            FROM chitiethoadon join album on chitiethoadon.album = album.maAlbum
+            WHERE hoaDon = " . $orderID;
+    $result = $dp->excuteQuery($sql);
+    $detailOrder = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($detailOrder, $row);
+        }
+    }
+    return $detailOrder;
 }
 ?>
