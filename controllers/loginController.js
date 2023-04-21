@@ -91,7 +91,7 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
     name.focus();
     return false;
   }
@@ -155,7 +155,7 @@ const checkInputRegister = async () => {
   if (confirmPassword.value != password.value) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Password incorrect!"
+      " Confirm password incorrect!"
     );
     confirmPassword.focus();
     return false;
