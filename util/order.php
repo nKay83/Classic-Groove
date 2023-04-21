@@ -3,6 +3,35 @@ session_start();
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
+  case 'GET':
+    switch ($_GET['action']) {
+      case 'getOrderInfo':
+        $orderID = $_GET['orderID'];
+        $sql = "SELECT * FROM hoadon WHERE maHoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql)->fetch_assoc();
+        if ($result) {
+          echo json_encode($result);
+        } else {
+          echo "Error";
+        }
+        break;
+      case 'getAlbumsInOrder':
+        $orderID = $_GET['orderID'];
+        $sql = "SELECT * FROM chitiethoadon WHERE hoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql);
+        $albums = array();
+        if ($result) {
+          while ($row = $result->fetch_assoc()) {
+            $albums[] = $row;
+          }
+          echo json_encode($albums);
+        } else {
+          echo "Error";
+        }
+        break;
+    }
+    break;
+
   case 'POST':
     switch ($_POST['action']) {
       case 'createOrder':
@@ -13,7 +42,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $hoaDonID = $dp->getNewHoaDonId();
         $sql1 = "INSERT INTO hoadon
         VALUES (" . $hoaDonID . "," . $total . ",'" . (new Datetime())->format('Y-m-d') . "',
-        'Đang xử lý','" . $userID . "',null,'" . $address . "')";
+        'Pending','" . $userID . "',null,'" . $address . "')";
         $result1 = $dp->excuteQuery($sql1);
         $error = false;
         foreach ($albums as $album) {
@@ -25,6 +54,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           }
         }
         if ($result1 && !$error) {
+          echo "Success";
+        } else {
+          echo "Error";
+        }
+        break;
+    }
+    break;
+  case 'PUT':
+    switch ($_GET['action']) {
+      case 'cancelOrder':
+        $orderID = $_GET['orderID'];
+        $sql = "UPDATE hoadon SET trangThai = 'Cancel' WHERE maHoaDon = " . $orderID;
+        $result = $dp->excuteQuery($sql);
+        if ($result) {
           echo "Success";
         } else {
           echo "Error";

@@ -1,11 +1,28 @@
-$(document).ready(() => {
-  loadHomeByAjax(1);
+$(document).ready(async () => {
+  let url = window.location.href;
+  if (url.indexOf("admin.php") != -1) {
+    let role = await getRole();
+    if ((await isLogin()) && (await getRole()) != "1") {
+      loadPageByAjax("statistic");
+    } else {
+      window.location.href = "index.php";
+    }
+  } else if (url.indexOf("index.php") != -1) {
+    if (await isLogin()) {
+      if ((await getRole()) == 1) {
+        loadHomeByAjax(1);
+      } else {
+        logout();
+      }
+    } else {
+      loadHomeByAjax(1);
+    }
+  } else {
+    loadHomeByAjax(1);
+  }
 });
 
 const loadPageByAjax = async (pageTarget) => {
-  if (pageTarget == "favorites" && (await isLogin())) {
-    // document.querySelector()
-  }
   $.ajax({
     url: "views/pages/user/content.php",
     type: "POST",
@@ -13,6 +30,7 @@ const loadPageByAjax = async (pageTarget) => {
     dataType: "html",
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
+      if (pageTarget == "myAccount") setUserInfo();
     },
   });
 };
@@ -47,6 +65,18 @@ const loadProductDetailsByAjax = (albumID) => {
   });
 };
 
+const loadModalBoxByAjax = (modalBoxTarget, id) => {
+  $.ajax({
+    url: "views/pages/admin/modalBox.php",
+    type: "POST",
+    data: { modalBox: modalBoxTarget, id: id },
+    dataType: "html",
+    success: function (data) {
+      document.querySelector("#modal-box").innerHTML = data;
+      if (modalBoxTarget == "editAccount") setAccountInfo();
+    },
+  });
+};
 const tabNoticeNotNow = (input) => {
   input.parentElement.parentElement.style.display = "none";
 };

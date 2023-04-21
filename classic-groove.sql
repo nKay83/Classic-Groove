@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2023 at 03:01 AM
+-- Generation Time: Apr 21, 2023 at 08:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -44,7 +44,7 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`maAlbum`, `tenAlbum`, `gia`, `moTa`, `hinh`, `tacGia`, `TrangThai`, `soLuong`, `theLoai`) VALUES
-(1, 'Evo Sessions', 100, 'Evosound proudly presents Chlara\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara', 'Chlara', 1, 4, 2),
+(1, 'Evo Sessions', 100, 'Evosound proudly presents Chlara\\\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara', 'Chlara', 1, 4, 2),
 (2, '#acousticNOW', 200, ' AcousticNow# is the eagerly awaitied fourth album by the 26-year-old Filipino singing sensation Chlara, who will captivate her listeners with a series of acoustic cover versions that include her singles \'The Nights,\' \'Say You Won\'t Let Go,\' and \'ILYSB,\' which have all received over 20 million plays on Spotify. Chlara takes a varied selection of songs - from hits by Ed Sheeran and Aviici to Justin Bieber and Tears For Fears - and reimagines them in her own unique way. Noted for her alluring honey-toned voice and deft acoustic guitar accompaniment, Chlara, who has been described as an \"acoustic songbird\" is flying high at the moment. With three albums and several EPs already under her belt for the Evosound label, she\'s about to unleash her fourth, acousticNow#. The England-born, Philippines-raised singer/song-writer\'s popularity can be measured by that fact that three songs of her songs have generated over 20 million plays each on Spotify.', 'AcousticNow-Chlara', 'Chlara', 1, 3, 2),
 (3, 'It Serves You Right To Suffer', 200, '180-gram 45 RPM double LP Mastered at AcousTech Mastering Plated and pressed at Quality Record PressingsIt\'s back in stock! Newly repressed at 45 RPM by Quality Record Pressings. This recording was originally mastered at the former AcousTech Mastering facility and the sound is fantastic.John Lee Hooker himself did not know his exact date of birth. If he hadn\'t died at around the age of 80, this ageless musician would still be easily pulling the next generation to his gigs. Hooker remains a phenomenon, a mysterious figure of black rhythm and blues, a charismatic king who reigns supreme in rock \'n\' roll\'s Hall of Fame. John W. Peters described his music as a synthesis of scorching emotional ardour, unrelenting rhythmic intensity, and original poetry of a highly personal character. Anyone hearing him for the first time may well be startled at the unfiltered passion and power of his music.', 'ItServeYouRightToSuffer-JohnLeeHooker', 'John Lee Hooker', 1, 6, 1),
 (4, 'Love For Sale', 100, 'Celebrating 10 years since they first recorded together, Tony Bennett & Lady Gaga return for another collaboration featuring the best of the Cole Porter Songbook. It captures the creative and personal relationship of these two world-famous artists. Tony, who turned 95 in 2021, has spent over 7 decades dedicated to performing the Great American Songbook. They are accompanied by the Brian Newman Quintet with arrangements by Marion Evans and Jorge Callandrelli. 180-gram vinyl.', 'LoveForSale-TonyBennett_LadyGaga', 'Tony Bennett & Lady Gaga', 1, 5, 6),
@@ -132,6 +132,18 @@ CREATE TABLE `chitiethoadon` (
   `soLuong` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`album`, `hoaDon`, `soLuong`) VALUES
+(1, 5, '15'),
+(1, 6, '1'),
+(2, 7, '4'),
+(4, 7, '1'),
+(7, 3, '6'),
+(8, 2, '3');
+
 -- --------------------------------------------------------
 
 --
@@ -158,13 +170,6 @@ CREATE TABLE `giohang` (
   `soLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `giohang`
---
-
-INSERT INTO `giohang` (`maKhachHang`, `maAlbum`, `soLuong`) VALUES
-('laviedd', 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -186,7 +191,11 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`maHoaDon`, `tongTien`, `thoiGianDat`, `trangThai`, `khachHang`, `khuyenMai`, `diaChiGiaoHang`) VALUES
-(1, 215, '2023-04-08', 'Đang xử lý', 'baobui3103', NULL, 'aaaa');
+(2, 315, '2023-04-12', 'Delivered', 'Lavied', NULL, 'B4/24G'),
+(3, 615, '2023-04-15', 'Cancel', 'Lavied', NULL, 'mhfjfjfj'),
+(5, 1515, '2023-04-18', 'Pending', 'thuannguyen', NULL, 'Bình Chánh'),
+(6, 115, '2023-04-18', 'Cancel', 'lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(7, 930, '2023-04-21', 'Pending', 'lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh');
 
 -- --------------------------------------------------------
 
@@ -243,8 +252,10 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `loainguoidung`) VALUES
-('baobui3103', 'Bao', '0908141453', NULL, NULL, 'Hoạt động', 'KH'),
-('laviedd', 'Bùi Hồng Bảo', '0908141453', NULL, NULL, 'Hoạt động', 'KH');
+('baobui3103', 'bảo bùi', '0908141422', '', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
+('Lavied', 'Bùi Hồng Bảo', '0908141453', 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
+('superadmin', 'Nguyễn Văn Admin', '0908141453', '12A Nguyễn Bỉnh Khiêm, Phường Đa Kao, Quận 1, TP.HCM.', 'superadmin@gmail.com', 'Hoạt động', 'NV'),
+('thuannguyen', 'Nguyễn Minh Thuận', '0374974097', 'tphcm', 'thuan@gmail.com', 'Hoạt động', 'KH');
 
 -- --------------------------------------------------------
 
@@ -285,6 +296,34 @@ CREATE TABLE `quyen` (
   `NoiDungQuyen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `quyen`
+--
+
+INSERT INTO `quyen` (`maCTQ`, `NoiDungQuyen`) VALUES
+(1, 'Product.Access'),
+(2, 'Product.Edit'),
+(3, 'Product.Delete'),
+(4, 'supplyRecord.Access'),
+(5, 'supplyRecord.Add'),
+(6, 'account.Access'),
+(7, 'account.Add'),
+(8, 'account.Edit'),
+(9, 'account.Block'),
+(10, 'order.Access'),
+(11, 'order.Edit'),
+(12, 'structure.Access'),
+(13, 'structure.edit'),
+(14, 'role.Access'),
+(15, 'role.Add'),
+(16, 'role.Edit'),
+(17, 'role.Delete'),
+(18, 'statistic.Access'),
+(19, 'distributor.Access'),
+(20, 'distributor.Add'),
+(21, 'distributor.Edit'),
+(22, 'distributor.Delete');
+
 -- --------------------------------------------------------
 
 --
@@ -305,7 +344,9 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`username`, `ngayTao`, `TrangThai`, `matKhau`, `vaiTro`) VALUES
 ('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1),
-('laviedd', '2023-04-04', 'Hoạt động', 'Lavied31@', 1);
+('Lavied', '2023-04-15', 'Hoạt động', 'Lavied3103@', 1),
+('superadmin', '2023-04-19', 'Hoạt động', 'superadmin', 2),
+('thuannguyen', '2023-04-18', 'Hoạt động', '123Thuan@', 1);
 
 -- --------------------------------------------------------
 
@@ -348,7 +389,7 @@ CREATE TABLE `vaitro` (
 
 INSERT INTO `vaitro` (`maVaiTro`, `tenVaiTro`) VALUES
 (1, 'Khách hàng'),
-(2, 'admin');
+(2, 'superAdmin');
 
 -- --------------------------------------------------------
 
@@ -361,6 +402,34 @@ CREATE TABLE `vaitro_quyen` (
   `Quyen_maCTQ` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `vaitro_quyen`
+--
+
+INSERT INTO `vaitro_quyen` (`VaiTro_maVaiTro`, `Quyen_maCTQ`) VALUES
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 10),
+(2, 11),
+(2, 12),
+(2, 13),
+(2, 14),
+(2, 15),
+(2, 16),
+(2, 17),
+(2, 18),
+(2, 19),
+(2, 20),
+(2, 21),
+(2, 22);
+
 -- --------------------------------------------------------
 
 --
@@ -371,6 +440,15 @@ CREATE TABLE `yeuthich` (
   `album` int(11) NOT NULL,
   `nguoiDung` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `yeuthich`
+--
+
+INSERT INTO `yeuthich` (`album`, `nguoiDung`) VALUES
+(1, 'baobui3103'),
+(1, 'Lavied'),
+(1, 'thuannguyen');
 
 --
 -- Indexes for dumped tables
@@ -505,7 +583,7 @@ ALTER TABLE `yeuthich`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `maHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `maHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables

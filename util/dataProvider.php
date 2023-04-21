@@ -23,7 +23,8 @@ class DataProvider
   }
   public static function getUserByUsername($username)
   {
-    $sql = "select * from taikhoan where username='" . $username . "'";
+    $sql = "select * from taikhoan join nguoiDung on taikhoan.username=nguoiDung.maNguoiDung
+    where username='" . $username . "'";
     return self::excuteQuery($sql);
   }
   public static function getNewHoaDonId()
@@ -48,5 +49,15 @@ class DataProvider
       return true;
     }
     return false;
+  }
+  public static function getPermissionByRoleID($roleID)
+  {
+    $sql = "SELECT Quyen_maCTQ FROM vaitro_quyen where VaiTro_maVaiTro = " . $roleID;
+    $result = Self::excuteQuery($sql);
+    $permissions = array();
+    while ($row = $result->fetch_assoc()) {
+      array_push($permissions, $row['Quyen_maCTQ']);
+    }
+    return $permissions;
   }
 }

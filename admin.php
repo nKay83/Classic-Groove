@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="views/style/admin/productManager.css">
   <link rel="stylesheet" href="views/style/admin/reset.css">
   <link rel="stylesheet" href="views/style/admin/header.css">
+  <link rel="stylesheet" href="views/style/user/notice.css">
+
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +30,8 @@
   <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  
-  
+
+
 
   <title>Administrator</title>
 </head>
@@ -40,11 +42,13 @@
       <?php include 'views/pages/admin/header.php' ?>
     </header>
     <main>
-    <div id="search">
+      <div id="search">
         <?php include 'views/pages/user/search.php' ?>
       </div>
       <div id="content">
-          abcd
+      </div>
+      <div id="notice">
+
       </div>
   </div>
   </main>
@@ -55,6 +59,17 @@
 <script src="views/js/loadPage.js"></script>
 <script src="views/js/login.js"></script>
 <script src="views/js/modalBox.js"></script>
+<script src="views/js/notice.js"></script>
+
+<!-- controllers -->
+<script src="controllers/albumController.js"></script>
+<script src="controllers/orderController.js"></script>
+<script src="controllers/loginController.js"></script>
+<script src="controllers/userController.js"></script>
+<script src="controllers/managerAccountController.js"></script>
+<script src="controllers/roleController.js"></script>
+
+
 
 
 </html>

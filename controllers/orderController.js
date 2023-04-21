@@ -13,6 +13,7 @@ const getTotal = () => {
 
 const createOrder = async () => {
   let albums = getAlbums();
+  console.log(albums);
   let total = getTotal();
   let address = document.querySelector("#mycart #checkout-address").value;
   await $.ajax({
@@ -50,11 +51,14 @@ const checkMyCart = () => {
   );
   let address = document.querySelector("#mycart #checkout-address");
   if (albums.length == 0) {
-    alert("Chưa chọn Album!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, select the album!");
     return false;
   }
   if (address.value == "") {
-    alert("Chưa nhập địa chỉ!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your address!"
+    );
     address.focus();
     return false;
   }
@@ -70,3 +74,31 @@ const deleteFromOrder = async () => {
     album.closest(".product-placeholder").remove();
   }
 };
+const cancelOrder = (orderID) => {
+  $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=cancelOrder",
+    type: "PUT",
+    success: function (res) {
+      if (res != "Success") alert(res);
+      else {
+        customNotice("fa-solid fa-cart-circle-plus", "Cancel your Order");
+        loadPageByAjax("myAccount");
+      }
+    },
+  });
+};
+
+const getOrderInfo= (orderID)=>{
+  return $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=getOrderInfo",
+    type: "GET",
+  });
+}
+
+const getAlbumsInOrder = (orderID)=>{
+  return $.ajax({
+    url: "util/order.php?orderID=" + orderID + "&action=getAlbumsInOrder",
+    type: "GET",
+  });
+}
+

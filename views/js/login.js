@@ -31,3 +31,14 @@ function eyePassword3() {
     eyeicon3.className = "fa-thin fa-eye-slash";
   }
 };
+function eyePasswordProfile() {
+  let password = document.getElementById("password-field4");
+  let eyeicon4 = document.getElementById("eyeicon4");
+  if (password.type == "password") {
+    password.type = "text";
+    eyeicon4.className = "fa-thin fa-eye";
+  } else {
+    password.type = "password";
+    eyeicon4.className = "fa-thin fa-eye-slash";
+  }
+};

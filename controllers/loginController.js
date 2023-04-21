@@ -8,7 +8,7 @@ const login = () => {
     data: { user: username, pass: password, action: "checkLogin" },
     success: function (res) {
       if (res == "cus") {
-        window.location.reload();
+        window.location.href = "index.php"
       } else if (res == "emp") window.location.href = "admin.php";
       else {
         alert(res);
@@ -20,13 +20,19 @@ const login = () => {
 const checkInputLogin = () => {
   let username = document.querySelector("#username-field").value;
   if (username == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập username!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter username!"
+    );
     document.querySelector("#username-field").focus();
     return false;
   }
   let password = document.querySelector("#password-field").value;
   if (password == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Chưa nhập password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your password!"
+    );
     document.querySelector("#password-field").focus();
     return false;
   }
@@ -60,11 +66,18 @@ const register = async () => {
     },
     success: function (res) {
       if (res == "Success") {
-        alert("Tạo tài khoản thành công!");
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Accout successfully created!"
+        );
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;
         document.querySelector("#password-field").value = password;
-      } else alert("Tạo tài khoản thất bại!");
+      } else
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Accout creation failed!"
+        );
     },
   });
 };
@@ -78,50 +91,72 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation","Chưa nhập name!");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
     name.focus();
     return false;
   }
   if (phone.value == "") {
-    alert("Chưa nhập phone number!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your phone number!"
+    );
     phone.focus();
     return false;
   }
   if (!isVietnamesePhoneNumberValid(phone.value)) {
-    alert("Số điện thoại không hợp lệ!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Invalid phone number!"
+    );
     phone.focus();
     return false;
   }
   if (username.value == "") {
-    alert("Chưa nhập username!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter username!"
+    );
     username.focus();
     return false;
   }
   if (await isUsernameExist(username.value)) {
-    alert("Username đã tồn tại!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Username already exists!"
+    );
     username.focus();
     return false;
   }
   if (password.value == "") {
-    alert("Chưa nhập password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your password!"
+    );
     password.focus();
     return false;
   }
   if (!isPasswordValid(password.value)) {
-    alert(
-      "Một mật khẩu có chứa ít nhất tám ký tự, trong đó có ít nhất một số và bao gồm cả chữ thường và chữ hoa và ký tự đặc biệt, ví dụ #, ?, !."
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
     );
     password.focus();
     return false;
   }
 
   if (confirmPassword.value == "") {
-    alert("Chưa nhập confirm password!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter confirm password!"
+    );
     confirmPassword.focus();
     return false;
   }
   if (confirmPassword.value != password.value) {
-    alert("Mật khẩu không khớp!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      " Confirm password incorrect!"
+    );
     confirmPassword.focus();
     return false;
   }
@@ -150,3 +185,10 @@ const isLogin = () => {
     type: "GET",
   });
 };
+
+const getRole = () => {
+  return $.ajax({
+    url: "util/user.php?action=getRole",
+    type: "GET",
+  });
+}

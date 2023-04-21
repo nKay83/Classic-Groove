@@ -70,11 +70,6 @@ session_start();
 <Script src="controllers/cartController.js"></Script>
 <Script src="controllers/orderController.js"></Script>
 <script src="controllers/favoriteController.js"></script>
+<script src="controllers/userController.js"></script>
 
 </html>
-
-
-<!-- <div class="container">
-  <span class="slide"></span>
-  <p class="order-removing"><i class="fa-solid fa-cart-circle-plus"></i> Cancel your Order</p>
-</div> -->
