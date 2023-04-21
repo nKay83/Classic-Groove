@@ -19,8 +19,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $username = $_POST['user'];
         $password = $_POST['pass'];
         $result = $dp->getUserByUsername($username);
-        $sql = "Select hoTen from nguoidung where manguoidung ='" . $username . "'";
-        $name = $dp->excuteQuery($sql)->fetch_assoc()["hoTen"];
         if ($result != null) {
           if (mysqli_num_rows($result) == 0) {
             echo "Tài khoản không tồn tại";
@@ -29,6 +27,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             if ($user['matKhau'] != $password) {
               echo "Sai mật khẩu";
             } else {
+              $sql = "Select hoTen from nguoidung where manguoidung ='" . $username . "'";
+              $name = $dp->excuteQuery($sql)->fetch_assoc()["hoTen"];
               $_SESSION['userID'] = $username;
               $_SESSION['userName'] = $name;
               $_SESSION['role'] = $user['vaiTro'];
@@ -135,12 +135,12 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     loaiNguoiDung='" . $typeUser . "'
                 WHERE maNguoiDung='" . $username . "'";
         $result1 = $dp->excuteQuery($sql1);
-        // $sql2 = "UPDATE taikhoan
-        //         SET matKhau='" . $password . "',
-        //             vaiTro=" . $role . "
-        //         WHERE username='" . $username . "'";
-        // $result2 = $dp->excuteQuery($sql2);
-        if ($result1) {
+        $sql2 = "UPDATE taikhoan
+                SET matKhau='" . $password . "',
+                    vaiTro=" . $role .
+          " WHERE username='" . $username . "'";
+        $result2 = $dp->excuteQuery($sql2);
+        if ($result1 && $result2) {
           echo "Success";
         } else {
           echo "Error";
