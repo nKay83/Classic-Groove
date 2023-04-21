@@ -332,7 +332,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-#orderManager #edit-order select{
+#orderManager #edit-order select {
   cursor: pointer;
 }
 
@@ -379,7 +379,7 @@
   color: var(--whi);
 }
 
-#orderManager .btnOrderSave{
+#orderManager .modal-box .edit-button.btnOrderSave {
   cursor: default;
   opacity: 0.5;
 }

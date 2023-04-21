@@ -25,6 +25,5 @@
     <div class="permission-placeholder">
         <div class="title-list">
         </div>
-        
     </div>
 </div>

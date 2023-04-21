@@ -93,7 +93,7 @@ $order = getOrder($orderID);
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button btnOrderSave">
+                <div class="edit-button btnOrderSave" onclick="updateOrder()">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>

@@ -74,6 +74,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         }
         break;
       case 'updateOrder':
+        $orderID = $_GET['orderID'];
         $status = $_GET['status'];
         $sql = "UPDATE hoadon SET trangThai = '" . $status . "' WHERE maHoaDon = " . $orderID;
         $result = $dp->excuteQuery($sql);
