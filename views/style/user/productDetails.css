@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   font-family: "Dosis", sans-serif;
-  height: 94vh;
+  height: auto;
   position: relative;
 }
 
@@ -22,12 +22,12 @@
 }
 #product-details .title {
   color: var(--whi);
-  font-size: 2.7vw;
+  font-size: calc(30px + 1vw);
 }
 
 #product-details .sub-title {
   color: var(--ora);
-  font-size: 2.5vw;
+  font-size: calc(15px + 1vw);
 }
 #product-details .description {
   color: var(--gr1);
@@ -47,7 +47,7 @@
 
 #product-details .price {
   color: var(--ora);
-  font-size: 2vw;
+  font-size: calc(15px + 1vw);
   margin-bottom: 3%;
 }
 
@@ -70,7 +70,7 @@
   transform: translateY(3px);
 }
 #product-details .btn i {
-  font-size: 1.5vw;
+  font-size: calc(15px + 1vw);
 }
 #product-details .add-to-cart-btn {
   background-color: var(--whi);

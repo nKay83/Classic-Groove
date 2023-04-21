@@ -8,12 +8,12 @@
   z-index: 10;
 }
 #notice .container {
-  width: 30vw;
+  width: 23vw;
   position: relative;
   margin-bottom: 10px;
   background-color: var(--ora);
   border-radius: 0 0 15px 15px;
-  padding: 15px 70px;
+  padding: 15px 50px;
   display: flex;
   justify-content: center;
   align-items: center;

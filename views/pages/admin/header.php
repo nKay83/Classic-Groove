@@ -40,6 +40,10 @@
         <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
         <div class="tab-info">Structure</div>
       </div>
+      <div class="tab-title" onclick="loadPageByAjax('roleManager'),selectMenu(this)">
+        <div class="tab-icon"><i class="fa-regular fa-list"></i></div>
+        <div class="tab-info">Decentralization</div>
+      </div>
       
       </div>
     </div>

@@ -37,9 +37,12 @@ if (isset($_POST["page"])) {
     case "structureManager":
       include("../admin/structureManager.php");
       break;
-      case "supplyRecord":
-        include("../admin/supplyRecord.php");
-        break;
+    case "supplyRecord":
+      include("../admin/supplyRecord.php");
+      break;
+    case "roleManager":
+      include("../admin/roleManager.php");
+      break;
     default:
       echo `<h1>Page not found 404</h1>`;
   }
