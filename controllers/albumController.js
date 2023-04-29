@@ -96,6 +96,22 @@ const changeSong = (input) => {
   };
 };
 const addBlankSong = () => {
-  let input = document.querySelector("#edit-album .placeholder");
-  
+  let input = document.querySelector("#edit-album .list");
+  input.innerHTML += `
+    <div class="placeholder">
+      <div class="info">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item input-container">
+          <input type="text" value="">
+        </div>
+        <div class="item input-container songFile-container">
+          <span>Please choose</span>
+          <input type="button" value="Change" onclick="changeSong()">
+        </div>
+        <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
+              style="color: #f2623e;"></i></div>
+      </div>
+    </div>
+    `;
 };

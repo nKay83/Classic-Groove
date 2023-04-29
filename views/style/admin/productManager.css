@@ -564,7 +564,10 @@
   animation: fadeIn 0.5s ease-in-out;
   display: block;
 }
-
+#productManager #edit-album .btn-song{
+  display: flex;
+  justify-content: center;
+}
 #productManager #edit-album .btn-song input {
   color: var(--whi);
   background-color: var(--ora);
