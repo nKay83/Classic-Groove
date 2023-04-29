@@ -17,22 +17,11 @@
             </div>
         </div>
         <div class="role-box">
-<<<<<<< HEAD
-            <div class="role-header">Product management</div>
-=======
             <div class="role-header">Supply management</div>
->>>>>>> ee9d4891b103ec0fb03d41deada0ddaf3336f852
             <div class="role-item">Access</div>
             <div class="checkbox-placeholder">
                 <input type="checkbox">
             </div>
-<<<<<<< HEAD
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-=======
             <div class="role-item">Add</div>
             <div class="checkbox-placeholder">
                 <input type="checkbox">
@@ -45,7 +34,6 @@
                 <input type="checkbox">
             </div>
             <div class="role-item">Add</div>
->>>>>>> ee9d4891b103ec0fb03d41deada0ddaf3336f852
             <div class="checkbox-placeholder">
                 <input type="checkbox">
             </div>
@@ -53,10 +41,6 @@
             <div class="checkbox-placeholder">
                 <input type="checkbox">
             </div>
-<<<<<<< HEAD
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-=======
             <div class="role-item">Block</div>
             <div class="checkbox-placeholder">
                 <input type="checkbox">
@@ -64,119 +48,15 @@
         </div>
         <div class="role-box">
             <div class="role-header">Order management</div>
->>>>>>> ee9d4891b103ec0fb03d41deada0ddaf3336f852
             <div class="role-item">Access</div>
             <div class="checkbox-placeholder">
                 <input type="checkbox">
             </div>
-<<<<<<< HEAD
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Edit</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-            <div class="role-item">Access</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Edit</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-            <div class="role-item">Access</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Edit</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-            <div class="role-item">Access</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Edit</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-            <div class="role-item">Access</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Edit</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-        </div><div class="role-box">
-            <div class="role-header">Product management</div>
-            <div class="role-item">Access</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Publish</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-            <div class="role-item">Delete</div>
-            <div class="checkbox-placeholder">
-                <input type="checkbox">
-            </div>
-=======
->>>>>>> ee9d4891b103ec0fb03d41deada0ddaf3336f852
             <div class="role-item">Edit</div>
             <div class="checkbox-placeholder">
                 <input type="checkbox">
             </div>
         </div>
-<<<<<<< HEAD
-=======
         <div class="role-box">
             <div class="role-header">Structure management</div>
             <div class="role-item">Access</div>
@@ -233,7 +113,6 @@
                 <input type="checkbox">
             </div>
         </div>
->>>>>>> ee9d4891b103ec0fb03d41deada0ddaf3336f852
     </div>
     <h1>Permission</h1>
     <div class="permission-placeholder">
