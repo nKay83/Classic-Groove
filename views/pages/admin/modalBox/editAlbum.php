@@ -57,7 +57,7 @@ $kinds = getKinds();
                     <div class="item-input img-container">
                         <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
                         <input type="button" value="Change" onclick="uploadImg()">
-                        <input type="button" value="Delete">
+                        <input type="button" value="Delete" onclick="deleteImg()">
                     </div>
                 </div>
                 <div class="modal-item">

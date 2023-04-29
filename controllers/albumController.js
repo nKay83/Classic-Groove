@@ -30,12 +30,25 @@ const uploadImg = () => {
       contentType: false,
       processData: false,
 
-      success: function (dat2) {
-        document.querySelector("#edit-album .img-container img").src =
-          "data/imgAlbum/" + fileInput.files[0].name;
-        if (dat2 == 1) alert("Successful");
-        else alert("Unable to Upload");
+      success: function (res) {
+        if (res == "Success") {
+          document.querySelector("#edit-album .img-container img").src =
+            "data/imgAlbum/" + fileInput.files[0].name;
+          customNotice(
+            "fa-sharp fa-light fa-circle-check",
+            "Uploaded successfully"
+          );
+        } else
+          customNotice(
+            "fa-sharp fa-light fa-circle-exclamation",
+            "Upload failed"
+          );
       },
     });
   };
+};
+const deleteImg = () => {
+  customNotice("fa-sharp fa-light fa-circle-check", "Deleted successfully, change to default image!");
+  document.querySelector("#edit-album .img-container img").src =
+    "data/imgAlbum/" + "default.jfif";
 };
