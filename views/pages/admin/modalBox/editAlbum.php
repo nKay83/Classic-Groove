@@ -56,9 +56,8 @@ $kinds = getKinds();
                     <div class="item-header">Image</div>
                     <div class="item-input img-container">
                         <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
-                        <input type="button" value="Change">
+                        <input type="button" value="Change" onclick="uploadImg()">
                         <input type="button" value="Delete">
-
                     </div>
                 </div>
                 <div class="modal-item">
@@ -94,7 +93,7 @@ $kinds = getKinds();
             <div class="button-layout"></div>
             <div class="button-layout">
                 <div></div>
-                <div class="edit-button">
+                <div class="edit-button" onclick="uploadImg()">
                     <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>

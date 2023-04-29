@@ -2,7 +2,7 @@
 
 $filename = $_POST['filename'];
 
-$target_directory = "files/";
+$target_directory = "../data/imgAlbum/";
 $target_file = $target_directory . basename($_FILES["file"]["name"]); //name is to get the file name of uploaded file
 $filetype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 $newfilename = $target_directory . $filename . "." . $filetype;
