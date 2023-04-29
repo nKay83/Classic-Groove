@@ -4,7 +4,7 @@ $dp = new DataProvider();
 $albumID = $_POST['id'];
 $album = getAlbum($albumID);
 $songs = getSong($albumID);
-print_r($songs);
+
 ?>
 <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">

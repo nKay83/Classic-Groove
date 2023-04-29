@@ -4,6 +4,7 @@ $dp = new DataProvider();
 $albumID = $_POST['id'];
 $album = getAlbum($albumID);
 $kinds = getKinds();
+$songs = getSong($albumID);
 ?>
 <div class="modal-placeholder" id="edit-album">
     <div class="modal-box">
@@ -77,15 +78,30 @@ $kinds = getKinds();
                 </div>
             </div>
             <div class="list">
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">01</div>
-                        <div class="item">CUS001</div>
-                        <div class="item">Bùi Hồng Bảo</div>
-                        <div class="item">.mp3</div>
-                        <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
+                <?php for ($i = 0; $i < count($songs); $i++): ?>
+                    <div class="placeholder">
+                        <div class="info">
+                            <div class="item">
+                                <?= sprintf("%02d", $i + 1) ?>
+                            </div>
+                            <div class="item">
+                                <?= $songs[$i]['maBaiHat'] ?>
+                            </div>
+                            <div class="item input-container">
+                                <input type="text" value="<?= $songs[$i]['tenBaiHat'] ?>">
+
+                            </div>
+                            <div class="item input-container songFile-container">
+                                <span>
+                                    <?= $songs[$i]['linkFile'] ?>.mp3
+                                </span>
+                                <input type="button" value="Change" onclick="changeSong()">
+                            </div>
+                            <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
+                                    style="color: #f2623e;"></i></div>
+                        </div>
                     </div>
-                </div>
+                <?php endfor ?>
                 <div class="add-button"><i class="fa-solid fa-plus-large"></i></div>
             </div>
         </div>
@@ -127,5 +143,20 @@ function getKinds()
         }
     }
     return $kinds;
+}
+function getSong($albumID)
+{
+    global $dp;
+    $sql = "SELECT * FROM baihat
+        join baihat_album on baihat.maBaiHat = baihat_album.BaiHat_maBaiHat
+        WHERE baihat_album.Album_maAlbum =" . $albumID;
+    $result = $dp->excuteQuery($sql);
+    $songs = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($songs, $row);
+        }
+    }
+    return $songs;
 }
 ?>?>

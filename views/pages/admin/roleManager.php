@@ -125,26 +125,31 @@
 
         </div>
         <div class="list-placeholder">
-                <div class="role-information">
-                    <div class="item">01</div>
-                    <div class="item">EMP1</div>
-                    <div class="item"><input type="text" value="Employee 1"> </div>
-                    <div class="item"> <input type="text"  value="Loremakjshdksajdhksajhdkjsahdsahdkahdkjashd;hsa;dhakdhafsshkkkkkkkkkkkkkkkkkkkkkkkkkkshfkhsdkjhfkshfkjshkfhskdjfhksjdfsdfsdfsds"> </div>
-                    <div class="item"><i class="fa-regular fa-circle-info"></i></div>
+            <div class="role-information">
+                <div class="item">01</div>
+                <div class="item">EMP1</div>
+                <div class="item"><input type="text" value="Employee 1"></div>
+                <div class="item"><input type="text"
+                        value="Loremakjshdksajdhksajhdkjsahdsahdkahdkjashd;hsa;dhakdhafsshkkkkkkkkkkkkkkkkkkkkkkkkkkshfkhsdkjhfkshfkjshkfhskdjfhksjdfsdfsdfsds">
                 </div>
-                <div class="role-information">
-                    <div class="item">01</div>
-                    <div class="item">EMP1</div>
-                    <div class="item">Employee 1</div>
-                    <div class="item">Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashdLor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd</div>
-                    <div class="item"><i class="fa-regular fa-circle-info"></i></div>
-                </div><div class="role-information">
-                    <div class="item">01</div>
-                    <div class="item">EMP1</div> 
-                    <div class="item">Employee 1</div>
-                    <div class="item">Lorem</div>
-                    <div class="item"><i class="fa-regular fa-circle-info"></i></div>
-                </div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
+            </div>
+            <div class="role-information">
+                <div class="item">01</div>
+                <div class="item">EMP1</div>
+                <div class="item">Employee 1</div>
+                <div class="item">Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd
+                    sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashdLor emakjs hdksa jdhks ajhdkj sahd
+                    sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd</div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
+            </div>
+            <div class="role-information">
+                <div class="item">01</div>
+                <div class="item">EMP1</div>
+                <div class="item">Employee 1</div>
+                <div class="item">Lorem</div>
+                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
+            </div>
         </div>
     </div>
 </div>

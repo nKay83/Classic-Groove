@@ -290,10 +290,31 @@
   margin: auto;
   overflow: hidden;
 }
-#productManager #detail-album .modal-right .list .placeholder .info .item:nth-of-type(4),
-#productManager #edit-album .modal-right .list .placeholder .info .item:nth-of-type(5) {
+#productManager
+  #detail-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(4),
+#productManager
+  #edit-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(5) {
   border: none;
 }
+#productManager
+  #detail-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(4){
+    cursor: default;
+  }
 
 #productManager .modal-box .modal-left .modal-info {
   display: grid;
@@ -515,4 +536,31 @@
   100% {
     opacity: 1;
   }
+}
+
+#productManager #edit-album .placeholder input {
+  width: 90%;
+}
+
+#productManager #edit-album .placeholder .songFile-container {
+  position: relative;
+}
+
+#productManager #edit-album .placeholder .songFile-container input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  color: var(--whi);
+  background-color: var(--ora);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+#productManager #edit-album .placeholder .songFile-container:hover input {
+  animation: fadeIn 0.5s ease-in-out;
+  display: block;
 }

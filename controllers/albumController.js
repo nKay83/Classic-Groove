@@ -48,7 +48,23 @@ const uploadImg = () => {
   };
 };
 const deleteImg = () => {
-  customNotice("fa-sharp fa-light fa-circle-check", "Deleted successfully, change to default image!");
+  customNotice(
+    "fa-sharp fa-light fa-circle-check",
+    "Deleted successfully, change to default image!"
+  );
   document.querySelector("#edit-album .img-container img").src =
     "data/imgAlbum/" + "default.jfif";
+};
+
+const deleteSong = (input) => {
+  input.closest(".placeholder").remove();
+};
+
+const changeSong = (input) => {
+  let fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.click();
+  fileInput.onchange = () => {
+    
+  };
 };
