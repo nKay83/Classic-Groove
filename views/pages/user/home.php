@@ -60,19 +60,22 @@ $pa = new Pagination($album, 12, $currentPage);
   </div>
   <h1>Features</h1>
   <div class="grid-container">
-    <?php
-    for ($i = $pa->startProduct(); $i <= $pa->endProduct(); $i++) {
-      echo '
-      <div class="grid-item" onclick="loadProductDetailsByAjax(' . $album[$i]["maAlbum"] . ')" >
+    <?php for ($i = $pa->startProduct(); $i <= $pa->endProduct(); $i++): ?>
+      <div class="grid-item" onclick="loadProductDetailsByAjax(<?= $album[$i]['maAlbum'] ?>)">
         <div class="img-container">
-          <img src="data/imgAlbum/' . $album[$i]["hinh"] . '.jpg" alt="album\'s poster">
+          <img src="data/imgAlbum/<?= $album[$i]["hinh"] ?>.jpg" alt="album\' s poster">
         </div>
-        <p class="title">' . $album[$i]["tenAlbum"] . '</p>
-        <p class="gray artist">' . $album[$i]["tacGia"] . '</p>
-        <p class="price">' . $album[$i]["gia"] . ' $</p>
-      </div>';
-    }
-    ?>
+        <p class="title">
+          <?= $album[$i]["tenAlbum"] ?>
+        </p>
+        <p class="gray artist">
+          <?= $album[$i]["tacGia"] ?>
+        </p>
+        <p class="price">
+          <?= $album[$i]["gia"] ?> $
+        </p>
+      </div>
+    <?php endfor ?>
   </div>
   <div class="pagination-placeholder" <?php if ($pa->quantityPage == 0)
     echo 'style="display:none"' ?>>

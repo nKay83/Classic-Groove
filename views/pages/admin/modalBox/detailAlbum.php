@@ -48,7 +48,11 @@ $songs = getSong($albumID);
 
                 <div class="modal-item">
                     <div class="item-header">Image</div>
-                    <div class="item-input"><input type="text" class="albumImg" value="<?= $album['hinh'] ?>" disabled>
+                    <div class="item-input img-container">
+                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
+                        <!-- <input type="button" value="change">
+                        <input type="button" value="delete"> -->
+
                     </div>
                 </div>
                 <div class="modal-item">
@@ -81,9 +85,9 @@ $songs = getSong($albumID);
                             <div class="item">
                                 <?= $songs[$i]['tenBaiHat'] ?>
                             </div>
-                            <!-- <div class="item"><?= $songs[$i]['linkFile'] ?>.mp3</div> -->
-                            <input class="item" value="<?= $songs[$i]['linkFile'] ?>.mp3"></input>
-
+                            <div class="item">
+                                <?= $songs[$i]['linkFile'] ?>.mp3
+                            </div>
                             <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
                         </div>
                     </div>

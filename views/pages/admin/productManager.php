@@ -6,16 +6,6 @@ $album = getAllAlbum();
 
 <div id="productManager">
   <h1><i class="fa-solid fa-album"></i>&#09; Product management</h1>
-  <!-- <div class="button-placeholder">
-    <div class="new-button" onclick="openNewalbum()">
-      <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
-      <div class="info-placeholder">New</div>
-    </div>
-    <div class="restock-button" onclick="openRestockalbum()">
-      <div class="icon-placeholder"><i class="fa-solid fa-rotate-left"></i></div>
-      <div class="info-placeholder">Restock</div>
-    </div>
-  </div> -->
   <div class="title-list">
     <div class="title-placeholder">
       <div class="title" style="padding-right: 10px;">No.</div>
@@ -69,34 +59,7 @@ $album = getAllAlbum();
 </div>
 
 
-<!-- <div id="changeSong">
-  <div class="container">
-    <div class="change-1">
-      <div class="item-1">
-        <span class="detail">Song id</span>
-        <input type="text" placeholder="" required>
-      </div>
 
-      <div class="item-2">
-        <span class="detail">Song file</span>
-        <input type="text" placeholder="" required>
-      </div>
-    </div>
-    <div class="change-2">
-      <div class="item-3">
-        <span class="detail">Song name</span>
-        <input type="text" placeholder="" required>
-      </div>
-    </div>
-    <div class="change-3">
-      <div class="item"></div>
-      <div class="item-5"><a href="#" class="btn">Add&nbsp;&nbsp;<i class="fas fa-plus"></i></a></div>
-      <div class="item-6"><a href="#" class="btn">Cancel&nbsp;&nbsp;<i class="fas fa-times"></i></a></div>
-    </div>
-
-  </div>
-  <div class="overlay"></div>
-</div>  -->
 
 <?php
 function getAllAlbum()

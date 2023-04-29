@@ -8,12 +8,12 @@
 }
 
 #productManager {
-    font-family: "Dosis", sans-serif;
-    height: 92vh;
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 1%;
-    /* position: relative; */
+  font-family: "Dosis", sans-serif;
+  height: 92vh;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 1%;
+  /* position: relative; */
 }
 
 #productManager .button-placeholder {
@@ -451,4 +451,38 @@
 #productManager .modal-box .delete-button {
   background-color: var(--ora);
   color: var(--bla);
+}
+#productManager #edit-album .img-container {
+  position: relative;
+}
+#productManager #edit-album .img-container input {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  padding: 7px;
+  font-size: medium;
+  display: none;
+  color: var(--whi);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+}
+#productManager #edit-album .img-container input:nth-of-type(1) {
+  left: 15%;
+  background-color: var(--ora);
+}
+#productManager #edit-album .img-container input:nth-of-type(2) {
+  right: 15%;
+  background-color: rgba(206, 21, 21, 0.721);
+}
+#productManager #edit-album .img-container:hover input {
+  animation: fadeIn 0.5s ease-in-out;
+  display: block;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

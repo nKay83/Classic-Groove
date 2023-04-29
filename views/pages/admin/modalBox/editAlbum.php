@@ -54,7 +54,12 @@ $kinds = getKinds();
 
                 <div class="modal-item">
                     <div class="item-header">Image</div>
-                    <div class="item-input"><input type="text" class="albumImg" value="<?= $album['hinh'] ?>"></div>
+                    <div class="item-input img-container">
+                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
+                        <input type="button" value="Change">
+                        <input type="button" value="Delete">
+
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Describe</div>
