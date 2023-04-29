@@ -79,7 +79,9 @@ const changeSong = (input) => {
       processData: false,
       success: function (res) {
         if (res == "Success") {
-          document.querySelector("#edit-album .songFile-container span").innerHTML = fileInput.files[0].name;
+          document.querySelector(
+            "#edit-album .songFile-container span"
+          ).innerHTML = fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
             "Uploaded successfully"
@@ -92,4 +94,8 @@ const changeSong = (input) => {
       },
     });
   };
+};
+const addBlankSong = () => {
+  let input = document.querySelector("#edit-album .placeholder");
+  
 };

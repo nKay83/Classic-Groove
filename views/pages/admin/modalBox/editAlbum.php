@@ -102,7 +102,11 @@ $songs = getSong($albumID);
                         </div>
                     </div>
                 <?php endfor ?>
-                <div class="add-button"><i class="fa-solid fa-plus-large"></i></div>
+                <div class="btn-song">
+                    <input type="button" value="Add new song" onclick="changeSong()">
+                    <input type="button" value="Add existing song" onclick="changeSong()">
+                </div>
+
             </div>
         </div>
         <div class="modal-button">

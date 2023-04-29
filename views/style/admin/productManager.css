@@ -312,9 +312,9 @@
   .list
   .placeholder
   .info
-  .item:nth-of-type(4){
-    cursor: default;
-  }
+  .item:nth-of-type(4) {
+  cursor: default;
+}
 
 #productManager .modal-box .modal-left .modal-info {
   display: grid;
@@ -564,3 +564,18 @@
   animation: fadeIn 0.5s ease-in-out;
   display: block;
 }
+
+#productManager #edit-album .btn-song input {
+  color: var(--whi);
+  background-color: var(--ora);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+
