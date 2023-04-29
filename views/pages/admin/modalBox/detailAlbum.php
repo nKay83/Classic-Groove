@@ -4,6 +4,7 @@ $dp = new DataProvider();
 $albumID = $_POST['id'];
 $album = getAlbum($albumID);
 $songs = getSong($albumID);
+print_r($songs);
 ?>
 <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">
@@ -67,7 +68,7 @@ $songs = getSong($albumID);
             <div class="title-list">
                 <div class="title-placeholder">
                     <div class="title" style="padding-right: 10px;">No.</div>
-                    <div class="title" style="padding-right: 15px;">Song ID</div>
+                    <div class="title" style="padding-right: 15px;">SID</div>
                     <div class="title" style="padding-right: 15px;">Song name</div>
                     <div class="title" style="padding-right: 10px;">Song file</div>
                 </div>
@@ -88,7 +89,6 @@ $songs = getSong($albumID);
                             <div class="item">
                                 <?= $songs[$i]['linkFile'] ?>.mp3
                             </div>
-                            <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
                         </div>
                     </div>
                 <?php endfor ?>
@@ -127,7 +127,7 @@ function getSong($albumID)
 {
     global $dp;
     $sql = "SELECT * FROM baihat
-        join baihat_album on baihat.maBaiHat = baihat_album.Album_maAlbum
+        join baihat_album on baihat.maBaiHat = baihat_album.BaiHat_maBaiHat
         WHERE baihat_album.Album_maAlbum =" . $albumID;
     $result = $dp->excuteQuery($sql);
     $songs = array();

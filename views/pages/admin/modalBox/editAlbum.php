@@ -71,7 +71,7 @@ $kinds = getKinds();
             <div class="title-list">
                 <div class="title-placeholder">
                     <div class="title" style="padding-right: 10px;">No.</div>
-                    <div class="title" style="padding-right: 15px;">Song ID</div>
+                    <div class="title" style="padding-right: 15px;">SID</div>
                     <div class="title" style="padding-right: 15px;">Song name</div>
                     <div class="title" style="padding-right: 10px;">Song file</div>
                 </div>
