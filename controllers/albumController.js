@@ -4,9 +4,9 @@ const getInfoAlbum = (albumID) => {
     type: "GET",
   });
 };
-const getSongs = (albumID) => {
+const getNewIDSong = () => {
   return $.ajax({
-    url: "util/albums.php?albumID=" + albumID + "&action=getSongs",
+    url: "util/albums.php?action=getNewIDSong",
     type: "GET",
   });
 };
@@ -58,6 +58,7 @@ const deleteImg = () => {
 
 const deleteSong = (input) => {
   input.closest(".placeholder").remove();
+  formatNumberOrder();
 };
 
 const changeSong = (input) => {
@@ -79,9 +80,7 @@ const changeSong = (input) => {
       processData: false,
       success: function (res) {
         if (res == "Success") {
-          document.querySelector(
-            "#edit-album .songFile-container span"
-          ).innerHTML = fileInput.files[0].name;
+          input.closest(".songFile-container").querySelector("span").innerHTML = fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
             "Uploaded successfully"
@@ -95,23 +94,34 @@ const changeSong = (input) => {
     });
   };
 };
-const addBlankSong = () => {
+const addBlankSong = async () => {
   let input = document.querySelector("#edit-album .list");
+  // let newSongID = await getNewIDSong();
   input.innerHTML += `
     <div class="placeholder">
       <div class="info">
         <div class="item"></div>
-        <div class="item"></div>
+        <div class="item">*</div>
         <div class="item input-container">
           <input type="text" value="">
         </div>
         <div class="item input-container songFile-container">
           <span>Please choose</span>
-          <input type="button" value="Change" onclick="changeSong()">
+          <input type="button" value="Change" onclick="changeSong(this)">
         </div>
         <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
               style="color: #f2623e;"></i></div>
       </div>
     </div>
     `;
+  formatNumberOrder();
+};
+
+const formatNumberOrder = () => {
+  let inputs = document.querySelectorAll("#edit-album .list .placeholder");
+  inputs.forEach((input, index) => {
+    input.querySelector(".info .item:first-child").innerHTML = (index + 1)
+      .toString()
+      .padStart(2, "0");
+  });
 };

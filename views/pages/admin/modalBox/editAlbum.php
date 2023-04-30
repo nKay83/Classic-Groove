@@ -95,7 +95,7 @@ $songs = getSong($albumID);
                                 <span>
                                     <?= $songs[$i]['linkFile'] ?>.mp3
                                 </span>
-                                <input type="button" value="Change" onclick="changeSong()">
+                                <input type="button" value="Change" onclick="changeSong(this)">
                             </div>
                             <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
                                     style="color: #f2623e;"></i></div>

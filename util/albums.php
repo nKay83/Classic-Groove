@@ -28,18 +28,11 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
-            case 'getSongs':
-                $albumID = $_GET['albumID'];
-                $sql = "SELECT * FROM baihat_album bh_al
-                        JOIN baihat bh on bh_al.Album_maAlbum = bh.maBaiHat
-                        WHERE bh_al.Album_maAlbum = " . $albumID;
-                $result = $dp->excuteQuery($sql);
-                if ($result->num_rows > 0) {
-                    $songs = array();
-                    while ($row = $result->fetch_assoc()) {
-                        $songs[] = $row;
-                    }
-                    echo json_encode($songs);
+            case 'getNewIDSong':
+                $sql = "SELECT maBaiHat FROM baihat ORDER BY maBaiHat DESC LIMIT 1";
+                $result = $dp->excuteQuery($sql)->fetch_assoc();
+                if ($result != null) {
+                    echo $result['maBaiHat'] + 1;
                 } else {
                     echo "error";
                 }
