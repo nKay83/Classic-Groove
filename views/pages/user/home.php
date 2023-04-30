@@ -63,7 +63,7 @@ $pa = new Pagination($album, 12, $currentPage);
     <?php for ($i = $pa->startProduct(); $i <= $pa->endProduct(); $i++): ?>
       <div class="grid-item" onclick="loadProductDetailsByAjax(<?= $album[$i]['maAlbum'] ?>)">
         <div class="img-container">
-          <img src="data/imgAlbum/<?= $album[$i]["hinh"] ?>.jpg" alt="album\' s poster">
+          <img src="data/imgAlbum/<?= $album[$i]["hinh"] ?>" alt="album\' s poster">
         </div>
         <p class="title">
           <?= $album[$i]["tenAlbum"] ?>

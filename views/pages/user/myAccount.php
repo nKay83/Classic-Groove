@@ -69,7 +69,7 @@ filtBillDetailToBill($billDetail, $bill);
                         <?php foreach ($b['detail'] as $detail): ?>
                             <div class="product-placeholder">
                                 <div class="img-placeholder">
-                                    <img src="./data/imgAlbum/<?= $detail['hinh'] ?>.jpg" alt="">
+                                    <img src="./data/imgAlbum/<?= $detail['hinh'] ?>" alt="">
                                 </div>
                                 <div class="info-placeholder">
                                     <div class="album-name">

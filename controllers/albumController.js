@@ -1,3 +1,4 @@
+let listSongRemove = [];
 const getInfoAlbum = (albumID) => {
   return $.ajax({
     url: "util/albums.php?albumID=" + albumID + "&action=getInfoAlbum",
@@ -16,7 +17,24 @@ const getNewIDSong = () => {
     type: "GET",
   });
 };
-
+const getSongByAlbumID = (albumID) => {
+  return $.ajax({
+    url: "util/albums.php?albumID=" + albumID + "&action=getSongByAlbum",
+    type: "GET",
+  });
+};
+const deleteSongInAlbum = (albumID, songID) => {
+  console.log(albumID, songID);
+  $.ajax({
+    url:
+      "util/albums.php?albumID=" +
+      albumID +
+      "&songID=" +
+      songID +
+      "&action=deleteSongInAlbum",
+    type: "DELETE",
+  });
+};
 const uploadImg = () => {
   let fileInput = document.createElement("input");
   fileInput.type = "file";
@@ -225,4 +243,49 @@ function displaySuggestions(suggestions) {
 const chooseSuggestion = (suggestion) => {
   document.querySelector("#my-input").value = suggestion.innerHTML + "";
   document.getElementById("suggestion-list").innerHTML = "";
+};
+
+const updateAlbum = async (AbID) => {
+  let albumID = document.querySelector("#edit-album .albumID").value;
+  let albumName = document.querySelector("#edit-album .albumName").value;
+  let albumKind = document.querySelector("#edit-album .albumKind").value;
+  let albumArtist = document.querySelector("#edit-album .albumArtist").value;
+  let albumPrice = document.querySelector("#edit-album .albumPrice").value;
+  let albumImageRaw = document.querySelector(
+    "#edit-album .img-container img"
+  ).src;
+  let albumImage = albumImageRaw.split("/").pop();
+  let albumDescription = document.querySelector(
+    "#edit-album .albumDescribe"
+  ).value;
+  let songsOld = JSON.parse(await getSongByAlbumID(AbID));
+  let songsNewsInput = document.querySelectorAll("#edit-album .list .info");
+  let songsNews = [];
+  songsNewsInput.forEach((song) => {
+    let songID = song.querySelector(".item:nth-child(2)").innerHTML.trim();
+    let songName = song.querySelector(".item:nth-child(3) input").value.trim();
+    let songFile = song
+      .querySelector(".item:nth-child(4) span")
+      .innerHTML.trim();
+    songsNews.push({
+      maBaiHat: songID,
+      tenBaiHat: songName,
+      linkFile: songFile,
+    });
+  });
+  //delete song
+  for (let song of songsOld) {
+    let isExist = false;
+    for (let songNew of songsNews) {
+      if (song.maBaiHat == songNew.maBaiHat) {
+        isExist = true;
+        break;
+      }
+    }
+    if (!isExist) {
+      deleteSongInAlbum(AbID, song.maBaiHat);
+    }
+  }
+  console.log(songsOld);
+  console.log(songsNews);
 };

@@ -21,7 +21,7 @@ $address = $result2->fetch_assoc()['diaChi'];
         <?php foreach ($album as $al): ?>
             <div class="product-placeholder">
                 <div class="product-img-placeholder">
-                    <img src="data/imgAlbum/<?= $al['hinh'] ?>.jpg" alt="poster">
+                    <img src="data/imgAlbum/<?= $al['hinh'] ?>" alt="poster">
                 </div>
                 <div class="product-info-placeholder">
                     <div class="album-name">

@@ -48,6 +48,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
+            case 'getSongByAlbum':
+                $albumID = $_GET['albumID'];
+                $sql = "SELECT * FROM baihat_album
+                        JOIN baihat on baihat_album.BaiHat_maBaiHat = baihat.maBaiHat
+                        WHERE baihat_album.Album_maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql);
+                $songs = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($songs, $row);
+                    }
+                }
+                echo json_encode($songs);
+                break;
         }
         break;
     case 'POST':
@@ -77,6 +91,18 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 $albumID = $_GET['albumID'];
                 $sql = "DELETE FROM yeuthich
                     WHERE nguoiDung = '" . $userID . "' AND album = " . $albumID . "";
+                $result = $dp->excuteQuery($sql);
+                if ($result) {
+                    echo "success";
+                } else {
+                    echo "error";
+                }
+                break;
+            case 'deleteSongInAlbum':
+                $albumID = $_GET['albumID'];
+                $songID = $_GET['songID'];
+                $sql = "DELETE FROM baihat_album
+                        WHERE BaiHat_maBaiHat = " . $songID . " AND Album_maAlbum = " . $albumID;
                 $result = $dp->excuteQuery($sql);
                 if ($result) {
                     echo "success";

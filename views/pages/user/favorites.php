@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
 				echo '
 					<div class="grid-item" onclick="loadProductDetailsByAjax(' . $al["maAlbum"] . ')" >
 						<div class="img-container">
-						<img src="data/imgAlbum/' . $al["hinh"] . '.jpg" alt="album\'s poster">
+						<img src="data/imgAlbum/' . $al["hinh"] . '" alt="album\'s poster">
 						</div>
 						<p class="title">' . $al["tenAlbum"] . '</p>
 						<p class="gray artist">' . $al["tacGia"] . '</p>

@@ -45,7 +45,7 @@ $songs = getSong($albumID);
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Quanitity</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $album['soLuong'] ?>">
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $album['soLuong'] ?>" disabled>
                     </div>
                 </div>
                 <div class="modal-item">
@@ -56,7 +56,7 @@ $songs = getSong($albumID);
                 <div class="modal-item">
                     <div class="item-header">Image</div>
                     <div class="item-input img-container">
-                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
+                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>" alt="img">
                         <input type="button" value="Change" onclick="uploadImg()">
                         <input type="button" value="Delete" onclick="deleteImg()">
                     </div>
@@ -84,17 +84,13 @@ $songs = getSong($albumID);
                             <div class="item">
                                 <?= sprintf("%02d", $i + 1) ?>
                             </div>
-                            <div class="item">
-                                <?= $songs[$i]['maBaiHat'] ?>
-                            </div>
+                            <div class="item"><?=$songs[$i]['maBaiHat']?></div>
                             <div class="item input-container">
                                 <input type="text" value="<?= $songs[$i]['tenBaiHat'] ?>">
 
                             </div>
                             <div class="item input-container songFile-container">
-                                <span>
-                                    <?= $songs[$i]['linkFile'] ?>.mp3
-                                </span>
+                                <span><?= $songs[$i]['linkFile'] ?>.mp3</span>
                                 <input type="button" value="Change" onclick="changeSong(this)">
                             </div>
                             <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
@@ -112,7 +108,7 @@ $songs = getSong($albumID);
             <div class="button-layout"></div>
             <div class="button-layout">
                 <div></div>
-                <div class="edit-button" onclick="uploadImg()">
+                <div class="edit-button" onclick="updateAlbum(<?= $album['maAlbum'] ?>)">
                     <div class="icon-placeholder"><i class="fa-solid fa-folder-arrow-down"></i></div>
                     <div class="info-placeholder">Save</div>
                 </div>

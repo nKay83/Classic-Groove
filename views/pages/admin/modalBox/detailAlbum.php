@@ -50,7 +50,7 @@ $songs = getSong($albumID);
                 <div class="modal-item">
                     <div class="item-header">Image</div>
                     <div class="item-input img-container">
-                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>.jpg" alt="img">
+                        <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>" alt="img">
                         <!-- <input type="button" value="change">
                         <input type="button" value="delete"> -->
 
