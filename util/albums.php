@@ -82,6 +82,18 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
+            case 'addSongInAlbum':
+                $albumID = $_POST['albumID'];
+                $songID = $_POST['songID'];
+                $songName = $_POST['songName'];
+                $linkFile = $_POST['linkFile'];
+                $sql1 = "INSERT INTO baihat
+                        VALUES ( " . $songID . " ,'" . $songName . "','" . $linkFile . "')";
+                $result1 = $dp->excuteQuery($sql1);
+                $sql2 = "INSERT INTO baihat_album
+                        VALUES ( " . $songID . " ," . $albumID . ")";
+                $result2 = $dp->excuteQuery($sql2);
+                break;
         }
         break;
     case 'PUT':

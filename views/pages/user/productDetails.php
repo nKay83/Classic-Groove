@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
 
 <div id="product-details">
   <div class="left">
-    <img src=<?php echo "data/imgAlbum/" . $album["hinh"] . ".jpg" ?> alt="hinh">
+    <img src=<?php echo "data/imgAlbum/" . $album["hinh"] ?> alt="hinh">
   </div>
   <div class="right">
     <p class="title">

@@ -37,7 +37,6 @@ const updateSongInAlbum = (songID, songName, linkFile) => {
   });
 };
 const deleteSongInAlbum = (albumID, songID) => {
-  console.log(albumID, songID);
   $.ajax({
     url:
       "util/albums.php?albumID=" +
@@ -48,6 +47,21 @@ const deleteSongInAlbum = (albumID, songID) => {
     type: "DELETE",
   });
 };
+const addSongInAlbum = async (albumID, songName, linkFile) => {
+  let songID = await getNewIDSong();
+  $.ajax({
+    url: "util/albums.php",
+    type: "POST",
+    data: {
+      albumID: albumID,
+      songID: songID,
+      songName: songName,
+      linkFile: linkFile,
+      action: "addSongInAlbum",
+    },
+  });
+};
+
 const uploadImg = () => {
   let fileInput = document.createElement("input");
   fileInput.type = "file";
@@ -68,7 +82,7 @@ const uploadImg = () => {
       processData: false,
 
       success: function (res) {
-        if (res == "Success") {
+        if (res) {
           document.querySelector("#edit-album .img-container img").src =
             "data/imgAlbum/" + fileInput.files[0].name;
           customNotice(
@@ -116,7 +130,7 @@ const changeSong = (input) => {
       contentType: false,
       processData: false,
       success: function (res) {
-        if (res == "Success") {
+        if (res) {
           input.closest(".songFile-container").querySelector("span").innerHTML =
             fileInput.files[0].name;
           customNotice(
@@ -222,7 +236,6 @@ const updateSuggestions = async () => {
   suggestions = rawSuggestions.map(
     (song) => song.maBaiHat + "-" + song.tenBaiHat
   );
-  console.log(suggestions);
 };
 const suggest = () => {
   const currentValue = event.target.value.toLowerCase();
@@ -283,7 +296,7 @@ const updateAlbum = async (AbID) => {
     songsNews.push({
       maBaiHat: songID,
       tenBaiHat: songName,
-      linkFile: songFile.replace(".mp3", "")
+      linkFile: songFile.replace(".mp3", ""),
     });
   });
   //delete song
@@ -304,8 +317,6 @@ const updateAlbum = async (AbID) => {
     let isDiff = false;
     for (let songOld of songsOld) {
       if (song.maBaiHat == songOld.maBaiHat) {
-        console.log(song.tenBaiHat, songOld.tenBaiHat);
-        console.log(song.linkFile, songOld.linkFile);
         if (
           song.tenBaiHat != songOld.tenBaiHat ||
           song.linkFile != songOld.linkFile
@@ -316,8 +327,16 @@ const updateAlbum = async (AbID) => {
       }
     }
     if (isDiff) {
-      console.log("update");
       updateSongInAlbum(song.maBaiHat, song.tenBaiHat, song.linkFile);
+    }
+  }
+  //add new song
+  for (let song of songsNews) {
+    if (song.maBaiHat == "*") {
+      if (song.tenBaiHat == "" && song.linkFile == "Please choose") {
+        continue;
+      }
+      addSongInAlbum(AbID, song.tenBaiHat, song.linkFile);
     }
   }
 };
