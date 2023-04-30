@@ -68,3 +68,8 @@ function closeNewAccount() {
 }
 
 // Distributor page
+
+const openAddExistingSong = () => {
+  document.querySelector("#add_exist_song").style.display = "block";
+  updateSuggestions();
+}

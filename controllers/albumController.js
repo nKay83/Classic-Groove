@@ -4,6 +4,12 @@ const getInfoAlbum = (albumID) => {
     type: "GET",
   });
 };
+const getAllSongs = () => {
+  return $.ajax({
+    url: "util/albums.php?action=getAllSongs",
+    type: "GET",
+  });
+};
 const getNewIDSong = () => {
   return $.ajax({
     url: "util/albums.php?action=getNewIDSong",
@@ -127,23 +133,19 @@ const formatNumberOrder = () => {
   });
 };
 
-const suggestions = [
-  "apple",
-  "banana",
-  "cherry",
-  "grape",
-  "orange",
-  "pear",
-  "kiwi",
-  "pineapple",
-  "strawberry",
-  "watermelon",
-  "mango",
-];
+let suggestions;
+let rawSuggestions;
 
+const updateSuggestions = async () => {
+  rawSuggestions = JSON.parse(await getAllSongs());
+  suggestions = rawSuggestions.map(
+    (song) => song.maBaiHat + "-" + song.tenBaiHat
+  );
+  console.log(suggestions);
+};
 const suggest = () => {
   const currentValue = event.target.value.toLowerCase();
-
+  console.log(currentValue);
   if (!currentValue) {
     document.getElementById("suggestion-list").innerHTML = "";
     return;
@@ -153,7 +155,7 @@ const suggest = () => {
   const containingStrings = [];
 
   for (let i = 0; i < suggestions.length; i++) {
-    if (suggestions[i].includes(currentValue)) {
+    if (suggestions[i].toLowerCase().includes(currentValue)) {
       containingStrings.push(suggestions[i]);
     }
   }
@@ -167,12 +169,11 @@ function displaySuggestions(suggestions) {
   suggestionList = document.getElementById("suggestion-list");
   suggestionList.innerHTML = "";
   suggestions.forEach(function (suggestion) {
-    suggestionList.innerHTML += `<li onclick="chooseSuggestion(this)">${suggestion}</li>`;
+    suggestionList.innerHTML += `<li onclick="chooseSuggestion('${suggestion}')">${suggestion}</li>`;
   });
 }
 
-const chooseSuggestion = (input) => {
-  let suggestion = input.innerHTML;
+const chooseSuggestion = (suggestion) => {
   document.querySelector("#my-input").value = suggestion;
   document.getElementById("suggestion-list").innerHTML = "";
 };

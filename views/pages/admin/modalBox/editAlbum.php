@@ -6,7 +6,7 @@ $album = getAlbum($albumID);
 $kinds = getKinds();
 $songs = getSong($albumID);
 ?>
-<div class="modal-placeholder" style="display:none" id="edit-album">
+<div class="modal-placeholder" id="edit-album">
     <div class="modal-box">
         <div class="modal-header ">
             <h1><i class="fa-regular fa-pen-to-square"></i> Edit album</h1>
@@ -105,7 +105,7 @@ $songs = getSong($albumID);
             </div>
             <div class="btn-song">
                 <input type="button" value="Add new song" onclick="addBlankSong()">
-                <input type="button" value="Add existing song" onclick="">
+                <input type="button" value="Add existing song" onclick="openAddExistingSong()">
             </div>
         </div>
         <div class="modal-button">

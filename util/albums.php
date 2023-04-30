@@ -28,6 +28,17 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
+            case 'getAllSongs':
+                $sql = "SELECT * FROM baihat";
+                $result = $dp->excuteQuery($sql);
+                $songs = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($songs, $row);
+                    }
+                    echo json_encode($songs);
+                }
+                break;
             case 'getNewIDSong':
                 $sql = "SELECT maBaiHat FROM baihat ORDER BY maBaiHat DESC LIMIT 1";
                 $result = $dp->excuteQuery($sql)->fetch_assoc();

@@ -581,6 +581,9 @@
   margin-left: 10px;
 }
 
+#productManager #add_exist_song{
+  display: none;
+}
 #productManager #add_exist_song .modal-box {
   display: flex;
   align-items: center;
