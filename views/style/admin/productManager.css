@@ -564,7 +564,7 @@
   animation: fadeIn 0.5s ease-in-out;
   display: block;
 }
-#productManager #edit-album .btn-song{
+#productManager #edit-album .btn-song {
   display: flex;
   justify-content: center;
 }
@@ -581,4 +581,60 @@
   margin-left: 10px;
 }
 
+#productManager #add_exist_song .modal-box {
+  display: flex;
+  align-items: center;
+  padding: 4%;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+}
+#productManager #add_exist_song .modal-box h1 {
+  margin-bottom: 15px;
+}
+#productManager #suggestion-container {
+  position: relative;
+}
+#productManager #suggestion-container label {
+  font-size: 24px;
+}
+#productManager #suggestion-container input {
+  width: 100%;
+  font-size: 20px;
+}
 
+#productManager #suggestion-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#productManager #suggestion-list li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#productManager #suggestion-list li:hover {
+  background-color: #f2f2f2;
+}
+
+#productManager #add_exist_song .modal-box .btn-add {
+  color: var(--whi);
+  background-color: var(--ora);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+}

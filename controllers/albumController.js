@@ -80,7 +80,8 @@ const changeSong = (input) => {
       processData: false,
       success: function (res) {
         if (res == "Success") {
-          input.closest(".songFile-container").querySelector("span").innerHTML = fileInput.files[0].name;
+          input.closest(".songFile-container").querySelector("span").innerHTML =
+            fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
             "Uploaded successfully"
@@ -124,4 +125,54 @@ const formatNumberOrder = () => {
       .toString()
       .padStart(2, "0");
   });
+};
+
+const suggestions = [
+  "apple",
+  "banana",
+  "cherry",
+  "grape",
+  "orange",
+  "pear",
+  "kiwi",
+  "pineapple",
+  "strawberry",
+  "watermelon",
+  "mango",
+];
+
+const suggest = () => {
+  const currentValue = event.target.value.toLowerCase();
+
+  if (!currentValue) {
+    document.getElementById("suggestion-list").innerHTML = "";
+    return;
+  }
+
+  // Filter the list of suggestions based on the current input value
+  const containingStrings = [];
+
+  for (let i = 0; i < suggestions.length; i++) {
+    if (suggestions[i].includes(currentValue)) {
+      containingStrings.push(suggestions[i]);
+    }
+  }
+
+  // Display the filtered suggestions
+  displaySuggestions(containingStrings);
+};
+
+// Display the filtered suggestions
+function displaySuggestions(suggestions) {
+  suggestionList = document.getElementById("suggestion-list");
+  suggestionList.innerHTML = "";
+  suggestions.forEach(function (suggestion) {
+    suggestionList.innerHTML += `<li onclick="chooseSuggestion(this)">${suggestion}</li>`;
+  });
+}
+
+const chooseSuggestion = (input) => {
+  let suggestion = input.innerHTML;
+  document.querySelector("#my-input").value = suggestion;
+  document.getElementById("suggestion-list").innerHTML = "";
 };

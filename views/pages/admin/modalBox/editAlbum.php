@@ -6,7 +6,7 @@ $album = getAlbum($albumID);
 $kinds = getKinds();
 $songs = getSong($albumID);
 ?>
-<div class="modal-placeholder" id="edit-album">
+<div class="modal-placeholder" style="display:none" id="edit-album">
     <div class="modal-box">
         <div class="modal-header ">
             <h1><i class="fa-regular fa-pen-to-square"></i> Edit album</h1>
@@ -122,6 +122,20 @@ $songs = getSong($albumID);
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal-placeholder" id="add_exist_song">
+    <div class="modal-box">
+        <h1><i class="fa-regular fa-pen-to-square"></i>Add existing song</h1>
+        <div id="suggestion-container">
+            <label for="my-input">Type name or id song:</label> <br> <br>
+            <input type="text" id="my-input" name="my-input" oninput="suggest()">
+            <ul id="suggestion-list">
+
+            </ul>
+        </div><br>
+        <input type="button"  class="btn-add"value="Add">
     </div>
 </div>
 <?php
