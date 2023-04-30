@@ -94,6 +94,13 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         VALUES ( " . $songID . " ," . $albumID . ")";
                 $result2 = $dp->excuteQuery($sql2);
                 break;
+            case 'addSongExistInAlbum':
+                $albumID = $_POST['albumID'];
+                $songID = $_POST['songID'];
+                $sql = "INSERT INTO baihat_album
+                            VALUES ( " . $songID . " ," . $albumID . ")";
+                $result = $dp->excuteQuery($sql);
+                break;
         }
         break;
     case 'PUT':

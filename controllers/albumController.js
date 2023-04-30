@@ -62,6 +62,17 @@ const addSongInAlbum = async (albumID, songName, linkFile) => {
   });
 };
 
+const addSongExistInAlbum = (albumID, songID) => {
+  $.ajax({
+    url: "util/albums.php",
+    type: "POST",
+    data: {
+      albumID: albumID,
+      songID: parseInt(songID),
+      action: "addSongExistInAlbum",
+    },
+  });
+};
 const uploadImg = () => {
   let fileInput = document.createElement("input");
   fileInput.type = "file";
@@ -337,6 +348,22 @@ const updateAlbum = async (AbID) => {
         continue;
       }
       addSongInAlbum(AbID, song.tenBaiHat, song.linkFile);
+    }
+  }
+  //add exist song in album
+  for (let song of songsNews) {
+    if (song.maBaiHat == "*") {
+      continue;
+    }
+    songExistNotInAlbum = true;
+    for (let songOld of songsOld) {
+      if (song.maBaiHat == songOld.maBaiHat) {
+        songExistNotInAlbum = false;
+        break;
+      }
+    }
+    if (songExistNotInAlbum) {
+      addSongExistInAlbum(AbID, song.maBaiHat);
     }
   }
 };
