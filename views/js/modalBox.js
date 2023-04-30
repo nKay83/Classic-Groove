@@ -73,3 +73,6 @@ const openAddExistingSong = () => {
   document.querySelector("#add_exist_song").style.display = "block";
   updateSuggestions();
 }
+const closeAddExistingSong = () => {
+  document.querySelector("#add_exist_song").style.display = "none";
+}

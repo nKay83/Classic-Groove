@@ -124,6 +124,56 @@ const addBlankSong = async () => {
   formatNumberOrder();
 };
 
+const addExistingSong = () => {
+  let songString = document.querySelector("#my-input").value;
+
+  if (songString == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please enter song ID or song name!"
+    );
+    return;
+  }
+  if (!suggestions.includes(songString)) {
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Song not found");
+    return;
+  }
+  let songID = songString.split("-")[0];
+  let inputSongs = document.querySelectorAll(
+    "#edit-album .list .placeholder .info .item:nth-child(2)"
+  );
+  for (let i = 0; i < inputSongs.length; i++) {
+    if (parseInt(inputSongs[i].innerHTML) == parseInt(songID)) {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Song already exists"
+      );
+      return;
+    }
+  }
+  let songObj = rawSuggestions.find((song) => song.maBaiHat == songID);
+  let input = document.querySelector("#edit-album .list");
+  input.innerHTML += `
+    <div class="placeholder">
+      <div class="info">
+        <div class="item"></div>
+        <div class="item">${songObj.maBaiHat}</div>
+        <div class="item input-container">
+          <input type="text" value="${songObj.tenBaiHat}">
+        </div>
+        <div class="item input-container songFile-container">
+          <span>${songObj.linkFile}.mp3</span>
+          <input type="button" value="Change" onclick="changeSong(this)">
+        </div>
+        <div class="item" onclick="deleteSong(this)"><i class="fa-solid fa-xmark-large fa-sm"
+              style="color: #f2623e;"></i></div>
+      </div>
+    </div>
+    `;
+  formatNumberOrder();
+  closeAddExistingSong();
+  document.querySelector("#my-input").value = "";
+};
 const formatNumberOrder = () => {
   let inputs = document.querySelectorAll("#edit-album .list .placeholder");
   inputs.forEach((input, index) => {
@@ -145,7 +195,6 @@ const updateSuggestions = async () => {
 };
 const suggest = () => {
   const currentValue = event.target.value.toLowerCase();
-  console.log(currentValue);
   if (!currentValue) {
     document.getElementById("suggestion-list").innerHTML = "";
     return;
@@ -169,11 +218,11 @@ function displaySuggestions(suggestions) {
   suggestionList = document.getElementById("suggestion-list");
   suggestionList.innerHTML = "";
   suggestions.forEach(function (suggestion) {
-    suggestionList.innerHTML += `<li onclick="chooseSuggestion('${suggestion}')">${suggestion}</li>`;
+    suggestionList.innerHTML += `<li onclick="chooseSuggestion(this)">${suggestion}</li>`;
   });
 }
 
 const chooseSuggestion = (suggestion) => {
-  document.querySelector("#my-input").value = suggestion;
+  document.querySelector("#my-input").value = suggestion.innerHTML + "";
   document.getElementById("suggestion-list").innerHTML = "";
 };

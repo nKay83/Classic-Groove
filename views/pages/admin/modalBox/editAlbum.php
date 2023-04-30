@@ -135,7 +135,10 @@ $songs = getSong($albumID);
 
             </ul>
         </div><br>
-        <input type="button"  class="btn-add"value="Add">
+        <div class="modal-button">
+            <input type="button" class="btn-add" value="Add" onclick="addExistingSong()">
+            <input type="button" class="btn-cancel" value="Cancel" onclick="closeAddExistingSong()">
+        </div>
     </div>
 </div>
 <?php

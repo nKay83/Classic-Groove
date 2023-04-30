@@ -581,7 +581,7 @@
   margin-left: 10px;
 }
 
-#productManager #add_exist_song{
+#productManager #add_exist_song {
   display: none;
 }
 #productManager #add_exist_song .modal-box {
@@ -640,4 +640,18 @@
   padding: 10px;
   border-radius: 15px;
   border: 1px solid var(--whi);
+  margin-right: 10px;
+  width: 6vw;
+
+}
+#productManager #add_exist_song .modal-box .btn-cancel {
+  color: var(--whi);
+  background-color: var(--bla);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  width: 6vw;
 }
