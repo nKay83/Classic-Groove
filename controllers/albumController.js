@@ -73,6 +73,49 @@ const addSongExistInAlbum = (albumID, songID) => {
     },
   });
 };
+
+const updateAlbumInfo = (
+  albumID,
+  albumName,
+  albumKind,
+  albumArtist,
+  albumPrice,
+  albumImage,
+  albumDescribe
+) => {
+  console.log(
+    albumID,
+    albumName,
+    albumKind,
+    albumArtist,
+    albumPrice,
+    albumImage,
+    albumDescribe
+  );
+  $.ajax({
+    url:
+      "util/albums.php?albumID=" +
+      albumID +
+      "&albumName=" +
+      albumName +
+      "&albumKind=" +
+      parseInt(albumKind) +
+      "&albumArtist=" +
+      albumArtist +
+      "&albumPrice=" +
+      albumPrice +
+      "&albumImage=" +
+      albumImage +
+      "&albumDescribe=" +
+      albumDescribe.replace(/['"]/g, '\\$&') +
+      "&action=updateAlbumInfo",
+    type: "PUT",
+    success: function (res) {
+      console.log(res);
+    },
+  });
+};
+
 const uploadImg = () => {
   let fileInput = document.createElement("input");
   fileInput.type = "file";
@@ -283,7 +326,6 @@ const chooseSuggestion = (suggestion) => {
 };
 
 const updateAlbum = async (AbID) => {
-  let albumID = document.querySelector("#edit-album .albumID").value;
   let albumName = document.querySelector("#edit-album .albumName").value;
   let albumKind = document.querySelector("#edit-album .albumKind").value;
   let albumArtist = document.querySelector("#edit-album .albumArtist").value;
@@ -295,6 +337,15 @@ const updateAlbum = async (AbID) => {
   let albumDescription = document.querySelector(
     "#edit-album .albumDescribe"
   ).value;
+  updateAlbumInfo(
+    AbID,
+    albumName,
+    albumKind,
+    albumArtist,
+    albumPrice,
+    albumImage,
+    albumDescription
+  );
   let songsOld = JSON.parse(await getSongByAlbumID(AbID));
   let songsNewsInput = document.querySelectorAll("#edit-album .list .info");
   let songsNews = [];
@@ -366,4 +417,6 @@ const updateAlbum = async (AbID) => {
       addSongExistInAlbum(AbID, song.maBaiHat);
     }
   }
+  customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
+  loadModalBoxByAjax("detailAlbum", AbID);
 };

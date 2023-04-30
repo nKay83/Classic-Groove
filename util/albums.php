@@ -115,6 +115,24 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         WHERE maBaiHat = " . $songID;
                 $result = $dp->excuteQuery($sql);
                 break;
+            case 'updateAlbumInfo':
+                $albumID = $_GET['albumID'];
+                $albumName = $_GET['albumName'];
+                $albumKind = $_GET['albumKind'];
+                $albumArtist = $_GET['albumArtist'];
+                $ablumPrice = $_GET['albumPrice'];
+                $albumImage = $_GET['albumImage'];
+                $albumDescribe = $_GET['albumDescribe'];
+                $sql = "UPDATE album
+                        SET tenAlbum = '" . $albumName . "',
+                            theLoai = " . $albumKind . ",
+                            tacGia = '" . $albumArtist . "',
+                            gia = " . $ablumPrice . ",
+                            hinh = '" . $albumImage . "',
+                            moTa = '" . $albumDescribe . "'
+                        WHERE maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql);
+                break;
         }
         break;
     case 'DELETE':
