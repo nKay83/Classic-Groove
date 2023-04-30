@@ -23,6 +23,19 @@ const getSongByAlbumID = (albumID) => {
     type: "GET",
   });
 };
+const updateSongInAlbum = (songID, songName, linkFile) => {
+  return $.ajax({
+    url:
+      "util/albums.php?songID=" +
+      parseInt(songID) +
+      "&songName=" +
+      songName +
+      "&linkFile=" +
+      linkFile +
+      "&action=updateSongInAlbum",
+    type: "PUT",
+  });
+};
 const deleteSongInAlbum = (albumID, songID) => {
   console.log(albumID, songID);
   $.ajax({
@@ -270,7 +283,7 @@ const updateAlbum = async (AbID) => {
     songsNews.push({
       maBaiHat: songID,
       tenBaiHat: songName,
-      linkFile: songFile,
+      linkFile: songFile.replace(".mp3", "")
     });
   });
   //delete song
@@ -286,6 +299,25 @@ const updateAlbum = async (AbID) => {
       deleteSongInAlbum(AbID, song.maBaiHat);
     }
   }
-  console.log(songsOld);
-  console.log(songsNews);
+  //update song
+  for (let song of songsNews) {
+    let isDiff = false;
+    for (let songOld of songsOld) {
+      if (song.maBaiHat == songOld.maBaiHat) {
+        console.log(song.tenBaiHat, songOld.tenBaiHat);
+        console.log(song.linkFile, songOld.linkFile);
+        if (
+          song.tenBaiHat != songOld.tenBaiHat ||
+          song.linkFile != songOld.linkFile
+        ) {
+          isDiff = true;
+          break;
+        }
+      }
+    }
+    if (isDiff) {
+      console.log("update");
+      updateSongInAlbum(song.maBaiHat, song.tenBaiHat, song.linkFile);
+    }
+  }
 };

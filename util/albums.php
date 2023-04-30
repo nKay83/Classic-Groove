@@ -84,6 +84,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 break;
         }
         break;
+    case 'PUT':
+        switch ($_GET['action']) {
+            case 'updateSongInAlbum':
+                $songID = $_GET['songID'];
+                $songName = $_GET['songName'];
+                $linkFile = $_GET['linkFile'];
+                $sql = "UPDATE baihat
+                        SET tenBaiHat = '" . $songName . "',
+                            linkFile = '" . $linkFile . "'
+                        WHERE maBaiHat = " . $songID;
+                $result = $dp->excuteQuery($sql);
+                break;
+        }
+        break;
     case 'DELETE':
         switch ($_GET['action']) {
             case 'dislike':

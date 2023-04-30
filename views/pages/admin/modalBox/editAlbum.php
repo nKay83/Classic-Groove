@@ -128,7 +128,6 @@ $songs = getSong($albumID);
             <label for="my-input">Type name or id song:</label> <br> <br>
             <input type="text" id="my-input" name="my-input" oninput="suggest()">
             <ul id="suggestion-list">
-
             </ul>
         </div><br>
         <div class="modal-button">
