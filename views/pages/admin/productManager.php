@@ -15,7 +15,6 @@ $album = getAllAlbum();
       <div class="title">Kind</div>
       <div class="title">Price</div>
       <div class="title">Quanitity</div>
-      <div class="title">Status</div>
     </div>
   </div>
   <div class="list">
@@ -43,11 +42,6 @@ $album = getAllAlbum();
           <div class="item">
             <?= $album[$i]['soLuong'] ?>
           </div>
-          <div class="item">
-            <?php if ($album[$i]['TrangThai'] == 1): ?>
-              Hoạt động
-            <?php endif; ?>
-          </div>
           <div class="item" onclick="loadModalBoxByAjax('detailAlbum',<?= $album[$i]['maAlbum'] ?>)">
             <i class="fa-regular fa-circle-info"></i>
           </div>
@@ -65,7 +59,9 @@ $album = getAllAlbum();
 function getAllAlbum()
 {
   global $dp;
-  $sql = "SELECT * FROM album join theloai on album.theLoai = theloai.maLoai";
+$sql = "SELECT *
+        FROM album join theloai on album.theLoai = theloai.maLoai
+        where album.TrangThai = 1";
   $result = $dp->excuteQuery($sql);
   $album = array();
   if ($result->num_rows > 0) {

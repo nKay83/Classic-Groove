@@ -3,7 +3,7 @@ session_start();
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $userID = $_SESSION['userID'];
-$sql = "Select * from album where maAlbum in (Select Album from yeuthich where nguoiDung ='" . $userID . "')";
+$sql = "Select * from album where TrangThai = 1 and maAlbum in (Select Album from yeuthich where nguoiDung ='" . $userID . "')";
 $result = $dp->excuteQuery($sql);
 $album = array();
 if ($result->num_rows > 0) {

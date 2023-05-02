@@ -8,10 +8,10 @@ $category = $_POST['category'];
 $price = $_POST['price'];
 $currentPage = $_POST['currentPage'];
 $whereSQl = "";
-$sql = "SELECT * FROM album ";
+$sql = "SELECT * FROM album where trangThai = 1 ";
 $f = false;
 if ($name != "" || $category != 0 || $price != 0) {
-  $sql = $sql . "where ";
+  $sql = $sql . "and ";
   if ($name != "") {
     $sql = $sql . "tenAlbum LIKE '%" . $name . "%' ";
     $f = true;

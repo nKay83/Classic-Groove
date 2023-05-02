@@ -51,9 +51,6 @@ $songs = getSong($albumID);
                     <div class="item-header">Image</div>
                     <div class="item-input img-container">
                         <img width="100%" src="data/imgAlbum/<?= $album['hinh'] ?>" alt="img">
-                        <!-- <input type="button" value="change">
-                        <input type="button" value="delete"> -->
-
                     </div>
                 </div>
                 <div class="modal-item">
@@ -101,7 +98,7 @@ $songs = getSong($albumID);
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Edit</div>
                 </div>
-                <div class="delete-button">
+                <div class="delete-button" onclick="deleteAlbum(<?= $album['maAlbum'] ?>)">
                     <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                     <div class="info-placeholder">Delete</div>
                 </div>

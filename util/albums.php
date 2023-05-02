@@ -133,6 +133,18 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         WHERE maAlbum = " . $albumID;
                 $result = $dp->excuteQuery($sql);
                 break;
+            case 'deleteAlbum':
+                $albumID = $_GET['albumID'];
+                $sql = "Update album
+                        SET TrangThai = 0
+                        WHERE maAlbum = " . $albumID;
+                $result = $dp->excuteQuery($sql);
+                if ($result) {
+                    echo "Success";
+                } else {
+                    echo "error";
+                }
+                break;
         }
         break;
     case 'DELETE':

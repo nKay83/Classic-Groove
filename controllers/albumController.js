@@ -107,11 +107,32 @@ const updateAlbumInfo = (
       "&albumImage=" +
       albumImage +
       "&albumDescribe=" +
-      albumDescribe.replace(/['"]/g, '\\$&') +
+      albumDescribe.replace(/['"]/g, "\\$&") +
       "&action=updateAlbumInfo",
     type: "PUT",
     success: function (res) {
       console.log(res);
+    },
+  });
+};
+const deleteAlbum = (albumID) => {
+  let choice = confirm("Are you sure to delete this album?");
+  if (!choice) return;
+  $.ajax({
+    url: "util/albums.php?albumID=" + albumID + "&action=deleteAlbum",
+    type: "PUT",
+    success: function (res) {
+      if (res == "Success") {
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Deleted successfully"
+        );
+        loadPageByAjax("productManager");
+      } else
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Deleted failed"
+        );
     },
   });
 };
