@@ -1,3 +1,9 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$recordID = $_POST["id"];
+$record = getRecord($recordID);
+?>
 <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">
         <div class="modal-header ">
@@ -7,24 +13,29 @@
             <div class="modal-info">
                 <div class="modal-item">
                     <div class="item-header">Record Id</div>
-                    <div class="item-input"><input type="text" class="albumID" value="" disabled></div>
+                    <div class="item-input"><input type="text" class="albumID" value="<?= $record['maPhieuNhap'] ?>"
+                            disabled></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Importer</div>
-                    <div class="item-input"><input type="text" class="albumName" value="" disabled></div>
+                    <div class="item-input"><input type="text" class="albumName" value="<?= $record['nguoiNhap'] ?>"
+                            disabled></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Record date</div>
-                    <div class="item-input"><input type="text" class="albumArtist" value="" disabled>
+                    <div class="item-input"><input type="text" class="albumArtist"
+                            value="<?= date("d/m/Y", strtotime($record['ngayNhap'])) ?> " disabled>
                     </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Total cost</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $record['TongGia'] ?>"
+                            disabled></div>
                 </div>
                 <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                     <div class="item-header">Distributor</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $record['tenNCC'] ?>"
+                            disabled></div>
                 </div>
             </div>
         </div>
@@ -72,28 +83,12 @@
     </div>
 </div>
 <?php
-function getAlbum($albumID)
+function getRecord($recordID)
 {
     global $dp;
-    $sql = "SELECT * FROM album
-            join theloai on album.theLoai = theloai.maLoai
-            WHERE album.maAlbum =" . $albumID;
+    $dp = new DataProvider();
+    $sql = "SELECT * FROM phieunhap join nhacungcap on phieunhap.NCC = nhacungcap.maNCC WHERE maPhieuNhap = $recordID";
     $result = $dp->excuteQuery($sql);
     return $result->fetch_assoc();
-}
-function getSong($albumID)
-{
-    global $dp;
-    $sql = "SELECT * FROM baihat
-        join baihat_album on baihat.maBaiHat = baihat_album.BaiHat_maBaiHat
-        WHERE baihat_album.Album_maAlbum =" . $albumID;
-    $result = $dp->excuteQuery($sql);
-    $songs = array();
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            array_push($songs, $row);
-        }
-    }
-    return $songs;
 }
 ?>

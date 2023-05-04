@@ -2,7 +2,7 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $supplyRecord = getAllSupplyRecord();
-  ?>
+?>
 <div id="supplyRecord">
   <h1><i class="fa-regular fa-box-open"></i> Supply record</h1>
   <div class="button-placeholder">
@@ -38,9 +38,14 @@ $supplyRecord = getAllSupplyRecord();
           <div class="item">
             <?= date("d/m/Y", strtotime($supplyRecord[$i]['ngayNhap'])) ?>
           </div>
-          <div class="item"><?= $supplyRecord[$i]['TongGia'] ?></div>
-          <div class="item"><?= $supplyRecord[$i]['tenNCC'] ?></div>
-          <div class="item" onclick="loadModalBoxByAjax('detailSupply')"><i class="fa-regular fa-circle-info"></i></div>
+          <div class="item">
+            <?= $supplyRecord[$i]['TongGia'] ?>
+          </div>
+          <div class="item">
+            <?= $supplyRecord[$i]['tenNCC'] ?>
+          </div>
+          <div class="item" onclick="loadModalBoxByAjax('detailSupply',<?= $supplyRecord[$i]['maPhieuNhap'] ?>)"><i
+              class="fa-regular fa-circle-info"></i></div>
         </div>
       </div>
     <?php endfor; ?>
