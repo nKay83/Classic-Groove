@@ -2,7 +2,6 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $supplyRecord = getAllSupplyRecord();
-print_r($supplyRecord)
   ?>
 <div id="supplyRecord">
   <h1><i class="fa-regular fa-box-open"></i> Supply record</h1>

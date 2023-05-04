@@ -1,50 +1,30 @@
 <div class="modal-placeholder" id="detail-album">
     <div class="modal-box">
         <div class="modal-header ">
-            <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i>Album detail</h1>
+            <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i>Supply detail</h1>
         </div>
         <div class="modal-left ">
             <div class="modal-info">
                 <div class="modal-item">
-                    <div class="item-header">Album id</div>
+                    <div class="item-header">Record Id</div>
                     <div class="item-input"><input type="text" class="albumID" value="" disabled></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Album name</div>
+                    <div class="item-header">Importer</div>
                     <div class="item-input"><input type="text" class="albumName" value="" disabled></div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Kind</div>
-                    <div class="item-input"><select class="albumKind" name="" id="" disabled>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Artist name</div>
+                    <div class="item-header">Record date</div>
                     <div class="item-input"><input type="text" class="albumArtist" value="" disabled>
                     </div>
                 </div>
                 <div class="modal-item">
-                    <div class="item-header">Quanitity</div>
+                    <div class="item-header">Total cost</div>
                     <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
                 </div>
-                <div class="modal-item">
-                    <div class="item-header">Price</div>
-                    <div class="item-input"><input type="text" class="albumPrice" value="" disabled>
-                    </div>
-                </div>
-
-                <div class="modal-item">
-                    <div class="item-header">Image</div>
-                    <div class="item-input img-container">
-                        <img width="100%" src="data/imgAlbum/" alt="img">
-                    </div>
-                </div>
-                <div class="modal-item">
-                    <div class="item-header">Describe</div>
-                    <div class="item-input"><textarea cols="30" class="albumDescribe" rows="6" disabled></textarea>
-                    </div>
+                <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
+                    <div class="item-header">Distributor</div>
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
                 </div>
             </div>
         </div>
@@ -52,30 +32,24 @@
             <div class="title-list">
                 <div class="title-placeholder">
                     <div class="title" style="padding-right: 10px;">No.</div>
-                    <div class="title" style="padding-right: 15px;">SID</div>
-                    <div class="title" style="padding-right: 15px;">Song name</div>
-                    <div class="title" style="padding-right: 10px;">Song file</div>
+                    <div class="title" style="padding-right: 15px;">Album ID</div>
+                    <div class="title" style="padding-right: 15px;">Price</div>
+                    <div class="title" style="padding-right: 10px;">Quantity</div>
                 </div>
             </div>
             <div class="list">
-
                 <div class="placeholder">
                     <div class="info">
                         <div class="item">
-
                         </div>
                         <div class="item">
-
                         </div>
                         <div class="item">
-
                         </div>
                         <div class="item">
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="modal-button">
@@ -97,3 +71,29 @@
         </div>
     </div>
 </div>
+<?php
+function getAlbum($albumID)
+{
+    global $dp;
+    $sql = "SELECT * FROM album
+            join theloai on album.theLoai = theloai.maLoai
+            WHERE album.maAlbum =" . $albumID;
+    $result = $dp->excuteQuery($sql);
+    return $result->fetch_assoc();
+}
+function getSong($albumID)
+{
+    global $dp;
+    $sql = "SELECT * FROM baihat
+        join baihat_album on baihat.maBaiHat = baihat_album.BaiHat_maBaiHat
+        WHERE baihat_album.Album_maAlbum =" . $albumID;
+    $result = $dp->excuteQuery($sql);
+    $songs = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($songs, $row);
+        }
+    }
+    return $songs;
+}
+?>
