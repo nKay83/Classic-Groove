@@ -88,7 +88,7 @@
   align-items: center;
   font-size: calc(5px + 1vw);
   background-color: var(--whi);
-  height: 83vh;
+  height: 75vh;
   /* border-radius: 30px 30px 0 0; */
   overflow-y: scroll;
 }
@@ -211,6 +211,12 @@
   .modal-box
   .modal-right
   .title-list
+  .title-placeholder,
+#productManager
+  #new-album
+  .modal-box
+  .modal-right
+  .title-list
   .title-placeholder {
   width: 97%;
   height: 100%;
@@ -260,7 +266,8 @@
   padding-top: 1vw;
   color: #f2623e;
 }
-#productManager #edit-album .modal-right .list .placeholder .info {
+#productManager #edit-album .modal-right .list .placeholder .info,
+#productManager #new-album .modal-right .list .placeholder .info {
   display: grid;
   margin: auto;
   width: 100%;
@@ -299,6 +306,13 @@
   .item:nth-of-type(4),
 #productManager
   #edit-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(5),
+#productManager
+  #new-album
   .modal-right
   .list
   .placeholder
@@ -399,7 +413,8 @@
   cursor: pointer;
 }
 #productManager #detail-album input,
-#productManager #edit-album input.albumID {
+#productManager #edit-album input.albumID,
+#productManager #new-album input.albumID {
   cursor: default;
 }
 #productManager .modal-box .modal-info .modal-item .item-input textarea {
@@ -501,10 +516,12 @@
   background-color: var(--ora);
   color: var(--bla);
 }
-#productManager #edit-album .img-container {
+#productManager #edit-album .img-container,
+#productManager #new-album .img-container {
   position: relative;
 }
-#productManager #edit-album .img-container input {
+#productManager #edit-album .img-container input,
+#productManager #new-album .img-container input {
   position: absolute;
   width: max-content;
   height: max-content;
@@ -517,15 +534,18 @@
   left: 50%;
   transform: translateX(-50%);
 }
-#productManager #edit-album .img-container input:nth-of-type(1) {
+#productManager #edit-album .img-container input:nth-of-type(1),
+#productManager #new-album .img-container input:nth-of-type(1) {
   top: 30%;
   background-color: var(--ora);
 }
-#productManager #edit-album .img-container input:nth-of-type(2) {
+#productManager #edit-album .img-container input:nth-of-type(2),
+#productManager #new-album .img-container input:nth-of-type(2) {
   bottom: 30%;
   background-color: rgba(206, 21, 21, 0.721);
 }
-#productManager #edit-album .img-container:hover input {
+#productManager #edit-album .img-container:hover input,
+#productManager #new-album .img-container:hover input {
   animation: fadeIn 0.5s ease-in-out;
   display: block;
 }
@@ -542,11 +562,13 @@
   width: 90%;
 }
 
-#productManager #edit-album .placeholder .songFile-container {
+#productManager #edit-album .placeholder .songFile-container,
+#productManager #new-album .placeholder .songFile-container {
   position: relative;
 }
 
-#productManager #edit-album .placeholder .songFile-container input {
+#productManager #edit-album .placeholder .songFile-container input,
+#productManager #new-album .placeholder .songFile-container input {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -560,15 +582,18 @@
   border-radius: 15px;
 }
 
-#productManager #edit-album .placeholder .songFile-container:hover input {
+#productManager #edit-album .placeholder .songFile-container:hover input,
+#productManager #new-album .placeholder .songFile-container:hover input {
   animation: fadeIn 0.5s ease-in-out;
   display: block;
 }
-#productManager #edit-album .btn-song {
+#productManager #edit-album .btn-song,
+#productManager #new-album .btn-song {
   display: flex;
   justify-content: center;
 }
-#productManager #edit-album .btn-song input {
+#productManager #edit-album .btn-song input,
+#productManager #new-album .btn-song input {
   color: var(--whi);
   background-color: var(--ora);
   border: 1px solid var(--whi);

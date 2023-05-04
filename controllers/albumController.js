@@ -73,7 +73,34 @@ const addSongExistInAlbum = (albumID, songID) => {
     },
   });
 };
-
+const addNewAlbum = async (
+  albumID,
+  albumName,
+  albumKind,
+  albumArtist,
+  albumPrice,
+  albumImage,
+  albumDescribe
+) => {
+  $.ajax({
+    url: "util/albums.php",
+    type: "POST",
+    data: {
+      albumID: albumID,
+      albumName: albumName,
+      albumKind: parseInt(albumKind),
+      albumArtist: albumArtist,
+      albumPrice: albumPrice,
+      albumImage: albumImage,
+      albumDescribe: albumDescribe.replace(/['"]/g, "\\$&"),
+      action: "addNewAlbum",
+    },
+    success: async function (res) {
+      await updateSongInfo(albumID);
+      loadPageByAjax("productManager");
+    },
+  });
+};
 const updateAlbumInfo = (
   albumID,
   albumName,
@@ -158,7 +185,7 @@ const uploadImg = () => {
 
       success: function (res) {
         if (res) {
-          document.querySelector("#edit-album .img-container img").src =
+          document.querySelector(".img-container img").src =
             "data/imgAlbum/" + fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
@@ -178,7 +205,7 @@ const deleteImg = () => {
     "fa-sharp fa-light fa-circle-check",
     "Deleted successfully, change to default image!"
   );
-  document.querySelector("#edit-album .img-container img").src =
+  document.querySelector(".img-container img").src =
     "data/imgAlbum/" + "default.jfif";
 };
 
@@ -222,7 +249,7 @@ const changeSong = (input) => {
   };
 };
 const addBlankSong = async () => {
-  let input = document.querySelector("#edit-album .list");
+  let input = document.querySelector(".modal-right .list");
   // let newSongID = await getNewIDSong();
   input.innerHTML += `
     <div class="placeholder">
@@ -272,7 +299,7 @@ const addExistingSong = () => {
     }
   }
   let songObj = rawSuggestions.find((song) => song.maBaiHat == songID);
-  let input = document.querySelector("#edit-album .list");
+  let input = document.querySelector(".modal-right .list");
   input.innerHTML += `
     <div class="placeholder">
       <div class="info">
@@ -295,7 +322,7 @@ const addExistingSong = () => {
   document.querySelector("#my-input").value = "";
 };
 const formatNumberOrder = () => {
-  let inputs = document.querySelectorAll("#edit-album .list .placeholder");
+  let inputs = document.querySelectorAll(".modal-right .list .placeholder");
   inputs.forEach((input, index) => {
     input.querySelector(".info .item:first-child").innerHTML = (index + 1)
       .toString()
@@ -351,9 +378,7 @@ const updateAlbum = async (AbID) => {
   let albumKind = document.querySelector("#edit-album .albumKind").value;
   let albumArtist = document.querySelector("#edit-album .albumArtist").value;
   let albumPrice = document.querySelector("#edit-album .albumPrice").value;
-  let albumImageRaw = document.querySelector(
-    "#edit-album .img-container img"
-  ).src;
+  let albumImageRaw = document.querySelector(".img-container img").src;
   let albumImage = albumImageRaw.split("/").pop();
   let albumDescription = document.querySelector(
     "#edit-album .albumDescribe"
@@ -367,8 +392,13 @@ const updateAlbum = async (AbID) => {
     albumImage,
     albumDescription
   );
+  await updateSongInfo(AbID);
+  customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
+  loadModalBoxByAjax("detailAlbum", AbID);
+};
+const updateSongInfo = async (AbID) => {
   let songsOld = JSON.parse(await getSongByAlbumID(AbID));
-  let songsNewsInput = document.querySelectorAll("#edit-album .list .info");
+  let songsNewsInput = document.querySelectorAll(".modal-right .list .info");
   let songsNews = [];
   songsNewsInput.forEach((song) => {
     let songID = song.querySelector(".item:nth-child(2)").innerHTML.trim();
@@ -410,7 +440,7 @@ const updateAlbum = async (AbID) => {
       }
     }
     if (isDiff) {
-      updateSongInAlbum(song.maBaiHat, song.tenBaiHat, song.linkFile);
+      await updateSongInAlbum(song.maBaiHat, song.tenBaiHat, song.linkFile);
     }
   }
   //add new song
@@ -419,7 +449,7 @@ const updateAlbum = async (AbID) => {
       if (song.tenBaiHat == "" && song.linkFile == "Please choose") {
         continue;
       }
-      addSongInAlbum(AbID, song.tenBaiHat, song.linkFile);
+      await addSongInAlbum(AbID, song.tenBaiHat, song.linkFile);
     }
   }
   //add exist song in album
@@ -427,7 +457,7 @@ const updateAlbum = async (AbID) => {
     if (song.maBaiHat == "*") {
       continue;
     }
-    songExistNotInAlbum = true;
+    let songExistNotInAlbum = true;
     for (let songOld of songsOld) {
       if (song.maBaiHat == songOld.maBaiHat) {
         songExistNotInAlbum = false;
@@ -438,6 +468,27 @@ const updateAlbum = async (AbID) => {
       addSongExistInAlbum(AbID, song.maBaiHat);
     }
   }
-  customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
-  loadModalBoxByAjax("detailAlbum", AbID);
+};
+const newAlbum = async (albumID) => {
+  let albumName = document.querySelector("#new-album .albumName").value;
+  let albumKind = document.querySelector("#new-album .albumKind").value;
+  let albumArtist = document.querySelector("#new-album .albumArtist").value;
+  let albumPrice = document.querySelector("#new-album .albumPrice").value;
+  let albumImageRaw = document.querySelector(
+    "#new-album .img-container img"
+  ).src;
+  let albumImage = albumImageRaw.split("/").pop();
+  let albumDescription = document.querySelector(
+    "#new-album .albumDescribe"
+  ).value;
+  await addNewAlbum(
+    albumID,
+    albumName,
+    albumKind,
+    albumArtist,
+    albumPrice,
+    albumImage,
+    albumDescription
+  );
+  customNotice("fa-sharp fa-light fa-circle-check", "Add successfully!");
 };

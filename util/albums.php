@@ -101,6 +101,19 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             VALUES ( " . $songID . " ," . $albumID . ")";
                 $result = $dp->excuteQuery($sql);
                 break;
+            case 'addNewAlbum':
+                $albumID = $_POST['albumID'];
+                $albumName = $_POST['albumName'];
+                $albumKind = $_POST['albumKind'];
+                $albumArtist = $_POST['albumArtist'];
+                $ablumPrice = $_POST['albumPrice'];
+                $albumImage = $_POST['albumImage'];
+                $albumDescribe = $_POST['albumDescribe'];
+                $sql = "INSERT INTO album
+                        VALUES(" . $albumID . ",'" . $albumName . "'," . $ablumPrice . ",'" . $albumDescribe . "','" . $albumImage . "','" . $albumArtist . "',1,0," . $albumKind . ")";
+                echo $sql;
+                $result = $dp->excuteQuery($sql);
+                break;
         }
         break;
     case 'PUT':

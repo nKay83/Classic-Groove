@@ -6,6 +6,12 @@ $album = getAllAlbum();
 
 <div id="productManager">
   <h1><i class="fa-solid fa-album"></i>&#09; Product management</h1>
+  <div class="button-placeholder">
+    <div class="new-button" onclick="loadModalBoxByAjax('newAlbum')">
+      <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
+      <div class="info-placeholder">New</div>
+    </div>
+  </div>
   <div class="title-list">
     <div class="title-placeholder">
       <div class="title" style="padding-right: 10px;">No.</div>
@@ -59,7 +65,7 @@ $album = getAllAlbum();
 function getAllAlbum()
 {
   global $dp;
-$sql = "SELECT *
+  $sql = "SELECT *
         FROM album join theloai on album.theLoai = theloai.maLoai
         where album.TrangThai = 1";
   $result = $dp->excuteQuery($sql);

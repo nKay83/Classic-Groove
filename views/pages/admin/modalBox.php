@@ -7,6 +7,9 @@ if (isset($_POST["modalBox"])) {
         case 'editAlbum':
             include("modalBox/editAlbum.php");
             break;
+        case 'newAlbum':
+            include("modalBox/newAlbum.php");
+            break;
         case 'detailOrder':
             include("modalBox/detailOrder.php");
             break;
