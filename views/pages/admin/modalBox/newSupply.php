@@ -53,19 +53,7 @@ $distributor = getAllDistributor();
                 </div>
             </div>
             <div class="list">
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">
-                        </div>
-                        <div class="item">
-                        </div>
-                        <div class="item">
-                        </div>
-                        <div class="item">
-                        </div>
-                        <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
-                    </div>
-                </div>
+                
             </div>
             <div class="btnAddAlbum">
                 <input type="button" value="+" onclick="openAddAlbum()">
@@ -96,8 +84,8 @@ $distributor = getAllDistributor();
             </ul>
         </div><br>
         <div class="modal-button">
-            <input type="button" class="btn-add" value="Add" onclick="addExistingSong()">
-            <input type="button" class="btn-cancel" value="Cancel" onclick="closeAddAlbum`()">
+            <input type="button" class="btn-add" value="Add" onclick="addExistingAlbum()">
+            <input type="button" class="btn-cancel" value="Cancel" onclick="closeAddAlbum()">
         </div>
     </div>
 </div>

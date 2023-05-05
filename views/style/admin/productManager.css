@@ -558,6 +558,7 @@
   }
 }
 
+#productManager #new-album .placeholder input, 
 #productManager #edit-album .placeholder input {
   width: 90%;
 }

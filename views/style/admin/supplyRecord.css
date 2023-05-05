@@ -547,3 +547,6 @@
 #supplyRecord #suggestion-list li:hover {
   background-color: #f2f2f2;
 }
+#supplyRecord #new-supply .placeholder input {
+  width: 90%;
+}
