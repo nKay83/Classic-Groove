@@ -81,7 +81,7 @@ $detailRecord = getDetailRecord($recordID);
                     <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                     <div class="info-placeholder">Delete</div>
                 </div>
-                <div class="back-button" onclick="closeDetailalbum()">
+                <div class="back-button" onclick="closeDetailSupply()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
                 </div>

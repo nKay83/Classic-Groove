@@ -14,27 +14,27 @@ $distributor = getAllDistributor();
             <div class="modal-info">
                 <div class="modal-item">
                     <div class="item-header">Record Id</div>
-                    <div class="item-input"><input type="text" class="albumID" value="<?= $newSupplyID ?>" disabled>
+                    <div class="item-input"><input type="text" class="" value="<?= $newSupplyID ?>" disabled>
                     </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Importer</div>
-                    <div class="item-input"><input type="text" class="albumName" value="<?= $_SESSION['userID'] ?>"
+                    <div class="item-input"><input type="text" class="" value="<?= $_SESSION['userID'] ?>"
                             disabled></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Record date</div>
-                    <div class="item-input"><input type="text" class="albumArtist" value="<?= date("d/m/Y") ?> "
+                    <div class="item-input"><input type="text" class="" value="<?= date("d/m/Y") ?> "
                             disabled>
                     </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Total cost</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
+                    <div class="item-input"><input type="text" class="total-cost" value="0" disabled></div>
                 </div>
                 <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                     <div class="item-header">Distributor</div>
-                    <div class="item-input"><select class="albumKind" name="" id="">
+                    <div class="item-input"><select class="" name="" id="">
                             <?php foreach ($distributor as $d): ?>
                                 <option value="<?= $d['maNCC'] ?>"><?= $d['tenNCC'] ?></option>
                             <?php endforeach; ?>
@@ -66,7 +66,7 @@ $distributor = getAllDistributor();
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Add</div>
                 </div>
-                <div class="back-button" onclick="closeDetailalbum()">
+                <div class="back-button" onclick="closeNewSupply()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
                 </div>

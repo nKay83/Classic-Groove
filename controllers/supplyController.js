@@ -57,16 +57,17 @@ const addExistingAlbum = () => {
   }
   let albumObj = rawSuggestionsAlbum.find((album) => album.maAlbum == albumID);
   let input = document.querySelector(".modal-right .list");
-  input.innerHTML += `
-    <div class="placeholder">
+  let newPlaceholder = document.createElement("div");
+  newPlaceholder.classList.add("placeholder");
+  input.appendChild(newPlaceholder);
+  newPlaceholder.innerHTML = `
       <div class="info">
           <div class="item"></div>
           <div class="item">${albumObj.maAlbum}</div>
-          <div class="item"><input type="text"></div>
-          <div class="item"><input type="text"></div>
+          <div class="item"><input type="text" oninput="updateTotalCost()"></div>
+          <div class="item"><input type="text" oninput="updateTotalCost()"></div>
           <div class="item" onclick="deleteRowAlbum(this)"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
       </div>
-    </div>
   `;
   formatNumberOrder();
   closeAddAlbum();
@@ -76,4 +77,18 @@ const addExistingAlbum = () => {
 const deleteRowAlbum = (input) => {
   input.closest(".placeholder").remove();
   formatNumberOrder();
+};
+const updateTotalCost = () => {
+  let totalCost = 0;
+  let input = document.querySelectorAll(
+    ".modal-right .list .placeholder .info"
+  );
+  for (let i = 0; i < input.length; i++) {
+    let cost = input[i].querySelector(".item:nth-of-type(3) input").value;
+    let quantity = input[i].querySelector(".item:nth-of-type(4) input").value;
+    if (cost == "" || quantity == "") continue;
+    if (isNaN(cost) || isNaN(quantity)) continue;
+    totalCost += parseFloat(cost) * parseInt(quantity);
+  }
+  document.querySelector("#new-supply .total-cost").value = totalCost;
 };

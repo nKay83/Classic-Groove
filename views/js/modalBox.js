@@ -84,3 +84,10 @@ const openAddAlbum = () => {
 const closeAddAlbum = () => {
   document.querySelector("#add_exist_album").style.display = "none";
 };
+
+const closeNewSupply = () => {
+  document.querySelector("#new-supply").style.display = "none";
+};
+const closeDetailSupply = () => {
+  document.querySelector("#detail-supply").style.display = "none";
+};
