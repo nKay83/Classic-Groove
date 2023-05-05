@@ -91,7 +91,7 @@ $distributor = getAllDistributor();
         <h1><i class="fa-regular fa-pen-to-square"></i>Add Album</h1>
         <div id="suggestion-container">
             <label for="my-input">Type name or id Album:</label> <br> <br>
-            <input type="text" id="my-input" name="my-input" oninput="suggest()">
+            <input type="text" id="my-input" name="my-input" oninput="suggestAlbum()">
             <ul id="suggestion-list">
             </ul>
         </div><br>

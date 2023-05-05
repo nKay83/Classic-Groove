@@ -79,6 +79,7 @@ const closeAddExistingSong = () => {
 
 const openAddAlbum = () => {
   document.querySelector("#add_exist_album").style.display = "block";
+  updateSuggestionsAlbum();
 };
 const closeAddAlbum = () => {
   document.querySelector("#add_exist_album").style.display = "none";
