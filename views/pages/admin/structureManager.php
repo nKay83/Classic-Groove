@@ -19,7 +19,6 @@
         </div>
     </div>
     <div class="layout">
-
         <div class="left">
             <div class="header">
                 <h1>Manage slider</h1>

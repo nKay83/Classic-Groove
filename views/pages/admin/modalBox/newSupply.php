@@ -1,11 +1,11 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
-$recordID = $_POST["id"];
-$record = getRecord($recordID);
-$detailRecord = getDetailRecord($recordID);
+$newSupplyID = getNewSupplyID();
+$distributor = getAllDistributor();
 ?>
-<div class="modal-placeholder" id="detail-supply">
+<div class="modal-placeholder" id="new-supply">
     <div class="modal-box">
         <div class="modal-header ">
             <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i>Supply detail</h1>
@@ -14,29 +14,32 @@ $detailRecord = getDetailRecord($recordID);
             <div class="modal-info">
                 <div class="modal-item">
                     <div class="item-header">Record Id</div>
-                    <div class="item-input"><input type="text" class="albumID" value="<?= $record['maPhieuNhap'] ?>"
-                            disabled></div>
+                    <div class="item-input"><input type="text" class="albumID" value="<?= $newSupplyID ?>" disabled>
+                    </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Importer</div>
-                    <div class="item-input"><input type="text" class="albumName" value="<?= $record['nguoiNhap'] ?>"
+                    <div class="item-input"><input type="text" class="albumName" value="<?= $_SESSION['userID'] ?>"
                             disabled></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Record date</div>
-                    <div class="item-input"><input type="text" class="albumArtist"
-                            value="<?= date("d/m/Y", strtotime($record['ngayNhap'])) ?> " disabled>
+                    <div class="item-input"><input type="text" class="albumArtist" value="<?= date("d/m/Y") ?> "
+                            disabled>
                     </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Total cost</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $record['TongGia'] ?>"
-                            disabled></div>
+                    <div class="item-input"><input type="text" class="albumQuanitity" value="" disabled></div>
                 </div>
                 <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                     <div class="item-header">Distributor</div>
-                    <div class="item-input"><input type="text" class="albumQuanitity" value="<?= $record['tenNCC'] ?>"
-                            disabled></div>
+                    <div class="item-input"><select class="albumKind" name="" id="">
+                            <?php foreach ($distributor as $d): ?>
+                                <option value="<?= $d['maNCC'] ?>"><?= $d['tenNCC'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,24 +53,23 @@ $detailRecord = getDetailRecord($recordID);
                 </div>
             </div>
             <div class="list">
-                <?php for ($i = 0; $i < count($detailRecord); $i++): ?>
-                    <div class="placeholder">
-                        <div class="info">
-                            <div class="item">
-                                <?= sprintf("%02d", $i + 1) ?>
-                            </div>
-                            <div class="item">
-                                <?= $detailRecord[$i]['album'] ?>
-                            </div>
-                            <div class="item">
-                                <?= $detailRecord[$i]['gia'] ?>
-                            </div>
-                            <div class="item">
-                                <?= $detailRecord[$i]['SoLuong'] ?>
-                            </div>
+                <div class="placeholder">
+                    <div class="info">
+                        <div class="item">
                         </div>
+                        <div class="item">
+                        </div>
+                        <div class="item">
+                        </div>
+                        <div class="item">
+                        </div>
+                        <div class="item" ><i class="fa-solid fa-xmark-large fa-sm"
+                                    style="color: #f2623e;"></i></div>
                     </div>
-                <?php endfor; ?>
+                </div>
+            </div>
+            <div class="btnAddAlbum">
+                <input type="button" value="+" onclick="addBlankSong()">
             </div>
         </div>
         <div class="modal-button">
@@ -75,11 +77,7 @@ $detailRecord = getDetailRecord($recordID);
             <div class="button-layout">
                 <div class="edit-button" onclick="loadModalBoxByAjax('editAlbum',<?= $album['maAlbum'] ?>)">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="info-placeholder">Edit</div>
-                </div>
-                <div class="delete-button" onclick="deleteAlbum(<?= $album['maAlbum'] ?>)">
-                    <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
-                    <div class="info-placeholder">Delete</div>
+                    <div class="info-placeholder">Add</div>
                 </div>
                 <div class="back-button" onclick="closeDetailalbum()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
@@ -90,26 +88,25 @@ $detailRecord = getDetailRecord($recordID);
     </div>
 </div>
 <?php
-function getRecord($recordID)
+function getNewSupplyID()
 {
     global $dp;
-    $dp = new DataProvider();
-    $sql = "SELECT * FROM phieunhap join nhacungcap on phieunhap.NCC = nhacungcap.maNCC WHERE maPhieuNhap = $recordID";
+    $sql = "SELECT MAX(maPhieuNhap) AS maxID FROM phieunhap";
     $result = $dp->excuteQuery($sql);
-    return $result->fetch_assoc();
+    $row = mysqli_fetch_array($result);
+    return $row['maxID'] + 1;
 }
-function getDetailRecord($recordID)
+function getAllDistributor()
 {
     global $dp;
-    $dp = new DataProvider();
-    $sql = "SELECT * FROM chitietphieunhap WHERE phieuNhap = $recordID";
+    $sql = "SELECT * FROM nhacungcap";
     $result = $dp->excuteQuery($sql);
-    $detailRecord = array();
+    $distributor = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            array_push($detailRecord, $row);
+            array_push($distributor, $row);
         }
     }
-    return $detailRecord;
+    return $distributor;
 }
 ?>
