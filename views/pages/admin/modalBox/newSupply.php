@@ -63,13 +63,12 @@ $distributor = getAllDistributor();
                         </div>
                         <div class="item">
                         </div>
-                        <div class="item" ><i class="fa-solid fa-xmark-large fa-sm"
-                                    style="color: #f2623e;"></i></div>
+                        <div class="item"><i class="fa-solid fa-xmark-large fa-sm" style="color: #f2623e;"></i></div>
                     </div>
                 </div>
             </div>
             <div class="btnAddAlbum">
-                <input type="button" value="+" onclick="addBlankSong()">
+                <input type="button" value="+" onclick="openAddAlbum()">
             </div>
         </div>
         <div class="modal-button">
@@ -84,6 +83,21 @@ $distributor = getAllDistributor();
                     <div class="info-placeholder">Back</div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal-placeholder" id="add_exist_album">
+    <div class="modal-box">
+        <h1><i class="fa-regular fa-pen-to-square"></i>Add Album</h1>
+        <div id="suggestion-container">
+            <label for="my-input">Type name or id Album:</label> <br> <br>
+            <input type="text" id="my-input" name="my-input" oninput="suggest()">
+            <ul id="suggestion-list">
+            </ul>
+        </div><br>
+        <div class="modal-button">
+            <input type="button" class="btn-add" value="Add" onclick="addExistingSong()">
+            <input type="button" class="btn-cancel" value="Cancel" onclick="closeAddAlbum`()">
         </div>
     </div>
 </div>

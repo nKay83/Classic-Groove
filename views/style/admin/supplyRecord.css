@@ -475,3 +475,40 @@
   border-radius: 15px;
   cursor: pointer;
 }
+#supplyRecord #add_exist_album {
+  display: none;
+}
+#supplyRecord #add_exist_album .modal-box {
+  display: flex;
+  align-items: center;
+  padding: 4%;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+}
+#supplyRecord #add_exist_album .modal-box h1 {
+  margin-bottom: 15px;
+}
+#supplyRecord #add_exist_album .modal-box .btn-add {
+  color: var(--whi);
+  background-color: var(--ora);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  margin-right: 10px;
+  width: 6vw;
+}
+#supplyRecord #add_exist_album .modal-box .btn-cancel {
+  color: var(--whi);
+  background-color: var(--bla);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  width: 6vw;
+}

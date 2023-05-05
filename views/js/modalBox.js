@@ -72,7 +72,14 @@ function closeNewAccount() {
 const openAddExistingSong = () => {
   document.querySelector("#add_exist_song").style.display = "block";
   updateSuggestions();
-}
+};
 const closeAddExistingSong = () => {
   document.querySelector("#add_exist_song").style.display = "none";
-}
+};
+
+const openAddAlbum = () => {
+  document.querySelector("#add_exist_album").style.display = "block";
+};
+const closeAddAlbum = () => {
+  document.querySelector("#add_exist_album").style.display = "none";
+};

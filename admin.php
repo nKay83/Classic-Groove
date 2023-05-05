@@ -69,4 +69,5 @@
 <script src="controllers/managerAccountController.js"></script>
 <script src="controllers/roleController.js"></script>
 <script src="controllers/managerOrderController.js"></script>
+<script src="controllers/supplyController.js"></script>
 </html>
