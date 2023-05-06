@@ -13,7 +13,6 @@ const suggestAlbum = () => {
     return;
   }
   const containingStrings = [];
-  console.log(suggestionsAlbum);
   for (let i = 0; i < suggestionsAlbum.length; i++) {
     if (suggestionsAlbum[i].toLowerCase().includes(currentValue)) {
       containingStrings.push(suggestionsAlbum[i]);
@@ -91,4 +90,83 @@ const updateTotalCost = () => {
     totalCost += parseFloat(cost) * parseInt(quantity);
   }
   document.querySelector("#new-supply .total-cost").value = totalCost;
+};
+
+const addNewSupply = () => {
+  let supplyID = document.querySelector("#new-supply .supplyID").value;
+  let supplyImport = document.querySelector("#new-supply .supplyImport").value;
+  let supplyTotalCost = document.querySelector("#new-supply .total-cost").value;
+  let supplyDistributor = document.querySelector(
+    "#new-supply .supplyDistributor"
+  ).value;
+
+  let albumList = document.querySelectorAll(
+    "#new-supply .list .placeholder .info"
+  );
+  for (let i = 0; i < albumList.length; i++) {
+    let albumCost = albumList[i].querySelector(
+      ".item:nth-of-type(3) input"
+    ).value;
+    let albumQuantity = albumList[i].querySelector(
+      ".item:nth-of-type(4) input"
+    ).value;
+    if (isNaN(albumCost) || isNaN(albumQuantity)) {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please enter valid number!"
+      );
+      return;
+    }
+    if (parseInt(albumQuantity) <= 0 || parseInt(albumCost) <= 0) {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please enter quantity and cost greater than 0!"
+      );
+      return;
+    }
+  }
+
+  let albumListObj = [];
+  for (let i = 0; i < albumList.length; i++) {
+    let albumID = albumList[i].querySelector(".item:nth-of-type(2)").innerHTML;
+    let albumCost = albumList[i].querySelector(
+      ".item:nth-of-type(3) input"
+    ).value;
+    let albumQuantity = albumList[i].querySelector(
+      ".item:nth-of-type(4) input"
+    ).value;
+    albumListObj.push({
+      albumID: albumID,
+      quantity: albumQuantity,
+      price: albumCost,
+    });
+  }
+
+  $.ajax({
+    url: "util/supply.php",
+    type: "POST",
+    data: {
+      supplyID: supplyID,
+      supplyImport: supplyImport,
+      supplyTotalCost: supplyTotalCost,
+      supplyDistributor: supplyDistributor,
+      albumList: JSON.stringify(albumListObj),
+      action: "addNewSupply",
+    },
+    success: function (res) {
+      if (res == "Success") {
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Add new supply successful!"
+        );
+        loadPageByAjax("supplyRecord");
+      } else {
+        console.log(res);
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Add new supply failed!"
+        );
+      }
+    },
+  });
 };

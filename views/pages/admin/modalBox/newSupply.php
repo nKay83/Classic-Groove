@@ -14,17 +14,17 @@ $distributor = getAllDistributor();
             <div class="modal-info">
                 <div class="modal-item">
                     <div class="item-header">Record Id</div>
-                    <div class="item-input"><input type="text" class="" value="<?= $newSupplyID ?>" disabled>
+                    <div class="item-input"><input type="text" class="supplyID" value="<?= $newSupplyID ?>" disabled>
                     </div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Importer</div>
-                    <div class="item-input"><input type="text" class="" value="<?= $_SESSION['userID'] ?>"
+                    <div class="item-input"><input type="text" class="supplyImport" value="<?= $_SESSION['userID'] ?>"
                             disabled></div>
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Record date</div>
-                    <div class="item-input"><input type="text" class="" value="<?= date("d/m/Y") ?> "
+                    <div class="item-input"><input type="text" class="supplyDate" value="<?= date("d/m/Y") ?> "
                             disabled>
                     </div>
                 </div>
@@ -34,7 +34,7 @@ $distributor = getAllDistributor();
                 </div>
                 <div class="modal-item" style=" grid-column: 1 / 3; width: 90%; margin: 0 5%;">
                     <div class="item-header">Distributor</div>
-                    <div class="item-input"><select class="" name="" id="">
+                    <div class="item-input"><select class="supplyDistributor" name="" id="">
                             <?php foreach ($distributor as $d): ?>
                                 <option value="<?= $d['maNCC'] ?>"><?= $d['tenNCC'] ?></option>
                             <?php endforeach; ?>
@@ -62,7 +62,7 @@ $distributor = getAllDistributor();
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button" onclick="loadModalBoxByAjax('editAlbum',<?= $album['maAlbum'] ?>)">
+                <div class="edit-button" onclick="addNewSupply()">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Add</div>
                 </div>
