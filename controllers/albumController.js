@@ -400,6 +400,7 @@ const updateAlbum = async (AbID) => {
   );
   await updateSongInfo(AbID);
   customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
+  loadPageByAjax('productManager');
   loadModalBoxByAjax("detailAlbum", AbID);
 };
 const updateSongInfo = async (AbID) => {

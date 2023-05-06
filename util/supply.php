@@ -18,8 +18,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 foreach ($albumList as $album) {
                     $sql = "INSERT INTO chitietphieunhap
                             VALUES (" . $album->{"albumID"} . "," . $supplyID . "," . $album->{"price"} . "," . $album->{"quantity"} . ")";
-                    $result = $dp->excuteQuery($sql);
-                    if (!$result) {
+                    $result2 = $dp->excuteQuery($sql);
+                    $sql = "UPDATE album SET soLuong=soluong + " . $album->{"quantity"} . " WHERE maAlbum=" . $album->{"albumID"};
+                    $result3 = $dp->excuteQuery($sql);
+                    if (!$result2 || !$result3) {
                         $error = true;
                     }
                 }
