@@ -5,6 +5,12 @@ const getInfoAlbum = (albumID) => {
     type: "GET",
   });
 };
+const getAllAlbum = () => {
+  return $.ajax({
+    url: "util/albums.php?action=getAllAlbum",
+    type: "GET",
+  });
+};
 const getAllSongs = () => {
   return $.ajax({
     url: "util/albums.php?action=getAllSongs",
@@ -361,7 +367,7 @@ const suggest = () => {
 
 // Display the filtered suggestions
 function displaySuggestions(suggestions) {
-  suggestionList = document.getElementById("suggestion-list");
+  let suggestionList = document.getElementById("suggestion-list");
   suggestionList.innerHTML = "";
   suggestions.forEach(function (suggestion) {
     suggestionList.innerHTML += `<li onclick="chooseSuggestion(this)">${suggestion}</li>`;

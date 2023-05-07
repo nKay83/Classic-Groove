@@ -3,8 +3,9 @@ require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $recordID = $_POST["id"];
 $record = getRecord($recordID);
+$detailRecord = getDetailRecord($recordID);
 ?>
-<div class="modal-placeholder" id="detail-album">
+<div class="modal-placeholder" id="detail-supply">
     <div class="modal-box">
         <div class="modal-header ">
             <h1><i class="fa-regular fa-square-kanban fa-rotate-270"></i>Supply detail</h1>
@@ -49,18 +50,24 @@ $record = getRecord($recordID);
                 </div>
             </div>
             <div class="list">
-                <div class="placeholder">
-                    <div class="info">
-                        <div class="item">
-                        </div>
-                        <div class="item">
-                        </div>
-                        <div class="item">
-                        </div>
-                        <div class="item">
+                <?php for ($i = 0; $i < count($detailRecord); $i++): ?>
+                    <div class="placeholder">
+                        <div class="info">
+                            <div class="item">
+                                <?= sprintf("%02d", $i + 1) ?>
+                            </div>
+                            <div class="item">
+                                <?= $detailRecord[$i]['album'] ?>
+                            </div>
+                            <div class="item">
+                                <?= $detailRecord[$i]['gia'] ?>
+                            </div>
+                            <div class="item">
+                                <?= $detailRecord[$i]['SoLuong'] ?>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endfor; ?>
             </div>
         </div>
         <div class="modal-button">
@@ -74,7 +81,7 @@ $record = getRecord($recordID);
                     <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
                     <div class="info-placeholder">Delete</div>
                 </div>
-                <div class="back-button" onclick="closeDetailalbum()">
+                <div class="back-button" onclick="closeDetailSupply()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
                 </div>
@@ -90,5 +97,19 @@ function getRecord($recordID)
     $sql = "SELECT * FROM phieunhap join nhacungcap on phieunhap.NCC = nhacungcap.maNCC WHERE maPhieuNhap = $recordID";
     $result = $dp->excuteQuery($sql);
     return $result->fetch_assoc();
+}
+function getDetailRecord($recordID)
+{
+    global $dp;
+    $dp = new DataProvider();
+    $sql = "SELECT * FROM chitietphieunhap WHERE phieuNhap = $recordID";
+    $result = $dp->excuteQuery($sql);
+    $detailRecord = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($detailRecord, $row);
+        }
+    }
+    return $detailRecord;
 }
 ?>

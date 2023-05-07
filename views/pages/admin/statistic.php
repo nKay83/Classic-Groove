@@ -1,4 +1,4 @@
-<p>Từ từ có làm gì căng?</p>
+
 <p>Current Permission:</p>
 <?php
 session_start();

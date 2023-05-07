@@ -87,7 +87,6 @@ $songs = getSong($albumID);
                             <div class="item"><?=$songs[$i]['maBaiHat']?></div>
                             <div class="item input-container">
                                 <input type="text" value="<?= $songs[$i]['tenBaiHat'] ?>">
-
                             </div>
                             <div class="item input-container songFile-container">
                                 <span><?= $songs[$i]['linkFile'] ?>.mp3</span>

@@ -211,13 +211,21 @@
   height: 100%;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 2fr 2fr 2fr ;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
   justify-content: center;
   margin: auto;
 }
+#supplyRecord
+  #new-supply
+  .modal-box
+  .modal-right
+  .title-list
+  .title-placeholder {
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+}
 #supplyRecord .modal-box .modal-right .list {
   width: 100%;
-  max-height: 49vh;
+  max-height: 23vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -248,8 +256,11 @@
   width: 100%;
   height: 100%;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 2fr 2fr 2fr ;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
   justify-content: center;
+}
+#supplyRecord #new-supply .modal-right .list .placeholder .info {
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
 }
 #supplyRecord .modal-right .list .placeholder .info .item {
   display: flex;
@@ -348,7 +359,7 @@
   font-weight: 600;
   font-family: "Dosis", sans-serif;
   font-size: calc(4px + 1vw);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 #supplyRecord .modal-box .modal-info .modal-item .item-input textarea {
   width: 100%;
@@ -448,4 +459,95 @@
 #supplyRecord .modal-box .delete-button {
   background-color: var(--ora);
   color: var(--bla);
+}
+
+#supplyRecord .btnAddAlbum {
+  display: flex;
+  justify-content: center;
+}
+#supplyRecord .btnAddAlbum input {
+  margin-top: 5px;
+  font-size: 25px;
+  color: var(--ora);
+  background-color: var(--whi);
+  padding: 5px;
+  border: none;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#supplyRecord #add_exist_album {
+  display: none;
+}
+#supplyRecord #add_exist_album .modal-box {
+  display: flex;
+  align-items: center;
+  padding: 4%;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+}
+#supplyRecord #add_exist_album .modal-box h1 {
+  margin-bottom: 15px;
+}
+#supplyRecord #add_exist_album .modal-box .btn-add {
+  color: var(--whi);
+  background-color: var(--ora);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  margin-right: 10px;
+  width: 6vw;
+}
+#supplyRecord #add_exist_album .modal-box .btn-cancel {
+  color: var(--whi);
+  background-color: var(--bla);
+  border: 1px solid var(--whi);
+  cursor: pointer;
+  width: max-content;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--whi);
+  width: 6vw;
+}
+
+#supplyRecord #suggestion-container {
+  position: relative;
+}
+#supplyRecord #suggestion-container label {
+  font-size: 24px;
+}
+#supplyRecord #suggestion-container input {
+  width: 100%;
+  font-size: 20px;
+}
+#supplyRecord #suggestion-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#supplyRecord #suggestion-list li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#supplyRecord #suggestion-list li:hover {
+  background-color: #f2f2f2;
+}
+#supplyRecord #new-supply .placeholder input {
+  width: 90%;
 }

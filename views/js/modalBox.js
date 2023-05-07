@@ -72,7 +72,22 @@ function closeNewAccount() {
 const openAddExistingSong = () => {
   document.querySelector("#add_exist_song").style.display = "block";
   updateSuggestions();
-}
+};
 const closeAddExistingSong = () => {
   document.querySelector("#add_exist_song").style.display = "none";
-}
+};
+
+const openAddAlbum = () => {
+  document.querySelector("#add_exist_album").style.display = "block";
+  updateSuggestionsAlbum();
+};
+const closeAddAlbum = () => {
+  document.querySelector("#add_exist_album").style.display = "none";
+};
+
+const closeNewSupply = () => {
+  document.querySelector("#new-supply").style.display = "none";
+};
+const closeDetailSupply = () => {
+  document.querySelector("#detail-supply").style.display = "none";
+};
