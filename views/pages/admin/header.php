@@ -40,7 +40,7 @@ session_start();
       <?php if (checkCanAccess(19)): ?>
         <div class="tab-title" onclick="loadPageByAjax('distributor')">
           <div class="tab-icon"><i class="fa-solid fa-handshake"></i></div>
-          <div class="tab-info">Distributor</div>
+          <div class="tab-info">Producer</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(12)): ?>

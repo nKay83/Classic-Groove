@@ -42,9 +42,6 @@
       <?php include 'views/pages/admin/header.php' ?>
     </header>
     <main>
-      <div id="search">
-        <?php include 'views/pages/user/search.php' ?>
-      </div>
       <div id="content">
       </div>
       <div id="notice">
