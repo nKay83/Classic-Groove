@@ -28,7 +28,7 @@ $listPermission = getListPermission($roleID);
             <i class="fa-solid fa-folder-arrow-down"></i>
             <span class="info-placeholder">save</span>
         </div>
-        <div class="button-container">
+        <div class="button-container" onclick="deleteRole(<?= $role['maVaiTro'] ?>)">
             <i class="fa-solid fa-x"></i>
             <span class="info-placeholder">delete</span>
         </div>

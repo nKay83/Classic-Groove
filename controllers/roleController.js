@@ -66,3 +66,21 @@ const addNewRole = (roleID) => {
     },
   });
 };
+
+const deleteRole = (roleID) => {
+  let choice = confirm("Are you sure to delete this role?");
+  if (!choice) return;
+  $.ajax({
+    url: "util/role.php?roleID=" + roleID + "&action=deleteRole",
+    type: "DELETE",
+    success: function (res) {
+      if (res != "Success") console.log(res);
+      else
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Delete role successfully!"
+        );
+      loadPageByAjax("roleManager");
+    },
+  });
+};

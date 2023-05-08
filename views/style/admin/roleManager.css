@@ -115,6 +115,7 @@
   background-color: var(--whi);
   width: 100%;
   min-height: 35vh;
+  height: 35vh;
   font-size: calc(5px + 1vw);
   overflow-y: scroll;
 }
