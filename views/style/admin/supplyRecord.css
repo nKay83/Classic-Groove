@@ -423,7 +423,9 @@
   width: 90%;
   color: var(--whi);
   margin-left: 10%;
+  align-items: end;
 }
+
 
 #supplyRecord .modal-box .edit-button,
 #supplyRecord .modal-box .back-button,

@@ -62,6 +62,7 @@ $distributor = getAllDistributor();
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
+                <div></div>
                 <div class="edit-button" onclick="addNewSupply()">
                     <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
                     <div class="info-placeholder">Add</div>
