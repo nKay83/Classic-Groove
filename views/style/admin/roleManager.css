@@ -198,11 +198,21 @@
   background-color: var(--ora);
   border-radius: 15px;
   width: 30%;
-  margin-right: 5px;
+  margin-right: 10px;
   color: var(--whi);
   text-align: center;
   cursor: pointer;
 }
 #roleManager .info-role .button-layout .button-container:nth-of-type(2){
   background-color: var(--bla);
+}
+
+
+#roleManager .info-role .button-layout .button-container:active {
+  transform: translateY(5px);
+  transition: all 0.2s ease-in-out;
+}
+
+#roleManager .info-role .button-layout .button-container:hover {
+  opacity: 0.8;
 }

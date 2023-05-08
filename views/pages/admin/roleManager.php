@@ -29,7 +29,8 @@ $role = getAllRole();
                     <div class="item">
                         <?= $role[$i]['moTa'] ?>
                     </div>
-                    <div class="item" onclick="loadModalBoxByAjax('detailRole', <?= $role[$i]['maVaiTro'] ?>)"><i class="fa-regular fa-circle-info"></i>
+                    <div class="item" onclick="loadModalBoxByAjax('detailRole', <?= $role[$i]['maVaiTro'] ?>)"><i
+                            class="fa-regular fa-circle-info"></i>
                     </div>
                 </div>
             <?php endfor ?>

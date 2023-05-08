@@ -16,29 +16,27 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                     echo "error";
                 }
                 break;
-            case 'assignPermission':
-                $roleID = $_POST['roleID'];
-                $permissionID = $_POST['permissionID'];
-                $sql = "INSERT INTO vaitro_quyen
-                        VALUES ('" . $roleID . "','" . $permissionID . "')";
-                $result = $dp->excuteQuery($sql);
-                if ($result) {
-                    echo "Success";
-                } else {
-                    echo "error";
-                }
-                break;
-        }
-        break;
-    case 'DELETE':
-        switch ($_GET['action']) {
-            case 'removeAssignPermission':
-                $roleID = $_GET['roleID'];
-                $permissionID = $_GET['permissionID'];
+            case 'updateRole':
+                $roleID = $_POST["roleID"];
+                $roleName = $_POST["roleName"];
+                $roleDescription = $_POST["roleDescription"];
+                $listPermission = $_POST["listPermission"];
+                $sql = "UPDATE vaitro
+                        SET tenVaiTro ='" . $roleName . "',
+                            moTa = '" . $roleDescription . "'
+                        WHERE maVaiTro = " . $roleID;
+                $result1 = $dp->excuteQuery($sql);
                 $sql = "DELETE FROM vaitro_quyen
-                        WHERE maVaiTro=" . $roleID . "' AND maQuyen=" . $permissionID;
-                $result = $dp->excuteQuery($sql);
-                if ($result) {
+                        WHERE VaiTro_maVaiTro = " . $roleID;
+                $result2 = $dp->excuteQuery($sql);
+                $sql = "INSERT INTO vaitro_quyen
+                        VALUES ";
+                foreach ($listPermission as $permission) {
+                    $sql .= "(" . $roleID . "," . $permission . "),";
+                }
+                $sql = substr($sql, 0, -1);
+                $result3 = $dp->excuteQuery($sql);
+                if ($result1 && $result2 && $result3) {
                     echo "Success";
                 } else {
                     echo "error";
@@ -46,4 +44,5 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 break;
         }
         break;
+
 }
