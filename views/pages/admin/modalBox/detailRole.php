@@ -24,6 +24,16 @@ print_r($listPermission);
         <label for="">Des:</label>
         <textarea name="" id="" cols="30" rows="5"> <?= $role['moTa'] ?></textarea>
     </div>
+    <div class="button-layout">
+        <div class="button-container">
+            <i class="fa-solid fa-folder-arrow-down"></i>
+            <span class="info-placeholder">save</span>
+        </div>
+        <div class="button-container">
+            <i class="fa-solid fa-x"></i>
+            <span class="info-placeholder">delete</span>
+        </div>
+    </div>
 </div>
 <div class="role-placeholder">
     <div class="role-box">

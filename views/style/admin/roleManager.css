@@ -160,7 +160,6 @@
   border-radius: 15px;
   font-size: 25px;
   margin: 0 auto;
- 
 }
 #roleManager .info-role .role-header {
   color: var(--ora);
@@ -171,7 +170,7 @@
   margin-top: 5px;
 }
 #roleManager .info-role .row label {
- width: 30%;
+  width: 30%;
 }
 #roleManager .info-role .row input,
 #roleManager .info-role .row textarea {
@@ -188,4 +187,22 @@
 #roleManager .info-role .row input:focus,
 #roleManager .info-role .row textarea:focus {
   border: 2px solid var(--ora);
+}
+#roleManager .info-role .button-layout {
+  display: flex;
+  justify-content: end;
+  padding-top: 10px;
+}
+#roleManager .info-role .button-layout .button-container {
+  padding: 5px 10px;
+  background-color: var(--ora);
+  border-radius: 15px;
+  width: 30%;
+  margin-right: 5px;
+  color: var(--whi);
+  text-align: center;
+  cursor: pointer;
+}
+#roleManager .info-role .button-layout .button-container:nth-of-type(2){
+  background-color: var(--bla);
 }
