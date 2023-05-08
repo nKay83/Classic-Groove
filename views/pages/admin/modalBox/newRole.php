@@ -22,11 +22,11 @@ $newRoleID = getNewRoleID();
         <textarea name="" id="" cols="30" rows="5"></textarea>
     </div>
     <div class="button-layout">
-        <div class="button-container" onclick="updateRole(<?= $role['maVaiTro'] ?>)">
+        <div class="button-container" onclick="addNewRole(<?= $newRoleID ?>)">
             <i class="fa-solid fa-folder-arrow-down"></i>
             <span class="info-placeholder">save</span>
         </div>
-        <div class="button-container">
+        <div class="button-container" onclick="loadPageByAjax('roleManager')">
             <i class="fa-solid fa-back"></i>
             <span class="info-placeholder">Cancel</span>
         </div>
