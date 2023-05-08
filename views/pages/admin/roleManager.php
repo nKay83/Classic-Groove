@@ -1,3 +1,8 @@
+<?php
+require("../../../util/dataProvider.php");
+$dp = new DataProvider();
+$role = getAllRole();
+?>
 <div id="roleManager">
     <h1>Permission</h1>
     <div class="permission-placeholder">
@@ -10,33 +15,41 @@
 
         </div>
         <div class="list-placeholder">
-            <div class="role-information">
-                <div class="item">01</div>
-                <div class="item">EMP1</div>
-                <div class="item"><input type="text" value="Employee 1"></div>
-                <div class="item"><input type="text"
-                        value="Loremakjshdksajdhksajhdkjsahdsahdkahdkjashd;hsa;dhakdhafsshkkkkkkkkkkkkkkkkkkkkkkkkkkshfkhsdkjhfkshfkjshkfhskdjfhksjdfsdfsdfsds">
+            <?php for ($i = 0; $i < count($role); $i++): ?>
+                <div class="role-information">
+                    <div class="item">
+                        <?= sprintf("%02d", $i + 1) ?>
+                    </div>
+                    <div class="item">
+                        <?= $role[$i]['maVaiTro'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $role[$i]['tenVaiTro'] ?>
+                    </div>
+                    <div class="item">
+                        <?= $role[$i]['moTa'] ?>
+                    </div>
+                    <div class="item" onclick="loadModalBoxByAjax('detailRole')"><i class="fa-regular fa-circle-info"></i>
+                    </div>
                 </div>
-                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
-            </div>
-            <div class="role-information">
-                <div class="item">01</div>
-                <div class="item">EMP1</div>
-                <div class="item">Employee 1</div>
-                <div class="item">Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd
-                    sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashdLor emakjs hdksa jdhks ajhdkj sahd
-                    sahdk ahdkjashd Lor emakjs hdksa jdhks ajhdkj sahd sahdk ahdkjashd</div>
-                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
-            </div>
-            <div class="role-information">
-                <div class="item">01</div>
-                <div class="item">EMP1</div>
-                <div class="item">Employee 1</div>
-                <div class="item">Lorem</div>
-                <div class="item"><i class="fa-regular fa-circle-info"></i></div>
-            </div>
+            <?php endfor ?>
         </div>
     </div>
 
-    <?php include("detailRole.php");?>
+    <div id="modal-box"></div>
 </div>
+<?php
+function getAllRole()
+{
+    global $dp;
+    $sql = "SELECT * FROM vaitro";
+    $result = $dp->excuteQuery($sql);
+    $role = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($role, $row);
+        }
+    }
+    return $role;
+}
+?>

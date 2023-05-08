@@ -4,7 +4,6 @@
     <div class="row">
         <label for="">ID:</label>
         <Span>1</Span>
-        <!-- <input type="text" value="1"> -->
     </div>
     <div class="row">
         <label for="">Name:</label>

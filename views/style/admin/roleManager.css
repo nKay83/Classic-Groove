@@ -114,7 +114,7 @@
 #roleManager .list-placeholder {
   background-color: var(--whi);
   width: 100%;
-  min-height: 47.7vh;
+  min-height: 35vh;
   font-size: calc(5px + 1vw);
   overflow-y: scroll;
 }

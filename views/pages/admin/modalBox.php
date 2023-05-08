@@ -30,6 +30,10 @@ if (isset($_POST["modalBox"])) {
             break;
         case 'newSupply':
             include("modalBox/newSupply.php");
+            break;
+        case 'detailRole':
+            include("modalBox/detailRole.php");
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
