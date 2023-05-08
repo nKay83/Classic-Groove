@@ -12,7 +12,8 @@
     height: 91vh;
     width: 95%;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: -3%;
+
     /* position: relative; */
 }
 
@@ -37,7 +38,7 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--ora);
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 5%;
     cursor: pointer;
 }
@@ -79,14 +80,14 @@
 
 #producer .list {
     width: 100%;
-    max-height: 75vh;
+    max-height: 82vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: calc(5px + 1vw);
     background-color: var(--whi);
-    height: 75vh;
-    /* border-radius: 30px 30px 0 0; */
+    height: 82vh;
+    /* border-radius: 10px 30px 0 0; */
     overflow-y: scroll;
 }
 
@@ -150,7 +151,7 @@
 
 #producer .modal-box {
     background-color: var(--whi);
-    border-radius: 30px;
+    border-radius: 10px;
     width: 50%;
     height: 30vw;
     margin: 20vh auto;
@@ -206,7 +207,7 @@
 #producer .modal-box .modal-info .modal-item .item-input input {
     width: 100%;
     height: 90%;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
     background-color: var(--gr2);
     color: var(--bla);
@@ -231,7 +232,7 @@
 #producer .modal-box .modal-info .modal-item .item-input select {
     width: 100%;
     height: 90%;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
     background-color: var(--gr2);
     color: var(--bla);
@@ -277,7 +278,7 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--ora);
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 5%;
     cursor: pointer;
     font-size: calc(5px + 1vw);

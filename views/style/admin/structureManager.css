@@ -12,213 +12,175 @@
     height: 91vh;
     width: 95%;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: -3%;
     /* position: relative; */
 }
 
-#structure .layout {
-    width: 100%;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: 1fr;
+#structure h1 {
+    margin-bottom: 4%;
 }
 
-#structure .layout .left {
-    width: 95%;
-    height: 95%;
-    margin: auto 0;
-    background-color: var(--whi);
-    border-radius: 30px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 2fr 15fr 2fr;
-    color: var(--ora);
-}
-
-#structure .layout .left .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid var(--ora);
-    margin: 0 1%;
-}
-
-#structure .layout .left .title-list {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: calc(5px + 1vw);
-}
-
-#structure .layout .left .title-list .title-placeholder {
-    width: 97%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
-    justify-content: center;
-    margin: auto;
-    font-size: calc(5px + 1vw);
-}
-
-#structure .layout .left .title-list .title-placeholder .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    height: 70%;
-    width: 100%;
-    margin: auto;
-}
-
-#structure .list {
-    width: 100%;
-    max-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: calc(5px + 1vw);
-    /* background-color: var(--whi); */
-    /* height: 75vh; */
-    /* border-radius: 30px 30px 0 0; */
-    overflow-y: scroll;
-}
-
-#structure .placeholder {
-    width: 98%;
-    height: 13%;
-    margin: 0 1%;
-    color: var(--bla);
-    position: relative;
-    padding: 13px 0;
-    border-bottom: 4px solid var(--ora);
-}
-
-#structure .placeholder .info {
-    display: grid;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
-    justify-content: center;
-}
-
-#structure .placeholder .info .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    border-right: var(--ora) solid 4px;
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-    color: var(--bla);
-}
-
-#structure .placeholder .info .item:nth-of-type(5) {
-    border: none;
-}
-
-#structure .button-placeholder {
-    width: 35%;
-    height: 3.5vw;
-    display: grid;
-    justify-self: right;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    font-size: calc(5px + 1vw);
-    margin-right: 3%;
-}
-
-#structure .edit-button,
-#structure .save-button,
-#structure .cancel-button,
-#structure .save-button {
-    flex-direction: row;
-    display: flex;
-    height: 2.5vw;
-    width: 90%;
-    margin: auto;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--ora);
-    border-radius: 30px;
-    padding: 5%;
-    cursor: pointer;
-    color: var(--whi);
-}
-
-#structure .cancel-button {
-    background-color: var(--whi);
-    color: var(--bla);
-}
-
-#structure .layout .right {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 100%;
-    height: 100%;
-    margin: auto 0;
-    color: var(--ora);
-}
-
-#structure .layout .right .product-placeholder {
-    width: 95%;
-    height: 90%;
-    margin: auto;
-    background-color: var(--whi);
-    border-radius: 30px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr;
-}
-
-#structure .layout .right .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 4%;
-    border-bottom: 3px var(--ora) solid;
-}
-
-#structure .layout .right .info {
-    display: grid;
-    grid-template-columns: 3fr 4fr;
-    grid-template-rows: 1fr;
-}
-
-#structure .layout .right .info .img-placeholder {
-    border: 1px solid black;
-    margin: auto;
-    height: 80%;
+#structure .manageSilder {
     width: 80%;
-}
-
-#structure .layout .right .info .info-placeholder {
+    height: 88vh;
+    background-color: var(--whi);
     display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 4%;
-    margin: auto;
-    height: 80%;
-    width: 100%;
-    font-size: calc(5px + 1vw);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 8fr;
+    padding: 0 3%;
+    border-radius: 20px 20px 0 0;
 }
 
-#structure .layout .right .info .info-placeholder .title,
-#structure .layout .right .info .info-placeholder .item {
+#structure .header {
+    color: #f2623e;
+    font-size: calc(5px + 1vw);
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-#structure .layout .right .info .info-placeholder .item {
-    color: var(--bla);
-    overflow: hidden;
+#structure .top {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 3px solid var(--ora);
+}
+
+#structure .top .img-placeholder {
+    border: 1px solid black;
+    margin: 5%;
+}
+
+#structure .top .info-placeholder {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    margin: 2.5%;
+}
+
+#structure .top .info-placeholder .info {
+    /* border: 1px solid black; */
+    padding-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr;
+    color: var(--ora);
+    font-size: calc(5px + 1vw);
+}
+
+#structure .top .info-placeholder .info .item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#structure .top .info-placeholder .info .item input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--gr2);
+    font-family: "Dosis", sans-serif;
+    font-size: calc(3px + 1vw);
+    padding-left: 4%;
+}
+
+#structure .top .info-placeholder .button {
+    /* border: 1px solid black; */
+    display: grid;
+    justify-content: right;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 60%;
+    column-gap: 20px;
+}
+
+#structure .top .info-placeholder .button .item {
+    display: flex;
+    justify-content: right;
+}
+
+#structure .top .info-placeholder .button input {
+    height: 40px;
+    /* margin: auto; */
+    font-family: "Dosis", sans-serif;
+    font-size: 20px;
+    background-color: var(--ora);
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 4% 30px;
+}
+#structure .top .info-placeholder .button .item:nth-of-type(1) input{
+    background-color: #000000;
+}
+
+
+
+#structure .bottom {
+    /* border: 2px solid blue; */
+}
+
+#structure .bottom .title-list {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+    background: var(--whi);
+    border-radius: 20px 20px 0 0;
+    color: var(--ora);
+    border-bottom: 3px solid;
+}
+
+#structure .bottom .title-list .title-placeholder {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 4fr 2fr 1fr;
+}
+
+#structure .bottom .title-list .title-placeholder .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#structure .bottom .list {
+    width: 100%;
+    max-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(5px + 1vw);
+    background-color: var(--whi);
+    height: 45vh;
+    overflow-y: scroll;
+}
+#structure .bottom .list .silde-placeholder {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 4fr 2fr 1fr;
+    border-bottom: var(--ora) 3px solid;
+    padding: 15px 0;
+    height: 160px;
+}
+#structure .bottom .list .silde-placeholder .item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding: 0 5% ;
+    border-right: 3px solid var(--ora);
+    overflow-y: scroll;
+}
+#structure .bottom .list .silde-placeholder .item .img-placeholder{
+    border: 1px solid black;
+    width: 80%;
+    height: 100%;
+}
+#structure .bottom .list .silde-placeholder .item:nth-of-type(5){
+    border: none;
 }

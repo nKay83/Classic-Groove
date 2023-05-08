@@ -1,4 +1,4 @@
-:root {
+:root { 
   --ora: #f2623e;
   --whi: #ffffff;
   --bla: #000000;
@@ -12,7 +12,8 @@
   height: 91vh;
   width: 95%;
   margin: 0 auto;
-  margin-top: 1%;
+  margin-top: -3%;
+
   /* position: relative; */
 }
 
@@ -36,7 +37,7 @@
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--ora);
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 5%;
   cursor: pointer;
 }
@@ -82,14 +83,14 @@
 
 #supplyRecord .list {
   width: 100%;
-  max-height: 75vh;
+  max-height: 82vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(5px + 1vw);
   background-color: var(--whi);
-  height: 75vh;
-  /* border-radius: 30px 30px 0 0; */
+  height: 82vh;
+  /* border-radius: 10px 30px 0 0; */
   overflow-y: scroll;
 }
 
@@ -143,7 +144,7 @@
 #supplyRecord .modal-placeholder {
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: opacity(50%);
-  height: 94vh;
+  height: 100vh;
   width: 87vw;
   position: fixed;
   bottom: 0;
@@ -152,17 +153,17 @@
 
 #supplyRecord .modal-box {
   background-color: var(--whi);
-  border-radius: 30px;
-  width: 75%;
-  height: 50vh;
+  border-radius: 10px;
+  width: 55%;
+  height:auto;
   margin: 13vh auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr;
   color: var(--ora);
   animation: loader 0.4s;
   animation-iteration-count: 1;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.7);
+  /* box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.7); */
 }
 @keyframes loader {
   from {
@@ -231,12 +232,12 @@
   font-size: calc(3px + 1vw);
   background-color: var(--whi);
   height: auto;
-  border-radius: 30px 30px 0 0;
+  border-radius: 10px 30px 0 0;
   overflow-y: scroll;
 }
 #supplyRecord .modal-box .modal-right .list .placeholder {
   width: 98%;
-  height: 60px;
+  height: 50px;
   margin: 0 1%;
   color: var(--bla);
   position: relative;
@@ -307,7 +308,7 @@
   .modal-info
   .modal-item:nth-last-child(2)
   .item-header {
-  height: 35%;
+  padding: 3% 0;
 }
 
 /* #supplyRecord
@@ -336,7 +337,7 @@
 }
 
 #supplyRecord .modal-box .modal-info .modal-item .item-header {
-  padding: 0 5%;
+  padding: 3% 0%;
   width: 90%;
 }
 
@@ -350,7 +351,7 @@
 #supplyRecord .modal-box .modal-info .modal-item .item-input input {
   width: 100%;
   height: 90%;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   background-color: var(--gr2);
   color: var(--bla);
@@ -363,7 +364,7 @@
 #supplyRecord .modal-box .modal-info .modal-item .item-input textarea {
   width: 100%;
   height: 90%;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   background-color: var(--gr2);
   color: var(--bla);
@@ -390,7 +391,7 @@
 #supplyRecord .modal-box .modal-info .modal-item .item-input select {
   width: 100%;
   height: 90%;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   background-color: var(--gr2);
   color: var(--bla);
@@ -406,7 +407,7 @@
 
 #supplyRecord .modal-box .modal-info .modal-item .item-input select:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--ora);
+  /* box-shadow: 0 0 0 2px var(--ora); */
 }
 
 #supplyRecord .modal-box .modal-button {
@@ -439,11 +440,11 @@
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--ora);
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 5%;
   cursor: pointer;
   font-size: calc(5px + 1vw);
-  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.7);
+  /* box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.7); */
 }
 #supplyRecord .modal-box .edit-button:active,
 #supplyRecord .modal-box .back-button:active,
