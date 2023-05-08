@@ -29,7 +29,7 @@ $role = getAllRole();
                     <div class="item">
                         <?= $role[$i]['moTa'] ?>
                     </div>
-                    <div class="item" onclick="loadModalBoxByAjax('detailRole')"><i class="fa-regular fa-circle-info"></i>
+                    <div class="item" onclick="loadModalBoxByAjax('detailRole', <?= $role[$i]['maVaiTro'] ?>)"><i class="fa-regular fa-circle-info"></i>
                     </div>
                 </div>
             <?php endfor ?>
@@ -42,7 +42,7 @@ $role = getAllRole();
 function getAllRole()
 {
     global $dp;
-    $sql = "SELECT * FROM vaitro";
+    $sql = "SELECT * FROM vaitro where maVaiTro != 1";
     $result = $dp->excuteQuery($sql);
     $role = array();
     if ($result->num_rows > 0) {
