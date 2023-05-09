@@ -19,6 +19,32 @@ const loadDetailSlide = async (slideID) => {
 };
 const updateSlide = () => {
   let idInput = document.querySelector(".idSlide");
-  console.log(idInput);
-  console.log(idInput.value);
+  let imgInput = document.querySelector(".imgSlide");
+  let nameInput = document.querySelector(".nameSlide");
+  let linkToInput = document.querySelector(".linkToSlide");
+  console.log(imgInput.src.split("/").pop());
+  $.ajax({
+    url:
+      "util/structure.php?slideID=" +
+      idInput.value +
+      "&slideName=" +
+      nameInput.value +
+      "&slideImg=" +
+      imgInput.src.split("/").pop() +
+      "&slideLinkTo=" +
+      parseInt(linkToInput.value) +
+      "&action=updateSlide",
+    type: "PUT",
+
+    success: function (res) {
+      if (res != "Success") {
+        console.log(res);
+      } else
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Update successfully!"
+        );
+      loadPageByAjax("structureManager");
+    },
+  });
 };
