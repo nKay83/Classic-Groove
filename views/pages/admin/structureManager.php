@@ -6,31 +6,14 @@ $slideShow = getAllSlideShow();
 
 <div id="structure">
     <h1><i class="fa-solid fa-puzzle"></i> Structure management</h1>
+    <div class="button-layout">
+        <div class="button-container" onclick="loadModalBoxByAjax('newSlide')">
+            <i class="fa-solid fa-plus"></i>
+            <span class="info-placeholder">New</span>
+        </div>
+    </div>
     <div class="manageSilder">
         <div class="header">Manage silder</div>
-        <div class="top">
-            <div class="img-placeholder">
-                <img class="imgSlide" src="data/imgAlbum/default.jfif" alt="imgSlideShow">
-                <input type="button" value="change" onclick=uploadImgSlide()>
-            </div>
-            <div class="info-placeholder">
-                <div class="info">
-                    <input type="text" class="idSlide" style="display:none">
-                    <div class="item">Name</div>
-                    <div class="item"><input class="nameSlide" type="text"></div>
-                    <div class="item">Linked to</div>
-                    <div class="item"><input class="linkToSlide" type="text"></div>
-                </div>
-                <div class="button">
-                    <div class="item">
-                        <input type="button" value="Delete">
-                    </div>
-                    <div class="item" onclick=updateSlide()>
-                        <input type="button" value="Save">
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="bottom">
             <div class="title-list">
                 <div class="title-placeholder">
@@ -59,11 +42,12 @@ $slideShow = getAllSlideShow();
                             <?= $slideShow[$i]['linkTo'] ?>
                         </div>
                         <div class="item"><i class="fa-regular fa-circle-info"
-                                onclick="loadDetailSlide(<?= $slideShow[$i]['maHinh'] ?>)"></i></div>
+                                onclick="loadModalBoxByAjax('detailSlide',<?= $slideShow[$i]['maHinh'] ?>)"></i></div>
                     </div>
                 <?php endfor ?>
             </div>
         </div>
+        <div id="modal-box"></div>
     </div>
 </div>
 

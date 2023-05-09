@@ -3,13 +3,19 @@ session_start();
 require("../util/dataProvider.php");
 $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
-    case 'GET':
-        switch ($_GET["action"]) {
-            case 'getDetailSlide':
-                $slideID = $_GET["slideID"];
-                $sql = "SELECT * FROM slideshow WHERE maHinh = " . $slideID;
+    case 'POST':
+        switch ($_POST["action"]) {
+            case 'addSlide':
+                $slideName = $_POST["slideName"];
+                $slideImg = $_POST["slideImg"];
+                $slideTo = $_POST["slideLinkTo"];
+                $sql = "INSERT INTO slideshow VALUES ('','$slideName', $slideTo, '$slideImg')";
                 $result = $dp->excuteQuery($sql);
-                echo json_encode($result->fetch_assoc());
+                if ($result) {
+                    echo 'Success';
+                } else {
+                    echo 'error';
+                }
                 break;
         }
         break;

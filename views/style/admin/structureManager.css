@@ -17,7 +17,7 @@
 }
 
 #structure h1 {
-  margin-bottom: 4%;
+  margin-bottom: 20px;
 }
 
 #structure .manageSilder {
@@ -167,7 +167,7 @@
   align-items: center;
   font-size: calc(5px + 1vw);
   background-color: var(--whi);
-  height: 500px;
+  height: 60vh;
   overflow-y: scroll;
 }
 #structure .bottom .list .silde-placeholder {
@@ -201,4 +201,19 @@
 }
 #structure .bottom .list .silde-placeholder .item:nth-of-type(5) {
   border: none;
+}
+
+#structure .button-layout {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+#structure .button-layout .button-container {
+  padding: 5px 10px;
+  background-color: var(--ora);
+  border-radius: 15px;
+  margin-right: 10px;
+  color: var(--whi);
+  text-align: center;
+  cursor: pointer;
 }

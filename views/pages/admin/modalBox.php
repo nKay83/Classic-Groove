@@ -37,6 +37,12 @@ if (isset($_POST["modalBox"])) {
         case 'newRole':
             include("modalBox/newRole.php");
             break;
+        case 'detailSlide':
+            include("modalBox/detailSlide.php");
+            break;
+        case 'newSlide':
+            include("modalBox/newSlide.php");
+            break;
         default:
             echo `<h1>Page not found 404</h1>`;
     }
