@@ -88,3 +88,22 @@ const addSlide = () => {
     },
   });
 };
+
+const deleteSlide = (slideID) => {
+  let choice = confirm("Are you sure to delete this slide?");
+  if (!choice) return;
+  $.ajax({
+    url: "util/structure.php?slideID=" + slideID + "&action=deleteSlide",
+    type: "DELETE",
+    success: function (res) {
+      if (res != "Success") {
+        console.log(res);
+      } else
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Deleted successfully!"
+        );
+      loadPageByAjax("structureManager");
+    },
+  });
+};

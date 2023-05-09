@@ -18,7 +18,7 @@ $slideShow = getSlideShow($slideID);
             <div class="item"><input class="linkToSlide" value="<?= $slideShow['linkTo'] ?>" type="text"></div>
         </div>
         <div class="button">
-            <div class="item">
+            <div class="item" onclick="deleteSlide(<?= $slideShow['maHinh'] ?>)">
                 <input type="button" value="Delete">
             </div>
             <div class="item" onclick="updateSlide(<?= $slideShow['maHinh'] ?>)">

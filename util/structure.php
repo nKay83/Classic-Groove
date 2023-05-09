@@ -33,7 +33,20 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 } else {
                     echo 'error';
                 }
-
+                break;
+        }
+        break;
+    case 'DELETE':
+        switch ($_GET["action"]) {
+            case 'deleteSlide':
+                $slideID = $_GET["slideID"];
+                $sql = "DELETE FROM slideshow WHERE maHinh = $slideID";
+                $result = $dp->excuteQuery($sql);
+                if ($result) {
+                    echo 'Success';
+                } else {
+                    echo 'error';
+                }
                 break;
         }
         break;
