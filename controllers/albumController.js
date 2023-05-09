@@ -188,7 +188,6 @@ const uploadImg = () => {
       cache: false,
       contentType: false,
       processData: false,
-
       success: function (res) {
         if (res) {
           document.querySelector(".img-container img").src =

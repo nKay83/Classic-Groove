@@ -11,6 +11,7 @@ $slideShow = getAllSlideShow();
         <div class="top">
             <div class="img-placeholder">
                 <img class="imgSlide" src="data/imgAlbum/default.jfif" alt="imgSlideShow">
+                <input type="button" value="change" onclick=uploadImgSlide()>
             </div>
             <div class="info-placeholder">
                 <div class="info">

@@ -48,3 +48,38 @@ const updateSlide = () => {
     },
   });
 };
+const uploadImgSlide = () => {
+  let fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.click();
+  fileInput.onchange = () => {
+    let file_data = fileInput.files[0];
+    let form_data = new FormData();
+    form_data.append("file", file_data);
+    form_data.append("target_directory", "../data/slideShow/");
+    //Ajax to send file to upload
+    $.ajax({
+      url: "util/upload.php",
+      type: "POST",
+      data: form_data,
+      dataType: "script",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (res) {
+        if (res) {
+          document.querySelector(".top .img-placeholder img").src =
+            "data/slideShow/" + fileInput.files[0].name;
+          customNotice(
+            "fa-sharp fa-light fa-circle-check",
+            "Uploaded successfully"
+          );
+        } else
+          customNotice(
+            "fa-sharp fa-light fa-circle-exclamation",
+            "Upload failed"
+          );
+      },
+    });
+  };
+};
