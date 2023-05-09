@@ -2,27 +2,29 @@
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
 $slideShow = getAllSlideShow();
-print_r($slideShow)
-    ?>
+?>
 
 <div id="structure">
     <h1><i class="fa-solid fa-puzzle"></i> Structure management</h1>
     <div class="manageSilder">
         <div class="header">Manage silder</div>
         <div class="top">
-            <div class="img-placeholder"></div>
+            <div class="img-placeholder">
+                <img class="imgSlide" src="data/imgAlbum/default.jfif" alt="imgSlideShow">
+            </div>
             <div class="info-placeholder">
                 <div class="info">
-                    <div class="item">Silde ID</div>
-                    <div class="item"><input type="text"></div>
+                    <input type="text" class="idSlide" style="display:none">
+                    <div class="item">Name</div>
+                    <div class="item"><input class="nameSlide" type="text"></div>
                     <div class="item">Linked to</div>
-                    <div class="item"><input type="text"></div>
+                    <div class="item"><input class="linkToSlide" type="text"></div>
                 </div>
                 <div class="button">
                     <div class="item">
                         <input type="button" value="Delete">
                     </div>
-                    <div class="item">
+                    <div class="item" onclick=updateSlide()>
                         <input type="button" value="Save">
                     </div>
                 </div>
@@ -55,7 +57,8 @@ print_r($slideShow)
                         <div class="item">
                             <?= $slideShow[$i]['linkTo'] ?>
                         </div>
-                        <div class="item"><i class="fa-regular fa-circle-info"></i></div>
+                        <div class="item"><i class="fa-regular fa-circle-info"
+                                onclick="loadDetailSlide(<?= $slideShow[$i]['maHinh'] ?>)"></i></div>
                     </div>
                 <?php endfor ?>
             </div>

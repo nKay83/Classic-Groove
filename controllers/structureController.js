@@ -1,0 +1,24 @@
+const getDetailSlide = (slideID) => {
+  return $.ajax({
+    url: "util/structure.php?slideID=" + slideID + "&action=getDetailSlide",
+    type: "GET",
+  });
+};
+
+const loadDetailSlide = async (slideID) => {
+  console.log(slideID);
+  let idInput = document.querySelector(".idSlide");
+  let imgInput = document.querySelector(".imgSlide");
+  let nameInput = document.querySelector(".nameSlide");
+  let linkToInput = document.querySelector(".linkToSlide");
+  let slideInfo = JSON.parse(await getDetailSlide(slideID));
+  imgInput.src = "data/slideShow/" + slideInfo.linkHinh;
+  nameInput.value = slideInfo.tenHinh;
+  linkToInput.value = slideInfo.linkTo;
+  idInput.value = slideID;
+};
+const updateSlide = () => {
+  let idInput = document.querySelector(".idSlide");
+  console.log(idInput);
+  console.log(idInput.value);
+};
