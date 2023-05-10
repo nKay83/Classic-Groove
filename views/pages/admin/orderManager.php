@@ -5,30 +5,30 @@ $order = getAllOrder();
 ?>
 <div id="orderManager">
     <div class="header">
-    <h2><i class="fa-regular fa-list"></i> Order management</h2>
-    <div></div>
-    <div class="search-bar">
-      <div class="search-input">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" value="Looking for somethings?">
-      </div>
-      <div class="filter-input">
-        <i class="fa-regular fa-filter"></i>
-        <select name="" id="">
-          <option value="default">Choose type</option>
-          <option value="cancel">Cancel</option>
-          <option value="pending">Pending</option>
-          <option value="shipping">Shipping</option>
-          <option value="delivered">Delivered</option>
-        </select>
-      </div>
-      <div class="date-begin">
-        <input type="date" name="" id="" value="Begin date">
-      </div>
-      <div class="date-end">
-        <input type="date" name="" id="" value="End date">
-      </div>
-    </div>
+        <h2><i class="fa-regular fa-list"></i> Order management</h2>
+        <div></div>
+        <div class="search-bar">
+            <div class="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Looking for somethings?">
+            </div>
+            <div class="filter-input">
+                <i class="fa-regular fa-filter"></i>
+                <select name="" id="">
+                    <option value="default">All</option>
+                    <option value="cancel">Cancel</option>
+                    <option value="pending">Pending</option>
+                    <option value="shipping">Shipping</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+            </div>
+            <div class="date-begin">
+                <input type="date" name="" id="" value="Begin date">
+            </div>
+            <div class="date-end">
+                <input type="date" name="" id="" value="End date">
+            </div>
+        </div>
     </div>
     <div class="title-list">
         <div class="title-placeholder">

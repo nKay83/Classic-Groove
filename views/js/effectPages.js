@@ -42,7 +42,8 @@ const prevSlide = () => {
   reloadSlider();
 };
 let refreshInterval = setInterval(() => {
-  document.getElementById("next").click();
+  let nextBtn = document.getElementById("next");
+  if (nextBtn != null) nextBtn.click();
 }, 3000);
 
 const reloadSlider = () => {

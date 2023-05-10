@@ -61,11 +61,11 @@ $detailOrder = getDetailOrder($orderID);
         <div class="modal-right">
             <div class="title-list">
                 <div class="title-placeholder">
-                    <div class="title" style="padding-right: 10px;">No.</div>
-                    <div class="title" style="padding-right: 15px;">Album ID</div>
-                    <div class="title" style="padding-right: 15px;">Album name</div>
-                    <div class="title" style="padding-right: 10px;">Quantity</div>
-                    <div class="title" style="padding-right: 10px;">Price</div>
+                    <div class="title">No.</div>
+                    <div class="title">AID</div>
+                    <div class="title">Album name</div>
+                    <div class="title">Quantity</div>
+                    <div class="title">Price</div>
                 </div>
             </div>
             <div class="list">
@@ -75,14 +75,20 @@ $detailOrder = getDetailOrder($orderID);
                             <div class="item">
                                 <?= sprintf("%02d", $i + 1) ?>
                             </div>
-                            <div class="item"><?=$detailOrder[$i]['album']?></div>
-                            <div class="item"><?=$detailOrder[$i]['ten']?></div>
-                            <div class="item"><?=$detailOrder[$i]['soLuong']?></div>
+                            <div class="item">
+                                <?= $detailOrder[$i]['album'] ?>
+                            </div>
+                            <div class="item">
+                                <?= $detailOrder[$i]['ten'] ?>
+                            </div>
+                            <div class="item">
+                                <?= $detailOrder[$i]['soLuong'] ?>
+                            </div>
                             <div class="item>" style="
                             display:flex;
                             justify-content:center;
                             align-items:center;
-                            color: var(--gr1)"><?=$detailOrder[$i]['gia']?></div>
+                            color: var(--gr1)"><?= $detailOrder[$i]['gia'] ?></div>
                         </div>
                     </div>
                 <?php endfor; ?>

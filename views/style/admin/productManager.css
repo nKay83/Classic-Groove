@@ -61,7 +61,7 @@
 }
 
 #productManager .title-list {
-  width: 93%;
+  /* width: 93%; */
   height: 5vh;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
 }
 
 #productManager .list {
-  width: 93%;
+  /* width: 93%; */
   max-height: 87vh;
   display: flex;
   flex-direction: column;
@@ -225,7 +225,7 @@
 
 #productManager .modal-box .modal-right .title-list {
   width: 100%;
-  height: 3vh;
+  /* height: 3vh; */
   /* font-size: calc(3px + 1vw); */
 }
 

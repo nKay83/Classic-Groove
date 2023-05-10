@@ -21,7 +21,7 @@ $album = getAllAlbum();
       <div class="filter-input">
         <i class="fa-regular fa-filter"></i>
         <select name="" id="">
-          <option value="default">Choose type</option>
+          <option value="default">All</option>
           <option value="blue">Blue</option>
           <option value="acoustic">Acoustic</option>
           <option value="classical">Classical</option>
