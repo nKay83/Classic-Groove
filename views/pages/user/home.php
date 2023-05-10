@@ -51,6 +51,36 @@ $pa = new Pagination($album, 12, $currentPage);
   <div class="slideshow">
     <div class="left">
       <div class="poster">
+        <div class="slider">
+          <div class="list">
+            <div class="item">
+              <img src="img/1.jpg" alt="">
+            </div>
+            <div class="item">
+              <img src="img/2.jpg" alt="">
+            </div>
+            <div class="item">
+              <img src="img/3.jpg" alt="">
+            </div>
+            <div class="item">
+              <img src="img/4.jpg" alt="">
+            </div>
+            <div class="item">
+              <img src="img/5.jpg" alt="">
+            </div>
+          </div>
+          <div class="buttons">
+            <button id="prev" onclick="prevSlide()"><</button>
+                <button id="next" onclick="nextSlide()">></button>
+          </div>
+          <ul class="dots">
+            <li onclick="changeSlide(0)" class="active"></li>
+            <li onclick="changeSlide(1)"></li>
+            <li onclick="changeSlide(2)"></li>
+            <li onclick="changeSlide(3)"></li>
+            <li onclick="changeSlide(4)"></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="right">

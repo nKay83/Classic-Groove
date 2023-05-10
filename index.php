@@ -26,7 +26,7 @@ session_start();
   <link rel="stylesheet" href="views/style/user/purchaseHistory.css">
   <link rel="stylesheet" href="views/style/admin/productManager.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="/assets/icons/scrollbar.css">
+  <!-- <link rel="stylesheet" href="/assets/icons/scrollbar.css"> -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
   <!-- font-family: "Dosis", sans-serif; -->
