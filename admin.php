@@ -26,11 +26,14 @@
   <link rel="stylesheet" href="views/style/admin/distributor.css">
   <link rel="stylesheet" href="views/style/admin/supplyRecord.css">
   <link rel="stylesheet" href="views/style/admin/roleManager.css">
+  <link rel="stylesheet" href="views/style/admin/statistic.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&display=swap" rel="stylesheet">
-  <!-- font-family: "Dosis", sans-serif; -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 
   <title>Administrator</title>
@@ -68,6 +71,6 @@
 <script src="controllers/managerOrderController.js"></script>
 <script src="controllers/supplyController.js"></script>
 <script src="controllers/structureController.js"></script>
+<script src="controllers/statisticController.js"></script>
 
-structureController
 </html>

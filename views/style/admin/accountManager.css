@@ -161,7 +161,7 @@
     border-radius: 10px;
     width: 50%;
     /* height: 30vw; */
-    margin: 20vh auto;
+    margin: 7vh auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 5fr 1fr;
