@@ -1,4 +1,21 @@
-const thongKe = () => {
+const getSalesByYear = (year) => {
+  return $.ajax({
+    url: "util/statistic.php?year=" + year + "&action=getSalesByYear",
+    type: "GET",
+  });
+};
+
+const thongKe = async () => {
+  let data = JSON.parse(await getSalesByYear(2023));
+  const allMonths = Array.from({ length: 12 }, (_, i) =>
+    (i + 1).toString().padStart(2, "0")
+  );
+  const formattedData = allMonths.map((mon) => {
+    const existingData = data.find((item) => item.mon === mon);
+    const total = existingData ? parseInt(existingData.total) : 0;
+    return { mon, total };
+  });
+  console.log(formattedData);
   Highcharts.chart("container", {
     chart: {
       type: "line",
@@ -6,12 +23,6 @@ const thongKe = () => {
     title: {
       text: "Doanh Số bán hàng",
     },
-    // subtitle: {
-    //   text:
-    //     "Source: " +
-    //     '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
-    //     'target="_blank">Wikipedia.com</a>',
-    // },
     xAxis: {
       categories: [
         "Jan",
@@ -44,10 +55,7 @@ const thongKe = () => {
     series: [
       {
         name: "Reggane",
-        data: [
-          16.0, 18.2, 23.1, 27.9, 32.2, 36.4, 39.8, 38.4, 35.5, 29.2, 22.0,
-          17.8,
-        ],
+        data: formattedData.map((item) => item.total),
       },
     ],
   });
