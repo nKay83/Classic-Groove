@@ -67,7 +67,7 @@ const thongKe2 = () => {
       type: "column",
     },
     title: {
-      text: "World's largest cities per 2021",
+      text: "Số lượng sản phẩm bán được theo loại vào tháng 02 năm 2023",
     },
     subtitle: {
       text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>',
@@ -166,7 +166,7 @@ const thongKe3 = () => {
       type: "bar",
     },
     title: {
-      text: "Historic World Population by Region",
+      text: "Top 5 sản phẩm bán chạy nhất vào tháng 02 năm 2023",
       align: "left",
     },
     subtitle: {
