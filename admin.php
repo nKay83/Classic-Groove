@@ -67,4 +67,7 @@
 <script src="controllers/roleController.js"></script>
 <script src="controllers/managerOrderController.js"></script>
 <script src="controllers/supplyController.js"></script>
+<script src="controllers/structureController.js"></script>
+
+structureController
 </html>
