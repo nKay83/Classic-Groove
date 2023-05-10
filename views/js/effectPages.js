@@ -41,23 +41,25 @@ const prevSlide = () => {
   active = active - 1 >= 0 ? active - 1 : lengthItems;
   reloadSlider();
 };
-let refreshInterval = setInterval(() => {
-  document.getElementById("next").click();
-}, 3000);
+// let refreshInterval = setInterval(() => {
+//   document.getElementById("next").click();
+// }, 3000);
 
 const reloadSlider = () => {
   let slider = document.querySelector(".slider .list");
   let items = document.querySelectorAll(".slider .list .item");
   let dots = document.querySelectorAll(".slider .dots li");
-  slider.style.left = -items[active].offsetLeft + "px";
+  // slider.style.left = -items[active].offsetLeft + "px";
+  slider.style.left = -55 * active + "vw";
+
   let last_active_dot = document.querySelector(".slider .dots li.active");
   last_active_dot.classList.remove("active");
   dots[active].classList.add("active");
 
   clearInterval(refreshInterval);
-  refreshInterval = setInterval(() => {
-    next.click();
-  }, 3000);
+  // refreshInterval = setInterval(() => {
+  //   next.click();
+  // }, 3000);
 };
 
 const changeSlide = (key) => {

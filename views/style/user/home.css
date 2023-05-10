@@ -8,8 +8,8 @@
 }
 
 #home .left {
-  width: 70%;
-  padding-right: 15px;
+  width: 55vw;
+  /* padding-right: 15px; */
 }
 #home .left .poster {
   width: 100%;
@@ -36,10 +36,14 @@
   transition: 1s;
 }
 #home .slider .list img {
-  width: 100%;
-  max-width: 100vw;
-  /* height: 100%; */
+  max-width: 55vw;
+  height: 100%;
   object-fit: cover;
+}
+#home .slider .list .item{
+  display: flex;
+  justify-content: center;
+  width: 55vw;
 }
 #home .slider .buttons {
   position: absolute;
@@ -83,6 +87,7 @@
   margin: 10px;
   border-radius: 20px;
   transition: 0.5s;
+  cursor: pointer;
 }
 #home .slider .dots li.active {
   width: 30px;
