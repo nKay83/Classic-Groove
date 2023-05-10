@@ -1,4 +1,4 @@
-:root { 
+:root {
   --ora: #f2623e;
   --whi: #ffffff;
   --bla: #000000;
@@ -12,52 +12,68 @@
   height: 91vh;
   width: 95%;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: -2%;
+  min-width: 840px;
+
 
   /* position: relative; */
 }
 
+#supplyRecord .header h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #supplyRecord .button-placeholder {
-  width: 20%;
-  height: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#supplyRecord .header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  font-size: calc(5px + 1vw);
-  column-gap: 5%;
+  grid-template-columns: 175px 0.6fr 6fr;
+  margin-bottom: 2vh;
 }
 
 #supplyRecord .new-button,
 #supplyRecord .restock-button {
   flex-direction: row;
   display: flex;
-  height: 2.5vw;
-  width: 7vw;
+  width: 90px;
   margin: auto;
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--ora);
   border-radius: 10px;
-  padding: 5%;
+  padding: 7% 8%;
   cursor: pointer;
 }
+
 #supplyRecord .new-button:active,
 #supplyRecord .restock-button:active {
   transform: translateY(3px);
   transition: 0.1s;
 }
+
 #supplyRecord .delete-button {
   background-color: var(--whi);
   color: var(--bla);
 }
 
 #supplyRecord .title-list {
-  width: 100%;
+  width: 93%;
   height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(5px + 1vw);
+
+  background: var(--whi);
+  border-radius: 20px 20px 0 0;
+  color: var(--ora);
+  border-bottom: 3px solid;
 }
 
 #supplyRecord .title-list .title-placeholder {
@@ -68,7 +84,7 @@
   grid-template-columns: 1fr 2fr 2fr 3fr 3fr 2fr 1fr;
   justify-content: center;
   margin: auto;
-  font-size: calc(5px + 1vw);
+
 }
 
 #supplyRecord .title-list .title-placeholder .title {
@@ -82,14 +98,13 @@
 }
 
 #supplyRecord .list {
-  width: 100%;
-  max-height: 82vh;
+  width: 93%;
+  max-height: 87vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(5px + 1vw);
   background-color: var(--whi);
-  height: 82vh;
+  height: 86vh;
   /* border-radius: 10px 30px 0 0; */
   overflow-y: scroll;
 }
@@ -101,7 +116,7 @@
   color: var(--bla);
   position: relative;
   padding: 13px 0;
-  border-bottom: 4px solid var(--ora);
+  border-bottom: 2px solid var(--ora);
 }
 
 #supplyRecord .placeholder .info {
@@ -119,7 +134,7 @@
   justify-content: center;
   align-items: center;
   justify-self: center;
-  border-right: var(--ora) solid 4px;
+  border-right: var(--ora) solid 2px;
   height: 100%;
   width: 100%;
   margin: auto;
@@ -155,7 +170,7 @@
   background-color: var(--whi);
   border-radius: 10px;
   width: 55%;
-  height:auto;
+  height: auto;
   margin: 13vh auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -165,18 +180,22 @@
   animation-iteration-count: 1;
   /* box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.7); */
 }
+
 @keyframes loader {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes back {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -198,14 +217,17 @@
   width: 100%;
   border-right: #f2623e solid 3px;
 }
+
 #supplyRecord .modal-box .modal-right {
   width: 100%;
 }
+
 #supplyRecord .modal-box .modal-right .title-list {
   width: 100%;
   height: 3vh;
   font-size: calc(3px + 1vw);
 }
+
 #supplyRecord .modal-box .modal-right .title-list .title-placeholder {
   width: 97%;
   height: 100%;
@@ -215,14 +237,11 @@
   justify-content: center;
   margin: auto;
 }
-#supplyRecord
-  #new-supply
-  .modal-box
-  .modal-right
-  .title-list
-  .title-placeholder {
+
+#supplyRecord #new-supply .modal-box .modal-right .title-list .title-placeholder {
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
 }
+
 #supplyRecord .modal-box .modal-right .list {
   width: 100%;
   max-height: 23vh;
@@ -235,6 +254,7 @@
   border-radius: 10px 30px 0 0;
   overflow-y: scroll;
 }
+
 #supplyRecord .modal-box .modal-right .list .placeholder {
   width: 98%;
   height: 50px;
@@ -244,12 +264,14 @@
   padding: 13px 0;
   border-bottom: 4px solid var(--ora);
 }
+
 #supplyRecord .modal-box .modal-right .list .add-button {
   cursor: pointer;
   height: 3.5vw;
   padding-top: 1vw;
   color: #f2623e;
 }
+
 #supplyRecord .modal-right .list .placeholder .info {
   display: grid;
   margin: auto;
@@ -259,21 +281,24 @@
   grid-template-columns: 1fr 2fr 2fr 2fr;
   justify-content: center;
 }
+
 #supplyRecord #new-supply .modal-right .list .placeholder .info {
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
 }
+
 #supplyRecord .modal-right .list .placeholder .info .item {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-self: center;
-  border-right: var(--gr1) solid 4px;
+  border-right: var(--gr1) solid 2px;
   color: var(--gr1);
   height: 100%;
   width: 100%;
   margin: auto;
   overflow: hidden;
 }
+
 #supplyRecord .modal-right .list .placeholder .info .item:nth-of-type(5) {
   border: none;
 }
@@ -284,30 +309,17 @@
   /* grid-template-rows: 1fr 1fr 1fr; */
   height: 100%;
 }
+
 #supplyRecord .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n) {
   margin: 0;
 }
-#supplyRecord
-  .modal-box
-  .modal-left
-  .modal-info
-  .modal-item:nth-of-type(2n)
-  .item-input {
+
+#supplyRecord .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n) .item-input {
   width: 115%;
 }
 
-#supplyRecord
-  .modal-box
-  .modal-left
-  .modal-info
-  .modal-item:last-child
-  .item-header,
-#supplyRecord
-  .modal-box
-  .modal-left
-  .modal-info
-  .modal-item:nth-last-child(2)
-  .item-header {
+#supplyRecord .modal-box .modal-left .modal-info .modal-item:last-child .item-header,
+#supplyRecord .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-header {
   padding: 3% 0;
 }
 
@@ -333,7 +345,7 @@
   grid-template-rows: 1fr 2fr;
   width: 80%;
   margin: 0 10%;
-  font-size: calc(5px + 1vw);
+
 }
 
 #supplyRecord .modal-box .modal-info .modal-item .item-header {
@@ -361,6 +373,7 @@
   font-size: calc(4px + 1vw);
   /* cursor: pointer; */
 }
+
 #supplyRecord .modal-box .modal-info .modal-item .item-input textarea {
   width: 100%;
   height: 90%;
@@ -374,12 +387,7 @@
   font-size: calc(4px + 1vw);
 }
 
-#supplyRecord
-  .modal-box
-  .modal-info
-  .modal-item
-  .item-input
-  input:nth-of-type(1) {
+#supplyRecord .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
   color: var(--gr1);
 }
 
@@ -443,9 +451,10 @@
   border-radius: 10px;
   padding: 5%;
   cursor: pointer;
-  font-size: calc(5px + 1vw);
+
   /* box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.7); */
 }
+
 #supplyRecord .modal-box .edit-button:active,
 #supplyRecord .modal-box .back-button:active,
 #supplyRecord .modal-box .delete-button:active,
@@ -458,6 +467,7 @@
   background-color: var(--bla);
   color: var(--whi);
 }
+
 #supplyRecord .modal-box .delete-button {
   background-color: var(--ora);
   color: var(--bla);
@@ -467,6 +477,7 @@
   display: flex;
   justify-content: center;
 }
+
 #supplyRecord .btnAddAlbum input {
   margin-top: 5px;
   font-size: 25px;
@@ -478,9 +489,11 @@
   border-radius: 15px;
   cursor: pointer;
 }
+
 #supplyRecord #add_exist_album {
   display: none;
 }
+
 #supplyRecord #add_exist_album .modal-box {
   display: flex;
   align-items: center;
@@ -489,9 +502,11 @@
   width: fit-content;
   height: fit-content;
 }
+
 #supplyRecord #add_exist_album .modal-box h1 {
   margin-bottom: 15px;
 }
+
 #supplyRecord #add_exist_album .modal-box .btn-add {
   color: var(--whi);
   background-color: var(--ora);
@@ -504,6 +519,7 @@
   margin-right: 10px;
   width: 6vw;
 }
+
 #supplyRecord #add_exist_album .modal-box .btn-cancel {
   color: var(--whi);
   background-color: var(--bla);
@@ -519,13 +535,16 @@
 #supplyRecord #suggestion-container {
   position: relative;
 }
+
 #supplyRecord #suggestion-container label {
   font-size: 24px;
 }
+
 #supplyRecord #suggestion-container input {
   width: 100%;
   font-size: 20px;
 }
+
 #supplyRecord #suggestion-list {
   position: absolute;
   top: 100%;
@@ -550,6 +569,7 @@
 #supplyRecord #suggestion-list li:hover {
   background-color: #f2f2f2;
 }
+
 #supplyRecord #new-supply .placeholder input {
   width: 90%;
 }

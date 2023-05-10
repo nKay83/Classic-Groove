@@ -11,7 +11,7 @@
   font-family: "Dosis", sans-serif;
   height: 92vh;
   width: 95%;
-  min-width: 800px;
+  min-width: 840px;
   margin: 0 auto;
   margin-top: -2%;
 
@@ -26,8 +26,13 @@
 #productManager .header {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1.3fr 0.6fr 6fr;
+  grid-template-columns: 240px 0.6fr 6fr;
   margin-bottom: 2vh;
+}
+#productManager .header h2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #productManager .new-button,
@@ -56,7 +61,7 @@
 }
 
 #productManager .title-list {
-  width: 100%;
+  width: 93%;
   height: 5vh;
   display: flex;
   flex-direction: column;
@@ -90,14 +95,14 @@
 }
 
 #productManager .list {
-  width: 100%;
-  max-height: 83vh;
+  width: 93%;
+  max-height: 87vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* font-size: calc(5px + 1vw); */
   background-color: var(--whi);
-  height: 75vh;
+  height: 86.5vh;
   /* border-radius: 10px 30px 0 0; */
   overflow-y: scroll;
 }
@@ -109,8 +114,9 @@
   color: var(--bla);
   position: relative;
   padding: 13px 0;
-  border-bottom: 3px solid var(--ora);
+  border-bottom: 2px solid var(--ora);
 }
+
 
 #productManager .placeholder .info {
   display: grid;
@@ -127,7 +133,7 @@
   justify-content: center;
   align-items: center;
   justify-self: center;
-  border-right: var(--ora) solid 3px;
+  border-right: var(--ora) solid 2px;
   height: 100%;
   width: 100%;
   padding: 0% 5%;
@@ -143,7 +149,7 @@
 ::-webkit-scrollbar {
   background-color: var(--whi);
   width: 5px;
-  border: 50px;
+  border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -164,6 +170,7 @@
   background-color: var(--whi);
   border-radius: 10px;
   width: 75%;
+  min-width: 800px;
   height: 70vh;
   margin: 13vh auto;
   display: grid;
@@ -436,7 +443,7 @@
 
 #productManager .modal-box .button-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr;
   width: 90%;
   color: var(--whi);
@@ -449,8 +456,8 @@
 #productManager .modal-box .save-button {
   flex-direction: row;
   display: flex;
-  height: 2.5vw;
-  width: 75%;
+  height: 40px;
+  width: 100px;
   margin: auto;
   justify-content: space-evenly;
   align-items: center;
@@ -458,6 +465,7 @@
   /* border-radius: 10px; */
   padding: 5%;
   cursor: pointer;
+  border-radius: 10px;
   /* font-size: calc(5px + 1vw); */
   /* box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.7); */
 }
@@ -577,6 +585,8 @@
   border: 1px solid var(--whi);
   margin-top: 15px;
   margin-left: 10px;
+  font-family: "Dosis", sans-serif;
+
 }
 
 #productManager #add_exist_song {
@@ -607,6 +617,7 @@
 #productManager #suggestion-container input {
   width: 100%;
   font-size: 20px;
+  font-family: "Dosis", sans-serif;
 }
 
 #productManager #suggestion-list {
@@ -663,8 +674,9 @@
 #productManager .search-bar {
   background-color: white;
   display: grid;
-  justify-self: right;
-  width: 80%;
+  justify-self: center;
+  width: 915px;
+  height: 40px;
   grid-template-columns: 5fr 2fr 2fr 2fr;
   border-radius: 10px;
 }

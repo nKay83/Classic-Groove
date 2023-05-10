@@ -4,12 +4,15 @@ $dp = new DataProvider();
 $account = getAllAccount();
 ?>
 <div id="accountManager">
-    <h1><i class="fa-solid fa-user fa-sm"></i> Account management</h1>
-    <div class="button-placeholder">
-        <div class="new-button" onclick="loadModalBoxByAjax('newAccount')">
-            <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
-            <div class="info-placeholder">New</div>
+    <div class="header">
+        <h2><i class="fa-solid fa-user fa-sm"></i> Account management</h2>
+        <div class="button-placeholder">
+            <div class="new-button" onclick="loadModalBoxByAjax('newAccount')">
+                <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
+                <div class="info-placeholder">New</div>
+            </div>
         </div>
+        
     </div>
     <div class="title-list">
         <div class="title-placeholder">

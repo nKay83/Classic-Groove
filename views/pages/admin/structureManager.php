@@ -13,7 +13,7 @@ $slideShow = getAllSlideShow();
         </div>
     </div>
     <div class="manageSilder">
-        <div class="header">Manage silder</div>
+        <div></div>
         <div class="bottom">
             <div class="title-list">
                 <div class="title-placeholder">

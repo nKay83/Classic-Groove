@@ -4,11 +4,13 @@ $dp = new DataProvider();
 $supplyRecord = getAllSupplyRecord();
 ?>
 <div id="supplyRecord">
-  <h1><i class="fa-regular fa-box-open"></i> Supply record</h1>
-  <div class="button-placeholder">
-    <div class="new-button" onclick="loadModalBoxByAjax('newSupply')">
-      <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
-      <div class="info-placeholder">New</div>
+  <div class="header">
+    <h2><i class="fa-regular fa-box-open"></i> Supply record</h2>
+    <div class="button-placeholder">
+      <div class="new-button" onclick="loadModalBoxByAjax('newSupply')">
+        <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
+        <div class="info-placeholder">New</div>
+      </div>
     </div>
   </div>
   <div class="title-list">

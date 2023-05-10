@@ -12,33 +12,39 @@
     height: 91vh;
     width: 95%;
     margin: 0 auto;
-    margin-top: -3%;
+    margin-top: -2%;
     /* position: relative; */
+  min-width: 840px;
+
+}
+
+#accountManager .header {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 240px 0.6fr 6fr;
+    margin-bottom: 2vh;
 }
 
 #accountManager .button-placeholder {
-    width: 40%;
-    height: 4vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    font-size: calc(5px + 1vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 #accountManager .edit-button,
 #accountManager .save-button,
 #accountManager .delete-button,
-#accountManager .new-button{
+#accountManager .new-button {
     flex-direction: row;
     display: flex;
-    height: 2.5vw;
-    width: 7vw;
+    width: 90px;
     margin: auto;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--ora);
     border-radius: 10px;
-    padding: 5%;
+    padding: 7% 8%;
     cursor: pointer;
 }
 
@@ -48,12 +54,15 @@
 }
 
 #accountManager .title-list {
-    width: 100%;
+    width: 93%;
     height: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: calc(5px + 1vw);
+    background: var(--whi);
+    border-radius: 20px 20px 0 0;
+    color: var(--ora);
+    border-bottom: 3px solid;
 }
 
 #accountManager .title-list .title-placeholder {
@@ -64,7 +73,7 @@
     grid-template-columns: 0.3fr 0.5fr 0.8fr 0.8fr 0.5fr 0.5fr 0.2fr;
     justify-content: center;
     margin: auto;
-    font-size: calc(5px + 1vw);
+
 }
 
 #accountManager .title-list .title-placeholder .title {
@@ -78,14 +87,13 @@
 }
 
 #accountManager .list {
-    width: 100%;
-    max-height: 82vh;
+    width: 93%;
+    max-height: 87vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: calc(5px + 1vw);
     background-color: var(--whi);
-    height: 82vh;
+    height: 86vh;
     /* border-radius: 10px 30px 0 0; */
     overflow-y: scroll;
 }
@@ -97,7 +105,7 @@
     color: var(--bla);
     position: relative;
     padding: 13px 0;
-    border-bottom: 4px solid var(--ora);
+    border-bottom: 2px solid var(--ora);
 }
 
 #accountManager .placeholder .info {
@@ -116,7 +124,7 @@
     justify-content: center;
     align-items: center;
     justify-self: center;
-    border-right: var(--ora) solid 4px;
+    border-right: var(--ora) solid 2px;
     height: 70%;
     width: 100%;
     margin: auto;
@@ -212,9 +220,10 @@
     font-size: calc(4px + 1vw);
     cursor: pointer;
 }
+
 #accountManager #detail-account input,
 #accountManager #detail-account select,
-#accountManager #edit-account input.accountID{
+#accountManager #edit-account input.accountID {
     cursor: default;
 }
 
@@ -281,14 +290,25 @@
     border-radius: 10px;
     padding: 5%;
     cursor: pointer;
-    font-size: calc(5px + 1vw);
+
 }
 
 #accountManager .modal-box .back-button {
     background-color: var(--bla);
     color: var(--whi);
 }
-#accountManager .save-button{
+
+#accountManager .save-button {
     opacity: 0.5;
     cursor: default;
 }
+
+#accountManager .placeholder:hover {
+    background-color: var(--ora);
+    color: #ffffff;
+    
+  }
+  #accountManager .placeholder:hover .info .item{
+    border-right: var(--whi) solid 2px;
+  
+  }
