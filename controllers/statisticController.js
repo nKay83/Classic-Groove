@@ -6,7 +6,8 @@ const getSalesByYear = (year) => {
 };
 
 const thongKe1 = async () => {
-  let data = JSON.parse(await getSalesByYear(2023));
+  let year = document.querySelector(".yearInput").value;
+  let data = JSON.parse(await getSalesByYear(year));
   const allMonths = Array.from({ length: 12 }, (_, i) =>
     (i + 1).toString().padStart(2, "0")
   );
@@ -15,13 +16,17 @@ const thongKe1 = async () => {
     const total = existingData ? parseInt(existingData.total) : 0;
     return { mon, total };
   });
+  let currnetYear = new Date().getFullYear();
+  if (year == currnetYear) {
+    formattedData.splice(new Date().getMonth() + 1);
+  }
   console.log(formattedData);
   Highcharts.chart("container", {
     chart: {
       type: "line",
     },
     title: {
-      text: "Doanh số bán hàng",
+      text: "Sales revenue in " + year,
     },
     xAxis: {
       categories: [
@@ -41,7 +46,7 @@ const thongKe1 = async () => {
     },
     yAxis: {
       title: {
-        text: "Tổng tiền",
+        text: "Total sales revenue",
       },
     },
     plotOptions: {
@@ -54,7 +59,7 @@ const thongKe1 = async () => {
     },
     series: [
       {
-        name: "2023",
+        name: year,
         data: formattedData.map((item) => item.total),
       },
     ],

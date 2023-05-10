@@ -1,7 +1,12 @@
 <div id="statistic">
     <Button value="" onclick="thongKe1()">thongKe</Button>
-    <input type="text" placeholder="start Year" name="" id="">
-    <input type="text" placeholder="end Year" name="" id="">
+
+    <select name="" id="" class="yearInput">
+        <?php for ($i = date('Y'); $i >= date('Y') - 4; $i--): ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor ?>
+    </select>
+
     <figure class="highcharts-figure">
         <div id="container"></div>
     </figure>
