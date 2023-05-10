@@ -32,10 +32,10 @@ $album = getAllAlbum();
         </select>
       </div>
       <div class="date-begin">
-        <input type="date" name="" id="" value="Begin date">
+        <input type="text" name="" id="" placeholder="Start price" value="">
       </div>
       <div class="date-end">
-        <input type="date" name="" id="" value="End date">
+        <input type="text" name="" id="" placeholder="End price" value="">
       </div>
     </div>
   </div>
