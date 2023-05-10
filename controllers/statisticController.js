@@ -4,6 +4,17 @@ const getSalesByYear = (year) => {
     type: "GET",
   });
 };
+const getNumberOfProductsSold = (month, year) => {
+  return $.ajax({
+    url:
+      "util/statistic.php?month=" +
+      month +
+      "&year=" +
+      year +
+      "&action=getNumberOfProductsSold",
+    type: "GET",
+  });
+};
 
 const thongKe1 = async () => {
   let year = document.querySelector(".yearInput").value;
@@ -66,8 +77,10 @@ const thongKe1 = async () => {
   });
 };
 
-const thongKe2 = () => {
-  Highcharts.chart("container", {
+const thongKe2 = async () => {
+  let data = JSON.parse(await getNumberOfProductsSold(1, 2023));
+  let dataFormat = data.map((obj) => [obj.tenLoai, parseInt(obj.soLuong)]);
+  Highcharts.chart("container2", {
     chart: {
       type: "column",
     },
@@ -97,7 +110,7 @@ const thongKe2 = () => {
       enabled: false,
     },
     tooltip: {
-      pointFormat: "Population in 2021: <b>{point.y:.1f} millions</b>",
+      pointFormat: "Population in 2021: <b>{point.y} vinyl records</b>",
     },
     series: [
       {
@@ -110,50 +123,29 @@ const thongKe2 = () => {
           "#7010f9",
           "#691af3",
           "#6225ed",
-          "#5b30e7",
-          "#533be1",
-          "#4c46db",
-          "#4551d5",
-          "#3e5ccf",
-          "#3667c9",
-          "#2f72c3",
-          "#277dbd",
-          "#1f88b7",
-          "#1693b1",
-          "#0a9eaa",
-          "#03c69b",
-          "#00f194",
+          // "#5b30e7",
+          // "#533be1",
+          // "#4c46db",
+          // "#4551d5",
+          // "#3e5ccf",
+          // "#3667c9",
+          // "#2f72c3",
+          // "#277dbd",
+          // "#1f88b7",
+          // "#1693b1",
+          // "#0a9eaa",
+          // "#03c69b",
+          // "#00f194",
         ],
         colorByPoint: true,
         groupPadding: 0,
-        data: [
-          ["Tokyo", 37.33],
-          ["Delhi", 31.18],
-          ["Shanghai", 27.79],
-          ["Sao Paulo", 22.23],
-          ["Mexico City", 21.91],
-          ["Dhaka", 21.74],
-          ["Cairo", 21.32],
-          ["Beijing", 20.89],
-          ["Mumbai", 20.67],
-          ["Osaka", 19.11],
-          ["Karachi", 16.45],
-          ["Chongqing", 16.38],
-          ["Istanbul", 15.41],
-          ["Buenos Aires", 15.25],
-          ["Kolkata", 14.974],
-          ["Kinshasa", 14.97],
-          ["Lagos", 14.86],
-          ["Manila", 14.16],
-          ["Tianjin", 13.79],
-          ["Guangzhou", 13.64],
-        ],
+        data: dataFormat,
         dataLabels: {
           enabled: true,
           rotation: -90,
           color: "#FFFFFF",
           align: "right",
-          format: "{point.y:.1f}", // one decimal
+          // format: "{point.y:.1f}", // one decimal
           y: 10, // 10 pixels down from the top
           style: {
             fontSize: "13px",
@@ -166,7 +158,7 @@ const thongKe2 = () => {
 };
 
 const thongKe3 = () => {
-  Highcharts.chart("container", {
+  Highcharts.chart("container3", {
     chart: {
       type: "bar",
     },
