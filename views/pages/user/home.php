@@ -26,19 +26,19 @@ $slides = getAllSlide();
         <div class="slider">
           <div class="list">
             <?php foreach ($slides as $slide): ?>
-              <div class="item">
+              <div class="item" onclick="loadProductDetailsByAjax(<?= $slide['linkTo'] ?>)">
                 <img src="data/slideShow/<?= $slide['linkHinh'] ?>" alt="img slide show">
               </div>
             <?php endforeach ?>
           </div>
-          <div class="buttons">
-            <button id="prev" onclick="prevSlide()">
-              <i class="fa-light fa-angle-left"></i>
-            </button>
-            <button id="next" onclick="nextSlide()">
-              <i class="fa-light fa-angle-right"></i>
-            </button>
-          </div>
+          <!-- <div class="buttons"> -->
+          <button id="prev" class="prev" onclick="prevSlide()">
+            <i class="fa-light fa-angle-left"></i>
+          </button>
+          <button id="next" class="next" onclick="nextSlide()">
+            <i class="fa-light fa-angle-right"></i>
+          </button>
+          <!-- </div> -->
           <ul class="dots">
             <li onclick="changeSlide(0)" class="active"></li>
             <?php for ($i = 1; $i < count($slides); $i++): ?>
