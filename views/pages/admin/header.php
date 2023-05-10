@@ -37,12 +37,7 @@ session_start();
           <div class="tab-info">Supply</div>
         </div>
       <?php endif ?>
-      <?php if (checkCanAccess(19)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('distributor')">
-          <div class="tab-icon"><i class="fa-solid fa-handshake"></i></div>
-          <div class="tab-info">Producer</div>
-        </div>
-      <?php endif ?>
+      
       <?php if (checkCanAccess(12)): ?>
         <div class="tab-title" onclick="loadPageByAjax('structureManager')">
           <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
