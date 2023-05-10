@@ -5,7 +5,7 @@ const getSalesByYear = (year) => {
   });
 };
 
-const thongKe = async () => {
+const thongKe1 = async () => {
   let data = JSON.parse(await getSalesByYear(2023));
   const allMonths = Array.from({ length: 12 }, (_, i) =>
     (i + 1).toString().padStart(2, "0")
@@ -21,7 +21,7 @@ const thongKe = async () => {
       type: "line",
     },
     title: {
-      text: "Doanh Số bán hàng",
+      text: "Doanh số bán hàng",
     },
     xAxis: {
       categories: [
@@ -54,8 +54,178 @@ const thongKe = async () => {
     },
     series: [
       {
-        name: "Reggane",
+        name: "2023",
         data: formattedData.map((item) => item.total),
+      },
+    ],
+  });
+};
+
+const thongKe2 = () => {
+  Highcharts.chart("container", {
+    chart: {
+      type: "column",
+    },
+    title: {
+      text: "World's largest cities per 2021",
+    },
+    subtitle: {
+      text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>',
+    },
+    xAxis: {
+      type: "category",
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: "13px",
+          fontFamily: "Verdana, sans-serif",
+        },
+      },
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: "Population (millions)",
+      },
+    },
+    legend: {
+      enabled: false,
+    },
+    tooltip: {
+      pointFormat: "Population in 2021: <b>{point.y:.1f} millions</b>",
+    },
+    series: [
+      {
+        name: "Population",
+        colors: [
+          "#9b20d9",
+          "#9215ac",
+          "#861ec9",
+          "#7a17e6",
+          "#7010f9",
+          "#691af3",
+          "#6225ed",
+          "#5b30e7",
+          "#533be1",
+          "#4c46db",
+          "#4551d5",
+          "#3e5ccf",
+          "#3667c9",
+          "#2f72c3",
+          "#277dbd",
+          "#1f88b7",
+          "#1693b1",
+          "#0a9eaa",
+          "#03c69b",
+          "#00f194",
+        ],
+        colorByPoint: true,
+        groupPadding: 0,
+        data: [
+          ["Tokyo", 37.33],
+          ["Delhi", 31.18],
+          ["Shanghai", 27.79],
+          ["Sao Paulo", 22.23],
+          ["Mexico City", 21.91],
+          ["Dhaka", 21.74],
+          ["Cairo", 21.32],
+          ["Beijing", 20.89],
+          ["Mumbai", 20.67],
+          ["Osaka", 19.11],
+          ["Karachi", 16.45],
+          ["Chongqing", 16.38],
+          ["Istanbul", 15.41],
+          ["Buenos Aires", 15.25],
+          ["Kolkata", 14.974],
+          ["Kinshasa", 14.97],
+          ["Lagos", 14.86],
+          ["Manila", 14.16],
+          ["Tianjin", 13.79],
+          ["Guangzhou", 13.64],
+        ],
+        dataLabels: {
+          enabled: true,
+          rotation: -90,
+          color: "#FFFFFF",
+          align: "right",
+          format: "{point.y:.1f}", // one decimal
+          y: 10, // 10 pixels down from the top
+          style: {
+            fontSize: "13px",
+            fontFamily: "Verdana, sans-serif",
+          },
+        },
+      },
+    ],
+  });
+};
+
+const thongKe3 = () => {
+  Highcharts.chart("container", {
+    chart: {
+      type: "bar",
+    },
+    title: {
+      text: "Historic World Population by Region",
+      align: "left",
+    },
+    subtitle: {
+      text:
+        "Source: <a " +
+        'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
+        'target="_blank">Wikipedia.org</a>',
+      align: "left",
+    },
+    xAxis: {
+      categories: ["Africa", "America", "Asia", "Europe", "Oceania"],
+      title: {
+        text: null,
+      },
+      gridLineWidth: 1,
+      lineWidth: 0,
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: "Population (millions)",
+        align: "high",
+      },
+      labels: {
+        overflow: "justify",
+      },
+      gridLineWidth: 0,
+    },
+    tooltip: {
+      valueSuffix: " millions",
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: "50%",
+        dataLabels: {
+          enabled: true,
+        },
+        groupPadding: 0.1,
+      },
+    },
+    legend: {
+      layout: "vertical",
+      align: "right",
+      verticalAlign: "top",
+      x: -40,
+      y: 80,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor:
+        Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
+      shadow: true,
+    },
+    credits: {
+      enabled: false,
+    },
+    series: [
+      {
+        name: "Year 2000",
+        data: [814, 841, 3714, 726, 31],
       },
     ],
   });

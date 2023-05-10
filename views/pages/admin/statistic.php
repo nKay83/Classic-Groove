@@ -1,10 +1,13 @@
 <div id="statistic">
-    <Button value="" onclick="thongKe()">thongKe</Button>
+    <Button value="" onclick="thongKe1()">thongKe</Button>
+    <input type="text" placeholder="start Year" name="" id="">
+    <input type="text" placeholder="end Year" name="" id="">
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <!-- <p class="highcharts-description">
-            This chart shows how data labels can be added to the data series. This
-            can increase readability and comprehension for small datasets.
-        </p> -->
     </figure>
+    <Button value="" onclick="thongKe2()">thongKe</Button>
+    <figure class="highcharts-figure">
+        <div id="container2"></div>
+    </figure>
+    <Button value="" onclick="thongKe3()">thongKe</Button>
 </div>
