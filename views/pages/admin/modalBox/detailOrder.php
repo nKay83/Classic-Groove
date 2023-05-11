@@ -1,5 +1,6 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $orderID = $_POST['id'];
 $order = getOrder($orderID);
@@ -97,10 +98,14 @@ $detailOrder = getDetailOrder($orderID);
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button" onclick="loadModalBoxByAjax('editOrder',<?= $orderID ?>)">
-                    <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="info-placeholder">Edit</div>
-                </div>
+                <?php if (checkCanAccess(11)): ?>
+                    <div class="edit-button" onclick="loadModalBoxByAjax('editOrder',<?= $orderID ?>)">
+                        <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="info-placeholder">Edit</div>
+                    </div>
+                <?php else: ?>
+                    <div></div>
+                <?php endif; ?>
                 <div class="back-button" onclick="closeDetailorder()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
@@ -131,5 +136,11 @@ function getDetailOrder($orderID)
         }
     }
     return $detailOrder;
+}
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
 }
 ?>
