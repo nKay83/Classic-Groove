@@ -36,7 +36,7 @@ $album = getAllAlbum();
         <input type="text" name="" id="" placeholder="Start price" value="">
       </div>
       <div class="date-end">
-      <i class="fa-thin fa-coins"></i>
+        <i class="fa-thin fa-coins"></i>
 
         <input type="text" name="" id="" placeholder="End price" value="">
       </div>
@@ -44,10 +44,10 @@ $album = getAllAlbum();
   </div>
   <div class="title-list">
     <div class="title-placeholder">
-      <div class="title" style="padding-right: 10px;">No.</div>
-      <div class="title" style="padding-right: 15px;">AlbumID</div>
-      <div class="title" style="padding-right: 15px;">Album name</div>
-      <div class="title" style="padding-right: 10px;">Artist name</div>
+      <div class="title">No.</div>
+      <div class="title">AlbumID</div>
+      <div class="title">Album name</div>
+      <div class="title">Artist name</div>
       <div class="title">Kind</div>
       <div class="title">Price</div>
       <div class="title">Quanitity</div>

@@ -68,7 +68,7 @@ const changeSlide = (key) => {
 };
 
 window.addEventListener('resize', function () {
-  if (window.innerWidth <= 880) {
+  if (window.innerWidth <= 1000) {
     document.querySelector("#header > div > div.top > div.logo-placeholder > img").src = 'views/assets/img/Logo2.png';
   }
   else {

@@ -11,20 +11,20 @@
   font-family: "Dosis", sans-serif;
   height: 91vh;
   width: 95%;
-  margin: 0 auto;
-  margin-top: -2%;
-  min-width: 840px;
-
+  /* margin: 0 auto; */
+  /* min-width: 840px; */
   /* position: relative; */
+  margin-top: -2%;
+
 }
 
 #orderManager .header {
-  display: flex;
-  /* grid-template-rows: 1fr; */
-  /* grid-template-columns: 240px 0.6fr 6fr; */
-  justify-content: space-between;
-  width: 93%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 220px 1fr;
   margin-bottom: 2vh;
+  column-gap: 20px;
+  padding: 0 10px;
 }
 
 #orderManager .header h2 {
@@ -34,11 +34,12 @@
 }
 
 #orderManager .title-list {
-  width: 93%;
+  /* width: 93%; */
   height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: calc(12px + 0.5vw);
   background: var(--whi);
   border-radius: 20px 20px 0 0;
   color: var(--ora);
@@ -53,7 +54,6 @@
   grid-template-columns: 1fr 2fr 2fr 3fr 2fr 2fr 2fr 1fr;
   justify-content: center;
   margin: auto;
-
 }
 
 #orderManager .title-list .title-placeholder .title {
@@ -67,11 +67,12 @@
 }
 
 #orderManager .list {
-  width: 93%;
+  /* width: 93%; */
   max-height: 87vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: calc(10px + 0.5vw);
   background-color: var(--whi);
   height: 86vh;
   /* border-radius: 10px 30px 0 0; */
@@ -106,6 +107,7 @@
   border-right: var(--ora) solid 2px;
   height: 100%;
   width: 100%;
+  padding: 0% 5%;
   margin: auto;
   overflow: hidden;
 }
@@ -177,7 +179,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(2px + 1vw);
+  /* font-size: calc(2px + 1vw); */
   grid-column: 1 / span 2;
   width: 30%;
   margin: 0% 35%;
@@ -419,17 +421,18 @@
 
 #orderManager .search-bar {
   background-color: white;
-  display: flex;
+  display: grid;
   justify-self: center;
-  width: 65%;
-  justify-content: space-between;
   height: 40px;
-  /* grid-template-columns: 5fr 2fr 2fr 2fr; */
+  grid-template-columns: 5fr 2fr 2fr 2fr;
   border-radius: 10px;
+  column-gap: 20px;
   padding: 0 10px;
+  width: 90%;
 }
-#orderManager .search-bar > div {
- padding: 5px 10px;
+
+#orderManager .search-bar>div {
+  padding: 5px 10px;
 }
 
 #orderManager .search-bar .search-input,
@@ -443,7 +446,7 @@
 
 
 #orderManager .search-bar .search-input {
-  /* width: 90%; */
+  width: 100%;
   background-color: var(--gr2);
   border-radius: 10px;
   display: flex;
@@ -456,17 +459,19 @@
 }
 
 #orderManager .search-bar .search-input input {
-  /* width: 90%; */
+  width: 90%;
   background-color: var(--gr2);
-  color: var(--bla);
+  color: var(--gr1);
   font-family: "Dosis", sans-serif;
+  font-size: calc(10px + 0.1vw);
+
   outline: none;
   border: none;
   padding-left: 20px;
 }
 
 #orderManager .search-bar .filter-input {
-  /* width: 90%; */
+  width: 90%;
   background-color: var(--gr2);
   border-radius: 10px;
   display: flex;
@@ -480,23 +485,21 @@
 #orderManager .search-bar .filter-input select {
   background-color: var(--gr2);
   color: var(--bla);
-  /* width: 65%; */
+  width: 65%;
   font-family: "Dosis", sans-serif;
   outline: none;
   border: none;
   cursor: pointer;
+  font-size: calc(10px + 0.1vw);
   -webkit-appearance: none;
-  /* for Safari and Chrome */
   -moz-appearance: none;
-  /* for Firefox */
   appearance: none;
-  /* for other browsers */
   padding-left: 10px;
 }
 
 #orderManager .search-bar .date-begin,
 #orderManager .search-bar .date-end {
-  /* width: 90%; */
+  width: 100%;
   background-color: var(--gr2);
   border-radius: 10px;
   display: flex;
@@ -511,9 +514,51 @@
 #orderManager .search-bar .date-end input {
   background-color: var(--gr2);
   color: var(--bla);
-  /* width: 70%; */
+  width: 80%;
   font-family: "Dosis", sans-serif;
+  font-size: calc(10px + 0.1vw);
+
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+  #orderManager {
+    width: 615px;
+    margin-left: 25px;
+  }
+
+  #orderManager .title-list {
+    font-size: 15px;
+    width: 615px;
+  }
+
+  #orderManager .list {
+    font-size: 12px;
+    width: 615px;
+  }
+
+  #orderManager .search-bar .date-begin input,
+  #orderManager .search-bar .date-end input {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  #orderManager .header h2 {
+    display: none;
+  }
+
+  #orderManager .header {
+    justify-content: right;
+    display: flex;
+    align-items: center;
+  }
+  #orderManager .header .search-bar{
+    width: 100%;
+  }
+
 }

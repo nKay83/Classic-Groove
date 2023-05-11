@@ -55,14 +55,13 @@ main {
   z-index: 1000000;
 }
 #content {
-  padding-top: 6vh;
+  padding-top: 5vh;
+  padding-left: 2vw;
   color: var(--whi);
   font-family: "Dosis", sans-serif;
 }
-@media screen and (max-width: 980px) {
-  main {
-    width: 100%;
-    float: unset;
-    margin-left: 13%;
+@media screen and (max-width: 768px) {
+  #content{
+    padding-left: 0;
   }
 }

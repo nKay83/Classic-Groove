@@ -6,7 +6,7 @@ $order = getAllOrder();
 <div id="orderManager">
     <div class="header">
         <h2><i class="fa-regular fa-list"></i> Order management</h2>
-        <div></div>
+        
         <div class="search-bar">
             <div class="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>

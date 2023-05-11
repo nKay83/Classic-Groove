@@ -33,7 +33,7 @@
         <div class="iner-flip">
         <div class="front-info-placeholder"></div>
         <div class="back-info-placeholder">
-            <div class="name-placeholder">Nguyễn Hải Dương</div>
+            <div class="name-placeholder">Trần Hải Dương</div>
             <div class="role-placeholder">Web developer</div>
             <div class="link-placeholder"></div>
         </div>

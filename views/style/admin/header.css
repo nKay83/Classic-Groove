@@ -279,7 +279,7 @@
   border-radius: 20px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 1000px) {
   #header .logo-placeholder{
     background-image: url('views/assets/img/Logo.png');
   }
