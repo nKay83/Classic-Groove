@@ -21,15 +21,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $result = $dp->getUserByUsername($username);
         if ($result != null) {
           if (mysqli_num_rows($result) == 0) {
-            echo "Tài khoản không tồn tại";
+            echo "Account does not exist!";
           } else {
             $user = $result->fetch_assoc();
             if ($user['matKhau'] != $password) {
-              echo "Sai mật khẩu";
+              echo "Wrong password!";
             } else {
               $sql = "Select hoTen from nguoidung where manguoidung ='" . $username . "'";
               $name = $dp->excuteQuery($sql)->fetch_assoc()["hoTen"];
-              $_SESSION['userID'] = $username;
+              $_SESSION['userID'] = $user['username'];
               $_SESSION['userName'] = $name;
               $_SESSION['role'] = $user['vaiTro'];
               $_SESSION['permission'] = $dp->getPermissionByRoleID($user['vaiTro']);
