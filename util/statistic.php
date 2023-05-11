@@ -19,10 +19,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
-            case 'getNumberOfProductsSold':
+            case 'getNumberOfKindProductsSold':
                 $year = $_GET['year'];
                 $month = $_GET['month'];
-                $sql = "SELECT tl.tenLoai, IFNULL(SUM(cthd.SoLuong), 0) AS soLuong
+                $sql = "SELECT tl.tenLoai AS ten, IFNULL(SUM(cthd.SoLuong), 0) AS soLuong
                         FROM theLoai tl
                         LEFT JOIN (
                             SELECT a.theLoai, SUM(cthd.SoLuong) AS SoLuong
@@ -35,6 +35,25 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             GROUP BY a.theLoai
                         ) AS cthd ON tl.maLoai = cthd.theLoai
                         GROUP BY tl.maLoai";
+                $result = $dp->excuteQuery($sql);
+                $data = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($data, $row);
+                    }
+                }
+                echo json_encode($data);
+                break;
+            case 'getNumberOfProductsSold':
+                $year = $_GET['year'];
+                $month = $_GET['month'];
+                $sql = "SELECT a.tenAlbum as ten, SUM(cthd.soLuong) as soLuong
+                        FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
+                            JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
+                        WHERE hd.trangThai = 'Delivered' "
+                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
+                    " AND YEAR(hd.thoiGianDat) = 2023
+                        GROUP BY a.maAlbum;";
                 $result = $dp->excuteQuery($sql);
                 $data = array();
                 if ($result->num_rows > 0) {

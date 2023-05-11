@@ -4,6 +4,17 @@ const getSalesByYear = (year) => {
     type: "GET",
   });
 };
+const getNumberOfKindProductsSold = (month, year) => {
+  return $.ajax({
+    url:
+      "util/statistic.php?month=" +
+      month +
+      "&year=" +
+      year +
+      "&action=getNumberOfKindProductsSold",
+    type: "GET",
+  });
+};
 const getNumberOfProductsSold = (month, year) => {
   return $.ajax({
     url:
@@ -96,8 +107,14 @@ const thongKe2 = async () => {
   let year = parseInt(
     document.querySelector("#statistic-type2 .yearInput").value
   );
-  let data = JSON.parse(await getNumberOfProductsSold(month, year));
-  let dataFormat = data.map((obj) => [obj.tenLoai, parseInt(obj.soLuong)]);
+  let typeInput = document.querySelector("#statistic-type2 .typeStatictis");
+  let data;
+  if (typeInput.value == "1") {
+    data = JSON.parse(await getNumberOfKindProductsSold(month, year));
+  } else if (typeInput.value == "2") {
+    data = JSON.parse(await getNumberOfProductsSold(month, year));
+  }
+  let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
   Highcharts.chart("container2", {
     chart: {
       type: "column",
