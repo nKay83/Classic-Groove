@@ -114,6 +114,11 @@ const selectMenuFooter = () => {
   removeColorTab();
   loadPageByAjax("footer");
 };
+const selectMenuAdmin = (selectedTab, pageTarget) => {
+  removeColorTab();
+  selectedTab.classList.add("active");
+  loadPageByAjax(pageTarget);
+};
 const loadLoginByAjax = (pageTarget) => {
   const login = document.querySelector("#login");
   if (login == null) {

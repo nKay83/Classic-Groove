@@ -8,43 +8,43 @@ session_start();
     </div>
     <div class="top-menu">
       <?php if (checkCanAccess(18)): ?>
-        <div class="tab-title active" onclick="loadPageByAjax('statistic')">
+        <div class="tab-title active" onclick="selectMenuAdmin(this,'statistic')">
           <div class="tab-icon"><i class="fa-solid fa-chart-column"></i></div>
           <div class="tab-info">Statistic</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(1)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('productManager')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'productManager')">
           <div class="tab-icon"><i class="fa-solid fa-album"></i></div>
           <div class="tab-info">Album</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(10)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('orderManager')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'orderManager')">
           <div class="tab-icon"><i class="fa-regular fa-list"></i></div>
           <div class="tab-info">Order</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(6)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('accountManager')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'accountManager')">
           <div class="tab-icon"><i class="fa-solid fa-user"></i></div>
           <div class="tab-info">Account</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(4)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('supplyRecord')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'supplyRecord')">
           <div class="tab-icon"><i class="fa-regular fa-box-open"></i></div>
           <div class="tab-info">Supply</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(12)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('structureManager')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'structureManager')">
           <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
           <div class="tab-info">Structure</div>
         </div>
       <?php endif ?>
       <?php if (checkCanAccess(14)): ?>
-        <div class="tab-title" onclick="loadPageByAjax('roleManager')">
+        <div class="tab-title" onclick="selectMenuAdmin(this,'roleManager')">
           <div class="tab-icon"><i class="fa-regular fa-user-pen"></i></div>
           <div class="tab-info">Permission</div>
         </div>
