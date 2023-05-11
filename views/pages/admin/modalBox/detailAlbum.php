@@ -1,5 +1,6 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $albumID = $_POST['id'];
 $album = getAlbum($albumID);
@@ -94,14 +95,22 @@ $songs = getSong($albumID);
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button" onclick="loadModalBoxByAjax('editAlbum',<?= $album['maAlbum'] ?>)">
-                    <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="info-placeholder">Edit</div>
-                </div>
-                <div class="delete-button" onclick="deleteAlbum(<?= $album['maAlbum'] ?>)">
-                    <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
-                    <div class="info-placeholder">Delete</div>
-                </div>
+                <?php if (checkCanAccess(2)): ?>
+                    <div class="edit-button" onclick="loadModalBoxByAjax('editAlbum',<?= $album['maAlbum'] ?>)">
+                        <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="info-placeholder">Edit</div>
+                    </div>
+                <?php else: ?>
+                    <div></div>
+                <?php endif ?>
+                <?php if (checkCanAccess(3)): ?>
+                    <div class="delete-button" onclick="deleteAlbum(<?= $album['maAlbum'] ?>)">
+                        <div class="icon-placeholder"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="info-placeholder">Delete</div>
+                    </div>
+                <?php else: ?>
+                    <div></div>
+                <?php endif ?>
                 <div class="back-button" onclick="closeDetailalbum()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
@@ -134,5 +143,11 @@ function getSong($albumID)
         }
     }
     return $songs;
+}
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
 }
 ?>

@@ -43,10 +43,12 @@ session_start();
           <div class="tab-info">Structure</div>
         </div>
       <?php endif ?>
-      <div class="tab-title" onclick="loadPageByAjax('roleManager')">
-        <div class="tab-icon"><i class="fa-regular fa-user-pen"></i></div>
-        <div class="tab-info">Permission</div>
-      </div>
+      <?php if (checkCanAccess(14)): ?>
+        <div class="tab-title" onclick="loadPageByAjax('roleManager')">
+          <div class="tab-icon"><i class="fa-regular fa-user-pen"></i></div>
+          <div class="tab-info">Permission</div>
+        </div>
+      <?php endif ?>
     </div>
   </div>
   <div class="bottom">
@@ -60,20 +62,11 @@ session_start();
     </div>
   </div>
 </div>
-
-
-
 <?php
 function checkCanAccess($permission)
 {
-  if (isset($_SESSION['permission'])) {
-    foreach ($_SESSION['permission'] as $p) {
-      if ($p == $permission) {
-        return true;
-      }
-    }
-  }
+  if (in_array($permission, $_SESSION['permission']))
+    return true;
   return false;
 }
-
 ?>

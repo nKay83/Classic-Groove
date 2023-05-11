@@ -41,6 +41,10 @@ $listPermission = getListPermission($roleID);
         <div class="checkbox-placeholder">
             <input type="checkbox" value="1" <?php if (checkExist(1)): ?>checked<?php endif ?>>
         </div>
+        <div class="role-item">Add</div>
+        <div class="checkbox-placeholder">
+            <input type="checkbox" value="19" <?php if (checkExist(19)): ?>checked<?php endif ?>>
+        </div>
         <div class="role-item">Delete</div>
         <div class="checkbox-placeholder">
             <input type="checkbox" value="3" <?php if (checkExist(3)): ?>checked<?php endif ?>>
@@ -126,25 +130,6 @@ $listPermission = getListPermission($roleID);
         <div class="role-item">Access</div>
         <div class="checkbox-placeholder">
             <input type="checkbox" value="18" <?php if (checkExist(18)): ?>checked<?php endif ?>>
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Distributor management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="19" <?php if (checkExist(19)): ?>checked<?php endif ?>>
-        </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="20" <?php if (checkExist(20)): ?>checked<?php endif ?>>
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="21" <?php if (checkExist(21)): ?>checked<?php endif ?>>
-        </div>
-        <div class="role-item">Delete</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="22" <?php if (checkExist(22)): ?>checked<?php endif ?>>
         </div>
     </div>
 </div>

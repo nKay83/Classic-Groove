@@ -1,5 +1,6 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $album = getAllAlbum();
 ?>
@@ -7,12 +8,16 @@ $album = getAllAlbum();
 <div id="productManager">
   <div class="header">
     <h2><i class="fa-solid fa-album"></i>&#09; Product management</h2>
-    <div class="button-placeholder">
-      <div class="new-button" onclick="loadModalBoxByAjax('newAlbum')">
-        <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
-        <div class="info-placeholder">New</div>
+    <?php if (checkCanAccess(19)): ?>
+      <div class="button-placeholder">
+        <div class="new-button" onclick="loadModalBoxByAjax('newAlbum')">
+          <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
+          <div class="info-placeholder">New</div>
+        </div>
       </div>
-    </div>
+    <? else: ?>
+      <div></div>
+    <?php endif ?>
     <div class="search-bar">
       <div class="search-input">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -37,7 +42,6 @@ $album = getAllAlbum();
       </div>
       <div class="date-end">
         <i class="fa-thin fa-coins"></i>
-
         <input type="text" name="" id="" placeholder="End price" value="">
       </div>
     </div>
@@ -106,5 +110,11 @@ function getAllAlbum()
     }
   }
   return $album;
+}
+function checkCanAccess($permission)
+{
+  if (in_array($permission, $_SESSION['permission']))
+    return true;
+  return false;
 }
 ?>

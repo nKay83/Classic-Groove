@@ -15,7 +15,6 @@
   /* margin: 0 auto; */
   /* position: relative; */
   margin-top: -2%;
-
 }
 
 #productManager .button-placeholder {
@@ -25,11 +24,9 @@
 }
 
 #productManager .header {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 240px 0.6fr 6fr;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 2vh;
-  column-gap: 20px;
 }
 
 #productManager .header h2 {
@@ -118,7 +115,6 @@
   padding: 13px 0;
   border-bottom: 2px solid var(--ora);
 }
-
 
 #productManager .placeholder .info {
   display: grid;
@@ -231,8 +227,18 @@
   /* font-size: calc(3px + 1vw); */
 }
 
-#productManager #edit-album .modal-box .modal-right .title-list .title-placeholder,
-#productManager #new-album .modal-box .modal-right .title-list .title-placeholder {
+#productManager
+  #edit-album
+  .modal-box
+  .modal-right
+  .title-list
+  .title-placeholder,
+#productManager
+  #new-album
+  .modal-box
+  .modal-right
+  .title-list
+  .title-placeholder {
   width: 97%;
   height: 100%;
   display: grid;
@@ -242,7 +248,12 @@
   margin: auto;
 }
 
-#productManager #detail-album .modal-box .modal-right .title-list .title-placeholder {
+#productManager
+  #detail-album
+  .modal-box
+  .modal-right
+  .title-list
+  .title-placeholder {
   width: 97%;
   height: 100%;
   display: grid;
@@ -315,13 +326,37 @@
   overflow: hidden;
 }
 
-#productManager #detail-album .modal-right .list .placeholder .info .item:nth-of-type(4),
-#productManager #edit-album .modal-right .list .placeholder .info .item:nth-of-type(5),
-#productManager #new-album .modal-right .list .placeholder .info .item:nth-of-type(5) {
+#productManager
+  #detail-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(4),
+#productManager
+  #edit-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(5),
+#productManager
+  #new-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(5) {
   border: none;
 }
 
-#productManager #detail-album .modal-right .list .placeholder .info .item:nth-of-type(4) {
+#productManager
+  #detail-album
+  .modal-right
+  .list
+  .placeholder
+  .info
+  .item:nth-of-type(4) {
   cursor: default;
 }
 
@@ -336,17 +371,42 @@
   margin: 0;
 }
 
-#productManager .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n) .item-input {
+#productManager
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:nth-of-type(2n)
+  .item-input {
   width: 115%;
 }
 
-#productManager .modal-box .modal-left .modal-info .modal-item:last-child .item-header,
-#productManager .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-header {
+#productManager
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:last-child
+  .item-header,
+#productManager
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:nth-last-child(2)
+  .item-header {
   height: 35%;
 }
 
-#productManager .modal-box .modal-left .modal-info .modal-item:last-child .item-input,
-#productManager .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-input {
+#productManager
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:last-child
+  .item-input,
+#productManager
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:nth-last-child(2)
+  .item-input {
   height: 150%;
   margin-top: -60px;
 }
@@ -405,7 +465,12 @@
   /* font-size: calc(4px + 1vw); */
 }
 
-#productManager .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
+#productManager
+  .modal-box
+  .modal-info
+  .modal-item
+  .item-input
+  input:nth-of-type(1) {
   color: var(--gr1);
 }
 
@@ -586,7 +651,6 @@
   margin-top: 15px;
   margin-left: 10px;
   font-family: "Dosis", sans-serif;
-
 }
 
 #productManager #add_exist_song {
@@ -670,7 +734,6 @@
   width: 6vw;
 }
 
-
 #productManager .search-bar {
   background-color: white;
   display: grid;
@@ -689,7 +752,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 #productManager .search-bar .search-input {
   width: 90%;
@@ -716,7 +778,6 @@
   border: none;
   padding-left: 20px;
   font-size: calc(10px + 0.1vw);
-
 }
 
 #productManager .search-bar .filter-input {
@@ -773,7 +834,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
   #productManager {
     width: 615px;
     margin-left: 25px;
@@ -795,7 +855,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
   #productManager .header h2 {
     display: none;
   }
