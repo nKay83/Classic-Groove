@@ -39,6 +39,18 @@ const getTopKindProducts = (month, year) => {
   });
 };
 
+const getTopProducts = (month, year) => {
+  return $.ajax({
+    url:
+      "util/statistic.php?month=" +
+      month +
+      "&year=" +
+      year +
+      "&action=getTopProducts",
+    type: "GET",
+  });
+};
+
 const thongKe1 = async () => {
   let year = document.querySelector("#statistic-type1 .yearInput").value;
   let data = JSON.parse(await getSalesByYear(year));
@@ -194,13 +206,18 @@ const thongKe2 = async () => {
 
 const thongKe3 = async () => {
   let month = parseInt(
-    document.querySelector("#statistic-type2 .monthInput").value
+    document.querySelector("#statistic-type3 .monthInput").value
   );
   let year = parseInt(
-    document.querySelector("#statistic-type2 .yearInput").value
+    document.querySelector("#statistic-type3 .yearInput").value
   );
-  let data = JSON.parse(await getTopKindProducts(month, year));
-  console.log(data);
+  let typeInput = document.querySelector("#statistic-type3 .typeStatictis");
+  let data;
+  if (typeInput.value == "1") {
+    data = JSON.parse(await getTopKindProducts(month, year));
+  } else if (typeInput.value == "2") {
+    data = JSON.parse(await getTopProducts(month, year));
+  }
   Highcharts.chart("container3", {
     chart: {
       type: "bar",
@@ -210,7 +227,7 @@ const thongKe3 = async () => {
       align: "left",
     },
     xAxis: {
-      categories: data.map((obj) => obj.tenLoai),
+      categories: data.map((obj) => obj.ten),
       title: {
         text: null,
       },

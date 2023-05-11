@@ -66,7 +66,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             case 'getTopKindProducts':
                 $year = $_GET['year'];
                 $month = $_GET['month'];
-                $sql = "SELECT tl.tenLoai, SUM(cthd.SoLuong) AS soLuong
+                $sql = "SELECT tl.tenLoai as ten, SUM(cthd.SoLuong) AS soLuong
                         FROM theLoai tl join album a on tl.maLoai = a.theLoai
                             join chitiethoadon cthd on a.maAlbum = cthd.album
                             join hoadon hd on cthd.hoaDon = hd.maHoaDon
@@ -85,6 +85,26 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
+            case 'getTopProducts':
+                $year = $_GET['year'];
+                $month = $_GET['month'];
+                $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
+                        FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
+                            JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
+                        WHERE hd.trangThai = 'Delivered' "
+                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
+                    " AND YEAR(hd.thoiGianDat) = $year
+                        GROUP BY a.maAlbum
+                        ORDER BY soLuong DESC
+                        LIMIT 3";
+                $result = $dp->excuteQuery($sql);
+                $data = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($data, $row);
+                    }
+                }
+                echo json_encode($data);
         }
         break;
 }
