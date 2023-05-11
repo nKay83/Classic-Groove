@@ -29,7 +29,7 @@ const getTop3Products = (month, year) => {
 };
 
 const thongKe1 = async () => {
-  let year = document.querySelector(".yearInput").value;
+  let year = document.querySelector("#statistic-type1 .yearInput").value;
   let data = JSON.parse(await getSalesByYear(year));
   const allMonths = Array.from({ length: 12 }, (_, i) =>
     (i + 1).toString().padStart(2, "0")
@@ -90,7 +90,13 @@ const thongKe1 = async () => {
 };
 
 const thongKe2 = async () => {
-  let data = JSON.parse(await getNumberOfProductsSold(1, 2023));
+  let month = parseInt(
+    document.querySelector("#statistic-type2 .monthInput").value
+  );
+  let year = parseInt(
+    document.querySelector("#statistic-type2 .yearInput").value
+  );
+  let data = JSON.parse(await getNumberOfProductsSold(month, year));
   let dataFormat = data.map((obj) => [obj.tenLoai, parseInt(obj.soLuong)]);
   Highcharts.chart("container2", {
     chart: {

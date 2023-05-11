@@ -30,6 +30,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             LEFT JOIN chitiethoadon cthd ON cthd.album = a.maAlbum
                             LEFT JOIN hoadon hd ON hd.maHoaDon=cthd.hoaDon
                             WHERE hd.trangThai = 'Delivered'
+                                AND MONTH(thoiGianDat) = $month
+                                AND YEAR(thoiGianDat) = $year
                             GROUP BY a.theLoai
                         ) AS cthd ON tl.maLoai = cthd.theLoai
                         GROUP BY tl.maLoai";
@@ -50,6 +52,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             join chitiethoadon cthd on a.maAlbum = cthd.album
                             join hoadon hd on cthd.hoaDon = hd.maHoaDon
                         WHERE hd.trangThai = 'Delivered'
+                            AND  DATE_FORMAT(thoiGianDat, '%m') = $month
+                            AND  DATE_FORMAT(thoiGianDat, '%Y') = $year
                         GROUP BY tl.maLoai
                         ORDER BY soLuong DESC
                         LIMIT 3";
