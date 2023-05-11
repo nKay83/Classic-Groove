@@ -51,7 +51,7 @@ const getTopProducts = (month, year) => {
   });
 };
 
-const thongKe1 = async () => {
+const statistic1 = async () => {
   let year = document.querySelector("#statistic-type1 .yearInput").value;
   let data = JSON.parse(await getSalesByYear(year));
   const allMonths = Array.from({ length: 12 }, (_, i) =>
@@ -112,7 +112,7 @@ const thongKe1 = async () => {
   });
 };
 
-const thongKe2 = async () => {
+const statistic2 = async () => {
   let month = parseInt(
     document.querySelector("#statistic-type2 .monthInput").value
   );
@@ -204,7 +204,7 @@ const thongKe2 = async () => {
   });
 };
 
-const thongKe3 = async () => {
+const statistic3 = async () => {
   let month = parseInt(
     document.querySelector("#statistic-type3 .monthInput").value
   );

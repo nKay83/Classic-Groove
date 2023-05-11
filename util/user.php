@@ -6,7 +6,11 @@ switch ($_SERVER["REQUEST_METHOD"]) {
   case 'GET':
     switch ($_GET['action']) {
       case 'isLogin':
-        echo isset($_SESSION['userID']);
+        if (isset($_SESSION['userID'])) {
+          echo 1;
+        } else {
+          echo 0;
+        }
         break;
       case 'getRole':
         echo $_SESSION['role'];

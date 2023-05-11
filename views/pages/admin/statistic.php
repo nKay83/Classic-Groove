@@ -5,7 +5,7 @@
                 <option value="<?= $i ?>"><?= $i ?></option>
             <?php endfor ?>
         </select>
-        <Button value="" onclick="thongKe1()">thongKe</Button>
+        <Button value="" onclick=" statistic1()">Statistic</Button>
         <figure class="highcharts-figure">
             <div id="container"></div>
         </figure>
@@ -26,7 +26,7 @@
             <option value="1">Type Products</option>
             <option value="2">Products</option>
         </select>
-        <Button value="" onclick="thongKe2()">thongKe</Button>
+        <Button value="" onclick=" statistic2()">Statistic</Button>
         <figure class="highcharts-figure">
             <div id="container2"></div>
         </figure>
@@ -47,7 +47,7 @@
             <option value="1">Type Products</option>
             <option value="2">Products</option>
         </select>
-        <Button value="" onclick="thongKe3()">thongKe</Button>
+        <Button value="" onclick=" statistic3()">Statistic</Button>
         <figure class="highcharts-figure">
             <div id="container3"></div>
         </figure>
