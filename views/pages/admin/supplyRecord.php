@@ -1,17 +1,20 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $supplyRecord = getAllSupplyRecord();
 ?>
 <div id="supplyRecord">
   <div class="header">
     <h2><i class="fa-regular fa-box-open"></i> Supply record</h2>
-    <div class="button-placeholder">
-      <div class="new-button" onclick="loadModalBoxByAjax('newSupply')">
-        <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
-        <div class="info-placeholder">New</div>
+    <?php if (checkCanAccess(5)): ?>
+      <div class="button-placeholder">
+        <div class="new-button" onclick="loadModalBoxByAjax('newSupply')">
+          <div class="icon-placeholder"><i class="fa-solid fa-album-circle-plus"></i></div>
+          <div class="info-placeholder">New</div>
+        </div>
       </div>
-    </div>
+    <?php endif ?>
   </div>
   <div class="title-list">
     <div class="title-placeholder">
@@ -68,5 +71,11 @@ function getAllSupplyRecord()
     }
   }
   return $supplyRecord;
+}
+function checkCanAccess($permission)
+{
+  if (in_array($permission, $_SESSION['permission']))
+    return true;
+  return false;
 }
 ?>

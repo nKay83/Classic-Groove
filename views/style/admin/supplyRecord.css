@@ -15,14 +15,7 @@
   margin-top: -2%;
   min-width: 840px;
 
-
   /* position: relative; */
-}
-
-#supplyRecord .header h2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #supplyRecord .button-placeholder {
@@ -32,10 +25,14 @@
 }
 
 #supplyRecord .header {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 175px 0.6fr 6fr;
+  display: flex;
   margin-bottom: 2vh;
+}
+#supplyRecord .header h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
 }
 
 #supplyRecord .new-button,
@@ -84,7 +81,6 @@
   grid-template-columns: 1fr 2fr 2fr 3fr 3fr 2fr 1fr;
   justify-content: center;
   margin: auto;
-
 }
 
 #supplyRecord .title-list .title-placeholder .title {
@@ -238,7 +234,12 @@
   margin: auto;
 }
 
-#supplyRecord #new-supply .modal-box .modal-right .title-list .title-placeholder {
+#supplyRecord
+  #new-supply
+  .modal-box
+  .modal-right
+  .title-list
+  .title-placeholder {
   grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
 }
 
@@ -314,12 +315,27 @@
   margin: 0;
 }
 
-#supplyRecord .modal-box .modal-left .modal-info .modal-item:nth-of-type(2n) .item-input {
+#supplyRecord
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:nth-of-type(2n)
+  .item-input {
   width: 115%;
 }
 
-#supplyRecord .modal-box .modal-left .modal-info .modal-item:last-child .item-header,
-#supplyRecord .modal-box .modal-left .modal-info .modal-item:nth-last-child(2) .item-header {
+#supplyRecord
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:last-child
+  .item-header,
+#supplyRecord
+  .modal-box
+  .modal-left
+  .modal-info
+  .modal-item:nth-last-child(2)
+  .item-header {
   padding: 3% 0;
 }
 
@@ -345,7 +361,6 @@
   grid-template-rows: 1fr 2fr;
   width: 80%;
   margin: 0 10%;
-
 }
 
 #supplyRecord .modal-box .modal-info .modal-item .item-header {
@@ -387,7 +402,12 @@
   font-size: calc(4px + 1vw);
 }
 
-#supplyRecord .modal-box .modal-info .modal-item .item-input input:nth-of-type(1) {
+#supplyRecord
+  .modal-box
+  .modal-info
+  .modal-item
+  .item-input
+  input:nth-of-type(1) {
   color: var(--gr1);
 }
 
@@ -434,7 +454,6 @@
   margin-left: 10%;
   align-items: end;
 }
-
 
 #supplyRecord .modal-box .edit-button,
 #supplyRecord .modal-box .back-button,
