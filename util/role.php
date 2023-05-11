@@ -58,13 +58,17 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         switch ($_GET["action"]) {
             case 'deleteRole':
                 $roleID = $_GET["roleID"];
+                $sql = "UPDATE taikhoan
+                SET vaiTro = 2
+                WHERE vaiTro = " . $roleID;
+                $result3 = $dp->excuteQuery($sql);
                 $sql = "DELETE FROM vaitro_quyen
                         WHERE VaiTro_maVaiTro = " . $roleID;
                 $result1 = $dp->excuteQuery($sql);
                 $sql = "DELETE FROM vaitro
                         WHERE maVaiTro = " . $roleID;
                 $result2 = $dp->excuteQuery($sql);
-                if ($result1 && $result2) {
+                if ($result1 && $result2 && $result3) {
                     echo "Success";
                 } else {
                     echo "error";

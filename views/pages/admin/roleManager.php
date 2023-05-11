@@ -1,16 +1,19 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $role = getAllRole();
 ?>
 <div id="roleManager">
     <h1>Permission</h1>
-    <div class="button-layout">
-        <div class="button-container" onclick="loadModalBoxByAjax('newRole')">
-            <i class="fa-solid fa-plus"></i>
-            <span class="info-placeholder">New</span>
+    <?php if (checkCanAccess(15)): ?>
+        <div class="button-layout">
+            <div class="button-container" onclick="loadModalBoxByAjax('newRole')">
+                <i class="fa-solid fa-plus"></i>
+                <span class="info-placeholder">New</span>
+            </div>
         </div>
-    </div>
+    <?php endif ?>
     <div class="permission-placeholder">
         <div class="title-placeholder">
             <div class="title">No.</div>
@@ -49,7 +52,10 @@ $role = getAllRole();
 function getAllRole()
 {
     global $dp;
-    $sql = "SELECT * FROM vaitro where maVaiTro != 1";
+    $sql = "SELECT vaiTro FROM taikhoan where username = '" . $_SESSION['userID'] . "'";
+    $result = $dp->excuteQuery($sql);
+    $currentRole = $result->fetch_assoc()['vaiTro'];
+    $sql = "SELECT * FROM vaitro where maVaiTro not in (1,2,3,$currentRole)";
     $result = $dp->excuteQuery($sql);
     $role = array();
     if ($result->num_rows > 0) {
@@ -59,4 +65,11 @@ function getAllRole()
     }
     return $role;
 }
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
+}
+
 ?>
