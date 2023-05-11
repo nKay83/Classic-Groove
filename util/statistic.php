@@ -42,6 +42,26 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
+            case 'getTop3Products':
+                $year = $_GET['year'];
+                $month = $_GET['month'];
+                $sql = "SELECT tl.tenLoai, SUM(cthd.SoLuong) AS soLuong
+                        FROM theLoai tl join album a on tl.maLoai = a.theLoai
+                            join chitiethoadon cthd on a.maAlbum = cthd.album
+                            join hoadon hd on cthd.hoaDon = hd.maHoaDon
+                        WHERE hd.trangThai = 'Delivered'
+                        GROUP BY tl.maLoai
+                        ORDER BY soLuong DESC
+                        LIMIT 3";
+                $result = $dp->excuteQuery($sql);
+                $data = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($data, $row);
+                    }
+                }
+                echo json_encode($data);
+                break;
         }
         break;
 }

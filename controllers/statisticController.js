@@ -16,6 +16,18 @@ const getNumberOfProductsSold = (month, year) => {
   });
 };
 
+const getTop3Products = (month, year) => {
+  return $.ajax({
+    url:
+      "util/statistic.php?month=" +
+      month +
+      "&year=" +
+      year +
+      "&action=getTop3Products",
+    type: "GET",
+  });
+};
+
 const thongKe1 = async () => {
   let year = document.querySelector(".yearInput").value;
   let data = JSON.parse(await getSalesByYear(year));
@@ -157,7 +169,9 @@ const thongKe2 = async () => {
   });
 };
 
-const thongKe3 = () => {
+const thongKe3 = async () => {
+  let data = JSON.parse(await getTop3Products(1, 2023));
+  console.log(data);
   Highcharts.chart("container3", {
     chart: {
       type: "bar",
@@ -166,15 +180,8 @@ const thongKe3 = () => {
       text: "Top 5 sản phẩm bán chạy nhất vào tháng 02 năm 2023",
       align: "left",
     },
-    subtitle: {
-      text:
-        "Source: <a " +
-        'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-        'target="_blank">Wikipedia.org</a>',
-      align: "left",
-    },
     xAxis: {
-      categories: ["Africa", "America", "Asia", "Europe", "Oceania"],
+      categories: data.map((obj) => obj.tenLoai),
       title: {
         text: null,
       },
@@ -193,7 +200,7 @@ const thongKe3 = () => {
       gridLineWidth: 0,
     },
     tooltip: {
-      valueSuffix: " millions",
+      valueSuffix: " vinyl records",
     },
     plotOptions: {
       bar: {
@@ -222,7 +229,7 @@ const thongKe3 = () => {
     series: [
       {
         name: "Year 2000",
-        data: [814, 841, 3714, 726, 31],
+        data: data.map((obj) => parseInt(obj.soLuong)),
       },
     ],
   });
