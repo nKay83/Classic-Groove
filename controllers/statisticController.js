@@ -176,7 +176,13 @@ const thongKe2 = async () => {
 };
 
 const thongKe3 = async () => {
-  let data = JSON.parse(await getTop3Products(1, 2023));
+  let month = parseInt(
+    document.querySelector("#statistic-type2 .monthInput").value
+  );
+  let year = parseInt(
+    document.querySelector("#statistic-type2 .yearInput").value
+  );
+  let data = JSON.parse(await getTop3Products(month, year));
   console.log(data);
   Highcharts.chart("container3", {
     chart: {

@@ -22,6 +22,10 @@
                 <option value="<?= $i ?>"><?= $i ?></option>
             <?php endfor ?>
         </select>
+        <select name="" id="" class="typeStatictis">
+            <option value="1">Type Products</option>
+            <option value="2">Products</option>
+        </select>
         <Button value="" onclick="thongKe2()">thongKe</Button>
         <figure class="highcharts-figure">
             <div id="container2"></div>
