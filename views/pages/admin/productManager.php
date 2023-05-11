@@ -16,7 +16,7 @@ $album = getAllAlbum();
     <div class="search-bar">
       <div class="search-input">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" value="Looking for somethings?">
+        <input type="text" placeholder="Looking for somethings?">
       </div>
       <div class="filter-input">
         <i class="fa-regular fa-filter"></i>
@@ -32,9 +32,12 @@ $album = getAllAlbum();
         </select>
       </div>
       <div class="date-begin">
+        <i class="fa-thin fa-coin"></i>
         <input type="text" name="" id="" placeholder="Start price" value="">
       </div>
       <div class="date-end">
+      <i class="fa-thin fa-coins"></i>
+
         <input type="text" name="" id="" placeholder="End price" value="">
       </div>
     </div>
@@ -42,7 +45,7 @@ $album = getAllAlbum();
   <div class="title-list">
     <div class="title-placeholder">
       <div class="title" style="padding-right: 10px;">No.</div>
-      <div class="title" style="padding-right: 15px;">Album ID</div>
+      <div class="title" style="padding-right: 15px;">AlbumID</div>
       <div class="title" style="padding-right: 15px;">Album name</div>
       <div class="title" style="padding-right: 10px;">Artist name</div>
       <div class="title">Kind</div>
