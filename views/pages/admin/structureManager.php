@@ -1,17 +1,20 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $slideShow = getAllSlideShow();
 ?>
 
 <div id="structure">
     <h1><i class="fa-solid fa-puzzle"></i> Structure management</h1>
-    <div class="button-layout">
-        <div class="button-container" onclick="loadModalBoxByAjax('newSlide')">
-            <i class="fa-solid fa-plus"></i>
-            <span class="info-placeholder">New</span>
+    <?php if (checkCanAccess(20)): ?>
+        <div class="button-layout">
+            <div class="button-container" onclick="loadModalBoxByAjax('newSlide')">
+                <i class="fa-solid fa-plus"></i>
+                <span class="info-placeholder">New</span>
+            </div>
         </div>
-    </div>
+    <?php endif ?>
     <div class="manageSilder">
         <div></div>
         <div class="bottom">
@@ -64,5 +67,11 @@ function getAllSlideShow()
         }
     }
     return $slideShow;
+}
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
 }
 ?>

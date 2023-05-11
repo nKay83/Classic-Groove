@@ -101,9 +101,17 @@ $listPermission = getListPermission($roleID);
         <div class="checkbox-placeholder">
             <input type="checkbox" value="12" <?php if (checkExist(12)): ?>checked<?php endif ?>>
         </div>
+        <div class="role-item">Add</div>
+        <div class="checkbox-placeholder">
+            <input type="checkbox" value="20" <?php if (checkExist(20)): ?>checked<?php endif ?>>
+        </div>
         <div class="role-item">Edit</div>
         <div class="checkbox-placeholder">
             <input type="checkbox" value="13" <?php if (checkExist(13)): ?>checked<?php endif ?>>
+        </div>
+        <div class="role-item">Delete</div>
+        <div class="checkbox-placeholder">
+            <input type="checkbox" value="21" <?php if (checkExist(21)): ?>checked<?php endif ?>>
         </div>
     </div>
     <div class="role-box">

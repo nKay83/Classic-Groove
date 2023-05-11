@@ -41,7 +41,7 @@ $newRoleID = getNewRoleID();
         </div>
         <div class="role-item">Add</div>
         <div class="checkbox-placeholder">
-            <input type="checkbox" value="19" <?php if (checkExist(19)): ?>checked<?php endif ?>>
+            <input type="checkbox" value="19">
         </div>
         <div class="role-item">Delete</div>
         <div class="checkbox-placeholder">
@@ -99,9 +99,17 @@ $newRoleID = getNewRoleID();
         <div class="checkbox-placeholder">
             <input type="checkbox" value="12">
         </div>
+        <div class="role-item">Add</div>
+        <div class="checkbox-placeholder">
+            <input type="checkbox" value="20">
+        </div>
         <div class="role-item">Edit</div>
         <div class="checkbox-placeholder">
             <input type="checkbox" value="13">
+        </div>
+        <div class="role-item">Delete</div>
+        <div class="checkbox-placeholder">
+            <input type="checkbox" value="21">
         </div>
     </div>
     <div class="role-box">
