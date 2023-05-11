@@ -27,14 +27,14 @@ const getNumberOfProductsSold = (month, year) => {
   });
 };
 
-const getTop3Products = (month, year) => {
+const getTopKindProducts = (month, year) => {
   return $.ajax({
     url:
       "util/statistic.php?month=" +
       month +
       "&year=" +
       year +
-      "&action=getTop3Products",
+      "&action=getTopKindProducts",
     type: "GET",
   });
 };
@@ -152,22 +152,22 @@ const thongKe2 = async () => {
         name: "Population",
         colors: [
           "#9b20d9",
-          "#9215ac",
-          "#861ec9",
-          "#7a17e6",
+          // "#9215ac",
+          // "#861ec9",
+          // "#7a17e6",
           "#7010f9",
-          "#691af3",
-          "#6225ed",
+          // "#691af3",
+          // "#6225ed",
           // "#5b30e7",
-          // "#533be1",
+          "#533be1",
           // "#4c46db",
           // "#4551d5",
           // "#3e5ccf",
-          // "#3667c9",
+          "#3667c9",
           // "#2f72c3",
           // "#277dbd",
           // "#1f88b7",
-          // "#1693b1",
+          "#1693b1",
           // "#0a9eaa",
           // "#03c69b",
           // "#00f194",
@@ -199,7 +199,7 @@ const thongKe3 = async () => {
   let year = parseInt(
     document.querySelector("#statistic-type2 .yearInput").value
   );
-  let data = JSON.parse(await getTop3Products(month, year));
+  let data = JSON.parse(await getTopKindProducts(month, year));
   console.log(data);
   Highcharts.chart("container3", {
     chart: {
