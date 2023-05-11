@@ -1,5 +1,6 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $accountID = $_POST["id"];
 $account = getAccount($accountID);
@@ -56,10 +57,14 @@ $role = getListRole();
         <div class="modal-button">
             <div class="button-layout"></div>
             <div class="button-layout">
-                <div class="edit-button" onclick="loadModalBoxByAjax('editAccount','<?= $accountID ?>')">
-                    <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <div class="info-placeholder">Edit</div>
-                </div>
+                <?php if (checkCanAccess(8)): ?>
+                    <div class="edit-button" onclick="loadModalBoxByAjax('editAccount','<?= $accountID ?>')">
+                        <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="info-placeholder">Edit</div>
+                    </div>
+                <?php else: ?>
+                    <div></div>
+                <?php endif; ?>
                 <div class="back-button" onclick="closeDetailAccount()">
                     <div class="icon-placeholder"><i class="fa-solid fa-angle-left"></i></div>
                     <div class="info-placeholder">Back</div>
@@ -91,5 +96,11 @@ function getListRole()
         }
     }
     return $role;
+}
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
 }
 ?>
