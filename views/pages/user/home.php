@@ -31,14 +31,12 @@ $slides = getAllSlide();
               </div>
             <?php endforeach ?>
           </div>
-          <!-- <div class="buttons"> -->
           <button id="prev" class="prev" onclick="prevSlide()">
             <i class="fa-light fa-angle-left"></i>
           </button>
           <button id="next" class="next" onclick="nextSlide()">
             <i class="fa-light fa-angle-right"></i>
           </button>
-          <!-- </div> -->
           <ul class="dots">
             <li onclick="changeSlide(0)" class="active"></li>
             <?php for ($i = 1; $i < count($slides); $i++): ?>

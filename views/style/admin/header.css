@@ -26,7 +26,7 @@
   box-sizing: border-box;
   position: relative;
   margin-bottom: 10%;
-  background-image: 'views/assets/img/Logo.png';
+  background-image: "views/assets/img/Logo.png";
 }
 
 #header img {
@@ -278,10 +278,40 @@
   background-color: #000000;
   border-radius: 20px;
 }
+#header .info-placeholder input:active {
+  transform: translateY(2px);
+  transition: 0.3s;
+}
 
+#header .info-placeholder {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  color: var(--ora);
+  height: auto;
+  background: var(--whi);
+  border-radius: 15px;
+  margin: 0px 10%;
+  cursor: pointer;
+  font-size: calc(-3px + 1.2vw);
+  padding: 3%;
+  transition: 0.2s ease-in-out;
+}
+#header .info-placeholder:hover,
+#header .info-placeholder:hover h3,
+#header .info-placeholder:hover .log-out-button {
+  transform: scale(105%);
+  transition: 0.2s;
+}
+
+#header .info-placeholder h3 {
+  text-align: center;
+}
 @media screen and (max-width: 880px) {
-  #header .logo-placeholder{
-    background-image: url('views/assets/img/Logo.png');
+  #header .logo-placeholder {
+    background-image: url("views/assets/img/Logo.png");
   }
   #header .tab-icon {
     font-size: 20px;
