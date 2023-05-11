@@ -82,7 +82,7 @@
         </div>
       </div>
     <?php endif ?>
-    <div class="footer-placeholder" onclick="loadPageByAjax('footer'),selectMenu(this)">
+    <div class="footer-placeholder" onclick="selectMenuFooter()">
       <p>About us</p>
     </div>
   </div>

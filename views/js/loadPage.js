@@ -91,22 +91,29 @@ const hideTabNotice = () => {
     element.style.display = "none";
   });
 };
+const removeColorTab = () => {
+  let tabActive = document.querySelector("#header .tab-title.active");
+  if (tabActive != null) tabActive.classList.remove("active");
+};
 const selectMenu = async (selectedTab, pageTarget) => {
   hideTabNotice();
   let loginPage = document.querySelector("#login");
-  if (!(await isLogin())) {
+  if (!(await isLogin()) && pageTarget != "home") {
     if (!loginPage) {
       selectedTab.childNodes[5].style.display = "block";
     }
     return;
   }
-  let tabActive = document.querySelector("#header .tab-title.active");
-  if (tabActive != null) tabActive.classList.remove("active");
+  removeColorTab();
   selectedTab.classList.add("active");
   if (pageTarget == "home") return;
   loadPageByAjax(pageTarget);
 };
-
+const selectMenuFooter = () => {
+  hideTabNotice();
+  removeColorTab();
+  loadPageByAjax("footer");
+};
 const loadLoginByAjax = (pageTarget) => {
   const login = document.querySelector("#login");
   if (login == null) {
