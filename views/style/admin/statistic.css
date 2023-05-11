@@ -2,6 +2,12 @@
   width: 95%;
   margin: 0 auto;
 }
+#statistic h2 {
+  margin-bottom: 2vh;
+}
+#statistic h2 span {
+  margin-left: 5px;
+}
 #statistic .highcharts-figure,
 #statistic .highcharts-data-table table {
   /* min-width: 360px; */
@@ -43,4 +49,16 @@
 
 #statistic .highcharts-data-table tr:hover {
   background: #f1f7ff;
+}
+#statistic select,
+button {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-family: "Dosis", sans-serif;
+  margin-right: 3px;
+}
+#statistic button {
+  cursor: pointer;
+  background-color: var(--ora);
+  color: var(--whi);
 }

@@ -1,4 +1,5 @@
 <div id="statistic">
+   <h2> <i class="fa-solid fa-chart-column"></i><span>Statistic</span></h2>
     <div id="statistic-type1">
         <select name="" id="" class="yearInput">
             <?php for ($i = date('Y'); $i >= date('Y') - 4; $i--): ?>
