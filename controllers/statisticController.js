@@ -224,12 +224,20 @@ const statistic3 = async () => {
   } else if (typeInput.value == "2") {
     data = JSON.parse(await getTopProducts(month, year));
   }
+  let title;
+  if (typeInput.value == "1") {
+    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
+    title = "Top best-selling category in " + mon + year;
+  } else {
+    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
+    title = "Top best-selling product in " + mon + year;
+  }
   Highcharts.chart("container3", {
     chart: {
       type: "bar",
     },
     title: {
-      text: "Top 5 sản phẩm bán chạy nhất vào tháng 02 năm 2023",
+      text: title,
       align: "left",
     },
     xAxis: {
@@ -243,7 +251,7 @@ const statistic3 = async () => {
     yAxis: {
       min: 0,
       title: {
-        text: "Population (millions)",
+        text: "Number of products sold",
         align: "high",
       },
       labels: {
@@ -252,7 +260,7 @@ const statistic3 = async () => {
       gridLineWidth: 0,
     },
     tooltip: {
-      valueSuffix: " vinyl records",
+      valueSuffix: "vinyl records",
     },
     plotOptions: {
       bar: {
@@ -280,7 +288,7 @@ const statistic3 = async () => {
     },
     series: [
       {
-        name: "Year 2000",
+        name: "",
         data: data.map((obj) => parseInt(obj.soLuong)),
       },
     ],
