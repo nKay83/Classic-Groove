@@ -23,9 +23,11 @@ a:active {
 
 header {
   width: 13%;
+  min-width: 80px;
   background-color: var(--bla);
   height: 100vh;
   position: fixed;
+  z-index: 1;
 }
 
 main {

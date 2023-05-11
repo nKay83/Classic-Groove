@@ -26,6 +26,7 @@
   box-sizing: border-box;
   position: relative;
   margin-bottom: 10%;
+  background-image: 'views/assets/img/Logo.png';
 }
 
 #header img {
@@ -47,7 +48,7 @@
   border-radius: 70px;
   margin: 3% 0%;
   margin-top: 0;
-  height: 3vh;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   cursor: pointer;
@@ -61,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(-3px + 1.2vw)
+  /* font-size: calc(-3px + 1.2vw); */
 }
 
 #header .tab-icon i {
@@ -78,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: left;
-  font-size: calc(-3px + 1.2vw);
+  /* font-size: calc(-3px + 1.2vw); */
   font-family: "Dosis", sans-serif;
 }
 
@@ -278,20 +279,23 @@
   border-radius: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
+  #header .logo-placeholder{
+    background-image: url('views/assets/img/Logo.png');
+  }
   #header .tab-icon {
-    font-size: calc(5px + 1.2vw);
+    font-size: 20px;
+    width: 100%;
   }
 
   #header .tab-info {
-    font-size: calc(5px + 1.2vw);
+    display: none;
   }
 
   #header .tab-title {
     background-color: var(--lig);
-    border-radius: 70px;
+    border-radius: 10px;
     margin: 10% auto;
-    height: 7vh;
-    width: 90%;
+    padding: 10px;
   }
 }

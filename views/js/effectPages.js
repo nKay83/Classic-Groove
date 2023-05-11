@@ -66,3 +66,13 @@ const changeSlide = (key) => {
   active = key;
   reloadSlider();
 };
+
+window.addEventListener('resize', function () {
+  if (window.innerWidth <= 880) {
+    document.querySelector("#header > div > div.top > div.logo-placeholder > img").src = 'views/assets/img/Logo2.png';
+  }
+  else {
+    document.querySelector("#header > div > div.top > div.logo-placeholder > img").src = 'views/assets/img/Logo.png';
+
+  }
+});
