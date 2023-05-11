@@ -4,7 +4,7 @@ session_start();
 <div class="background">
   <div class="top">
     <div class="logo-placeholder">
-    <img src="views/assets/img/Logo.png" alt="logo">
+      <img src="views/assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
       <?php if (checkCanAccess(18)): ?>
@@ -37,7 +37,6 @@ session_start();
           <div class="tab-info">Supply</div>
         </div>
       <?php endif ?>
-      
       <?php if (checkCanAccess(12)): ?>
         <div class="tab-title" onclick="loadPageByAjax('structureManager')">
           <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
@@ -50,20 +49,19 @@ session_start();
       </div>
     </div>
   </div>
-</div>
-<div class="bottom">
-  <div class="button-placeholder">
-    <div class="left-button-login">
-      <input type="button" value="Log in" onclick="loadLoginByAjax('logIn')">
-    </div>
-    <div class="right-button-register">
-      <input type="button" value="Sign up" onclick="loadLoginByAjax('signUp')">
+  <div class="bottom">
+    <div class="info-placeholder" onclick="logout()">
+      <h3>Hello
+        <?= $_SESSION['userName'] ?>
+      </h3>
+      <div class="log-out-button">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
     </div>
   </div>
-  <div class="footer-placeholder" onclick="loadPageByAjax('footer')">
-    <p>About us</p>
-  </div>
 </div>
+
+
 
 <?php
 function checkCanAccess($permission)

@@ -8,10 +8,10 @@ const login = () => {
     data: { user: username, pass: password, action: "checkLogin" },
     success: function (res) {
       if (res == "cus") {
-        window.location.href = "index.php"
+        window.location.href = "index.php";
       } else if (res == "emp") window.location.href = "admin.php";
       else {
-        alert(res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
       }
     },
   });
@@ -91,7 +91,10 @@ const checkInputRegister = async () => {
     "#login .register .confirmPassword"
   );
   if (name.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your name!"
+    );
     name.focus();
     return false;
   }
@@ -191,4 +194,4 @@ const getRole = () => {
     url: "util/user.php?action=getRole",
     type: "GET",
   });
-}
+};

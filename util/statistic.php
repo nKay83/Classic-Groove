@@ -19,10 +19,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
-            case 'getNumberOfProductsSold':
+            case 'getNumberOfKindProductsSold':
                 $year = $_GET['year'];
                 $month = $_GET['month'];
-                $sql = "SELECT tl.tenLoai, IFNULL(SUM(cthd.SoLuong), 0) AS soLuong
+                $sql = "SELECT tl.tenLoai AS ten, IFNULL(SUM(cthd.SoLuong), 0) AS soLuong
                         FROM theLoai tl
                         LEFT JOIN (
                             SELECT a.theLoai, SUM(cthd.SoLuong) AS SoLuong
@@ -44,16 +44,35 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
-            case 'getTop3Products':
+            case 'getNumberOfProductsSold':
                 $year = $_GET['year'];
                 $month = $_GET['month'];
-                $sql = "SELECT tl.tenLoai, SUM(cthd.SoLuong) AS soLuong
+                $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
+                        FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
+                            JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
+                        WHERE hd.trangThai = 'Delivered' "
+                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
+                    " AND YEAR(hd.thoiGianDat) = 2023
+                        GROUP BY a.maAlbum;";
+                $result = $dp->excuteQuery($sql);
+                $data = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($data, $row);
+                    }
+                }
+                echo json_encode($data);
+                break;
+            case 'getTopKindProducts':
+                $year = $_GET['year'];
+                $month = $_GET['month'];
+                $sql = "SELECT tl.tenLoai as ten, SUM(cthd.SoLuong) AS soLuong
                         FROM theLoai tl join album a on tl.maLoai = a.theLoai
                             join chitiethoadon cthd on a.maAlbum = cthd.album
                             join hoadon hd on cthd.hoaDon = hd.maHoaDon
-                        WHERE hd.trangThai = 'Delivered'
-                            AND  DATE_FORMAT(thoiGianDat, '%m') = $month
-                            AND  DATE_FORMAT(thoiGianDat, '%Y') = $year
+                        WHERE hd.trangThai = 'Delivered' "
+                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
+                    " AND  DATE_FORMAT(thoiGianDat, '%Y') = $year
                         GROUP BY tl.maLoai
                         ORDER BY soLuong DESC
                         LIMIT 3";
@@ -66,6 +85,26 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 echo json_encode($data);
                 break;
+            case 'getTopProducts':
+                $year = $_GET['year'];
+                $month = $_GET['month'];
+                $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
+                        FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
+                            JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
+                        WHERE hd.trangThai = 'Delivered' "
+                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
+                    " AND YEAR(hd.thoiGianDat) = $year
+                        GROUP BY a.maAlbum
+                        ORDER BY soLuong DESC
+                        LIMIT 3";
+                $result = $dp->excuteQuery($sql);
+                $data = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($data, $row);
+                    }
+                }
+                echo json_encode($data);
         }
         break;
 }

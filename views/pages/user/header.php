@@ -63,30 +63,26 @@
     </div>
   </div>
   <div class="bottom">
-    <?php
-    if (!isset($_SESSION['userID'])) {
-      echo '
+    <?php if (!isset($_SESSION['userID'])): ?>
       <div class="button-placeholder">
         <div class="left-button-login">
-          <input type="button" value="Log in" onclick="loadLoginByAjax(\'logIn\'); hideTabNotice()">
+          <input type="button" value="Log in" onclick="loadLoginByAjax('logIn'); hideTabNotice()">
         </div>
         <div class="right-button-register">
-          <input type="button" value="Sign up" onclick="loadLoginByAjax(\'signUp\'); hideTabNotice()">
+          <input type="button" value="Sign up" onclick="loadLoginByAjax('signUp'); hideTabNotice()">
         </div>
-      </div>';
-    }
-    else {
-      echo '
-      <div class="info-placeholder" onclick=\'logout()\'>
-        <h3>Hello ' . $_SESSION['userName'] . '</h3>
+      </div>
+    <?php else: ?>
+      <div class="info-placeholder" onclick="logout()">
+        <h3>Hello
+          <?= $_SESSION['userName'] ?>
+        </h3>
         <div class="log-out-button">
           <i class="fa-solid fa-right-from-bracket"></i>
         </div>
       </div>
-      ';
-    }
-    ?>
-    <div class="footer-placeholder" onclick="loadPageByAjax('footer'),selectMenu(this)">
+    <?php endif ?>
+    <div class="footer-placeholder" onclick="selectMenuFooter()">
       <p>About us</p>
     </div>
   </div>
