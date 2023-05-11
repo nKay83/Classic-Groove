@@ -127,15 +127,21 @@ const statistic2 = async () => {
     data = JSON.parse(await getNumberOfProductsSold(month, year));
   }
   let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
+
+  let title;
+  if (typeInput.value == "1") {
+    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
+    title = "Number of products sold by product type in " + mon + year;
+  } else {
+    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
+    title = "Number of products sold in " + mon + year;
+  }
   Highcharts.chart("container2", {
     chart: {
       type: "column",
     },
     title: {
-      text: "Số lượng sản phẩm bán được theo loại vào tháng 02 năm 2023",
-    },
-    subtitle: {
-      text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>',
+      text: title,
     },
     xAxis: {
       type: "category",
@@ -150,14 +156,14 @@ const statistic2 = async () => {
     yAxis: {
       min: 0,
       title: {
-        text: "Population (millions)",
+        text: "Number of products sold",
       },
     },
     legend: {
       enabled: false,
     },
     tooltip: {
-      pointFormat: "Population in 2021: <b>{point.y} vinyl records</b>",
+      pointFormat: "<b>{point.y} vinyl records</b>",
     },
     series: [
       {
