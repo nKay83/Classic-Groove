@@ -36,19 +36,14 @@ main {
   /* background-color: var(--lig); */
   min-height: 100vh;
   background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.056) 1px,
-    transparent 1px
-  ),
-  linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.056) 1px,
-    transparent 1px
-  ),
-  linear-gradient(to bottom, var(--lig), var(--lig));
+      to right,
+      rgba(255, 255, 255, 0.056) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.056) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--lig), var(--lig));
   background-size: 10px 10px, 10px 10px, 100% 100%;
 }
-
 
 #search {
   height: 6vh;
@@ -63,4 +58,11 @@ main {
   padding-top: 6vh;
   color: var(--whi);
   font-family: "Dosis", sans-serif;
+}
+@media screen and (max-width: 980px) {
+  main {
+    width: 100%;
+    float: unset;
+    margin-left: 13%;
+  }
 }
