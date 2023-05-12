@@ -5,15 +5,17 @@ $dp = new DataProvider();
 $role = getAllRole();
 ?>
 <div id="roleManager">
-    <h1>Permission</h1>
-    <?php if (checkCanAccess(15)): ?>
-        <div class="button-layout">
-            <div class="button-container" onclick="loadModalBoxByAjax('newRole')">
-                <i class="fa-solid fa-plus"></i>
-                <span class="info-placeholder">New</span>
+    <div class="header">
+        <h2><i class="fa-solid fa-user-pen"></i> Permission</h2>
+        <?php if (checkCanAccess(15)): ?>
+            <div class="button-placeholder">
+                <div class="new-button" onclick="loadModalBoxByAjax('newRole')">
+                    <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
+                    <div class="info-placeholder">New</div>
+                </div>
             </div>
-        </div>
-    <?php endif ?>
+        <?php endif ?>
+    </div>
     <div class="permission-placeholder">
         <div class="title-placeholder">
             <div class="title">No.</div>

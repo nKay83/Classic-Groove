@@ -46,10 +46,6 @@ $slides = getAllSlide();
         </div>
       </div>
     </div>
-    <div class="right">
-      <div class="sub-right"></div>
-      <div class="sub-right"></div>
-    </div>
   </div>
   <h1>Features</h1>
   <div class="grid-container">

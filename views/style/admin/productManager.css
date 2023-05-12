@@ -29,11 +29,9 @@
   margin-bottom: 2vh;
 }
 
-#productManager .header h2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+#productManager .header h2 i{
+  margin-right: 10px;
+ }
 
 #productManager .new-button,
 #productManager .restock-button {
