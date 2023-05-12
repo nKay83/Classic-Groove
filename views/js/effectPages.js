@@ -50,7 +50,7 @@ const reloadSlider = () => {
   let slider = document.querySelector(".slider .list");
   let items = document.querySelectorAll(".slider .list .item");
   let dots = document.querySelectorAll(".slider .dots li");
-  slider.style.left = -55 * active + "vw";
+  slider.style.left = -78 * active + "vw";
 
   let last_active_dot = document.querySelector(".slider .dots li.active");
   last_active_dot.classList.remove("active");

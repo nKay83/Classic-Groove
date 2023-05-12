@@ -233,7 +233,7 @@ const removeColorTab = () => {
 const selectMenu = async (selectedTab, pageTarget) => {
   hideTabNotice();
   let loginPage = document.querySelector("#login");
-  if (!(await isLogin()) && pageTarget != "home") {
+  if (!(await isLogin() == 1) && pageTarget != "home") {
     if (!loginPage) {
       selectedTab.childNodes[5].style.display = "block";
     }
