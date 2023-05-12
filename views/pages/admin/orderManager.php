@@ -22,10 +22,10 @@ $order = getAllOrder();
                 </select>
             </div>
             <div class="date-begin">
-                <input type="date" name="" id="" value="Begin date">
+                <input type="date" name="" id="">
             </div>
             <div class="date-end">
-                <input type="date" name="" id="" value="End date">
+                <input type="date" name="" id="">
             </div>
         </div>
     </div>

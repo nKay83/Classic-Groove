@@ -2,7 +2,21 @@
 require("../../../util/dataProvider.php");
 session_start();
 $dp = new DataProvider();
-$album = getAllAlbum();
+if (
+  isset($_POST['name'])
+  && isset($_POST['category'])
+  && isset($_POST['priceStart'])
+  && isset($_POST['priceEnd'])
+) {
+  $name = $_POST['name'];
+  $category = $_POST['category'];
+  $priceStart = $_POST['priceStart'];
+  $priceEnd = $_POST['priceEnd'];
+  $album = searchAlbum($name, $category, $priceStart, $priceEnd);
+} else {
+  $album = getAllAlbum();
+}
+$category = getAllCategory();
 ?>
 
 <div id="productManager">
@@ -21,28 +35,26 @@ $album = getAllAlbum();
     <div class="search-bar">
       <div class="search-input">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Looking for somethings?">
+        <input type="text" placeholder="Looking for somethings?" onchange="loadAlbumByAjax()">
       </div>
       <div class="filter-input">
         <i class="fa-regular fa-filter"></i>
-        <select name="" id="">
-          <option value="default">All</option>
-          <option value="blue">Blue</option>
-          <option value="acoustic">Acoustic</option>
-          <option value="classical">Classical</option>
-          <option value="country">Country</option>
-          <option value="electronic">Electronic</option>
-          <option value="jazz">Jazz</option>
-          <option value="pop/rock">Pop/Rock</option>
+        <select name="" id="" onchange="loadAlbumByAjax()">
+          <option value="0">All</option>
+          <?php
+          foreach ($category as $cat) {
+            echo "<option value='" . $cat['maLoai'] . "'>" . $cat['tenLoai'] . "</option>";
+          }
+          ?>
         </select>
       </div>
-      <div class="date-begin">
+      <div class="date-begin price-begin">
         <i class="fa-thin fa-coin"></i>
-        <input type="text" name="" id="" placeholder="Start price" value="">
+        <input type="text" name="" id="" placeholder="Start price" value="" onchange="loadAlbumByAjax()">
       </div>
-      <div class="date-end">
+      <div class="date-end price-end">
         <i class="fa-thin fa-coins"></i>
-        <input type="text" name="" id="" placeholder="End price" value="">
+        <input type="text" name="" id="" placeholder="End price" value="" onchange="loadAlbumByAjax()">
       </div>
     </div>
   </div>
@@ -116,5 +128,56 @@ function checkCanAccess($permission)
   if (in_array($permission, $_SESSION['permission']))
     return true;
   return false;
+}
+function getAllCategory()
+{
+  global $dp;
+  $sql = "SELECT * FROM theloai ";
+  $result = $dp->excuteQuery($sql);
+  $category = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($category, $row);
+    }
+  }
+  return $category;
+}
+function searchAlbum($name, $category, $priceStart, $priceEnd)
+{
+  global $dp;
+  $sql = "SELECT *
+          FROM album join theloai on album.theLoai = theloai.maLoai
+          where trangThai = 1 ";
+  $f = false;
+  if ($name != "" || $category != 0 || $priceStart != -1 && $priceEnd != -1) {
+    $sql = $sql . "and ";
+    if ($name != "") {
+      $sql = $sql . "tenAlbum LIKE '%" . $name . "%' ";
+      $sql = $sql . " or maAlbum LIKE '%" . $name . "%' ";
+      $f = true;
+    }
+    if ($category != 0) {
+      if ($f) {
+        $sql = $sql . "and ";
+      }
+      $sql = $sql . "theLoai = " . $category . " ";
+      $f = true;
+    }
+    if ($priceStart != -1 && $priceEnd != -1) {
+      if ($f) {
+        $sql = $sql . "and ";
+      }
+      $sql = $sql . "gia >= " . $priceStart . " and gia <= " . $priceEnd . " ";
+      $f = true;
+    }
+  }
+  $result = $dp->excuteQuery($sql);
+  $album = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($album, $row);
+    }
+  }
+  return $album;
 }
 ?>

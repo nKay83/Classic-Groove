@@ -57,6 +57,97 @@ const loadHomeByAjax = (currentPage) => {
     },
   });
 };
+const loadAlbumByAjax = () => {
+  let name = document.querySelector(".search-bar .search-input input").value;
+  let category = document.querySelector(
+    ".search-bar .filter-input select"
+  ).value;
+  let priceStartInput = document.querySelector(
+    ".search-bar .price-begin input"
+  );
+  let priceEndInput = document.querySelector(".search-bar .price-end input");
+  if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Start price must be a number!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  if (priceEndInput.value != "" && isNaN(priceEndInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "End price must be a number!"
+    );
+    priceEndInput.focus();
+    return;
+  }
+  if (
+    priceStartInput.value != "" &&
+    priceEndInput.value != "" &&
+    parseFloat(priceStartInput.value) > parseFloat(priceEndInput.value)
+  ) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Start price must be smaller than end price!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  if (
+    (priceStartInput.value != "" &&
+      priceEndInput.value != "" &&
+      parseFloat(priceStartInput.value) < 0) ||
+    parseFloat(priceEndInput.value) < 0
+  ) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Price must be more than or equal 0!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  let priceStart;
+  let priceEnd;
+  if (priceStartInput.value == "" || priceEndInput.value == "") {
+    if (priceStartInput.value == "") {
+      priceStart = -1;
+      priceEnd = priceEndInput.value;
+    }
+    if (priceEndInput.value == "") {
+      priceStart = priceStartInput.value;
+      priceEnd = -1;
+    }
+  } else {
+    priceStart = priceStartInput.value;
+    priceEnd = priceEndInput.value;
+  }
+  $.ajax({
+    url: "views/pages/admin/productManager.php",
+    type: "POST",
+    data: {
+      name: name,
+      category: parseFloat(category),
+      priceStart: priceStart,
+      priceEnd: priceEnd,
+    },
+    dataType: "html",
+    success: function (data) {
+      document.querySelector("#content").innerHTML = data;
+      document.querySelector(".search-bar .search-input input").value = name;
+
+      document.querySelector(".search-bar .filter-input select").value =
+        category;
+      if (priceStart != -1) {
+        document.querySelector(".search-bar .price-begin input").value =
+          priceStart;
+      }
+      if (priceEnd != -1) {
+        document.querySelector(".search-bar .price-end input").value = priceEnd;
+      }
+    },
+  });
+};
 const loadProductDetailsByAjax = (albumID) => {
   $.ajax({
     url: "views/pages/user/productDetails.php",
