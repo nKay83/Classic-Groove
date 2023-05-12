@@ -148,6 +148,36 @@ const loadAlbumByAjax = () => {
     },
   });
 };
+
+const loadOrderByAjax = () => {
+  let name = document.querySelector(".search-bar .search-input input").value;
+  let category = document.querySelector(
+    ".search-bar .filter-input select"
+  ).value;
+  let datStartInput = document.querySelector(".search-bar .date-begin input");
+  let dateEndInput = document.querySelector(".search-bar .date-end input");
+  $.ajax({
+    url: "views/pages/admin/orderManager.php",
+    type: "POST",
+    data: {
+      name: name,
+      category: category,
+      dateStart: datStartInput.value,
+      dateEnd: dateEndInput.value,
+    },
+    dataType: "html",
+    success: function (data) {
+      document.querySelector("#content").innerHTML = data;
+      document.querySelector(".search-bar .search-input input").value = name;
+      document.querySelector(".search-bar .filter-input select").value =
+        category;
+      document.querySelector(".search-bar .date-begin input").value =
+        datStartInput.value;
+      document.querySelector(".search-bar .date-end input").value =
+        dateEndInput.value;
+    },
+  });
+};
 const loadProductDetailsByAjax = (albumID) => {
   $.ajax({
     url: "views/pages/user/productDetails.php",

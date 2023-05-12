@@ -1,7 +1,15 @@
 <?php
 require("../../../util/dataProvider.php");
 $dp = new DataProvider();
-$order = getAllOrder();
+if (
+    isset($_POST['name']) && isset($_POST['category'])
+    && isset($_POST['dateStart'])
+    && isset($_POST['dateEnd'])
+) {
+    $order = searchOrder($_POST['name'], $_POST['category'], $_POST['dateStart'], $_POST['dateEnd']);
+} else {
+    $order = getAllOrder();
+}
 ?>
 <div id="orderManager">
     <div class="header">
@@ -9,23 +17,23 @@ $order = getAllOrder();
         <div class="search-bar">
             <div class="search-input">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Looking for somethings?">
+                <input type="text" placeholder="Looking for somethings?" onchange="loadOrderByAjax()">
             </div>
             <div class="filter-input">
                 <i class="fa-regular fa-filter"></i>
-                <select name="" id="">
-                    <option value="default">All</option>
-                    <option value="cancel">Cancel</option>
-                    <option value="pending">Pending</option>
-                    <option value="shipping">Shipping</option>
-                    <option value="delivered">Delivered</option>
+                <select name="" id="" onchange="loadOrderByAjax()">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Shipping">Shipping</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancel">Cancel</option>
                 </select>
             </div>
             <div class="date-begin">
-                <input type="date" name="" id="">
+                <input type="date" name="" id="" onchange="loadOrderByAjax()">
             </div>
             <div class="date-end">
-                <input type="date" name="" id="">
+                <input type="date" name="" id="" onchange="loadOrderByAjax()">
             </div>
         </div>
     </div>
@@ -93,4 +101,41 @@ function getAllOrder()
     return $order;
 }
 
+function searchOrder($name, $category, $dateStart, $dateEnd)
+{
+    global $dp;
+    $sql = "SELECT * FROM hoadon ";
+    $f = false;
+
+    if ($name != "" || $category != "All" || $dateStart != "" && $dateEnd != "") {
+        $sql .= "WHERE ";
+        if ($name != "") {
+            $sql .= "khachHang LIKE '%$name%' ";
+            $sql .= " or maHoaDon LIKE '%$name%' ";
+
+            $f = true;
+        }
+        if ($category != "All") {
+            if ($f) {
+                $sql .= "AND ";
+            }
+            $sql .= "trangThai = '$category' ";
+            $f = true;
+        }
+        if ($dateStart != "" && $dateEnd != "") {
+            if ($f) {
+                $sql .= "AND ";
+            }
+            $sql .= "thoiGianDat >= '$dateStart' And thoiGianDat <= '$dateEnd'";
+        }
+    }
+    $result = $dp->excuteQuery($sql);
+    $order = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($order, $row);
+        }
+    }
+    return $order;
+}
 ?>
