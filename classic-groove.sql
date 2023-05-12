@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 07:52 PM
+-- Generation Time: May 12, 2023 at 08:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -44,14 +44,16 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`maAlbum`, `tenAlbum`, `gia`, `moTa`, `hinh`, `tacGia`, `TrangThai`, `soLuong`, `theLoai`) VALUES
-(1, 'Evo Sessionss', 100, 'Evosound proudly presents Chlara\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara.jpg', 'Chlara', 1, 17, 2),
-(2, '#acousticNOW', 200, ' AcousticNow# is the eagerly awaitied fourth album by the 26-year-old Filipino singing sensation Chlara, who will captivate her listeners with a series of acoustic cover versions that include her singles \'The Nights,\' \'Say You Won\'t Let Go,\' and \'ILYSB,\' which have all received over 20 million plays on Spotify. Chlara takes a varied selection of songs - from hits by Ed Sheeran and Aviici to Justin Bieber and Tears For Fears - and reimagines them in her own unique way. Noted for her alluring honey-toned voice and deft acoustic guitar accompaniment, Chlara, who has been described as an \"acoustic songbird\" is flying high at the moment. With three albums and several EPs already under her belt for the Evosound label, she\'s about to unleash her fourth, acousticNow#. The England-born, Philippines-raised singer/song-writer\'s popularity can be measured by that fact that three songs of her songs have generated over 20 million plays each on Spotify.', 'AcousticNow-Chlara.jpg', 'Chlara', 1, 15, 2),
-(3, 'It Serves You Right To Suffer', 200, '180-gram 45 RPM double LP Mastered at AcousTech Mastering Plated and pressed at Quality Record PressingsIt\'s back in stock! Newly repressed at 45 RPM by Quality Record Pressings. This recording was originally mastered at the former AcousTech Mastering facility and the sound is fantastic.John Lee Hooker himself did not know his exact date of birth. If he hadn\'t died at around the age of 80, this ageless musician would still be easily pulling the next generation to his gigs. Hooker remains a phenomenon, a mysterious figure of black rhythm and blues, a charismatic king who reigns supreme in rock \'n\' roll\'s Hall of Fame. John W. Peters described his music as a synthesis of scorching emotional ardour, unrelenting rhythmic intensity, and original poetry of a highly personal character. Anyone hearing him for the first time may well be startled at the unfiltered passion and power of his music.', 'ItServeYouRightToSuffer-JohnLeeHooker.jpg', 'John Lee Hooker', 1, 11, 1),
+(1, 'Evo Sessions', 100, 'Evosound proudly presents Chlara\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara.jpg', 'Chlara', 1, 11, 2),
+(2, '#acousticNOW', 200, ' AcousticNow# is the eagerly awaitied fourth album by the 26-year-old Filipino singing sensation Chlara, who will captivate her listeners with a series of acoustic cover versions that include her singles \'The Nights,\' \'Say You Won\'t Let Go,\' and \'ILYSB,\' which have all received over 20 million plays on Spotify. Chlara takes a varied selection of songs - from hits by Ed Sheeran and Aviici to Justin Bieber and Tears For Fears - and reimagines them in her own unique way. Noted for her alluring honey-toned voice and deft acoustic guitar accompaniment, Chlara, who has been described as an \"acoustic songbird\" is flying high at the moment. With three albums and several EPs already under her belt for the Evosound label, she\'s about to unleash her fourth, acousticNow#. The England-born, Philippines-raised singer/song-writer\'s popularity can be measured by that fact that three songs of her songs have generated over 20 million plays each on Spotify.', 'AcousticNow-Chlara.jpg', 'Chlara', 1, 8, 2),
+(3, 'It Serves You Right To Suffer', 200, '180-gram 45 RPM double LP Mastered at AcousTech Mastering Plated and pressed at Quality Record PressingsIt\'s back in stock! Newly repressed at 45 RPM by Quality Record Pressings. This recording was originally mastered at the former AcousTech Mastering facility and the sound is fantastic.John Lee Hooker himself did not know his exact date of birth. If he hadn\'t died at around the age of 80, this ageless musician would still be easily pulling the next generation to his gigs. Hooker remains a phenomenon, a mysterious figure of black rhythm and blues, a charismatic king who reigns supreme in rock \'n\' roll\'s Hall of Fame. John W. Peters described his music as a synthesis of scorching emotional ardour, unrelenting rhythmic intensity, and original poetry of a highly personal character. Anyone hearing him for the first time may well be startled at the unfiltered passion and power of his music.', 'ItServeYouRightToSuffer-JohnLeeHooker.jpg', 'John Lee Hooker', 1, 21, 1),
 (4, 'Love For Sale', 100, 'Celebrating 10 years since they first recorded together, Tony Bennett & Lady Gaga return for another collaboration featuring the best of the Cole Porter Songbook. It captures the creative and personal relationship of these two world-famous artists. Tony, who turned 95 in 2021, has spent over 7 decades dedicated to performing the Great American Songbook. They are accompanied by the Brian Newman Quintet with arrangements by Marion Evans and Jorge Callandrelli. 180-gram vinyl.', 'LoveForSale-TonyBennett_LadyGaga.jpg', 'Tony Bennett & Lady Gaga', 1, 5, 6),
 (5, 'Dawn FM', 120, 'he Weeknd deemed his 2022 album, Dawn FM, a \"sonic experience\" showcasing a unique cast of features from Tyler, the Creator, Lil Wayne, Quincy Jones, Oneohtrix Point Never, and Jim Carrey. (XO Records/Republic)', 'DawnFM-TheWeeknd.jpg', 'TheWeeknd', 1, 3, 5),
 (6, 'Fearless (Taylor’s Version) Gold', 250, '\"Fearless was an album full of magic and curiosity, the bliss and devastation of youth. It was the diary of the adventures and explorations of a teenage girl who was learning tiny lessons with every new crack in the facade of the fairytale ending she\'d been shown in the movies. I\'m thrilled to tell you that my new version of Fearless is done and will be with you soon. It\'s called Fearless (Taylor\'s Version) and it includes 26 songs.\" - Taylor Swift. Includes 6 unreleased tracks. Gold 3 LP.', 'Fearless-TaylorSwift.jpg', 'Taylor Swift', 1, 2, 4),
 (7, 'Beleive', 100, 'Internationally renowned Italian tenor Andrea Bocelli releases breathtaking new album, Believe, celebrating the power of music to soothe the soul. It follows his record-breaking `Music for Hope\' performance at Easter from Milan\'s historic Duomo cathedral. Features classic favorites, a previously unreleased track from late Italian composer Ennio Morricone, Gratia Plena (from acclaimed film Fatima), duets w/ Alison Krauss & Cecilia Bartoli and interpretations of Ave Maria and Cohen\'s Hallelujah.', 'Believe-AndreaBocelli.jpg', 'Andrea Bocelli', 1, 7, 3),
-(8, 'Jordi', 100, 'The eagerly awaited new album from Maroon 5, JORDI, is the band\'s first since the critically acclaimed Red Pill Blues. The album will include the recently released hit single \"Beautiful Mistakes ft. Megan Thee Stallion\" as well as fan favorites \"Memories\" and \"Nobody\'s Love.\" Vinyl LP pressing. 2021 album.', 'Jordi-Maroon5.jpg', 'Maroon 5', 1, 4, 7);
+(8, 'Jordi', 100, 'The eagerly awaited new album from Maroon 5, JORDI, is the band\'s first since the critically acclaimed Red Pill Blues. The album will include the recently released hit single \"Beautiful Mistakes ft. Megan Thee Stallion\" as well as fan favorites \"Memories\" and \"Nobody\'s Love.\" Vinyl LP pressing. 2021 album.', 'Jordi-Maroon5.jpg', 'Maroon 5', 1, 4, 7),
+(9, 'test', 300, '', 'default.jfif', 'test', 0, 0, 2),
+(10, 'test2', 100, '', 'default.jfif', 'test2', 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,7 @@ CREATE TABLE `baihat` (
 --
 
 INSERT INTO `baihat` (`maBaiHat`, `tenBaiHat`, `linkFile`) VALUES
-(1, 'This Song', 'EvoSessions-ThisLove'),
+(1, 'This Love', 'EvoSessions-ThisLove'),
 (2, 'Ocean Deep', 'EvoSessions-OceanDeep'),
 (3, 'Say You Won\'t Let Go', 'AcousticNow-SayYouWontLetGo'),
 (4, 'Love Yourself', 'AcousticNow-LoveYourself'),
@@ -90,7 +92,8 @@ INSERT INTO `baihat` (`maBaiHat`, `tenBaiHat`, `linkFile`) VALUES
 (18, 'True Colours', 'Chlara  True Colours evo sessions Live'),
 (19, 'aaaa', 'Facebook'),
 (20, '1234', 'Facebook'),
-(21, 'test', 'Facebook');
+(21, 'test', 'Facebook'),
+(22, 'test', 'Facebook');
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,8 @@ INSERT INTO `baihat_album` (`BaiHat_maBaiHat`, `Album_maAlbum`) VALUES
 (15, 8),
 (16, 8),
 (17, 1),
-(18, 1);
+(18, 1),
+(22, 10);
 
 -- --------------------------------------------------------
 
@@ -146,8 +150,11 @@ CREATE TABLE `chitiethoadon` (
 INSERT INTO `chitiethoadon` (`album`, `hoaDon`, `soLuong`) VALUES
 (1, 5, '15'),
 (1, 6, '1'),
+(1, 12, '3'),
 (2, 7, '4'),
 (2, 8, '1'),
+(2, 11, '3'),
+(2, 12, '2'),
 (3, 9, '1'),
 (4, 7, '1'),
 (7, 3, '6'),
@@ -177,6 +184,7 @@ INSERT INTO `chitietphieunhap` (`album`, `phieuNhap`, `gia`, `SoLuong`) VALUES
 (1, 6, '100', '12'),
 (2, 5, '100', '12'),
 (3, 7, '100', '5'),
+(3, 8, '20', '10'),
 (4, 4, '12', '3'),
 (6, 2, '100', '3'),
 (7, 1, '100', '5'),
@@ -215,14 +223,16 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`maHoaDon`, `tongTien`, `thoiGianDat`, `trangThai`, `khachHang`, `khuyenMai`, `diaChiGiaoHang`) VALUES
-(2, 315, '2023-04-12', 'Cancel', 'Lavied', NULL, 'B4/24G'),
+(2, 315, '2023-04-12', 'Delivered', 'Lavied', NULL, 'B4/24G'),
 (3, 615, '2023-04-15', 'Cancel', 'Lavied', NULL, 'mhfjfjfj'),
-(5, 1515, '2023-04-18', 'Pending', 'thuannguyen', NULL, 'Bình Chánh'),
-(6, 115, '2023-04-18', 'Cancel', 'lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
-(7, 930, '2023-04-21', 'Pending', 'lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
-(8, 215, '2023-05-05', 'Pending', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
-(9, 215, '2023-05-05', 'Pending', 'Lavied', NULL, '11/22'),
-(10, 415, '2023-05-05', 'Pending', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh');
+(5, 1515, '2023-04-18', 'Delivered', 'thuannguyen', NULL, 'Bình Chánh'),
+(6, 115, '2023-04-18', 'Cancel', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(7, 930, '2023-04-21', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(8, 215, '2023-05-05', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(9, 215, '2023-03-05', 'Delivered', 'Lavied', NULL, '11/22'),
+(10, 415, '2023-05-05', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(11, 615, '2023-05-11', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
+(12, 730, '2023-05-12', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh');
 
 -- --------------------------------------------------------
 
@@ -281,8 +291,10 @@ CREATE TABLE `nguoidung` (
 INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `loainguoidung`) VALUES
 ('baobui3103', 'bảo bùi', '0908141422', '', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
 ('Lavied', 'Bùi Hồng Bảo', '0908141453', 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
+('linh123', 'linh', '0908141453', '', '', 'Hoạt động', 'NV'),
+('nvBH', 'Linh', '0908141453', '', '', 'Hoạt động', 'KH'),
 ('superadmin', 'Nguyễn Văn Admin', '0908141453', '12A Nguyễn Bỉnh Khiêm, Phường Đa Kao, Quận 1, TP.HCM.', 'superadmin@gmail.com', 'Hoạt động', 'NV'),
-('thuannguyen', 'Nguyễn Minh Thuận', '0374974097', 'tphcm', 'thuan@gmail.com', 'Hoạt động', 'KH');
+('thuannguyen', 'Nguyễn Minh Thuận', '0374974097', 'tphcm', 'thuan@gmail.com', 'Hoạt động', 'NV');
 
 -- --------------------------------------------------------
 
@@ -335,7 +347,8 @@ INSERT INTO `phieunhap` (`maPhieuNhap`, `ngayNhap`, `nguoiNhap`, `TongGia`, `NCC
 (4, '2023-05-06', 'superadmin', 36, 1),
 (5, '2023-05-06', 'superadmin', 1200, 1),
 (6, '2023-05-06', 'superadmin', 1200, 1),
-(7, '2023-05-06', 'superadmin', 500, 1);
+(7, '2023-05-06', 'superadmin', 500, 1),
+(8, '2023-05-10', 'superadmin', 200, 3);
 
 -- --------------------------------------------------------
 
@@ -365,16 +378,15 @@ INSERT INTO `quyen` (`maCTQ`, `NoiDungQuyen`) VALUES
 (10, 'order.Access'),
 (11, 'order.Edit'),
 (12, 'structure.Access'),
-(13, 'structure.edit'),
+(13, 'structure.Edit'),
 (14, 'role.Access'),
 (15, 'role.Add'),
 (16, 'role.Edit'),
 (17, 'role.Delete'),
 (18, 'statistic.Access'),
-(19, 'distributor.Access'),
-(20, 'distributor.Add'),
-(21, 'distributor.Edit'),
-(22, 'distributor.Delete');
+(19, 'Product.Add'),
+(20, 'structure.Add'),
+(21, 'structure.Delete\r\n');
 
 -- --------------------------------------------------------
 
@@ -384,10 +396,23 @@ INSERT INTO `quyen` (`maCTQ`, `NoiDungQuyen`) VALUES
 
 CREATE TABLE `slideshow` (
   `maHinh` int(11) NOT NULL,
-  `tenHInh` varchar(100) NOT NULL,
+  `tenHinh` varchar(100) NOT NULL,
   `linkTo` int(11) NOT NULL,
   `linkHinh` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `slideshow`
+--
+
+INSERT INTO `slideshow` (`maHinh`, `tenHinh`, `linkTo`, `linkHinh`) VALUES
+(2, 'slide1', 5, 'Fearless-TaylorSwift.jpg'),
+(4, 'slide2', 5, 'AcousticNow-Chlara.jpg'),
+(5, 'slide3', 1, 'LoveForSale-TonyBennett_LadyGaga.jpg'),
+(6, 'slide4', 4, 'EvoSessions-Chlara.jpg'),
+(8, 'slide5', 8, 'Believe-AndreaBocelli.jpg'),
+(10, 'slide7', 1, 'Empty.ico'),
+(13, 'slide8', 4, 'lytt.png');
 
 -- --------------------------------------------------------
 
@@ -410,8 +435,10 @@ CREATE TABLE `taikhoan` (
 INSERT INTO `taikhoan` (`username`, `ngayTao`, `TrangThai`, `matKhau`, `vaiTro`) VALUES
 ('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1),
 ('Lavied', '2023-04-15', 'Hoạt động', 'Lavied3103@', 1),
-('superadmin', '2023-04-19', 'Hoạt động', 'superadmin', 1),
-('thuannguyen', '2023-04-18', 'Hoạt động', '123Thuan@', 1);
+('linh123', '2023-05-11', 'Hoạt động', 'Linh123@', 4),
+('nvBH', '2023-05-11', 'Hoạt động', 'Linh3131.', 1),
+('superadmin', '2023-04-19', 'Hoạt động', 'superadmin', 3),
+('thuannguyen', '2023-04-18', 'Hoạt động', '123Thuan@', 2);
 
 -- --------------------------------------------------------
 
@@ -456,7 +483,8 @@ CREATE TABLE `vaitro` (
 INSERT INTO `vaitro` (`maVaiTro`, `tenVaiTro`, `moTa`) VALUES
 (1, 'Khách hàng', 'Tài khoản khách hàng dùng ở trang user'),
 (2, 'default', 'Quyền nhân viên mặc định'),
-(3, 'superAdmin', 'Toàn quyền hệ thống');
+(3, 'superAdmin', 'Toàn quyền hệ thống'),
+(4, 'nhân viên bán hàng', 'dành cho nhân viên chuyên bán hàng online');
 
 -- --------------------------------------------------------
 
@@ -495,7 +523,11 @@ INSERT INTO `vaitro_quyen` (`VaiTro_maVaiTro`, `Quyen_maCTQ`) VALUES
 (3, 19),
 (3, 20),
 (3, 21),
-(3, 22);
+(4, 1),
+(4, 10),
+(4, 11),
+(4, 14),
+(4, 15);
 
 -- --------------------------------------------------------
 
@@ -514,7 +546,6 @@ CREATE TABLE `yeuthich` (
 
 INSERT INTO `yeuthich` (`album`, `nguoiDung`) VALUES
 (1, 'baobui3103'),
-(1, 'Lavied'),
 (1, 'thuannguyen');
 
 --
@@ -657,13 +688,19 @@ ALTER TABLE `yeuthich`
 -- AUTO_INCREMENT for table `baihat`
 --
 ALTER TABLE `baihat`
-  MODIFY `maBaiHat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `maBaiHat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
   MODIFY `maHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `slideshow`
+--
+ALTER TABLE `slideshow`
+  MODIFY `maHinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
