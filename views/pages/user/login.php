@@ -12,21 +12,14 @@
                 <br>
                 <div class="bottom">
                     <div class="left-bottom">
-                        <input type="checkbox" name="remembercheck" id="check">
-                        <label for="check" class="color333">Remember Me</label>
+                        
                     </div>
                     <div class="right-bottom">
                         <label><a href="#" class="color333">Forgot password?</a></label>
                     </div>
                 </div>
-                <div class="submit"><input type="button" value="Login" onclick="login()">
-                    <p class="color333">Or connect to your</p>
-                    <br>
-                    <div class="circle-container">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                    </div>
+                <div class="submit">
+                    <input type="button" value="Login" onclick="login()">
                 </div>
             </form>
         </div>
@@ -44,14 +37,8 @@
                     <input type="password" name="password" class="text confirmPassword" id="password-field3" placeholder="Confirm password">
                     <i class="fa-thin fa-eye-slash" id="eyeicon3" onclick="eyePassword3()"></i>
                 </div>
-                <div class="submit"><input type="button" value="Register" onclick="register()">
-                    <p class="color333">Or connect to your</p>
-                    <br>
-                    <div class="circle-container">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                    </div>
+                <div class="submit">
+                    <input type="button" value="Register" onclick="register()">
                 </div>
             </form>
         </div>
