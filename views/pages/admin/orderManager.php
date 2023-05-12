@@ -110,8 +110,8 @@ function searchOrder($name, $category, $dateStart, $dateEnd)
     if ($name != "" || $category != "All" || $dateStart != "" && $dateEnd != "") {
         $sql .= "WHERE ";
         if ($name != "") {
-            $sql .= "khachHang LIKE '%$name%' ";
-            $sql .= " or maHoaDon LIKE '%$name%' ";
+            $sql .= " (khachHang LIKE '%$name%' ";
+            $sql .= " or maHoaDon LIKE '%$name%') ";
 
             $f = true;
         }

@@ -107,21 +107,24 @@ const loadAlbumByAjax = () => {
     priceStartInput.focus();
     return;
   }
-  let priceStart;
-  let priceEnd;
-  if (priceStartInput.value == "" || priceEndInput.value == "") {
-    if (priceStartInput.value == "") {
-      priceStart = -1;
-      priceEnd = priceEndInput.value;
-    }
-    if (priceEndInput.value == "") {
-      priceStart = priceStartInput.value;
-      priceEnd = -1;
-    }
-  } else {
-    priceStart = priceStartInput.value;
-    priceEnd = priceEndInput.value;
-  }
+  priceStart = priceStartInput.value;
+  priceEnd = priceEndInput.value;
+
+  // let priceStart;
+  // let priceEnd;
+  // if (priceStartInput.value == "" || priceEndInput.value == "") {
+  //   if (priceStartInput.value == "") {
+  //     priceStart = -1;
+  //     priceEnd = priceEndInput.value;
+  //   }
+  //   if (priceEndInput.value == "") {
+  //     priceStart = priceStartInput.value;
+  //     priceEnd = -1;
+  //   }
+  // } else {
+  //   priceStart = priceStartInput.value;
+  //   priceEnd = priceEndInput.value;
+  // }
   $.ajax({
     url: "views/pages/admin/productManager.php",
     type: "POST",
@@ -233,7 +236,7 @@ const removeColorTab = () => {
 const selectMenu = async (selectedTab, pageTarget) => {
   hideTabNotice();
   let loginPage = document.querySelector("#login");
-  if (!(await isLogin() == 1) && pageTarget != "home") {
+  if (!((await isLogin()) == 1) && pageTarget != "home") {
     if (!loginPage) {
       selectedTab.childNodes[5].style.display = "block";
     }

@@ -149,11 +149,11 @@ function searchAlbum($name, $category, $priceStart, $priceEnd)
           FROM album join theloai on album.theLoai = theloai.maLoai
           where trangThai = 1 ";
   $f = false;
-  if ($name != "" || $category != 0 || $priceStart != -1 && $priceEnd != -1) {
+  if ($name != "" || $category != 0 || $priceStart != "" && $priceEnd != "") {
     $sql = $sql . "and ";
     if ($name != "") {
-      $sql = $sql . "tenAlbum LIKE '%" . $name . "%' ";
-      $sql = $sql . " or maAlbum LIKE '%" . $name . "%' ";
+      $sql = $sql . "(tenAlbum LIKE '%" . $name . "%' ";
+      $sql = $sql . " or maAlbum LIKE '%" . $name . "%') ";
       $f = true;
     }
     if ($category != 0) {
@@ -163,7 +163,7 @@ function searchAlbum($name, $category, $priceStart, $priceEnd)
       $sql = $sql . "theLoai = " . $category . " ";
       $f = true;
     }
-    if ($priceStart != -1 && $priceEnd != -1) {
+    if ($priceStart != "" && $priceEnd != "") {
       if ($f) {
         $sql = $sql . "and ";
       }
@@ -171,6 +171,7 @@ function searchAlbum($name, $category, $priceStart, $priceEnd)
       $f = true;
     }
   }
+  echo $sql;
   $result = $dp->excuteQuery($sql);
   $album = array();
   if ($result->num_rows > 0) {
