@@ -12,7 +12,6 @@
                 <br>
                 <div class="bottom">
                     <div class="left-bottom">
-                        
                     </div>
                     <div class="right-bottom">
                         <label><a href="#" class="color333">Forgot password?</a></label>
