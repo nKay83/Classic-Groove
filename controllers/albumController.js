@@ -1,7 +1,7 @@
 let listSongRemove = [];
-const getInfoAlbum = (albumID) => {
+const getInfoAlbum = () => {
   return $.ajax({
-    url: "util/albums.php?albumID=" + albumID + "&action=getInfoAlbum",
+    url: "util/albums.php?action=getInfoAlbum",
     type: "GET",
   });
 };

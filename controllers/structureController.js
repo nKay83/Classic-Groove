@@ -63,7 +63,60 @@ const uploadImgSlide = () => {
   };
 };
 
-const addSlide = () => {
+const checkAddSlide = () => {
+  let imgInput = document.querySelector(".imgSlide");
+  let nameInput = document.querySelector(".nameSlide");
+  let linkToInput = document.querySelector(".linkToSlide");
+  if (imgInput.src.split("/").pop() == "default.jfif") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please upload an image!"
+    );
+    return false;
+  }
+  if (nameInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please enter a name!"
+    );
+    return false;
+  }
+  if (linkToInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please enter a link!"
+    );
+    return false;
+  }
+  if (isNaN(linkToInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please enter a id album in Linked To!"
+    );
+    return false;
+  }
+
+  return true;
+};
+const checkAlbumExist = async () => {
+  let linkToInput = document.querySelector(".linkToSlide");
+  let allAlbum = JSON.parse(await getInfoAlbum());
+  let exist = false;
+  for (let i = 0; i < allAlbum.length; i++) {
+    if (allAlbum[i].maAlbum == parseInt(linkToInput.value)) exist = true;
+  }
+  if (!exist) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please enter a link exist!"
+    );
+    return false;
+  }
+  return true;
+};
+const addSlide = async () => {
+  if (!checkAddSlide()) return;
+  if (!(await checkAlbumExist())) return;
   let imgInput = document.querySelector(".imgSlide");
   let nameInput = document.querySelector(".nameSlide");
   let linkToInput = document.querySelector(".linkToSlide");

@@ -17,13 +17,16 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 }
                 break;
             case 'getInfoAlbum':
-                $albumID = $_GET['albumID'];
-                $sql = "SELECT * FROM album
-                        join theloai on album.theLoai = theloai.maLoai
-                        Where maAlbum = " . $albumID;
-                $result = $dp->excuteQuery($sql)->fetch_assoc();
+                $sql = "SELECT * FROM album";
+                $result = $dp->excuteQuery($sql);
+                $album = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($album, $row);
+                    }
+                }
                 if ($result != null) {
-                    echo json_encode($result);
+                    echo json_encode($album);
                 } else {
                     echo "error";
                 }
