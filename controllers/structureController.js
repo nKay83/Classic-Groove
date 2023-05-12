@@ -35,6 +35,13 @@ const uploadImgSlide = () => {
   fileInput.onchange = () => {
     let file_data = fileInput.files[0];
     let form_data = new FormData();
+    if(!file_data.type.startsWith('image/')){
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please upload an image!"
+      );
+      return;
+    }
     form_data.append("file", file_data);
     form_data.append("target_directory", "../data/slideShow/");
     //Ajax to send file to upload

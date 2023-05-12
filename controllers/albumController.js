@@ -170,6 +170,13 @@ const uploadImg = () => {
     let form_data = new FormData();
     form_data.append("file", file_data);
     form_data.append("target_directory", "../data/imgAlbum/");
+    if (!file_data.type.startsWith("image/")) {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please upload an image!"
+      );
+      return;
+    }
     //Ajax to send file to upload
     $.ajax({
       url: "util/upload.php",
