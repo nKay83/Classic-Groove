@@ -41,14 +41,59 @@ const loadPageByAjax = async (pageTarget) => {
 const loadHomeByAjax = (currentPage) => {
   let name = document.querySelector("#search #search-btn").value;
   let category = document.querySelector("#search #drop-menu-btn").value;
-  let price = document.querySelector("#search #price-ptn ").value;
+  let priceStartInput = document.querySelector("#search .price-begin input");
+  let priceEndInput = document.querySelector("#search .price-end input");
+  if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Start price must be a number!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  if (priceEndInput.value != "" && isNaN(priceEndInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "End price must be a number!"
+    );
+    priceEndInput.focus();
+    return;
+  }
+  if (
+    priceStartInput.value != "" &&
+    priceEndInput.value != "" &&
+    parseFloat(priceStartInput.value) > parseFloat(priceEndInput.value)
+  ) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Start price must be smaller than end price!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  if (
+    (priceStartInput.value != "" &&
+      priceEndInput.value != "" &&
+      parseFloat(priceStartInput.value) < 0) ||
+    parseFloat(priceEndInput.value) < 0
+  ) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Price must be more than or equal 0!"
+    );
+    priceStartInput.focus();
+    return;
+  }
+  priceStart = priceStartInput.value;
+  priceEnd = priceEndInput.value;
   $.ajax({
     url: "views/pages/user/home.php",
     type: "POST",
     data: {
       name: name,
       category: category,
-      price: price,
+      priceStart: priceStart,
+      priceEnd: priceEnd,
       currentPage: currentPage,
     },
     dataType: "html",
@@ -110,21 +155,6 @@ const loadAlbumByAjax = () => {
   priceStart = priceStartInput.value;
   priceEnd = priceEndInput.value;
 
-  // let priceStart;
-  // let priceEnd;
-  // if (priceStartInput.value == "" || priceEndInput.value == "") {
-  //   if (priceStartInput.value == "") {
-  //     priceStart = -1;
-  //     priceEnd = priceEndInput.value;
-  //   }
-  //   if (priceEndInput.value == "") {
-  //     priceStart = priceStartInput.value;
-  //     priceEnd = -1;
-  //   }
-  // } else {
-  //   priceStart = priceStartInput.value;
-  //   priceEnd = priceEndInput.value;
-  // }
   $.ajax({
     url: "views/pages/admin/productManager.php",
     type: "POST",

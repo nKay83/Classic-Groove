@@ -5,9 +5,10 @@ $dp = new DataProvider();
 
 $name = $_POST['name'];
 $category = $_POST['category'];
-$price = $_POST['price'];
+$priceStart = $_POST['priceStart'];
+$priceEnd = $_POST['priceEnd'];
 $currentPage = $_POST['currentPage'];
-$album = getAlbums($name, $category, $price);
+$album = getAlbums($name, $category, $priceStart, $priceEnd);
 for ($j = 1; $j < 3; $j++) {
   $max = count($album);
   for ($i = 0; $i < $max; $i++) {
@@ -81,12 +82,12 @@ $slides = getAllSlide();
   <?php endif ?>
 </div>
 <?php
-function getAlbums($name, $category, $price)
+function getAlbums($name, $category, $priceStart, $priceEnd)
 {
   global $dp;
   $sql = "SELECT * FROM album where trangThai = 1 ";
   $f = false;
-  if ($name != "" || $category != 0 || $price != 0) {
+  if ($name != "" || $category != 0 || $priceStart != "" && $priceEnd != "") {
     $sql = $sql . "and ";
     if ($name != "") {
       $sql = $sql . "tenAlbum LIKE '%" . $name . "%' ";
@@ -99,11 +100,11 @@ function getAlbums($name, $category, $price)
       $sql = $sql . "theLoai = " . $category . " ";
       $f = true;
     }
-    if ($price != 0) {
+    if ($priceStart != "" && $priceEnd != "") {
       if ($f) {
         $sql = $sql . "and ";
       }
-      $sql = $sql . "gia >= " . ($price - 1) * 100 . " and gia <= " . $price * 100;
+      $sql = $sql . "gia >= " . $priceStart . " and gia <= " . $priceEnd . " ";
       $f = true;
     }
   }

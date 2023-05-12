@@ -42,6 +42,19 @@
   display: flex;
   justify-content: space-around;
 }
+#search .price-container{
+  height: 4vh;
+  column-gap: 10px;
+}
+#search .price-container .price-begin,
+#search .price-container .price-end{
+  display: flex;
+  align-items: center;
+  background-color: var(--gr2);
+  border-radius: 25px;
+  padding-left: 10px;
+
+}
 #search .price input {
   width: 70%;
   padding: 0;
@@ -50,10 +63,10 @@
   color: var(--gr1);
 }
 
-#search .tooltip {
+/* #search .tooltip {
   position: relative;
   display: inline-block;
-}
+} */
 
 #search .tooltip .tooltiptext {
   visibility: hidden;

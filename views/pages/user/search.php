@@ -31,20 +31,13 @@ if ($result->num_rows > 0) {
     </select>
   </div>
 </div>
-<div class="price-container tooltip">
-  <div class="price">
-    <i class="fa-regular fa-coin"></i>
-    <input type="range" min="0" max="5" value="0" name="" id="price-ptn" step="1"
-    list="markers" onchange="changeToolTip(this);loadHomeByAjax(1)">
-    <i class="fa-regular fa-coins"></i>
-    <span class="tooltiptext">All</span>
+<div class="price-container">
+  <div class="price-begin">
+    <i class="fa-thin fa-coin"></i>
+    <input type="text" name="" id="" placeholder="Start price" value="" onchange="loadHomeByAjax(1)">
   </div>
-  <datalist id="markers">
-    <option value="0"></option>
-    <option value="1"></option>
-    <option value="2"></option>
-    <option value="3"></option>
-    <option value="4"></option>
-    <option value="5"></option>
-  </datalist>
+  <div class="price-end">
+    <i class="fa-thin fa-coins"></i>
+    <input type="text" name="" id="" placeholder="End price" value="" onchange="loadHomeByAjax(1)">
+  </div>
 </div>
