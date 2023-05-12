@@ -291,10 +291,10 @@
   color: var(--ora);
   height: auto;
   background: var(--whi);
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 0px 10%;
   cursor: pointer;
-  font-size: calc(-3px + 1.2vw);
+  font-size: calc(10px + 0.3vw);
   padding: 3%;
   transition: 0.2s ease-in-out;
 }

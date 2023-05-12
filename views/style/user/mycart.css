@@ -286,7 +286,7 @@
   padding: 5%;
   margin: 5% 0;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: calc(0px + 1.3vw);
   border-radius: 10px;
   background-color: var(--gr2);
   color: var(--ora);

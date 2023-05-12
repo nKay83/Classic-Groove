@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
 
 <div id="favorite">
 	<div class=category>
-		<h2 id="h2">Albums</h2>
+		<h1 >Albums</h1>
 		<div class="grid-container">
 			<?php
 			foreach ($album as $al) {

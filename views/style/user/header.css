@@ -155,7 +155,7 @@
   color: var(--ora);
   height: auto;
   background: var(--whi);
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 0px 10%;
   cursor: pointer;
   font-size: calc(10px + 0.3vw);
@@ -205,9 +205,9 @@
   padding: 7% 5%;
   right: calc(-90%);
   color: var(--whi);
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--ora);
-  width: calc(90% + 70px);
+  width: 240px;
   font-size: 125%;
   top: -30%;
   display: none;
@@ -340,8 +340,12 @@
     padding: 20px 10px;
   }
 
-  #header .button-placeholder {
+  #header .bottom .button-placeholder {
     flex-direction: column;
     row-gap: 10px;
+  }
+  #header .tab-notice{
+    left: 240%;
+    padding: 10px;
   }
 }
