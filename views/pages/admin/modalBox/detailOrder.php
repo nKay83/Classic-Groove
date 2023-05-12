@@ -47,7 +47,8 @@ $detailOrder = getDetailOrder($orderID);
                 </div>
                 <div class="modal-item">
                     <div class="item-header">Status</div>
-                    <div class="item-input"><select name="" id="" class="orderStatus" disabled>
+                    <div class="item-input">
+                        <select name="" id="" class="orderStatus" disabled>
                             <option value="<?= $order['trangThai'] ?>"><?= $order['trangThai'] ?></option>
                         </select>
                     </div>
@@ -99,10 +100,14 @@ $detailOrder = getDetailOrder($orderID);
             <div class="button-layout"></div>
             <div class="button-layout">
                 <?php if (checkCanAccess(11)): ?>
-                    <div class="edit-button" onclick="loadModalBoxByAjax('editOrder',<?= $orderID ?>)">
-                        <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
-                        <div class="info-placeholder">Edit</div>
-                    </div>
+                    <?php if ($order['trangThai'] != 'Cancel' && $order['trangThai'] != 'Delivered'): ?>
+                        <div class="edit-button" onclick="loadModalBoxByAjax('editOrder',<?= $orderID ?>)">
+                            <div class="icon-placeholder"><i class="fa-solid fa-pen-to-square"></i></div>
+                            <div class="info-placeholder">Edit</div>
+                        </div>
+                    <?php else: ?>
+                        <div></div>
+                    <?php endif ?>
                 <?php else: ?>
                     <div></div>
                 <?php endif; ?>

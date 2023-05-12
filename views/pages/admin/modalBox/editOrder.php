@@ -48,14 +48,12 @@ $detailOrder = getDetailOrder($orderID);
                     <div class="item-header">Status</div>
                     <div class="item-input"><select name="" id="" onchange="isOrderInfoChange()" class="orderStatus">
                             <option value="<?= $order['trangThai'] ?>"><?= $order['trangThai'] ?></option>
-                            <?php
-                            $status = array("Pending", "Shipping", "Delivered", "Cancel");
-                            foreach ($status as $s) {
-                                if ($s != $order['trangThai']) {
-                                    echo "<option value='$s'>$s</option>";
-                                }
-                            }
-                            ?>
+                            <?php if ($order['trangThai'] == "Pending"): ?>
+                                <option value="Shipping">Shipping</option>
+                            <?php elseif ($order['trangThai'] == "Shipping"): ?>
+                                <option value="Delivered">Delivered</option>
+                            <?php endif; ?>
+
                         </select>
                     </div>
                 </div>
