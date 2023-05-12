@@ -12,6 +12,7 @@
 }
 #favorite .category{
     margin-top: 20px;
+    padding: 30px;
 }
 #favorite .category h2{
     margin-left: 30px;
@@ -21,8 +22,6 @@
 }
 #favorite .grid-container {
     padding: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 10px;

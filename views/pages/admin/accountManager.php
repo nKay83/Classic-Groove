@@ -19,7 +19,7 @@ $account = getAllAccount();
     <div class="title-list">
         <div class="title-placeholder">
             <div class="title" style="padding-right: 10px;">No.</div>
-            <div class="title">Account ID</div>
+            <div class="title">Username</div>
             <div class="title">Account name</div>
             <div class="title">Phone number</div>
             <div class="title">Role</div>

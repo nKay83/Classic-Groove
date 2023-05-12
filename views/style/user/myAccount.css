@@ -33,6 +33,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.8fr 1fr 0.8fr 1fr 0.8fr 1fr;
+  font-size: 20px;
+
 }
 
 #myaccount .flex-container .top-container .container-info .title {
@@ -73,6 +75,7 @@
   color: var(--whi);
   border-radius: 20px;
   display: grid;
+  font-size: calc(0px + 1.3vw);
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;
   box-shadow: 0 2px 3px 2px rgba(253, 83, 26, 0.7);
