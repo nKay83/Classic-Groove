@@ -77,8 +77,28 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $orderID = $_GET['orderID'];
         $status = $_GET['status'];
         $sql = "UPDATE hoadon SET trangThai = '" . $status . "' WHERE maHoaDon = " . $orderID;
-        $result = $dp->excuteQuery($sql);
-        if ($result) {
+        $result1 = $dp->excuteQuery($sql);
+        $error = false;
+        if ($status == "Shipping") {
+          $sql = "SELECT cthd.album, cthd.soLuong
+                  FROM chitiethoadon cthd join hoadon hd on cthd.hoaDon = hd.maHoaDon
+                  WHERE hd.maHoaDon = $orderID";
+          $result = $dp->excuteQuery($sql);
+          $albums = array();
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              array_push($albums, $row);
+            }
+          }
+          foreach ($albums as $album) {
+            $sql = "UPDATE album SET soLuong = soLuong - " . $album['soLuong'] . " WHERE maAlbum = " . $album['album'];
+            $result = $dp->excuteQuery($sql);
+            if (!$result) {
+              $error = true;
+            }
+          }
+        }
+        if ($result1 && !$error) {
           echo "Success";
         } else {
           echo "Error";

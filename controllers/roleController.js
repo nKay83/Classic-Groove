@@ -1,4 +1,5 @@
 const updateRole = async (roleID) => {
+  if (!checkAddNewRole()) return;
   let listPermissionInput = document.querySelectorAll(
     ".role-placeholder .checkbox-placeholder input"
   );
@@ -32,8 +33,20 @@ const updateRole = async (roleID) => {
     },
   });
 };
+const checkAddNewRole = () => {
+  let roleNameInput = document.querySelector(".info-role input");
+  if (roleNameInput.value.trim() == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Role name must not be empty!"
+    );
+    return false;
+  }
+  return true;
+};
 
 const addNewRole = (roleID) => {
+  if (!checkAddNewRole()) return;
   let listPermissionInput = document.querySelectorAll(
     ".role-placeholder .checkbox-placeholder input"
   );

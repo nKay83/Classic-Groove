@@ -92,7 +92,7 @@ const updateTotalCost = () => {
   document.querySelector("#new-supply .total-cost").value = totalCost;
 };
 
-const addNewSupply = () => {
+const checkAddSupply = () => {
   let supplyID = document.querySelector("#new-supply .supplyID").value;
   let supplyImport = document.querySelector("#new-supply .supplyImport").value;
   let supplyTotalCost = document.querySelector("#new-supply .total-cost").value;
@@ -103,6 +103,13 @@ const addNewSupply = () => {
   let albumList = document.querySelectorAll(
     "#new-supply .list .placeholder .info"
   );
+  if (albumList.length == 0) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please add at least 1 album!"
+    );
+    return false;
+  }
   for (let i = 0; i < albumList.length; i++) {
     let albumCost = albumList[i].querySelector(
       ".item:nth-of-type(3) input"
@@ -115,16 +122,30 @@ const addNewSupply = () => {
         "fa-sharp fa-light fa-circle-exclamation",
         "Please enter valid number!"
       );
-      return;
+      return false;
     }
     if (parseInt(albumQuantity) <= 0 || parseInt(albumCost) <= 0) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
         "Please enter quantity and cost greater than 0!"
       );
-      return;
+      return false;
     }
   }
+  return true;
+};
+const addNewSupply = () => {
+  if (!checkAddSupply()) return;
+  let supplyID = document.querySelector("#new-supply .supplyID").value;
+  let supplyImport = document.querySelector("#new-supply .supplyImport").value;
+  let supplyTotalCost = document.querySelector("#new-supply .total-cost").value;
+  let supplyDistributor = document.querySelector(
+    "#new-supply .supplyDistributor"
+  ).value;
+
+  let albumList = document.querySelectorAll(
+    "#new-supply .list .placeholder .info"
+  );
 
   let albumListObj = [];
   for (let i = 0; i < albumList.length; i++) {
@@ -161,7 +182,6 @@ const addNewSupply = () => {
         );
         loadPageByAjax("supplyRecord");
       } else {
-        console.log(res);
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
           "Add new supply failed!"
