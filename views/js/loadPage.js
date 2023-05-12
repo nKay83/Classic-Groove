@@ -156,6 +156,16 @@ const loadOrderByAjax = () => {
   ).value;
   let datStartInput = document.querySelector(".search-bar .date-begin input");
   let dateEndInput = document.querySelector(".search-bar .date-end input");
+  if (datStartInput.value != "" && dateEndInput.value != "") {
+    if (new Date(datStartInput.value) > new Date(dateEndInput.value)) {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Start date must be smaller than end date!"
+      );
+      datStartInput.focus();
+      return;
+    }
+  }
   $.ajax({
     url: "views/pages/admin/orderManager.php",
     type: "POST",
