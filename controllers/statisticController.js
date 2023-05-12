@@ -66,7 +66,6 @@ const statistic1 = async () => {
   if (year == currnetYear) {
     formattedData.splice(new Date().getMonth() + 1);
   }
-  console.log(formattedData);
   Highcharts.chart("container", {
     chart: {
       type: "line",

@@ -116,15 +116,6 @@ const updateAlbumInfo = (
   albumImage,
   albumDescribe
 ) => {
-  console.log(
-    albumID,
-    albumName,
-    albumKind,
-    albumArtist,
-    albumPrice,
-    albumImage,
-    albumDescribe
-  );
   $.ajax({
     url:
       "util/albums.php?albumID=" +
@@ -377,8 +368,84 @@ const chooseSuggestion = (suggestion) => {
   document.querySelector("#my-input").value = suggestion.innerHTML + "";
   document.getElementById("suggestion-list").innerHTML = "";
 };
-
+const checkUpdateAlbum = () => {
+  let albumNameInput = document.querySelector(".albumName");
+  let albumKindInput = document.querySelector(".albumKind");
+  let albumArtistInput = document.querySelector(".albumArtist");
+  let albumPriceInput = document.querySelector(".albumPrice");
+  if (albumNameInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter album name!"
+    );
+    albumNameInput.focus();
+    return false;
+  }
+  if (albumKindInput.value == "0") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter kind album!"
+    );
+    return false;
+  }
+  if (albumArtistInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter artist album!"
+    );
+    albumArtistInput.focus();
+    return false;
+  }
+  if (albumPriceInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter Price album!"
+    );
+    albumPriceInput.focus();
+    return false;
+  }
+  if (isNaN(albumPriceInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Price must be a number!"
+    );
+    albumPriceInput.focus();
+    return false;
+  }
+  return true;
+};
+const checkUpdateSong = () => {
+  let inputNameSong = document.querySelectorAll(
+    "div.modal-right > div.list > div > div > div:nth-child(3) > input[type=text]"
+  );
+  for (let i = 0; i < inputNameSong.length; i++) {
+    if (inputNameSong[i].value == "") {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please, enter name song!"
+      );
+      inputNameSong[i].focus();
+      return false;
+    }
+  }
+  let inputFileSong = document.querySelectorAll(
+    "div.modal-right > div.list > div > div > div:nth-child(4)"
+  );
+  for (let i = 0; i < inputFileSong.length; i++) {
+    if (inputFileSong[i].querySelector("span").innerHTML == "Please choose") {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please, choose file song!"
+      );
+      inputFileSong[i].querySelector("input").focus();
+      return false;
+    }
+  }
+  return true;
+};
 const updateAlbum = async (AbID) => {
+  if (!checkUpdateAlbum()) return;
+  if (!checkUpdateSong()) return;
   let albumName = document.querySelector("#edit-album .albumName").value;
   let albumKind = document.querySelector("#edit-album .albumKind").value;
   let albumArtist = document.querySelector("#edit-album .albumArtist").value;
@@ -399,7 +466,7 @@ const updateAlbum = async (AbID) => {
   );
   await updateSongInfo(AbID);
   customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
-  loadPageByAjax('productManager');
+  loadPageByAjax("productManager");
   loadModalBoxByAjax("detailAlbum", AbID);
 };
 const updateSongInfo = async (AbID) => {
@@ -476,6 +543,8 @@ const updateSongInfo = async (AbID) => {
   }
 };
 const newAlbum = async (albumID) => {
+  if (!checkUpdateAlbum()) return;
+  if (!checkUpdateSong()) return;
   let albumName = document.querySelector("#new-album .albumName").value;
   let albumKind = document.querySelector("#new-album .albumKind").value;
   let albumArtist = document.querySelector("#new-album .albumArtist").value;
