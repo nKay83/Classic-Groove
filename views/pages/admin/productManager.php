@@ -171,7 +171,6 @@ function searchAlbum($name, $category, $priceStart, $priceEnd)
       $f = true;
     }
   }
-  echo $sql;
   $result = $dp->excuteQuery($sql);
   $album = array();
   if ($result->num_rows > 0) {
