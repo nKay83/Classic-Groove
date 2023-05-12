@@ -27,7 +27,7 @@ session_start();
       <?php endif ?>
       <?php if (checkCanAccess(6)): ?>
         <div class="tab-title" onclick="selectMenuAdmin(this,'accountManager')">
-          <div class="tab-icon"><i class="fa-solid fa-user"></i></div>
+          <div class="tab-icon"><i class="fa-regular fa-user"></i></div>
           <div class="tab-info">Account</div>
         </div>
       <?php endif ?>

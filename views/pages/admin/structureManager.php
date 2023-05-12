@@ -6,21 +6,23 @@ $slideShow = getAllSlideShow();
 ?>
 
 <div id="structure">
-    <h1><i class="fa-solid fa-puzzle"></i> Structure management</h1>
-    <?php if (checkCanAccess(20)): ?>
-        <div class="button-layout">
-            <div class="button-container" onclick="loadModalBoxByAjax('newSlide')">
-                <i class="fa-solid fa-plus"></i>
-                <span class="info-placeholder">New</span>
+    <div class="header">
+        <h2><i class="fa-solid fa-puzzle"></i> Structure management</h2>
+        <?php if (checkCanAccess(20)): ?>
+            <div class="button-placeholder">
+                <div class="new-button" onclick="loadModalBoxByAjax('newSlide')">
+                    <div class="icon-placeholder"><i class="fa-solid fa-user-plus fa-sm"></i></div>
+                    <div class="info-placeholder">New</div>
+                </div>
             </div>
-        </div>
-    <?php endif ?>
+        <?php endif ?>
+    </div>
     <div class="manageSilder">
         <div></div>
         <div class="bottom">
             <div class="title-list">
                 <div class="title-placeholder">
-                    <div class="title">NO.</div>
+                    <div class="title">No.</div>
                     <div class="title">Image</div>
                     <div class="title">Name</div>
                     <div class="title">Linked to</div>

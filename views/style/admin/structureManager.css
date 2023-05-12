@@ -12,13 +12,30 @@
   /* height: 91vh; */
   width: 95%;
   margin: 0 auto;
-  margin-top: -3%;
+  margin-top: -2%;
   /* position: relative; */
 }
 
-#structure h1 {
-  margin-bottom: 20px;
+#structure .button-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#structure .header {
+  display: flex;
+  /* justify-content: space-between; */
+  margin-bottom: 2vh;
+}
+
+#structure .header h2 {
+  margin-right: 10px;
+ }
+
+#structure .header h2 i{
+  margin-right: 10px;
+ }
+
 
 #structure .manageSilder {
   width: 80%;
@@ -28,13 +45,6 @@
   border-radius: 20px 20px 0 0;
 }
 
-#structure .header {
-  color: #f2623e;
-  font-size: calc(5px + 1vw);
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
 
 #structure .top {
   /* border: 2px solid red; */
@@ -139,7 +149,7 @@
   height: 5vh;
   display: flex;
   align-items: center;
-  font-size: calc(5px + 1vw);
+  font-size: calc(12px + 0.5vw);
   background: var(--whi);
   border-radius: 20px 20px 0 0;
   color: var(--ora);
@@ -203,17 +213,52 @@
   border: none;
 }
 
-#structure .button-layout {
+#structure .button-placeholder {
   display: flex;
-  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-#structure .button-layout .button-container {
-  padding: 5px 10px;
+#structure .new-button{
+  flex-direction: row;
+  display: flex;
+  /* width: 90px; */
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: var(--ora);
-  border-radius: 15px;
-  margin-right: 10px;
-  color: var(--whi);
-  text-align: center;
+  border-radius: 10px;
+  padding: 5px 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #structure {
+    width: 615px;
+    margin-left: 25px;
+  }
+  #structure .title-list {
+    font-size: 15px;
+    width: 615px;
+  }
+
+  #structure .list {
+    font-size: 12px;
+    width: 615px;
+  }
+
+  #structure .search-bar .date-begin input,
+  #structure .search-bar .date-end input {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #structure .header h2 {
+    display: none;
+  }
+
+  #structure .header {
+    grid-template-columns: 0.6fr 8fr;
+  }
 }

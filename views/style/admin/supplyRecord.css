@@ -34,19 +34,22 @@
   align-items: center;
   margin-right: 10px;
 }
+#supplyRecord .header h2 i{
+  margin-right: 10px;
+ }
 
 #supplyRecord .new-button,
 #supplyRecord .restock-button {
   flex-direction: row;
-  display: flex;
-  width: 90px;
-  margin: auto;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: var(--ora);
-  border-radius: 10px;
-  padding: 7% 8%;
-  cursor: pointer;
+    display: flex;
+    /* width: 90px; */
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--ora);
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 #supplyRecord .new-button:active,
@@ -66,7 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  font-size: calc(12px + 0.5vw);
   background: var(--whi);
   border-radius: 20px 20px 0 0;
   color: var(--ora);
@@ -591,4 +594,25 @@
 
 #supplyRecord #new-supply .placeholder input {
   width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  #supplyRecord {
+    width: 615px;
+    margin-left: 25px;
+  }
+  #supplyRecord .title-list {
+    font-size: 15px;
+    width: 615px;
+  }
+
+  #supplyRecord .list {
+    font-size: 12px;
+    width: 615px;
+  }
+
+  #supplyRecord .search-bar .date-begin input,
+  #supplyRecord .search-bar .date-end input {
+    font-size: 10px;
+  }
 }
