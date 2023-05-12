@@ -29,7 +29,12 @@ const updateOrder = () => {
       "&action=updateOrder",
     type: "PUT",
     success: function (res) {
-      if (res != "Success") alert(res);
+      if (res == "Not enough product quantity") {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Not enough product quantity!"
+        );
+      } else if (res != "Success") alert(res);
       else {
         customNotice(
           "fa-sharp fa-light fa-circle-check",

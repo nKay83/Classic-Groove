@@ -76,6 +76,34 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       case 'updateOrder':
         $orderID = $_GET['orderID'];
         $status = $_GET['status'];
+        $f = true;
+        if ($status == "Shipping") {
+          $sql = "SELECT cthd.album, cthd.soLuong
+          FROM chitiethoadon cthd join hoadon hd on cthd.hoaDon = hd.maHoaDon
+          WHERE hd.maHoaDon = $orderID";
+          $result = $dp->excuteQuery($sql);
+          $albums = array();
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              array_push($albums, $row);
+            }
+          }
+          foreach ($albums as $album) {
+            $sql = "SELECT soLuong FROM album where maAlbum=" . $album['album'];
+            $result = $dp->excuteQuery($sql);
+            $sl = $result->fetch_assoc()['soLuong'];
+            if ($sl < $album['soLuong']) {
+              $f = false;
+              break;
+            }
+          }
+        }
+        if (!$f) {
+          echo "Not enough product quantity";
+          break;
+        }
+
+
         $sql = "UPDATE hoadon SET trangThai = '" . $status . "' WHERE maHoaDon = " . $orderID;
         $result1 = $dp->excuteQuery($sql);
         $error = false;
