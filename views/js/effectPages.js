@@ -48,7 +48,6 @@ let refreshInterval = setInterval(() => {
 
 const reloadSlider = () => {
   let slider = document.querySelector(".slider .list");
-  let items = document.querySelectorAll(".slider .list .item");
   let dots = document.querySelectorAll(".slider .dots li");
   slider.style.left = -78 * active + "vw";
 
@@ -58,7 +57,8 @@ const reloadSlider = () => {
 
   clearInterval(refreshInterval);
   refreshInterval = setInterval(() => {
-    next.click();
+    let next = document.querySelector("#next");
+    if (next != null) next.click();
   }, 3000);
 };
 
@@ -67,12 +67,14 @@ const changeSlide = (key) => {
   reloadSlider();
 };
 
-window.addEventListener('resize', function () {
+window.addEventListener("resize", function () {
   if (window.innerWidth <= 1000) {
-    document.querySelector("#header > div > div.top > div.logo-placeholder > img").src = 'views/assets/img/Logo2.png';
-  }
-  else {
-    document.querySelector("#header > div > div.top > div.logo-placeholder > img").src = 'views/assets/img/Logo.png';
-
+    document.querySelector(
+      "#header > div > div.top > div.logo-placeholder > img"
+    ).src = "views/assets/img/Logo2.png";
+  } else {
+    document.querySelector(
+      "#header > div > div.top > div.logo-placeholder > img"
+    ).src = "views/assets/img/Logo.png";
   }
 });
