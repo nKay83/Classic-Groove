@@ -1,4 +1,5 @@
 const updateSlide = (slideID) => {
+  if (!checkAddSlide()) return;
   let imgInput = document.querySelector(".imgSlide");
   let nameInput = document.querySelector(".nameSlide");
   let linkToInput = document.querySelector(".linkToSlide");
