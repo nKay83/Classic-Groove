@@ -95,6 +95,9 @@ const statistic1 = async () => {
       },
     },
     plotOptions: {
+      series: {
+        color: "#f2623e",
+      },
       line: {
         dataLabels: {
           enabled: true,
@@ -167,28 +170,7 @@ const statistic2 = async () => {
     series: [
       {
         name: "Population",
-        colors: [
-          "#9b20d9",
-          // "#9215ac",
-          // "#861ec9",
-          // "#7a17e6",
-          "#7010f9",
-          // "#691af3",
-          // "#6225ed",
-          // "#5b30e7",
-          "#533be1",
-          // "#4c46db",
-          // "#4551d5",
-          // "#3e5ccf",
-          "#3667c9",
-          // "#2f72c3",
-          // "#277dbd",
-          // "#1f88b7",
-          "#1693b1",
-          // "#0a9eaa",
-          // "#03c69b",
-          // "#00f194",
-        ],
+        colors: ["#f2623e"],
         colorByPoint: true,
         groupPadding: 0,
         data: dataFormat,
@@ -262,6 +244,9 @@ const statistic3 = async () => {
       valueSuffix: "vinyl records",
     },
     plotOptions: {
+      series: {
+        color: "#f2623e",
+      },
       bar: {
         borderRadius: "50%",
         dataLabels: {
@@ -273,7 +258,7 @@ const statistic3 = async () => {
     legend: {
       layout: "vertical",
       align: "right",
-      verticalAlign: "top",
+      verticalAlign: "bottom",
       x: -40,
       y: 80,
       floating: true,
