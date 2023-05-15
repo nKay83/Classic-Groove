@@ -79,6 +79,15 @@ const changeTypeInputDate = () => {
     console.log("y");
   }
 };
+Date.prototype.getWeek = function () {
+  let date = new Date(this.getTime());
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + 4 - (date.getDay() || 7));
+  let yearStart = new Date(date.getFullYear(), 0, 1);
+  let weekNo = Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
+  return weekNo;
+};
+
 const checkInputStatistic1 = () => {
   let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
   let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
@@ -158,6 +167,38 @@ const checkInputStatistic1 = () => {
         return false;
       }
       break;
+    case "3":
+      weekStart = dateStartInput.value;
+      weekEnd = dateEndInput.value;
+      let currentDate = new Date();
+      let currentYear = currentDate.getFullYear();
+      let currentWeek = currentDate.getWeek();
+      let weekEndYear = parseInt(weekEnd.substring(0, 4));
+      let weekEndWeek = parseInt(weekEnd.substring(6));
+      let weekStartYear = parseInt(weekStart.substring(0, 4));
+      let weekStartWeek = parseInt(weekStart.substring(6));
+      if (
+        weekEndYear > currentYear ||
+        (currentYear === weekEndYear && weekEndWeek > currentWeek)
+      ) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Week end must be less than or equal current week!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (
+        weekStartYear > weekEndYear ||
+        (weekStartYear === weekEndYear && weekStartWeek > weekEndWeek)
+      ) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Week start must be less than or equal week end!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
   }
   return true;
 };
@@ -213,20 +254,35 @@ const statistic1 = async () => {
         "Sales revenue from " + monthStartDisplay + " to " + monthEndDisplay;
       nameLine = monthStartDisplay + " - " + monthEndDisplay;
       break;
+    case "3":
+      weekStart = dateStartInput.value;
+      weekEnd = dateEndInput.value;
+      let startYear = parseInt(weekStart.substring(0, 4));
+      let endYear = parseInt(weekEnd.substring(0, 4));
+      let startNum = parseInt(weekStart.substring(6));
+      let endNum = parseInt(weekEnd.substring(6));
+      for (let year = startYear; year <= endYear; year++) {
+        let start = year === startYear ? startNum : 1;
+        let end = year === endYear ? endNum : 52;
+
+        for (let week = start; week <= end; week++) {
+          let weekString = year + "-" + String(week).padStart(2, "0");
+          categories.push(weekString);
+        }
+      }
+      console.log(categories);
+      formattedData = categories.map((week) => {
+        const existingData = data.find((item) => item.w === week);
+        const total = existingData ? parseInt(existingData.total) : 0;
+        return { week, total };
+      });
+      categories = categories.map(
+        (week) => week.slice(0, 5) + "W" + week.slice(5)
+      );
+      title = "Sales revenue from " + weekStart + " to " + weekEnd;
+      nameLine = weekStart + " - " + weekEnd;
+      break;
   }
-  // let year = document.querySelector("#statistic-type1 .yearInput").value;
-  // const allMonths = Array.from({ length: 12 }, (_, i) =>
-  //   (i + 1).toString().padStart(2, "0")
-  // );
-  // const formattedData = allMonths.map((mon) => {
-  //   const existingData = data.find((item) => item.mon === mon);
-  //   const total = existingData ? parseInt(existingData.total) : 0;
-  //   return { mon, total };
-  // });
-  // let currnetYear = new Date().getFullYear();
-  // if (year == currnetYear) {
-  //   formattedData.splice(new Date().getMonth() + 1);
-  // }
   Highcharts.chart("container", {
     chart: {
       type: "line",

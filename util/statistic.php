@@ -22,6 +22,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         $as = "m";
                         break;
                     case '3': //week
+                        $dateStart = date('Y-m-d', strtotime($dateStart . '-1'));
+                        $dateEnd = date('Y-m-d', strtotime($dateEnd . '-7'));
+                        $select = "DATE_FORMAT(thoiGianDat, '%X-%V')";
+                        $as = "w";
                         break;
                     case '4': //day
                         break;
