@@ -117,12 +117,34 @@ const statistic1 = async () => {
 const statistic2 = async () => {
   let dateStart = document.querySelector("#statistic-type2 .dateStart").value;
   let dateEnd = document.querySelector("#statistic-type2 .dateEnd").value;
+  if (dateStart == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date start!"
+    );
+    return;
+  }
+  if (dateEnd == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date end!"
+    );
+    return;
+  }
+
   let typeInput = document.querySelector("#statistic-type2 .typeStatictis");
   let data;
   if (typeInput.value == "1") {
     data = JSON.parse(await getNumberOfKindProductsSold(dateStart, dateEnd));
   } else if (typeInput.value == "2") {
     data = JSON.parse(await getNumberOfProductsSold(dateStart, dateEnd));
+  }
+  if (new Date(dateStart) > new Date(dateEnd)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Date start must be smaller or equal date end!"
+    );
+    return;
   }
   let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
 
@@ -192,6 +214,27 @@ const statistic2 = async () => {
 const statistic3 = async () => {
   let dateStart = document.querySelector("#statistic-type3 .dateStart").value;
   let dateEnd = document.querySelector("#statistic-type3 .dateEnd").value;
+  if (dateStart == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date start!"
+    );
+    return;
+  }
+  if (dateEnd == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date end!"
+    );
+    return;
+  }
+  if (new Date(dateStart) > new Date(dateEnd)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Date start must be smaller or equal date end!"
+    );
+    return;
+  }
   let typeInput = document.querySelector("#statistic-type3 .typeStatictis");
   let data;
   if (typeInput.value == "1") {
