@@ -51,7 +51,8 @@
   background: #f1f7ff;
 }
 #statistic select,
-button {
+#statistic button,
+#statistic input {
   padding: 5px 10px;
   border-radius: 15px;
   font-family: "Dosis", sans-serif;
