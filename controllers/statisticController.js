@@ -1,6 +1,14 @@
-const getSalesByYear = (year) => {
+const getSales = (dateStart, dateEnd, typeDate) => {
+  console.log(dateStart, dateEnd, typeDate);
   return $.ajax({
-    url: "util/statistic.php?year=" + year + "&action=getSalesByYear",
+    url:
+      "util/statistic.php?dateStart=" +
+      dateStart +
+      "&dateEnd=" +
+      dateEnd +
+      "&typeDate=" +
+      typeDate +
+      "&action=getSales",
     type: "GET",
   });
 };
@@ -50,44 +58,139 @@ const getTopProducts = (dateStart, dateEnd) => {
     type: "GET",
   });
 };
-
-const statistic1 = async () => {
-  let year = document.querySelector("#statistic-type1 .yearInput").value;
-  let data = JSON.parse(await getSalesByYear(year));
-  const allMonths = Array.from({ length: 12 }, (_, i) =>
-    (i + 1).toString().padStart(2, "0")
-  );
-  const formattedData = allMonths.map((mon) => {
-    const existingData = data.find((item) => item.mon === mon);
-    const total = existingData ? parseInt(existingData.total) : 0;
-    return { mon, total };
-  });
-  let currnetYear = new Date().getFullYear();
-  if (year == currnetYear) {
-    formattedData.splice(new Date().getMonth() + 1);
+const changeTypeInputDate = () => {
+  let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
+  let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
+  dateStartInput.value = "";
+  dateEndInput.value = "";
+  let typeInput = document.querySelector("#statistic-type1 .typeStatictis");
+  if (typeInput.value == "1") {
+    dateStartInput.type = "text";
+    dateEndInput.type = "text";
+  } else if (typeInput.value == "2") {
+    dateStartInput.type = "month";
+    dateEndInput.type = "month";
+  } else if (typeInput.value == "3") {
+    dateStartInput.type = "week";
+    dateEndInput.type = "week";
+  } else {
+    dateStartInput.type = "date";
+    dateEndInput.type = "date";
+    console.log("y");
   }
+};
+const checkInputStatistic1 = () => {
+  let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
+  let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
+  let typeInput = document.querySelector("#statistic-type1 .typeStatictis");
+  if (dateStartInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date start!"
+    );
+    dateStartInput.focus();
+    return;
+  }
+  if (dateEndInput.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter date end!"
+    );
+    dateEndInput.focus();
+    return;
+  }
+  switch (typeInput.value) {
+    case "1":
+      yearStart = dateStartInput.value;
+      yearEnd = dateEndInput.value;
+      if (isNaN(yearStart)) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year start must be a number!"
+        );
+        dateStartInput.focus();
+        return false;
+      }
+      if (isNaN(yearEnd)) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year end must be a number!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (parseInt(yearEnd) > new Date().getFullYear()) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year end must be less than or equal current year!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (parseInt(yearStart) > parseInt(yearEnd)) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year start must be less than or equal year end!"
+        );
+        dateStartInput.focus();
+        return false;
+      }
+      break;
+  }
+  return true;
+};
+const statistic1 = async () => {
+  if (!checkInputStatistic1()) return;
+  let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
+  let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
+  let typeInput = document.querySelector("#statistic-type1 .typeStatictis");
+  let data = JSON.parse(
+    await getSales(dateStartInput.value, dateEndInput.value, typeInput.value)
+  );
+  console.log(data);
+  let categories = [];
+  let formattedData;
+  let title;
+  let nameLine;
+  switch (typeInput.value) {
+    case "1":
+      yearStart = parseInt(dateStartInput.value);
+      yearEnd = parseInt(dateEndInput.value);
+      for (let year = yearStart; year <= yearEnd; year++) {
+        categories.push(year + "");
+      }
+      formattedData = categories.map((year) => {
+        const existingData = data.find((item) => item.y === year);
+        const total = existingData ? parseInt(existingData.total) : 0;
+        return { year, total };
+      });
+      console.log(formattedData);
+      title = "Sales revenue from " + yearStart + " to " + yearEnd;
+      nameLine = yearStart + "-" + yearEnd;
+      break;
+  }
+  // let year = document.querySelector("#statistic-type1 .yearInput").value;
+  // const allMonths = Array.from({ length: 12 }, (_, i) =>
+  //   (i + 1).toString().padStart(2, "0")
+  // );
+  // const formattedData = allMonths.map((mon) => {
+  //   const existingData = data.find((item) => item.mon === mon);
+  //   const total = existingData ? parseInt(existingData.total) : 0;
+  //   return { mon, total };
+  // });
+  // let currnetYear = new Date().getFullYear();
+  // if (year == currnetYear) {
+  //   formattedData.splice(new Date().getMonth() + 1);
+  // }
   Highcharts.chart("container", {
     chart: {
       type: "line",
     },
     title: {
-      text: "Sales revenue in " + year,
+      text: title,
     },
     xAxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: categories,
     },
     yAxis: {
       title: {
@@ -107,7 +210,7 @@ const statistic1 = async () => {
     },
     series: [
       {
-        name: year,
+        name: nameLine,
         data: formattedData.map((item) => item.total),
       },
     ],

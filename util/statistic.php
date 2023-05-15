@@ -4,12 +4,30 @@ $dp = new DataProvider();
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         switch ($_GET['action']) {
-            case 'getSalesByYear':
-                $year = $_GET['year'];
-                $sql = "SELECT DATE_FORMAT(thoiGianDat, '%m') AS mon, SUM(tongTien) AS total
-                        FROM hoadon WHERE trangThai = 'Delivered' and DATE_FORMAT(thoiGianDat, '%Y') = $year
-                        GROUP BY DATE_FORMAT(thoiGianDat, '%Y-%m')
-                        ORDER BY mon ASC;";
+            case 'getSales':
+                $dateStart = $_GET['dateStart'];
+                $dateEnd = $_GET['dateEnd'];
+                $typeDate = $_GET['typeDate'];
+                switch ($typeDate) {
+                    case 1: //year
+                        $dateStart .= "-01-01";
+                        $dateEnd .= "-12-31";
+                        $select = "DATE_FORMAT(thoiGianDat, '%Y')";
+                        $as = "y";
+                        break;
+                    case '2': //month
+                        break;
+                    case '3': //week
+                        break;
+                    case '4': //day
+                        break;
+                }
+                $sql = "SELECT $select AS $as, SUM(tongTien) AS total
+                        FROM hoadon WHERE trangThai = 'Delivered'
+                            AND thoiGianDat >= '$dateStart'
+                            AND thoiGianDat <= '$dateEnd'
+                        GROUP BY $select
+                        ORDER BY $as ASC";
                 $result = $dp->excuteQuery($sql);
                 $data = array();
                 if ($result->num_rows > 0) {
