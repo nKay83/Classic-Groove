@@ -15,7 +15,7 @@ for ($j = 1; $j < 3; $j++) {
     array_push($album, $album[$i]);
   }
 }
-$pa = new Pagination($album, 12, $currentPage);
+$pa = new Pagination($album, 8, $currentPage);
 
 $slides = getAllSlide();
 ?>
@@ -67,7 +67,7 @@ $slides = getAllSlide();
       </div>
     <?php endfor ?>
   </div>
-  <?php if ($pa->quantityPage != 0): ?>
+  <?php if ($pa->quantityPage > 1): ?>
     <div class="pagination-placeholder">
       <div class="pagination-box">
         <div class="item" onclick="loadHomeByAjax(<?= $pa->prevDot() ?>)"><i class="fa-solid fa-chevron-left"></i>
