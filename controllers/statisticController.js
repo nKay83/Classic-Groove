@@ -27,25 +27,25 @@ const getNumberOfProductsSold = (dateStart, dateEnd) => {
   });
 };
 
-const getTopKindProducts = (month, year) => {
+const getTopKindProducts = (dateStart, dateEnd) => {
   return $.ajax({
     url:
-      "util/statistic.php?month=" +
-      month +
-      "&year=" +
-      year +
+      "util/statistic.php?dateStart=" +
+      dateStart +
+      "&dateEnd=" +
+      dateEnd +
       "&action=getTopKindProducts",
     type: "GET",
   });
 };
 
-const getTopProducts = (month, year) => {
+const getTopProducts = (dateStart, dateEnd) => {
   return $.ajax({
     url:
-      "util/statistic.php?month=" +
-      month +
-      "&year=" +
-      year +
+      "util/statistic.php?dateStart=" +
+      dateStart +
+      "&dateEnd=" +
+      dateEnd +
       "&action=getTopProducts",
     type: "GET",
   });
@@ -127,18 +127,14 @@ const statistic2 = async () => {
   let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
 
   let title;
+  let date =
+    dateStart.split("-").reverse().join("/") +
+    " to " +
+    dateEnd.split("-").reverse().join("/");
   if (typeInput.value == "1") {
-    title =
-      "Number of products sold by product type from " +
-      dateStart.split("-").reverse().join("/") +
-      " to " +
-      dateEnd.split("-").reverse().join("/");
+    title = "Number of products sold by product type from " + date;
   } else {
-    title =
-      "Number of products sold from " +
-      dateStart.split("-").reverse().join("/") +
-      " to " +
-      dateEnd.split("-").reverse().join("/");
+    title = "Number of products sold from " + date;
   }
   Highcharts.chart("container2", {
     chart: {
@@ -194,26 +190,24 @@ const statistic2 = async () => {
 };
 
 const statistic3 = async () => {
-  let month = parseInt(
-    document.querySelector("#statistic-type3 .monthInput").value
-  );
-  let year = parseInt(
-    document.querySelector("#statistic-type3 .yearInput").value
-  );
+  let dateStart = document.querySelector("#statistic-type3 .dateStart").value;
+  let dateEnd = document.querySelector("#statistic-type3 .dateEnd").value;
   let typeInput = document.querySelector("#statistic-type3 .typeStatictis");
   let data;
   if (typeInput.value == "1") {
-    data = JSON.parse(await getTopKindProducts(month, year));
+    data = JSON.parse(await getTopKindProducts(dateStart, dateEnd));
   } else if (typeInput.value == "2") {
-    data = JSON.parse(await getTopProducts(month, year));
+    data = JSON.parse(await getTopProducts(dateStart, dateEnd));
   }
   let title;
+  let date =
+    dateStart.split("-").reverse().join("/") +
+    " to " +
+    dateEnd.split("-").reverse().join("/");
   if (typeInput.value == "1") {
-    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
-    title = "Top best-selling category in " + mon + year;
+    title = "Top best-selling category from " + date;
   } else {
-    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
-    title = "Top best-selling product in " + mon + year;
+    title = "Top best-selling product from " + date;
   }
   Highcharts.chart("container3", {
     chart: {

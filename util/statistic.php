@@ -64,15 +64,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 echo json_encode($data);
                 break;
             case 'getTopKindProducts':
-                $year = $_GET['year'];
-                $month = $_GET['month'];
+                $dateStart = $_GET['dateStart'];
+                $dateEnd = $_GET['dateEnd'];
                 $sql = "SELECT tl.tenLoai as ten, SUM(cthd.SoLuong) AS soLuong
                         FROM theLoai tl join album a on tl.maLoai = a.theLoai
                             join chitiethoadon cthd on a.maAlbum = cthd.album
                             join hoadon hd on cthd.hoaDon = hd.maHoaDon
-                        WHERE hd.trangThai = 'Delivered' "
-                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
-                    " AND  DATE_FORMAT(thoiGianDat, '%Y') = $year
+                        WHERE hd.trangThai = 'Delivered'
+                            AND hd.thoiGianDat >= '$dateStart'
+                            AND hd.thoiGianDat <= '$dateEnd'
                         GROUP BY tl.maLoai
                         ORDER BY soLuong DESC
                         LIMIT 3";
@@ -86,14 +86,14 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 echo json_encode($data);
                 break;
             case 'getTopProducts':
-                $year = $_GET['year'];
-                $month = $_GET['month'];
+                $dateStart = $_GET['dateStart'];
+                $dateEnd = $_GET['dateEnd'];
                 $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
                         FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
                             JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
-                        WHERE hd.trangThai = 'Delivered' "
-                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
-                    " AND YEAR(hd.thoiGianDat) = $year
+                        WHERE hd.trangThai = 'Delivered'
+                            AND hd.thoiGianDat >= '$dateStart'
+                            AND hd.thoiGianDat <= '$dateEnd'
                         GROUP BY a.maAlbum
                         ORDER BY soLuong DESC
                         LIMIT 3";
