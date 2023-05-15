@@ -20,8 +20,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 echo json_encode($data);
                 break;
             case 'getNumberOfKindProductsSold':
-                $year = $_GET['year'];
-                $month = $_GET['month'];
+                $dateStart = $_GET['dateStart'];
+                $dateEnd = $_GET['dateEnd'];
                 $sql = "SELECT tl.tenLoai AS ten, IFNULL(SUM(cthd.SoLuong), 0) AS soLuong
                         FROM theLoai tl
                         LEFT JOIN (
@@ -29,9 +29,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             FROM album a
                             LEFT JOIN chitiethoadon cthd ON cthd.album = a.maAlbum
                             LEFT JOIN hoadon hd ON hd.maHoaDon=cthd.hoaDon
-                            WHERE hd.trangThai = 'Delivered'"
-                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
-                    " AND YEAR(thoiGianDat) = $year
+                            WHERE hd.trangThai = 'Delivered'
+                                AND hd.thoiGianDat >= '$dateStart'
+                                AND hd.thoiGianDat <= '$dateEnd'
                             GROUP BY a.theLoai
                         ) AS cthd ON tl.maLoai = cthd.theLoai
                         GROUP BY tl.maLoai";
@@ -45,15 +45,15 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 echo json_encode($data);
                 break;
             case 'getNumberOfProductsSold':
-                $year = $_GET['year'];
-                $month = $_GET['month'];
+                $dateStart = $_GET['dateStart'];
+                $dateEnd = $_GET['dateEnd'];
                 $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
                         FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
                             JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
-                        WHERE hd.trangThai = 'Delivered' "
-                    . ($month == 0 ? "" : " AND DATE_FORMAT(thoiGianDat, '%m') = $month") .
-                    " AND YEAR(hd.thoiGianDat) = 2023
-                        GROUP BY a.maAlbum;";
+                        WHERE hd.trangThai = 'Delivered'
+                            AND hd.thoiGianDat >= '$dateStart'
+                            AND hd.thoiGianDat <= '$dateEnd'
+                        GROUP BY a.maAlbum";
                 $result = $dp->excuteQuery($sql);
                 $data = array();
                 if ($result->num_rows > 0) {

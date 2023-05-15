@@ -4,24 +4,24 @@ const getSalesByYear = (year) => {
     type: "GET",
   });
 };
-const getNumberOfKindProductsSold = (month, year) => {
+const getNumberOfKindProductsSold = (dateStart, dateEnd) => {
   return $.ajax({
     url:
-      "util/statistic.php?month=" +
-      month +
-      "&year=" +
-      year +
+      "util/statistic.php?dateStart=" +
+      dateStart +
+      "&dateEnd=" +
+      dateEnd +
       "&action=getNumberOfKindProductsSold",
     type: "GET",
   });
 };
-const getNumberOfProductsSold = (month, year) => {
+const getNumberOfProductsSold = (dateStart, dateEnd) => {
   return $.ajax({
     url:
-      "util/statistic.php?month=" +
-      month +
-      "&year=" +
-      year +
+      "util/statistic.php?dateStart=" +
+      dateStart +
+      "&dateEnd=" +
+      dateEnd +
       "&action=getNumberOfProductsSold",
     type: "GET",
   });
@@ -115,28 +115,30 @@ const statistic1 = async () => {
 };
 
 const statistic2 = async () => {
-  let month = parseInt(
-    document.querySelector("#statistic-type2 .monthInput").value
-  );
-  let year = parseInt(
-    document.querySelector("#statistic-type2 .yearInput").value
-  );
+  let dateStart = document.querySelector("#statistic-type2 .dateStart").value;
+  let dateEnd = document.querySelector("#statistic-type2 .dateEnd").value;
   let typeInput = document.querySelector("#statistic-type2 .typeStatictis");
   let data;
   if (typeInput.value == "1") {
-    data = JSON.parse(await getNumberOfKindProductsSold(month, year));
+    data = JSON.parse(await getNumberOfKindProductsSold(dateStart, dateEnd));
   } else if (typeInput.value == "2") {
-    data = JSON.parse(await getNumberOfProductsSold(month, year));
+    data = JSON.parse(await getNumberOfProductsSold(dateStart, dateEnd));
   }
   let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
 
   let title;
   if (typeInput.value == "1") {
-    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
-    title = "Number of products sold by product type in " + mon + year;
+    title =
+      "Number of products sold by product type from " +
+      dateStart.split("-").reverse().join("/") +
+      " to " +
+      dateEnd.split("-").reverse().join("/");
   } else {
-    mon = month == 0 ? "" : month.toString().padStart(2, "0") + "/";
-    title = "Number of products sold in " + mon + year;
+    title =
+      "Number of products sold from " +
+      dateStart.split("-").reverse().join("/") +
+      " to " +
+      dateEnd.split("-").reverse().join("/");
   }
   Highcharts.chart("container2", {
     chart: {
