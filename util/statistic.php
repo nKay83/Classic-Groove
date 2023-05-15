@@ -16,6 +16,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         $as = "y";
                         break;
                     case '2': //month
+                        $dateStart .= "-01";
+                        $dateEnd = date('Y-m-t', strtotime($dateEnd));
+                        $select = "DATE_FORMAT(thoiGianDat, '%Y-%m')";
+                        $as = "m";
                         break;
                     case '3': //week
                         break;

@@ -82,6 +82,8 @@ const changeTypeInputDate = () => {
 const checkInputStatistic1 = () => {
   let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
   let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
+  // console.log(dateStartInput.value, dateEndInput.value);
+  // return false;
   let typeInput = document.querySelector("#statistic-type1 .typeStatictis");
   if (dateStartInput.value == "") {
     customNotice(
@@ -136,6 +138,26 @@ const checkInputStatistic1 = () => {
         return false;
       }
       break;
+    case "2":
+      monthStart = dateStartInput.value;
+      monthEnd = dateEndInput.value;
+      if (monthEnd > new Date().toISOString().slice(0, 7)) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Month end must be less than or equal current month!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (monthStart > monthEnd) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Month start must be less than or equal month end!"
+        );
+        dateStartInput.focus();
+        return false;
+      }
+      break;
   }
   return true;
 };
@@ -153,7 +175,7 @@ const statistic1 = async () => {
   let title;
   let nameLine;
   switch (typeInput.value) {
-    case "1":
+    case "1": //year
       yearStart = parseInt(dateStartInput.value);
       yearEnd = parseInt(dateEndInput.value);
       for (let year = yearStart; year <= yearEnd; year++) {
@@ -164,9 +186,32 @@ const statistic1 = async () => {
         const total = existingData ? parseInt(existingData.total) : 0;
         return { year, total };
       });
-      console.log(formattedData);
       title = "Sales revenue from " + yearStart + " to " + yearEnd;
       nameLine = yearStart + "-" + yearEnd;
+      break;
+    case "2": //month
+      monthStart = dateStartInput.value;
+      monthEnd = dateEndInput.value;
+      let startDate = new Date(monthStart + "-01");
+      let endDate = new Date(monthEnd + "-01");
+      while (startDate <= endDate) {
+        let formattedDate = startDate.toISOString().slice(0, 7);
+        categories.push(formattedDate);
+        startDate.setMonth(startDate.getMonth() + 1);
+      }
+      formattedData = categories.map((month) => {
+        const existingData = data.find((item) => item.m === month);
+        const total = existingData ? parseInt(existingData.total) : 0;
+        return { month, total };
+      });
+      categories = categories.map((month) =>
+        monthStart.split("-").reverse().join("/")
+      );
+      monthStartDisplay = monthStart.split("-").reverse().join("/");
+      monthEndDisplay = monthEnd.split("-").reverse().join("/");
+      title =
+        "Sales revenue from " + monthStartDisplay + " to " + monthEndDisplay;
+      nameLine = monthStartDisplay + " - " + monthEndDisplay;
       break;
   }
   // let year = document.querySelector("#statistic-type1 .yearInput").value;
@@ -234,14 +279,6 @@ const statistic2 = async () => {
     );
     return;
   }
-
-  let typeInput = document.querySelector("#statistic-type2 .typeStatictis");
-  let data;
-  if (typeInput.value == "1") {
-    data = JSON.parse(await getNumberOfKindProductsSold(dateStart, dateEnd));
-  } else if (typeInput.value == "2") {
-    data = JSON.parse(await getNumberOfProductsSold(dateStart, dateEnd));
-  }
   if (new Date(dateStart) > new Date(dateEnd)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
@@ -249,6 +286,14 @@ const statistic2 = async () => {
     );
     return;
   }
+  let typeInput = document.querySelector("#statistic-type2 .typeStatictis");
+  let data;
+  if (typeInput.value == "1") {
+    data = JSON.parse(await getNumberOfKindProductsSold(dateStart, dateEnd));
+  } else if (typeInput.value == "2") {
+    data = JSON.parse(await getNumberOfProductsSold(dateStart, dateEnd));
+  }
+
   let dataFormat = data.map((obj) => [obj.ten, parseInt(obj.soLuong)]);
 
   let title;
