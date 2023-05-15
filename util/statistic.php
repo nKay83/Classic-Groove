@@ -27,7 +27,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                         $select = "DATE_FORMAT(thoiGianDat, '%X-%V')";
                         $as = "w";
                         break;
-                    case '4': //day
+                    case '4': //date
+                        $select = "thoiGianDat";
+                        $as = "d";
                         break;
                 }
                 $sql = "SELECT $select AS $as, SUM(tongTien) AS total

@@ -7,7 +7,7 @@
             <option value="2">By month</option>
             <option value="1">By year</option>
             <option value="3">By week</option>
-            <option value="4">By day</option>
+            <option value="4">By date</option>
         </select>
         <Button value="" onclick=" statistic1()">Statistic</Button>
 

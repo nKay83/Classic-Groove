@@ -110,6 +110,7 @@ const checkInputStatistic1 = () => {
     dateEndInput.focus();
     return;
   }
+  let currentDate = new Date();
   switch (typeInput.value) {
     case "1":
       yearStart = dateStartInput.value;
@@ -170,7 +171,6 @@ const checkInputStatistic1 = () => {
     case "3":
       weekStart = dateStartInput.value;
       weekEnd = dateEndInput.value;
-      let currentDate = new Date();
       let currentYear = currentDate.getFullYear();
       let currentWeek = currentDate.getWeek();
       let weekEndYear = parseInt(weekEnd.substring(0, 4));
@@ -199,6 +199,27 @@ const checkInputStatistic1 = () => {
         dateEndInput.focus();
         return false;
       }
+    case "4":
+      dateStart = dateStartInput.value;
+      dateEnd = dateEndInput.value;
+      currentDate.setDate(currentDate.getDate() + 1);
+      if (new Date(dateEnd) > currentDate) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Date end must be less than or equal current date!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (new Date(dateStart) > new Date(dateEnd)) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Date start must be less than or equal date end!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      break;
   }
   return true;
 };
@@ -233,12 +254,12 @@ const statistic1 = async () => {
     case "2": //month
       monthStart = dateStartInput.value;
       monthEnd = dateEndInput.value;
-      let startDate = new Date(monthStart + "-01");
-      let endDate = new Date(monthEnd + "-01");
-      while (startDate <= endDate) {
-        let formattedDate = startDate.toISOString().slice(0, 7);
+      let startDateMonth = new Date(monthStart + "-01");
+      let endDateMonth = new Date(monthEnd + "-01");
+      while (startDateMonth <= endDateMonth) {
+        let formattedDate = startDateMonth.toISOString().slice(0, 7);
         categories.push(formattedDate);
-        startDate.setMonth(startDate.getMonth() + 1);
+        startDateMonth.setMonth(startDateMonth.getMonth() + 1);
       }
       formattedData = categories.map((month) => {
         const existingData = data.find((item) => item.m === month);
@@ -246,7 +267,7 @@ const statistic1 = async () => {
         return { month, total };
       });
       categories = categories.map((month) =>
-        monthStart.split("-").reverse().join("/")
+        month.split("-").reverse().join("/")
       );
       monthStartDisplay = monthStart.split("-").reverse().join("/");
       monthEndDisplay = monthEnd.split("-").reverse().join("/");
@@ -264,13 +285,11 @@ const statistic1 = async () => {
       for (let year = startYear; year <= endYear; year++) {
         let start = year === startYear ? startNum : 1;
         let end = year === endYear ? endNum : 52;
-
         for (let week = start; week <= end; week++) {
           let weekString = year + "-" + String(week).padStart(2, "0");
           categories.push(weekString);
         }
       }
-      console.log(categories);
       formattedData = categories.map((week) => {
         const existingData = data.find((item) => item.w === week);
         const total = existingData ? parseInt(existingData.total) : 0;
@@ -281,6 +300,30 @@ const statistic1 = async () => {
       );
       title = "Sales revenue from " + weekStart + " to " + weekEnd;
       nameLine = weekStart + " - " + weekEnd;
+      break;
+    case "4":
+      dateStart = dateStartInput.value;
+      dateEnd = dateEndInput.value;
+      startDate = new Date(dateStart);
+      endDate = new Date(dateEnd);
+      while (startDate <= endDate) {
+        const formattedDate = startDate.toISOString().split("T")[0];
+        categories.push(formattedDate);
+        startDate.setDate(startDate.getDate() + 1);
+      }
+      formattedData = categories.map((date) => {
+        const existingData = data.find((item) => item.d === date);
+        const total = existingData ? parseInt(existingData.total) : 0;
+        return { date, total };
+      });
+      categories = categories.map((date) =>
+        date.split("-").reverse().join("/")
+      );
+      dateStartDisplay = dateStart.split("-").reverse().join("/");
+      dateEndDisplay = dateEnd.split("-").reverse().join("/");
+      title =
+        "Sales revenue from " + dateStartDisplay + " to " + dateEndDisplay;
+      nameLine = dateStartDisplay + " - " + dateEndDisplay;
       break;
   }
   Highcharts.chart("container", {
