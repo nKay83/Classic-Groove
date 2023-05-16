@@ -224,6 +224,13 @@ const changeSong = (input) => {
   fileInput.onchange = () => {
     let file_data = fileInput.files[0];
     let form_data = new FormData();
+    if (file_data.type != "audio/mpeg") {
+      customNotice(
+        "fa-sharp fa-light fa-circle-exclamation",
+        "Please, upload song!"
+      );
+      return;
+    }
     form_data.append("file", file_data);
     form_data.append("target_directory", "../data/songs/");
     $.ajax({

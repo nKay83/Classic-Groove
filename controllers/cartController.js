@@ -35,6 +35,13 @@ const checkChangeQuantity = (input, change) => {
   let currentQuantityInput = input
     .closest(".product-placeholder")
     .querySelector("input.quantity-info");
+  if (!isNaN(currentQuantityInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "quantity must be a number!"
+    );
+    return null;
+  }
   let currentQuantity = parseInt(currentQuantityInput.value);
   if (currentQuantity == 99 && change == 1) {
     customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99");

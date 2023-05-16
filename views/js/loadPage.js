@@ -172,7 +172,6 @@ const loadAlbumByAjax = () => {
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
       document.querySelector(".search-bar .search-input input").value = name;
-
       document.querySelector(".search-bar .filter-input select").value =
         category;
       if (priceStart != -1) {

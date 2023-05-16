@@ -131,6 +131,22 @@ const checkInputStatistic1 = () => {
         dateEndInput.focus();
         return false;
       }
+      if (parseInt(yearStart) < 2000) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year start must greater than 2000!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
+      if (parseInt(yearEnd) < 2000) {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          "Year end must greater than 2000!"
+        );
+        dateEndInput.focus();
+        return false;
+      }
       if (parseInt(yearEnd) > new Date().getFullYear()) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
