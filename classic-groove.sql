@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2023 at 06:27 AM
+-- Generation Time: May 16, 2023 at 07:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -396,35 +396,35 @@ INSERT INTO `phieunhap` (`maPhieuNhap`, `ngayNhap`, `nguoiNhap`, `TongGia`, `NCC
 CREATE TABLE `quyen` (
   `maCTQ` int(11) NOT NULL,
   `NoiDungQuyen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `chucNang` int(11) DEFAULT NULL
+  `chucNang` int(11) DEFAULT NULL,
+  `laTieuDe` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `quyen`
 --
 
-INSERT INTO `quyen` (`maCTQ`, `NoiDungQuyen`, `chucNang`) VALUES
-(1, 'Product.Access', 2),
-(2, 'Product.Edit', NULL),
-(3, 'Product.Delete', NULL),
-(4, 'supplyRecord.Access', 5),
-(5, 'supplyRecord.Add', NULL),
-(6, 'account.Access', 4),
-(7, 'account.Add', NULL),
-(8, 'account.Edit', NULL),
-(9, 'account.Block', NULL),
-(10, 'order.Access', 3),
-(11, 'order.Edit', NULL),
-(12, 'structure.Access', 6),
-(13, 'structure.Edit', NULL),
-(14, 'role.Access', 7),
-(15, 'role.Add', NULL),
-(16, 'role.Edit', NULL),
-(17, 'role.Delete', NULL),
-(18, 'statistic.Access', 1),
-(19, 'Product.Add', NULL),
-(20, 'structure.Add', NULL),
-(21, 'structure.Delete\r\n', NULL);
+INSERT INTO `quyen` (`maCTQ`, `NoiDungQuyen`, `chucNang`, `laTieuDe`) VALUES
+(1, 'Access', 2, 1),
+(2, 'Edit', 2, 0),
+(3, 'Delete', 2, 0),
+(4, 'Access', 5, 1),
+(5, 'Add', 5, 0),
+(6, 'Access', 4, 1),
+(7, 'Add', 4, 0),
+(8, 'Edit', 4, 0),
+(10, 'Access', 3, 1),
+(11, 'Edit', 3, 0),
+(12, 'Access', 6, 1),
+(13, 'Edit', 6, 0),
+(14, 'Access', 7, 1),
+(15, 'Add', 7, 0),
+(16, 'Edit', 7, 0),
+(17, 'Delete', 7, 0),
+(18, 'Access', 1, 1),
+(19, 'Add', 2, 0),
+(20, 'Add', 6, 0),
+(21, 'Delete\r\n', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -553,7 +553,6 @@ INSERT INTO `vaitro_quyen` (`VaiTro_maVaiTro`, `Quyen_maCTQ`) VALUES
 (3, 6),
 (3, 7),
 (3, 8),
-(3, 9),
 (3, 10),
 (3, 11),
 (3, 12),
