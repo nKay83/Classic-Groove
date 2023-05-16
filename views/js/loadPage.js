@@ -2,7 +2,8 @@ $(document).ready(async () => {
   let url = window.location.href;
   if (url.indexOf("admin.php") != -1) {
     if ((await isLogin()) == 1 && (await getRole()) != "1") {
-      // loadPageByAjax("Statistic");
+      let tab = document.querySelector("#header .top .top-menu .tab-title");
+      if (tab != null) tab.click();
     } else {
       window.location.href = "index.php";
     }
@@ -110,7 +111,7 @@ const loadAlbumByAjax = () => {
   let priceStartInput = document.querySelector(
     ".search-bar .price-begin input"
   );
-  let orderDirection = (rotationDegrees % 360) == 0 ? 1 : 2; //1 is down, 2 is up
+  let orderDirection = rotationDegrees % 360 == 0 ? 1 : 2; //1 is down, 2 is up
   console.log(rotationDegrees % 360);
   let priceEndInput = document.querySelector(".search-bar .price-end input");
   if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
