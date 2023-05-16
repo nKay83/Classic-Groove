@@ -19,28 +19,28 @@ if (isset($_POST["page"])) {
     case "footer":
       include("footer.php");
       break;
-    case "statistic":
+    case "Statistic":
       include("../admin/statistic.php");
       break;
-    case "productManager":
+    case "Album":
       include("../admin/productManager.php");
       break;
-    case "orderManager":
+    case "Order":
       include("../admin/orderManager.php");
       break;
-    case "accountManager":
+    case "Account":
       include("../admin/accountManager.php");
       break;
     case "distributor":
       include("../admin/distributor.php");
       break;
-    case "structureManager":
+    case "Structure":
       include("../admin/structureManager.php");
       break;
-    case "supplyRecord":
+    case "Supply":
       include("../admin/supplyRecord.php");
       break;
-    case "roleManager":
+    case "Permission":
       include("../admin/roleManager.php");
       break;
     default:

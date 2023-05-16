@@ -2,7 +2,7 @@ $(document).ready(async () => {
   let url = window.location.href;
   if (url.indexOf("admin.php") != -1) {
     if ((await isLogin()) == 1 && (await getRole()) != "1") {
-      loadPageByAjax("statistic");
+      // loadPageByAjax("Statistic");
     } else {
       window.location.href = "index.php";
     }
@@ -30,7 +30,7 @@ const loadPageByAjax = async (pageTarget) => {
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
       if (pageTarget == "myAccount") setUserInfo();
-      if (pageTarget == "statistic") {
+      if (pageTarget == "Statistic") {
         statistic1();
         statistic2();
         statistic3();

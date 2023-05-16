@@ -1,5 +1,9 @@
 <?php
+require("util/dataProvider.php");
+$dp = new DataProvider();
 session_start();
+$role = $_SESSION['role'];
+$function = getFunction($role);
 ?>
 <div class="background">
   <div class="top">
@@ -7,48 +11,16 @@ session_start();
       <img src="views/assets/img/Logo.png" alt="logo">
     </div>
     <div class="top-menu">
-      <?php if (checkCanAccess(18)): ?>
-        <div class="tab-title active" onclick="selectMenuAdmin(this,'statistic')">
-          <div class="tab-icon"><i class="fa-solid fa-chart-column"></i></div>
-          <div class="tab-info">Statistic</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(1)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'productManager')">
-          <div class="tab-icon"><i class="fa-solid fa-album"></i></div>
-          <div class="tab-info">Album</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(10)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'orderManager')">
-          <div class="tab-icon"><i class="fa-regular fa-list"></i></div>
-          <div class="tab-info">Order</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(6)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'accountManager')">
-          <div class="tab-icon"><i class="fa-regular fa-user"></i></div>
-          <div class="tab-info">Account</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(4)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'supplyRecord')">
-          <div class="tab-icon"><i class="fa-regular fa-box-open"></i></div>
-          <div class="tab-info">Supply</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(12)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'structureManager')">
-          <div class="tab-icon"><i class="fa-solid fa-puzzle"></i></div>
-          <div class="tab-info">Structure</div>
-        </div>
-      <?php endif ?>
-      <?php if (checkCanAccess(14)): ?>
-        <div class="tab-title" onclick="selectMenuAdmin(this,'roleManager')">
-          <div class="tab-icon"><i class="fa-regular fa-user-pen"></i></div>
-          <div class="tab-info">Permission</div>
-        </div>
-      <?php endif ?>
+      <?php foreach ($function as $f): ?>
+        <?php if (checkCanAccess($f['maCTQ'])): ?>
+          <div class="tab-title" onclick="selectMenuAdmin(this,'<?= $f['tenChucNang'] ?>')">
+            <div class="tab-icon"><i class="<?= $f['icon'] ?>"></i></div>
+            <div class="tab-info">
+              <?= $f['tenChucNang'] ?>
+            </div>
+          </div>
+        <?php endif ?>
+      <?php endforeach ?>
     </div>
   </div>
   <div class="bottom">
@@ -68,5 +40,24 @@ function checkCanAccess($permission)
   if (in_array($permission, $_SESSION['permission']))
     return true;
   return false;
+}
+function getFunction($role)
+{
+  global $dp;
+  $sql = "SELECT cn.tenChucNang, q.maCTQ, cn.icon
+          FROM vaitro vt JOIN vaitro_quyen vtq ON vt.maVaiTro = vtq.VaiTro_maVaiTro
+            JOIN quyen q ON vtq.Quyen_maCTQ = q.maCTQ
+            JOIN chucNang cn on q.chucNang = cn.maChucNang
+          WHERE vt.maVaiTro = $role
+          AND q.chucNang IS NOT NULL
+          ORDER BY q.chucNang";
+  $result = $dp->excuteQuery($sql);
+  $function = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($function, $row);
+    }
+  }
+  return $function;
 }
 ?>
