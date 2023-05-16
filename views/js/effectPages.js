@@ -78,3 +78,8 @@ window.addEventListener("resize", function () {
     ).src = "views/assets/img/Logo.png";
   }
 });
+let rotationDegrees = 0;
+const turnArrow = (arrow) => {
+  rotationDegrees -= 180;
+  arrow.style.transform = `rotate(${rotationDegrees}deg)`;
+};

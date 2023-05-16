@@ -110,6 +110,8 @@ const loadAlbumByAjax = () => {
   let priceStartInput = document.querySelector(
     ".search-bar .price-begin input"
   );
+  let orderDirection = (rotationDegrees % 360) == 0 ? 1 : 2; //1 is down, 2 is up
+  console.log(rotationDegrees % 360);
   let priceEndInput = document.querySelector(".search-bar .price-end input");
   if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
     customNotice(
@@ -163,6 +165,7 @@ const loadAlbumByAjax = () => {
       category: parseFloat(category),
       priceStart: priceStart,
       priceEnd: priceEnd,
+      orderDirection: orderDirection,
     },
     dataType: "html",
     success: function (data) {
@@ -178,6 +181,10 @@ const loadAlbumByAjax = () => {
       if (priceEnd != -1) {
         document.querySelector(".search-bar .price-end input").value = priceEnd;
       }
+      let arrow = document.querySelector(
+        "#productManager .title-list .title:nth-of-type(3) i"
+      );
+      arrow.style.transform = `rotate(${rotationDegrees}deg)`;
     },
   });
 };

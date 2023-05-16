@@ -7,12 +7,14 @@ if (
   && isset($_POST['category'])
   && isset($_POST['priceStart'])
   && isset($_POST['priceEnd'])
+  && isset($_POST['orderDirection'])
 ) {
   $name = $_POST['name'];
   $category = $_POST['category'];
   $priceStart = $_POST['priceStart'];
   $priceEnd = $_POST['priceEnd'];
-  $album = searchAlbum($name, $category, $priceStart, $priceEnd);
+  $orderBy = $_POST['orderDirection'];
+  $album = searchAlbum($name, $category, $priceStart, $priceEnd, $orderBy);
 } else {
   $album = getAllAlbum();
 }
@@ -62,7 +64,10 @@ $category = getAllCategory();
     <div class="title-placeholder">
       <div class="title">No.</div>
       <div class="title">AlbumID</div>
-      <div class="title">Album name</div>
+      <div class="title">
+        <span>Album name</span>
+        <i class="fa-solid  fa-up" onclick="turnArrow(this);loadAlbumByAjax()"></i>
+      </div>
       <div class="title">Artist name</div>
       <div class="title">Kind</div>
       <div class="title">Price</div>
@@ -113,7 +118,8 @@ function getAllAlbum()
   global $dp;
   $sql = "SELECT *
         FROM album join theloai on album.theLoai = theloai.maLoai
-        where album.TrangThai = 1";
+        where album.TrangThai = 1
+        ORDER BY tenAlbum ASC";
   $result = $dp->excuteQuery($sql);
   $album = array();
   if ($result->num_rows > 0) {
@@ -142,7 +148,7 @@ function getAllCategory()
   }
   return $category;
 }
-function searchAlbum($name, $category, $priceStart, $priceEnd)
+function searchAlbum($name, $category, $priceStart, $priceEnd, $orderBy)
 {
   global $dp;
   $sql = "SELECT *
@@ -170,6 +176,11 @@ function searchAlbum($name, $category, $priceStart, $priceEnd)
       $sql = $sql . "gia >= " . $priceStart . " and gia <= " . $priceEnd . " ";
       $f = true;
     }
+  }
+  if ($orderBy == "1")
+    $sql = $sql . " ORDER BY tenAlbum ASC";
+  else {
+    $sql = $sql . " ORDER BY tenAlbum DESC";
   }
   $result = $dp->excuteQuery($sql);
   $album = array();

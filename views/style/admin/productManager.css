@@ -31,9 +31,9 @@
   column-gap: 10px;
 }
 
-#productManager .header h2 i{
+#productManager .header h2 i {
   margin-right: 10px;
- }
+}
 
 #productManager .new-button,
 #productManager .restock-button {
@@ -736,7 +736,7 @@
 }
 #productManager #add_exist_song .modal-box .btn-add input,
 #productManager #add_exist_song .modal-box .btn-cancel input {
-    font-family: "Dosis", sans-serif;
+  font-family: "Dosis", sans-serif;
   font-size: 15px;
 }
 
@@ -837,6 +837,12 @@
   border: none;
   cursor: pointer;
 }
+#productManager .title-list .title:nth-of-type(3) i {
+  margin-left: 5px;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
 
 @media screen and (max-width: 768px) {
   #productManager {
@@ -852,7 +858,7 @@
     font-size: 12px;
     width: 615px;
   }
-  #productManager .modal-box{
+  #productManager .modal-box {
     width: 50%;
     min-width: 600px;
     height: 500px;
