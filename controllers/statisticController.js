@@ -91,24 +91,24 @@ Date.prototype.getWeek = function () {
 const checkInputStatistic1 = () => {
   let dateStartInput = document.querySelector("#statistic-type1 .dateStart");
   let dateEndInput = document.querySelector("#statistic-type1 .dateEnd");
-  // console.log(dateStartInput.value, dateEndInput.value);
-  // return false;
   let typeInput = document.querySelector("#statistic-type1 .typeStatictis");
   if (dateStartInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date start!"
+      "Please, enter date start!",
+      3
     );
     dateStartInput.focus();
-    return;
+    return false;
   }
   if (dateEndInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date end!"
+      "Please, enter date end!",
+      3
     );
     dateEndInput.focus();
-    return;
+    return false;
   }
   let currentDate = new Date();
   switch (typeInput.value) {
@@ -118,7 +118,8 @@ const checkInputStatistic1 = () => {
       if (isNaN(yearStart)) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year start must be a number!"
+          "Year start must be a number!",
+          3
         );
         dateStartInput.focus();
         return false;
@@ -126,7 +127,8 @@ const checkInputStatistic1 = () => {
       if (isNaN(yearEnd)) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year end must be a number!"
+          "Year end must be a number!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -134,7 +136,8 @@ const checkInputStatistic1 = () => {
       if (parseInt(yearStart) < 2000) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year start must greater than 2000!"
+          "Year start must greater than 2000!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -142,7 +145,8 @@ const checkInputStatistic1 = () => {
       if (parseInt(yearEnd) < 2000) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year end must greater than 2000!"
+          "Year end must greater than 2000!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -150,7 +154,8 @@ const checkInputStatistic1 = () => {
       if (parseInt(yearEnd) > new Date().getFullYear()) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year end must be less than or equal current year!"
+          "Year end must be less than or equal current year!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -158,7 +163,8 @@ const checkInputStatistic1 = () => {
       if (parseInt(yearStart) > parseInt(yearEnd)) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Year start must be less than or equal year end!"
+          "Year start must be less than or equal year end!",
+          3
         );
         dateStartInput.focus();
         return false;
@@ -170,7 +176,8 @@ const checkInputStatistic1 = () => {
       if (monthEnd > new Date().toISOString().slice(0, 7)) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Month end must be less than or equal current month!"
+          "Month end must be less than or equal current month!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -178,7 +185,8 @@ const checkInputStatistic1 = () => {
       if (monthStart > monthEnd) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Month start must be less than or equal month end!"
+          "Month start must be less than or equal month end!",
+          3
         );
         dateStartInput.focus();
         return false;
@@ -199,7 +207,8 @@ const checkInputStatistic1 = () => {
       ) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Week end must be less than or equal current week!"
+          "Week end must be less than or equal current week!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -210,7 +219,8 @@ const checkInputStatistic1 = () => {
       ) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Week start must be less than or equal week end!"
+          "Week start must be less than or equal week end!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -222,7 +232,8 @@ const checkInputStatistic1 = () => {
       if (new Date(dateEnd) > currentDate) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Date end must be less than or equal current date!"
+          "Date end must be less than or equal current date!",
+          3
         );
         dateEndInput.focus();
         return false;
@@ -230,7 +241,8 @@ const checkInputStatistic1 = () => {
       if (new Date(dateStart) > new Date(dateEnd)) {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Date start must be less than or equal date end!"
+          "Date start must be less than or equal date end!",
+          3
         );
         dateEndInput.focus();
         return false;

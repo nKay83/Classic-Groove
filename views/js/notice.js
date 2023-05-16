@@ -1,9 +1,23 @@
-const customNotice = async (icon,content) => {
+const customNotice = async (icon, content, type) => {
   //random number
   let randomNumber = Math.floor(Math.random() * 1000);
   let alert = htmlToElement(
     `<div class="container"><span class="slide"></span><p class="cart-removing"><i class="${icon}"></i> ${content} </p></div>`
   );
+  switch (type) {
+    case 1: //success
+      alert.style.backgroundColor = "#2EA043";
+      break;
+    case 2: //warning
+      alert.style.backgroundColor = "#ffb000";
+      break;
+    case 3: //error
+      alert.style.backgroundColor = "#db161d";
+      break;
+    default:
+      alert.style.backgroundColor = " #f2623e";
+  }
+
   const notice = document.querySelector("#notice");
   notice.appendChild(alert);
   notice.querySelector(".slide").classList.add("slide");

@@ -149,13 +149,15 @@ const deleteAlbum = (albumID) => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Deleted successfully"
+          "Deleted successfully",
+          1
         );
         loadPageByAjax("Album");
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Deleted failed"
+          "Deleted failed",
+          3
         );
     },
   });
@@ -173,7 +175,8 @@ const uploadImg = () => {
     if (!file_data.type.startsWith("image/")) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please upload an image!"
+        "Please upload an image!",
+        3
       );
       return;
     }
@@ -192,12 +195,14 @@ const uploadImg = () => {
             "data/imgAlbum/" + fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
-            "Uploaded successfully"
+            "Uploaded successfully",
+            1
           );
         } else
           customNotice(
             "fa-sharp fa-light fa-circle-exclamation",
-            "Upload failed"
+            "Upload failed",
+            3
           );
       },
     });
@@ -206,7 +211,8 @@ const uploadImg = () => {
 const deleteImg = () => {
   customNotice(
     "fa-sharp fa-light fa-circle-check",
-    "Deleted successfully, change to default image!"
+    "Deleted successfully, change to default image!",
+    1
   );
   document.querySelector(".img-container img").src =
     "data/imgAlbum/" + "default.jfif";
@@ -227,7 +233,8 @@ const changeSong = (input) => {
     if (file_data.type != "audio/mpeg") {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please, upload song!"
+        "Please, upload song!",
+        3
       );
       return;
     }
@@ -247,12 +254,14 @@ const changeSong = (input) => {
             fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
-            "Uploaded successfully"
+            "Uploaded successfully",
+            1
           );
         } else
           customNotice(
             "fa-sharp fa-light fa-circle-exclamation",
-            "Upload failed"
+            "Upload failed",
+            3
           );
       },
     });
@@ -287,12 +296,17 @@ const addExistingSong = () => {
   if (songString == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter song ID or song name!"
+      "Please enter song ID or song name!",
+      3
     );
     return;
   }
   if (!suggestions.includes(songString)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Song not found");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Song not found",
+      3
+    );
     return;
   }
   let songID = songString.split("-")[0];
@@ -303,7 +317,8 @@ const addExistingSong = () => {
     if (parseInt(inputSongs[i].innerHTML) == parseInt(songID)) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Song already exists"
+        "Song already exists",
+        3
       );
       return;
     }
@@ -390,7 +405,8 @@ const checkUpdateAlbum = () => {
   if (albumNameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter album name!"
+      "Please, enter album name!",
+      3
     );
     albumNameInput.focus();
     return false;
@@ -398,14 +414,16 @@ const checkUpdateAlbum = () => {
   if (albumKindInput.value == "0") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter kind album!"
+      "Please, enter kind album!",
+      3
     );
     return false;
   }
   if (albumArtistInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter artist album!"
+      "Please, enter artist album!",
+      3
     );
     albumArtistInput.focus();
     return false;
@@ -413,7 +431,8 @@ const checkUpdateAlbum = () => {
   if (albumPriceInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter Price album!"
+      "Please, enter Price album!",
+      3
     );
     albumPriceInput.focus();
     return false;
@@ -421,7 +440,8 @@ const checkUpdateAlbum = () => {
   if (isNaN(albumPriceInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Price must be a number!"
+      "Price must be a number!",
+      3
     );
     albumPriceInput.focus();
     return false;
@@ -436,7 +456,8 @@ const checkUpdateSong = () => {
     if (inputNameSong[i].value == "") {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please, enter name song!"
+        "Please, enter name song!",
+        3
       );
       inputNameSong[i].focus();
       return false;
@@ -449,7 +470,8 @@ const checkUpdateSong = () => {
     if (inputFileSong[i].querySelector("span").innerHTML == "Please choose") {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please, choose file song!"
+        "Please, choose file song!",
+        3
       );
       inputFileSong[i].querySelector("input").focus();
       return false;
@@ -479,7 +501,7 @@ const updateAlbum = async (AbID) => {
     albumDescription
   );
   await updateSongInfo(AbID);
-  customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
+  customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!", 1);
   loadPageByAjax("Album");
   loadModalBoxByAjax("detailAlbum", AbID);
 };
@@ -579,5 +601,5 @@ const newAlbum = async (albumID) => {
     albumImage,
     albumDescription
   );
-  customNotice("fa-sharp fa-light fa-circle-check", "Add successfully!");
+  customNotice("fa-sharp fa-light fa-circle-check", "Add successfully!", 1);
 };
