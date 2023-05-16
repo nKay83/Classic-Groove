@@ -50,7 +50,6 @@ $functions = getAllFunction();
     </div>
 </div>
 <div class="role-placeholder">
-
     <?php foreach ($functions as $fs): ?>
         <div class="role-box">
             <div class="role-header">
@@ -105,6 +104,7 @@ function checkCanAccess($permission)
         return true;
     return false;
 }
+
 function getAllFunction()
 {
     global $dp;

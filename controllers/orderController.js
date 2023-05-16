@@ -82,7 +82,7 @@ const cancelOrder = (orderID) => {
       if (res != "Success") alert(res);
       else {
         customNotice("fa-solid fa-cart-circle-plus", "Cancel your Order");
-        loadPageByAjax("myAccount");
+        loadPageByAjax("Account");
       }
     },
   });

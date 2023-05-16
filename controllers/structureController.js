@@ -145,7 +145,7 @@ const addSlide = async () => {
           "fa-sharp fa-light fa-circle-check",
           "Added successfully!"
         );
-      loadPageByAjax("structureManager");
+      loadPageByAjax("Structure");
     },
   });
 };
@@ -164,7 +164,7 @@ const deleteSlide = (slideID) => {
           "fa-sharp fa-light fa-circle-check",
           "Deleted successfully!"
         );
-      loadPageByAjax("structureManager");
+      loadPageByAjax("Structure");
     },
   });
 };

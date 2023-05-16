@@ -75,7 +75,7 @@ const addNewRole = (roleID) => {
           "fa-sharp fa-light fa-circle-check",
           "Add new role successfully!"
         );
-      loadPageByAjax("roleManager");
+      loadPageByAjax("Permission");
     },
   });
 };
@@ -93,7 +93,7 @@ const deleteRole = (roleID) => {
           "fa-sharp fa-light fa-circle-check",
           "Delete role successfully!"
         );
-      loadPageByAjax("roleManager");
+      loadPageByAjax("Permission");
     },
   });
 };

@@ -40,7 +40,7 @@ const updateOrder = () => {
           "fa-sharp fa-light fa-circle-check",
           "Update successfully!"
         );
-        loadPageByAjax("orderManager");
+        loadPageByAjax("Order");
       }
     },
   });

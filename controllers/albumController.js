@@ -103,7 +103,7 @@ const addNewAlbum = async (
     },
     success: async function (res) {
       await updateSongInfo(albumID);
-      loadPageByAjax("productManager");
+      loadPageByAjax("Album");
     },
   });
 };
@@ -151,7 +151,7 @@ const deleteAlbum = (albumID) => {
           "fa-sharp fa-light fa-circle-check",
           "Deleted successfully"
         );
-        loadPageByAjax("productManager");
+        loadPageByAjax("Album");
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
@@ -473,7 +473,7 @@ const updateAlbum = async (AbID) => {
   );
   await updateSongInfo(AbID);
   customNotice("fa-sharp fa-light fa-circle-check", "Update successfully!");
-  loadPageByAjax("productManager");
+  loadPageByAjax("Album");
   loadModalBoxByAjax("detailAlbum", AbID);
 };
 const updateSongInfo = async (AbID) => {

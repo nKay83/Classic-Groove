@@ -180,7 +180,7 @@ const addNewSupply = () => {
           "fa-sharp fa-light fa-circle-check",
           "Add new supply successful!"
         );
-        loadPageByAjax("supplyRecord");
+        loadPageByAjax("Supply");
       } else {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",

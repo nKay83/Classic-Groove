@@ -1,7 +1,9 @@
 <?php
 require("../../../util/dataProvider.php");
+session_start();
 $dp = new DataProvider();
 $newRoleID = getNewRoleID();
+$functions = getAllFunction();
 ?>
 
 <h1>Role new</h1>
@@ -26,118 +28,28 @@ $newRoleID = getNewRoleID();
             <i class="fa-solid fa-folder-arrow-down"></i>
             <span class="info-placeholder">save</span>
         </div>
-        <div class="button-container" onclick="loadPageByAjax('roleManager')">
+        <div class="button-container" onclick="loadPageByAjax('Permission')">
             <i class="fa-solid fa-back"></i>
             <span class="info-placeholder">Cancel</span>
         </div>
     </div>
 </div>
 <div class="role-placeholder">
-    <div class="role-box">
-        <div class="role-header">Product management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="1">
+    <?php foreach ($functions as $fs): ?>
+        <div class="role-box">
+            <div class="role-header">
+                <?= $fs['tenChucNang'] ?> management
+            </div>
+            <?php foreach (getDetailRoleByFunction($fs['maChucNang']) as $f): ?>
+                <div class="role-item">
+                    <?= $f['NoiDungQuyen'] ?>
+                </div>
+                <div class="checkbox-placeholder">
+                    <input type="checkbox" value="<?= $f['maCTQ'] ?>" <?php if (!checkCanAccess(16)): ?> disabled<?php endif ?>>
+                </div>
+            <?php endforeach ?>
         </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="19">
-        </div>
-        <div class="role-item">Delete</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="3">
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="2">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Supply management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="4">
-        </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="5">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Account management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="6">
-        </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="7">
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="8">
-        </div>
-        <div class="role-item">Block</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="9">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Order management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="10">
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="11">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Structure management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="12">
-        </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="20">
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="13">
-        </div>
-        <div class="role-item">Delete</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="21">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Role management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="14">
-        </div>
-        <div class="role-item">Add</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="15">
-        </div>
-        <div class="role-item">Edit</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="16">
-        </div>
-        <div class="role-item">Delete</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="17">
-        </div>
-    </div>
-    <div class="role-box">
-        <div class="role-header">Statistic management</div>
-        <div class="role-item">Access</div>
-        <div class="checkbox-placeholder">
-            <input type="checkbox" value="18">
-        </div>
-    </div>
+    <?php endforeach ?>
 </div>
 <?php
 function getNewRoleID()
@@ -147,5 +59,37 @@ function getNewRoleID()
     $result = $dp->excuteQuery($sql);
     $row = mysqli_fetch_array($result);
     return $row['maxID'] + 1;
+}
+function checkCanAccess($permission)
+{
+    if (in_array($permission, $_SESSION['permission']))
+        return true;
+    return false;
+}
+function getAllFunction()
+{
+    global $dp;
+    $sql = "SELECT * FROM chucnang";
+    $result = $dp->excuteQuery($sql);
+    $function = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($function, $row);
+        }
+    }
+    return $function;
+}
+function getDetailRoleByFunction($f)
+{
+    global $dp;
+    $sql = "SELECT * FROM quyen WHERE chucNang = $f";
+    $result = $dp->excuteQuery($sql);
+    $detailRole = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($detailRole, $row);
+        }
+    }
+    return $detailRole;
 }
 ?>
