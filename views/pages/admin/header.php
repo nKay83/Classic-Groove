@@ -49,7 +49,7 @@ function getFunction($role)
             JOIN quyen q ON vtq.Quyen_maCTQ = q.maCTQ
             JOIN chucNang cn on q.chucNang = cn.maChucNang
           WHERE vt.maVaiTro = $role
-          AND q.chucNang IS NOT NULL
+          AND q.laTieuDe = 1
           ORDER BY q.chucNang";
   $result = $dp->excuteQuery($sql);
   $function = array();

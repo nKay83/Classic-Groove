@@ -28,7 +28,7 @@ const updateRole = async (roleID) => {
           "fa-sharp fa-light fa-circle-check",
           "Update role successfully!"
         );
-      loadPageByAjax("roleManager");
+      loadPageByAjax("Permission");
       loadModalBoxByAjax("roleManager", roleID);
     },
   });
