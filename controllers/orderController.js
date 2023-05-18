@@ -51,13 +51,18 @@ const checkMyCart = () => {
   );
   let address = document.querySelector("#mycart #checkout-address");
   if (albums.length == 0) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, select the album!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, select the album!",
+      3
+    );
     return false;
   }
   if (address.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your address!"
+      "Please, enter your address!",
+      3
     );
     address.focus();
     return false;
@@ -81,24 +86,23 @@ const cancelOrder = (orderID) => {
     success: function (res) {
       if (res != "Success") alert(res);
       else {
-        customNotice("fa-solid fa-cart-circle-plus", "Cancel your Order");
+        customNotice("fa-solid fa-cart-circle-plus", "Cancel your Order", 1);
         loadPageByAjax("Account");
       }
     },
   });
 };
 
-const getOrderInfo= (orderID)=>{
+const getOrderInfo = (orderID) => {
   return $.ajax({
     url: "util/order.php?orderID=" + orderID + "&action=getOrderInfo",
     type: "GET",
   });
-}
+};
 
-const getAlbumsInOrder = (orderID)=>{
+const getAlbumsInOrder = (orderID) => {
   return $.ajax({
     url: "util/order.php?orderID=" + orderID + "&action=getAlbumsInOrder",
     type: "GET",
   });
-}
-
+};

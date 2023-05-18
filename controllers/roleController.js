@@ -26,7 +26,8 @@ const updateRole = async (roleID) => {
       else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Update role successfully!"
+          "Update role successfully!",
+          1
         );
       loadPageByAjax("Permission");
       loadModalBoxByAjax("roleManager", roleID);
@@ -38,7 +39,8 @@ const checkAddNewRole = () => {
   if (roleNameInput.value.trim() == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Role name must not be empty!"
+      "Role name must not be empty!",
+      3
     );
     return false;
   }
@@ -73,7 +75,8 @@ const addNewRole = (roleID) => {
       else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Add new role successfully!"
+          "Add new role successfully!",
+          1
         );
       loadPageByAjax("Permission");
     },
@@ -91,7 +94,8 @@ const deleteRole = (roleID) => {
       else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Delete role successfully!"
+          "Delete role successfully!",
+          1
         );
       loadPageByAjax("Permission");
     },

@@ -22,7 +22,8 @@ const updateSlide = (slideID) => {
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Update successfully!"
+          "Update successfully!",
+          1
         );
       loadPageByAjax("structureManager");
     },
@@ -35,10 +36,11 @@ const uploadImgSlide = () => {
   fileInput.onchange = () => {
     let file_data = fileInput.files[0];
     let form_data = new FormData();
-    if(!file_data.type.startsWith('image/')){
+    if (!file_data.type.startsWith("image/")) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please upload an image!"
+        "Please upload an image!",
+        3
       );
       return;
     }
@@ -59,12 +61,14 @@ const uploadImgSlide = () => {
             "data/slideShow/" + fileInput.files[0].name;
           customNotice(
             "fa-sharp fa-light fa-circle-check",
-            "Uploaded successfully"
+            "Uploaded successfully",
+            1
           );
         } else
           customNotice(
             "fa-sharp fa-light fa-circle-exclamation",
-            "Upload failed"
+            "Upload failed",
+            3
           );
       },
     });
@@ -78,28 +82,32 @@ const checkAddSlide = () => {
   if (imgInput.src.split("/").pop() == "default.jfif") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please upload an image!"
+      "Please upload an image!",
+      3
     );
     return false;
   }
   if (nameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter a name!"
+      "Please enter a name!",
+      3
     );
     return false;
   }
   if (linkToInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter a link!"
+      "Please enter a link!",
+      3
     );
     return false;
   }
   if (isNaN(linkToInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter a id album in Linked To!"
+      "Please enter a id album in Linked To!",
+      3
     );
     return false;
   }
@@ -116,7 +124,8 @@ const checkAlbumExist = async () => {
   if (!exist) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter a link exist!"
+      "Please enter a link exist!",
+      3
     );
     return false;
   }
@@ -143,7 +152,8 @@ const addSlide = async () => {
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Added successfully!"
+          "Added successfully!",
+          1
         );
       loadPageByAjax("Structure");
     },
@@ -162,7 +172,8 @@ const deleteSlide = (slideID) => {
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Deleted successfully!"
+          "Deleted successfully!",
+          1
         );
       loadPageByAjax("Structure");
     },

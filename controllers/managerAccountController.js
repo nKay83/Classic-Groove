@@ -44,7 +44,8 @@ const updateAccount = () => {
       else {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Update successfully!"
+          "Update successfully!",
+          1
         );
         isAccountInfoChange();
       }
@@ -60,7 +61,8 @@ const checkInputUpdateAccount = () => {
   if (nameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your fullname!"
+      "Please, enter your fullname!",
+      3
     );
     nameInput.focus();
     return false;
@@ -68,26 +70,36 @@ const checkInputUpdateAccount = () => {
   if (emailInput.value != "" && !isEmailValid(emailInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid email address!"
+      "Invalid email address!",
+      3
     );
     emailInput.focus();
     return false;
   }
 
   if (nameInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your name!",
+      3
+    );
     nameInput.focus();
     return false;
   }
   if (phoneInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your phone number!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your phone number!",
+      3
+    );
     phoneInput.focus();
     return false;
   }
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid phone number!"
+      "Invalid phone number!",
+      3
     );
     phoneInput.focus();
     return false;
@@ -95,7 +107,8 @@ const checkInputUpdateAccount = () => {
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!"
+      "Please, enter your password!",
+      3
     );
     passwordInput.focus();
     return false;
@@ -103,7 +116,8 @@ const checkInputUpdateAccount = () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
+      3
     );
     passwordInput.focus();
     return false;
@@ -157,10 +171,11 @@ const createNewAccount = async () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Account successfully created"
+          "Account successfully created",
+          1
         );
       } else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res, 3);
       }
     },
   });
@@ -175,7 +190,8 @@ const checkInputCreateNewAccount = async () => {
   if (usernameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your user name!"
+      "Please, enter your user name!",
+      3
     );
     usernameInput.focus();
     return false;
@@ -183,7 +199,8 @@ const checkInputCreateNewAccount = async () => {
   if (await isUsernameExist(usernameInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Username already exists!"
+      "Username already exists!",
+      3
     );
     usernameInput.focus();
     return false;
@@ -191,7 +208,8 @@ const checkInputCreateNewAccount = async () => {
   if (nameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your fullname!"
+      "Please, enter your fullname!",
+      3
     );
     nameInput.focus();
     return false;
@@ -199,7 +217,8 @@ const checkInputCreateNewAccount = async () => {
   if (emailInput.value != "" && !isEmailValid(emailInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid email address!"
+      "Invalid email address!",
+      3
     );
     emailInput.focus();
     return false;
@@ -207,25 +226,35 @@ const checkInputCreateNewAccount = async () => {
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid phone number!"
+      "Invalid phone number!",
+      3
     );
     phoneInput.focus();
     return false;
   }
   if (nameInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your name!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your name!",
+      3
+    );
     nameInput.focus();
     return false;
   }
   if (phoneInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Pleae, enter your phone number!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Pleae, enter your phone number!",
+      3
+    );
     phoneInput.focus();
     return false;
   }
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!"
+      "Please, enter your password!",
+      3
     );
     passwordInput.focus();
     return false;
@@ -233,7 +262,8 @@ const checkInputCreateNewAccount = async () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
+      3
     );
     passwordInput.focus();
     return false;

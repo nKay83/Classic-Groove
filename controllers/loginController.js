@@ -11,7 +11,7 @@ const login = () => {
         window.location.href = "index.php";
       } else if (res == "emp") window.location.href = "admin.php";
       else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res,3);
       }
     },
   });
@@ -22,7 +22,7 @@ const checkInputLogin = () => {
   if (username == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter username!"
+      "Please, enter username!",3
     );
     document.querySelector("#username-field").focus();
     return false;
@@ -31,7 +31,7 @@ const checkInputLogin = () => {
   if (password == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!"
+      "Please, enter your password!",3
     );
     document.querySelector("#password-field").focus();
     return false;
@@ -68,7 +68,7 @@ const register = async () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Accout successfully created!"
+          "Accout successfully created!",3
         );
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;
@@ -76,7 +76,7 @@ const register = async () => {
       } else
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Accout creation failed!"
+          "Accout creation failed!",3
         );
     },
   });
@@ -93,7 +93,7 @@ const checkInputRegister = async () => {
   if (name.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your name!"
+      "Please, enter your name!",3
     );
     name.focus();
     return false;
@@ -101,7 +101,7 @@ const checkInputRegister = async () => {
   if (phone.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your phone number!"
+      "Please, enter your phone number!",3
     );
     phone.focus();
     return false;
@@ -109,7 +109,7 @@ const checkInputRegister = async () => {
   if (!isVietnamesePhoneNumberValid(phone.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid phone number!"
+      "Invalid phone number!",3
     );
     phone.focus();
     return false;
@@ -117,7 +117,7 @@ const checkInputRegister = async () => {
   if (username.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter username!"
+      "Please, enter username!",3
     );
     username.focus();
     return false;
@@ -125,7 +125,7 @@ const checkInputRegister = async () => {
   if (await isUsernameExist(username.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Username already exists!"
+      "Username already exists!",3
     );
     username.focus();
     return false;
@@ -133,7 +133,7 @@ const checkInputRegister = async () => {
   if (password.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!"
+      "Please, enter your password!",3
     );
     password.focus();
     return false;
@@ -141,7 +141,7 @@ const checkInputRegister = async () => {
   if (!isPasswordValid(password.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",3
     );
     password.focus();
     return false;
@@ -150,7 +150,7 @@ const checkInputRegister = async () => {
   if (confirmPassword.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter confirm password!"
+      "Please, enter confirm password!",3
     );
     confirmPassword.focus();
     return false;
@@ -158,7 +158,7 @@ const checkInputRegister = async () => {
   if (confirmPassword.value != password.value) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      " Confirm password incorrect!"
+      " Confirm password incorrect!",3
     );
     confirmPassword.focus();
     return false;

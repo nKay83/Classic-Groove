@@ -41,7 +41,8 @@ const checkInputUpdateUser = () => {
   if (fullnameInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your fullname!"
+      "Please, enter your fullname!",
+      3
     );
     fullnameInput.focus();
     return false;
@@ -49,7 +50,8 @@ const checkInputUpdateUser = () => {
   if (phoneInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your phone number!"
+      "Please, enter your phone number!",
+      3
     );
     phoneInput.focus();
     return false;
@@ -57,7 +59,8 @@ const checkInputUpdateUser = () => {
   if (!isVietnamesePhoneNumberValid(phoneInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Invalid phone number!"
+      "Invalid phone number!",
+      3
     );
     phoneInput.focus();
     return false;
@@ -65,7 +68,8 @@ const checkInputUpdateUser = () => {
   if (passwordInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!"
+      "Please, enter your password!",
+      3
     );
     passwordInput.focus();
     return false;
@@ -73,7 +77,8 @@ const checkInputUpdateUser = () => {
   if (!isPasswordValid(passwordInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !."
+      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
+      3
     );
     passwordInput.focus();
     return false;
@@ -81,18 +86,27 @@ const checkInputUpdateUser = () => {
   if (addressInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your address!"
+      "Please, enter your address!",
+      3
     );
     addressInput.focus();
     return false;
   }
   if (emailInput.value == "") {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Please, enter your email!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your email!",
+      3
+    );
     emailInput.focus();
     return false;
   }
   if (!isEmailValid(emailInput.value)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Invalid email!");
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Invalid email!",
+      3
+    );
     emailInput.focus();
     return false;
   }
@@ -121,7 +135,8 @@ const updateUser = () => {
       else {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Update successfully!"
+          "Update successfully!",
+          1
         );
         IsInfoChange();
       }

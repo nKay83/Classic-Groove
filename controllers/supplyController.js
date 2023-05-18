@@ -33,12 +33,12 @@ const addExistingAlbum = () => {
   if (albumString == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please enter album ID or album name!"
+      "Please enter album ID or album name!",3
     );
     return;
   }
   if (!suggestionsAlbum.includes(albumString)) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "album not found");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "album not found",3);
     return;
   }
   let albumID = albumString.split("-")[0];
@@ -49,7 +49,7 @@ const addExistingAlbum = () => {
     if (parseInt(inputAlbum[i].innerHTML) == parseInt(albumID)) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "album already exists"
+        "album already exists",3
       );
       return;
     }
@@ -106,7 +106,7 @@ const checkAddSupply = () => {
   if (albumList.length == 0) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please add at least 1 album!"
+      "Please add at least 1 album!",3
     );
     return false;
   }
@@ -120,14 +120,14 @@ const checkAddSupply = () => {
     if (isNaN(albumCost) || isNaN(albumQuantity)) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please enter valid number!"
+        "Please enter valid number!",3
       );
       return false;
     }
     if (parseInt(albumQuantity) <= 0 || parseInt(albumCost) <= 0) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Please enter quantity and cost greater than 0!"
+        "Please enter quantity and cost greater than 0!",3
       );
       return false;
     }
@@ -178,13 +178,13 @@ const addNewSupply = () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Add new supply successful!"
+          "Add new supply successful!",1
         );
         loadPageByAjax("Supply");
       } else {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Add new supply failed!"
+          "Add new supply failed!",3
         );
       }
     },

@@ -5,9 +5,9 @@ const addToCart = (albumID) => {
     data: { albumID: albumID, action: "addToCart" },
     success: function (res) {
       if (res == "Added to your Cart") {
-        customNotice("fa-solid fa-cart-circle-plus", res);
+        customNotice("fa-solid fa-cart-circle-plus", res,1);
       } else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res,3);
       }
     },
   });
@@ -24,7 +24,7 @@ const deleteByAlbumID = (albumID) => {
     success: function (res) {
       if (res == "Success") {
         summary();
-        customNotice("fa-solid fa-cart-circle-xmark", "Removed from your Cart");
+        customNotice("fa-solid fa-cart-circle-xmark", "Removed from your Cart",1);
       } else {
         alert(res);
       }
@@ -38,26 +38,26 @@ const checkChangeQuantity = (input, change) => {
   if (!isNaN(currentQuantityInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "quantity must be a number!"
+      "quantity must be a number!",3
     );
     return null;
   }
   let currentQuantity = parseInt(currentQuantityInput.value);
   if (currentQuantity == 99 && change == 1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99",3);
     return null;
   }
   if (currentQuantity == 1 && change == -1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1",3);
     return null;
   }
   if (currentQuantity > 99) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99",3);
     currentQuantityInput.value = 99;
     currentQuantity = 99;
   }
   if (currentQuantity < 1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1");
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1",3);
     currentQuantityInput.value = 1;
     currentQuantity = 1;
   }

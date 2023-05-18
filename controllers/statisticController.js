@@ -395,21 +395,24 @@ const statistic2 = async () => {
   if (dateStart == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date start!"
+      "Please, enter date start!",
+      3
     );
     return;
   }
   if (dateEnd == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date end!"
+      "Please, enter date end!",
+      3
     );
     return;
   }
   if (new Date(dateStart) > new Date(dateEnd)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Date start must be smaller or equal date end!"
+      "Date start must be smaller or equal date end!",
+      3
     );
     return;
   }
@@ -492,21 +495,24 @@ const statistic3 = async () => {
   if (dateStart == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date start!"
+      "Please, enter date start!",
+      3
     );
     return;
   }
   if (dateEnd == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter date end!"
+      "Please, enter date end!",
+      3
     );
     return;
   }
   if (new Date(dateStart) > new Date(dateEnd)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Date start must be smaller or equal date end!"
+      "Date start must be smaller or equal date end!",
+      3
     );
     return;
   }

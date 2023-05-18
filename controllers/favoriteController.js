@@ -7,11 +7,12 @@ const addToFavorite = (albumID) => {
       if (res == "success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Added to your Favorite"
+          "Added to your Favorite",
+          1
         );
         loadProductDetailsByAjax(albumID);
       } else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res,3);
       }
     },
   });
@@ -25,11 +26,11 @@ const disLike = (albumID) => {
       if (res == "success") {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
-          "Removed from your Favorite"
+          "Removed from your Favorite",1
         );
         loadProductDetailsByAjax(albumID);
       } else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res,3);
       }
     },
   });

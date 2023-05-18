@@ -47,7 +47,7 @@ const loadHomeByAjax = (currentPage) => {
   if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Start price must be a number!"
+      "Start price must be a number!",3
     );
     priceStartInput.focus();
     return;
@@ -55,7 +55,7 @@ const loadHomeByAjax = (currentPage) => {
   if (priceEndInput.value != "" && isNaN(priceEndInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "End price must be a number!"
+      "End price must be a number!",3
     );
     priceEndInput.focus();
     return;
@@ -67,7 +67,7 @@ const loadHomeByAjax = (currentPage) => {
   ) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Start price must be smaller than end price!"
+      "Start price must be smaller than end price!",3
     );
     priceStartInput.focus();
     return;
@@ -80,7 +80,7 @@ const loadHomeByAjax = (currentPage) => {
   ) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Price must be more than or equal 0!"
+      "Price must be more than or equal 0!",3
     );
     priceStartInput.focus();
     return;
@@ -117,7 +117,7 @@ const loadAlbumByAjax = () => {
   if (priceStartInput.value != "" && isNaN(priceStartInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Start price must be a number!"
+      "Start price must be a number!",3
     );
     priceStartInput.focus();
     return;
@@ -125,7 +125,7 @@ const loadAlbumByAjax = () => {
   if (priceEndInput.value != "" && isNaN(priceEndInput.value)) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "End price must be a number!"
+      "End price must be a number!",3
     );
     priceEndInput.focus();
     return;
@@ -137,7 +137,7 @@ const loadAlbumByAjax = () => {
   ) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Start price must be smaller than end price!"
+      "Start price must be smaller than end price!",3
     );
     priceStartInput.focus();
     return;
@@ -150,7 +150,7 @@ const loadAlbumByAjax = () => {
   ) {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "Price must be more than or equal 0!"
+      "Price must be more than or equal 0!",3
     );
     priceStartInput.focus();
     return;
@@ -200,7 +200,7 @@ const loadOrderByAjax = () => {
     if (new Date(datStartInput.value) > new Date(dateEndInput.value)) {
       customNotice(
         "fa-sharp fa-light fa-circle-exclamation",
-        "Start date must be smaller than end date!"
+        "Start date must be smaller than end date!",3
       );
       datStartInput.focus();
       return;
