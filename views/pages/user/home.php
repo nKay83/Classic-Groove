@@ -70,13 +70,24 @@ $slides = getAllSlide();
   <?php if ($pa->quantityPage > 1): ?>
     <div class="pagination-placeholder">
       <div class="pagination-box">
-        <div class="item" onclick="loadHomeByAjax(<?= $pa->prevDot() ?>)"><i class="fa-solid fa-chevron-left"></i>
-        </div>
+        <?php if ($currentPage > 1): ?>
+          <div class="item" onclick="loadHomeByAjax(<?= $pa->prevDot() ?>)"><i class="fa-solid fa-chevron-left"></i>
+          </div>
+        <?php else: ?>
+          <div class="item hide" style="cursor: default;"><i style="color: var(--gr1)" class="fa-solid fa-chevron-left"></i>
+          </div>
+        <?php endif ?>
         <div class="item">
           <?php echo $currentPage . " OF " . $pa->quantityPage ?>
         </div>
-        <div class="item" onclick="loadHomeByAjax(<?= $pa->nextDot() ?>)"><i class="fa-solid fa-chevron-right"></i>
-        </div>
+        <?php if ($currentPage < $pa->quantityPage): ?>
+          <div class="item" onclick="loadHomeByAjax(<?= $pa->nextDot() ?>)"><i class="fa-solid fa-chevron-right"></i>
+          </div>
+        <?php else: ?>
+          <div class="item hide" style="cursor: default;"><i style="color: var(--gr1)"
+              class=" fa-solid fa-chevron-right"></i>
+          </div>
+        <?php endif ?>
       </div>
     </div>
   <?php endif ?>
