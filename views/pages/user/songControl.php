@@ -8,12 +8,11 @@
   <div class="prev-track" onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></div>
   <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-solid fa-circle-play"></i></div>
   <div class="next-track" onclick="nextTrack()"><i class="fa-solid fa-forward-step"></i></div>
-  <div class="volume-container" onclick=setVolumeMute(this)>
-    <i class="fa-sharp fa-solid fa-volume"></i>
-    <i class="fa-sharp fa-solid fa-volume-slash" style="display:none"></i>
+  <div class="volume-container">
+    <i class="fa-sharp fa-solid fa-volume" onclick=setVolumeMute()></i>
+    <i class="fa-sharp fa-solid fa-volume-slash" style="display:none" onclick=setVolumeMute()></i>
     <div>
-      <input type="range" value="99" min="1" max="100" class="volume_slider" onchange="stopPropagation();setVolume();"
-        oninput="setVolume()">
+      <input type="range" value="99" min="1" max="100" class="volume_slider" oninput="setVolume()">
     </div>
   </div>
 </div>

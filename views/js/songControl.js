@@ -129,9 +129,9 @@ const closeSong = () => {
   document.querySelector("#song-control").style.display = "none";
 };
 
-const setVolumeMute = (input) => {
-  let unmute = input.querySelector("i:nth-of-type(1)");
-  let mute = input.querySelector("i:nth-of-type(2)");
+const setVolumeMute = () => {
+  let unmute = document.querySelector(".volume-container i:nth-of-type(1)");
+  let mute = document.querySelector(".volume-container i:nth-of-type(2)");
   if (mute.style.display == "none") {
     unmute.style.display = "none";
     mute.style.display = "block";
