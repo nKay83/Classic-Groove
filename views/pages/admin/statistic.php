@@ -34,6 +34,7 @@
             <option value="1">Type Products</option>
             <option value="2">Products</option>
         </select>
+        <input type="text" placeholder="Limit" class="limit" value="3">
         <Button value="" onclick=" statistic3()">Statistic</Button>
         <figure class="highcharts-figure">
             <div id="container3"></div>

@@ -94,6 +94,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             case 'getTopKindProducts':
                 $dateStart = $_GET['dateStart'];
                 $dateEnd = $_GET['dateEnd'];
+                $limit = $_GET['limit'];
                 $sql = "SELECT tl.tenLoai as ten, SUM(cthd.SoLuong) AS soLuong
                         FROM theLoai tl join album a on tl.maLoai = a.theLoai
                             join chitiethoadon cthd on a.maAlbum = cthd.album
@@ -103,7 +104,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             AND hd.thoiGianDat <= '$dateEnd'
                         GROUP BY tl.maLoai
                         ORDER BY soLuong DESC
-                        LIMIT 3";
+                        LIMIT $limit";
                 $result = $dp->excuteQuery($sql);
                 $data = array();
                 if ($result->num_rows > 0) {
@@ -116,6 +117,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             case 'getTopProducts':
                 $dateStart = $_GET['dateStart'];
                 $dateEnd = $_GET['dateEnd'];
+                $limit = $_GET['limit'];
                 $sql = "SELECT CONCAT(a.maAlbum,\"-\", a.tenAlbum) as ten, SUM(cthd.soLuong) as soLuong
                         FROM album a JOIN chitiethoadon cthd on a.maAlbum = cthd.album
                             JOIN hoadon hd on cthd.hoaDon = hd.maHoaDon
@@ -124,7 +126,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                             AND hd.thoiGianDat <= '$dateEnd'
                         GROUP BY a.maAlbum
                         ORDER BY soLuong DESC
-                        LIMIT 3";
+                        LIMIT $limit";
                 $result = $dp->excuteQuery($sql);
                 $data = array();
                 if ($result->num_rows > 0) {

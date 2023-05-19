@@ -35,25 +35,29 @@ const getNumberOfProductsSold = (dateStart, dateEnd) => {
   });
 };
 
-const getTopKindProducts = (dateStart, dateEnd) => {
+const getTopKindProducts = (dateStart, dateEnd, limit) => {
   return $.ajax({
     url:
       "util/statistic.php?dateStart=" +
       dateStart +
       "&dateEnd=" +
       dateEnd +
+      "&limit=" +
+      limit +
       "&action=getTopKindProducts",
     type: "GET",
   });
 };
 
-const getTopProducts = (dateStart, dateEnd) => {
+const getTopProducts = (dateStart, dateEnd, limit) => {
   return $.ajax({
     url:
       "util/statistic.php?dateStart=" +
       dateStart +
       "&dateEnd=" +
       dateEnd +
+      "&limit=" +
+      limit +
       "&action=getTopProducts",
     type: "GET",
   });
@@ -492,6 +496,7 @@ const statistic2 = async () => {
 const statistic3 = async () => {
   let dateStart = document.querySelector("#statistic-type3 .dateStart").value;
   let dateEnd = document.querySelector("#statistic-type3 .dateEnd").value;
+  let limit = document.querySelector("#statistic-type3 .limit").value;
   if (dateStart == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
@@ -516,12 +521,28 @@ const statistic3 = async () => {
     );
     return;
   }
+  if (isNaN(limit)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Limit must be a number",
+      3
+    );
+    return;
+  }
+  if (parseInt(limit) <= 0) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Limit must be greater than 0",
+      3
+    );
+    return;
+  }
   let typeInput = document.querySelector("#statistic-type3 .typeStatictis");
   let data;
   if (typeInput.value == "1") {
-    data = JSON.parse(await getTopKindProducts(dateStart, dateEnd));
+    data = JSON.parse(await getTopKindProducts(dateStart, dateEnd, limit));
   } else if (typeInput.value == "2") {
-    data = JSON.parse(await getTopProducts(dateStart, dateEnd));
+    data = JSON.parse(await getTopProducts(dateStart, dateEnd, limit));
   }
   let title;
   let date =
@@ -529,9 +550,9 @@ const statistic3 = async () => {
     " to " +
     dateEnd.split("-").reverse().join("/");
   if (typeInput.value == "1") {
-    title = "Top best-selling category from " + date;
+    title = "Top " + limit + " best-selling category from " + date;
   } else {
-    title = "Top best-selling product from " + date;
+    title = "Top " + limit + " best-selling product from " + date;
   }
   Highcharts.chart("container3", {
     chart: {

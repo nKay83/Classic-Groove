@@ -63,3 +63,6 @@
   background-color: var(--ora);
   color: var(--whi);
 }
+#statistic input.limit{
+  width: 100px;
+}
