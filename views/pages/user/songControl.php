@@ -1,6 +1,6 @@
 <div class="control-btn">
   <div>
-  <i class="fa-solid fa-circle-caret-down fa-xl" onclick="closeSong()" style="
+    <i class="fa-solid fa-circle-caret-down fa-xl" onclick="closeSong()" style="
     margin-bottom: 20px;
     font-size: calc(10px + 1vw);
 "></i>
@@ -8,10 +8,12 @@
   <div class="prev-track" onclick="prevTrack()"><i class="fa-solid fa-backward-step"></i></div>
   <div class="playpause-track" onclick="playpauseTrack()"><i class="fa-solid fa-circle-play"></i></div>
   <div class="next-track" onclick="nextTrack()"><i class="fa-solid fa-forward-step"></i></div>
-  <div class="volume-container">
+  <div class="volume-container" onclick=setVolumeMute(this)>
     <i class="fa-sharp fa-solid fa-volume"></i>
+    <i class="fa-sharp fa-solid fa-volume-slash" style="display:none"></i>
     <div>
-      <input type="range" value="99" min="1" max="100" class="volume_slider" onchange="setVolume()" oninput="setVolume()">
+      <input type="range" value="99" min="1" max="100" class="volume_slider" onchange="stopPropagation();setVolume();"
+        oninput="setVolume()">
     </div>
   </div>
 </div>

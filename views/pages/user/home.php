@@ -15,7 +15,7 @@ for ($j = 1; $j < 3; $j++) {
     array_push($album, $album[$i]);
   }
 }
-$pa = new Pagination($album, 8, $currentPage);
+$pa = new Pagination($album, 12, $currentPage);
 
 $slides = getAllSlide();
 ?>

@@ -129,4 +129,16 @@ const closeSong = () => {
   document.querySelector("#song-control").style.display = "none";
 };
 
-
+const setVolumeMute = (input) => {
+  let unmute = input.querySelector("i:nth-of-type(1)");
+  let mute = input.querySelector("i:nth-of-type(2)");
+  if (mute.style.display == "none") {
+    unmute.style.display = "none";
+    mute.style.display = "block";
+    curr_track.muted = true;
+  } else {
+    unmute.style.display = "block";
+    mute.style.display = "none";
+    curr_track.muted = false;
+  }
+};

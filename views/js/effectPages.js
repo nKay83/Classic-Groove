@@ -9,17 +9,7 @@ let changeInputColorRange = () => {
     "%, white 100%)";
 };
 
-$("#purchaseHistory .row").click(function () {
-  $(this).children(".details").slideToggle(500);
-});
-$("#productManager .row").click(function () {
-  $(this).children(".song-list").slideToggle(500);
-});
-// $(function () {
-//   $("#scrollbar").mCustomScrollbar({
-//     theme: "rounded-dark",
-//   });
-// });
+
 
 const changeToolTip = (input) => {
   let val = parseInt(input.value);

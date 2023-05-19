@@ -29,6 +29,7 @@
 #song-control .control-btn i {
   color: var(--gr1);
   font-size: calc(10px + 1vw);
+  width: 35px;
 }
 #song-control .control-btn .volume-container {
   position: relative;
@@ -46,7 +47,7 @@
   justify-content: center;
   padding: 10px;
   border-radius: 20px;
-  top: -130%;
+  top: -120%;
   left: -150%;
   right: -150%;
   transform: rotate(-90deg);
