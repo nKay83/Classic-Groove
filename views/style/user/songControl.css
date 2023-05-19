@@ -31,6 +31,9 @@
   font-size: calc(10px + 1vw);
   width: 35px;
 }
+#song-control .control-btn > div {
+  text-align: center;
+}
 #song-control .control-btn .volume-container {
   position: relative;
   height: 100%;
