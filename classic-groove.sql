@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2023 at 07:25 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Sep 12, 2023 at 11:28 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,8 @@ CREATE TABLE `album` (
 --
 
 INSERT INTO `album` (`maAlbum`, `tenAlbum`, `gia`, `moTa`, `hinh`, `tacGia`, `TrangThai`, `soLuong`, `theLoai`) VALUES
-(1, 'Evo Sessions', 100, 'Evosound proudly presents Chlara\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara.jpg', 'Chlara', 1, 6, 2),
-(2, '#acousticNOW', 200, ' AcousticNow# is the eagerly awaitied fourth album by the 26-year-old Filipino singing sensation Chlara, who will captivate her listeners with a series of acoustic cover versions that include her singles \'The Nights,\' \'Say You Won\'t Let Go,\' and \'ILYSB,\' which have all received over 20 million plays on Spotify. Chlara takes a varied selection of songs - from hits by Ed Sheeran and Aviici to Justin Bieber and Tears For Fears - and reimagines them in her own unique way. Noted for her alluring honey-toned voice and deft acoustic guitar accompaniment, Chlara, who has been described as an \"acoustic songbird\" is flying high at the moment. With three albums and several EPs already under her belt for the Evosound label, she\'s about to unleash her fourth, acousticNow#. The England-born, Philippines-raised singer/song-writer\'s popularity can be measured by that fact that three songs of her songs have generated over 20 million plays each on Spotify.', 'AcousticNow-Chlara.jpg', 'Chlara', 1, 8, 2),
+(1, 'Evo Sessions', 100, 'Evosound proudly presents Chlara\'s evo sessions with 11 tracks on the LP of her favorite classic songs, mainly with acoustic accompaniment. These famous classic songs can resonate throughout different generations from early 20\'s to 21st century like \"Love Me Tender\" or \"Stay With Me\". Chlara is a British-born singer / songwriter recognised as an acoustic songbird, learned to sing and play guitar when she was a young teenager. \"evo sessions\" is her third album release in 4 years. Chlara is not only young and pretty, she possess a lovely sweet voice, and when you hear her sing with a high dynamic range, you can totally feel the passion and energy she puts into her songs. Included in this album is a song she wrote herself called \"Bliss\". The audio of evo sessions was recorded during a live video shoot. The idea of evo sessions started since 2017 summer, the live music video was shot in studio and because of the fabulous sound quality, evosound decided to release as a full album.', 'EvoSessions-Chlara.jpg', 'Chlara', 1, 0, 2),
+(2, '#acousticNOW', 200, ' AcousticNow# is the eagerly awaitied fourth album by the 26-year-old Filipino singing sensation Chlara, who will captivate her listeners with a series of acoustic cover versions that include her singles \'The Nights,\' \'Say You Won\'t Let Go,\' and \'ILYSB,\' which have all received over 20 million plays on Spotify. Chlara takes a varied selection of songs - from hits by Ed Sheeran and Aviici to Justin Bieber and Tears For Fears - and reimagines them in her own unique way. Noted for her alluring honey-toned voice and deft acoustic guitar accompaniment, Chlara, who has been described as an \"acoustic songbird\" is flying high at the moment. With three albums and several EPs already under her belt for the Evosound label, she\'s about to unleash her fourth, acousticNow#. The England-born, Philippines-raised singer/song-writer\'s popularity can be measured by that fact that three songs of her songs have generated over 20 million plays each on Spotify.', 'AcousticNow-Chlara.jpg', 'Chlara', 1, 18, 2),
 (3, 'It Serves You Right To Suffer', 200, '180-gram 45 RPM double LP Mastered at AcousTech Mastering Plated and pressed at Quality Record PressingsIt\'s back in stock! Newly repressed at 45 RPM by Quality Record Pressings. This recording was originally mastered at the former AcousTech Mastering facility and the sound is fantastic.John Lee Hooker himself did not know his exact date of birth. If he hadn\'t died at around the age of 80, this ageless musician would still be easily pulling the next generation to his gigs. Hooker remains a phenomenon, a mysterious figure of black rhythm and blues, a charismatic king who reigns supreme in rock \'n\' roll\'s Hall of Fame. John W. Peters described his music as a synthesis of scorching emotional ardour, unrelenting rhythmic intensity, and original poetry of a highly personal character. Anyone hearing him for the first time may well be startled at the unfiltered passion and power of his music.', 'ItServeYouRightToSuffer-JohnLeeHooker.jpg', 'John Lee Hooker', 1, 21, 1),
 (4, 'Love For Sale', 100, 'Celebrating 10 years since they first recorded together, Tony Bennett & Lady Gaga return for another collaboration featuring the best of the Cole Porter Songbook. It captures the creative and personal relationship of these two world-famous artists. Tony, who turned 95 in 2021, has spent over 7 decades dedicated to performing the Great American Songbook. They are accompanied by the Brian Newman Quintet with arrangements by Marion Evans and Jorge Callandrelli. 180-gram vinyl.', 'LoveForSale-TonyBennett_LadyGaga.jpg', 'Tony Bennett & Lady Gaga', 1, 2, 6),
 (5, 'Dawn FM', 120, 'he Weeknd deemed his 2022 album, Dawn FM, a \"sonic experience\" showcasing a unique cast of features from Tyler, the Creator, Lil Wayne, Quincy Jones, Oneohtrix Point Never, and Jim Carrey. (XO Records/Republic)', 'DawnFM-TheWeeknd.jpg', 'TheWeeknd', 1, 3, 5),
@@ -53,7 +53,8 @@ INSERT INTO `album` (`maAlbum`, `tenAlbum`, `gia`, `moTa`, `hinh`, `tacGia`, `Tr
 (7, 'Beleive', 100, 'Internationally renowned Italian tenor Andrea Bocelli releases breathtaking new album, Believe, celebrating the power of music to soothe the soul. It follows his record-breaking `Music for Hope\' performance at Easter from Milan\'s historic Duomo cathedral. Features classic favorites, a previously unreleased track from late Italian composer Ennio Morricone, Gratia Plena (from acclaimed film Fatima), duets w/ Alison Krauss & Cecilia Bartoli and interpretations of Ave Maria and Cohen\'s Hallelujah.', 'Believe-AndreaBocelli.jpg', 'Andrea Bocelli', 1, 7, 3),
 (8, 'Jordi', 100, 'The eagerly awaited new album from Maroon 5, JORDI, is the band\'s first since the critically acclaimed Red Pill Blues. The album will include the recently released hit single \"Beautiful Mistakes ft. Megan Thee Stallion\" as well as fan favorites \"Memories\" and \"Nobody\'s Love.\" Vinyl LP pressing. 2021 album.', 'Jordi-Maroon5.jpg', 'Maroon 5', 1, 4, 7),
 (9, 'test', 300, '', 'default.jfif', 'test', 0, 0, 2),
-(10, 'test2', 100, '', 'default.jfif', 'test2', 0, 0, 3);
+(10, 'test2', 100, '', 'default.jfif', 'test2', 0, 0, 3),
+(11, 'test', 100, 'very test', 'AcousticNow-Chlara.jpg', 'test', 1, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,8 @@ INSERT INTO `baihat` (`maBaiHat`, `tenBaiHat`, `linkFile`) VALUES
 (19, 'aaaa', 'Facebook'),
 (20, '1234', 'Facebook'),
 (21, 'test', 'Facebook'),
-(22, 'test', 'Facebook');
+(22, 'test', 'Facebook'),
+(23, 'TEST 2', 'AcousticNow-LoveYourself');
 
 -- --------------------------------------------------------
 
@@ -116,6 +118,7 @@ INSERT INTO `baihat_album` (`BaiHat_maBaiHat`, `Album_maAlbum`) VALUES
 (3, 2),
 (4, 2),
 (5, 3),
+(5, 11),
 (6, 3),
 (7, 4),
 (8, 4),
@@ -129,7 +132,8 @@ INSERT INTO `baihat_album` (`BaiHat_maBaiHat`, `Album_maAlbum`) VALUES
 (16, 8),
 (17, 1),
 (18, 1),
-(22, 10);
+(22, 10),
+(23, 11);
 
 -- --------------------------------------------------------
 
@@ -152,6 +156,7 @@ INSERT INTO `chitiethoadon` (`album`, `hoaDon`, `soLuong`) VALUES
 (1, 6, '1'),
 (1, 12, '3'),
 (1, 14, '5'),
+(1, 15, '9'),
 (2, 7, '4'),
 (2, 8, '1'),
 (2, 11, '3'),
@@ -185,7 +190,9 @@ INSERT INTO `chitietphieunhap` (`album`, `phieuNhap`, `gia`, `SoLuong`) VALUES
 (1, 1, '150', '3'),
 (1, 3, '155', '1'),
 (1, 6, '100', '12'),
+(1, 13, '100', '3'),
 (2, 5, '100', '12'),
+(2, 12, '20', '10'),
 (3, 7, '100', '5'),
 (3, 8, '20', '10'),
 (4, 4, '12', '3'),
@@ -233,6 +240,13 @@ CREATE TABLE `giohang` (
   `soLuong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `giohang`
+--
+
+INSERT INTO `giohang` (`maKhachHang`, `maAlbum`, `soLuong`) VALUES
+('customer', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -265,7 +279,8 @@ INSERT INTO `hoadon` (`maHoaDon`, `tongTien`, `thoiGianDat`, `trangThai`, `khach
 (11, 615, '2023-05-11', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
 (12, 730, '2023-05-12', 'Delivered', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
 (13, 915, '2023-05-12', 'Shipping', 'Lavied', NULL, 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh'),
-(14, 830, '2023-05-12', 'Delivered', 'abc', NULL, 'ABC');
+(14, 830, '2023-05-12', 'Delivered', 'abc', NULL, 'ABC'),
+(15, 915, '2023-09-12', 'Delivered', 'customer', NULL, 'abc');
 
 -- --------------------------------------------------------
 
@@ -324,9 +339,11 @@ CREATE TABLE `nguoidung` (
 INSERT INTO `nguoidung` (`maNguoiDung`, `hoTen`, `SDT`, `diaChi`, `email`, `TrangThai`, `loainguoidung`) VALUES
 ('abc', 'abc', '0908141453', 'ABC', 'HONGBAO2003@GMAIL.COM', 'Hoạt động', 'KH'),
 ('baobui3103', 'bảo bùi', '0908141422', '', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
+('customer', 'customer', '0908141453', 'grwgfggg', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
 ('Lavied', 'Bùi Hồng Bảo', '0908141453', 'B4/24G Trần Đại Nghĩa, Tân Kiên, Bình Chánh', 'hongbao2003@gmail.com', 'Hoạt động', 'KH'),
 ('linh123', 'linh', '0908141453', '', '', 'Hoạt động', 'NV'),
 ('nvBH', 'Linh', '0908141453', '', '', 'Hoạt động', 'KH'),
+('phat', 'phat123', '0908141453', '', '', 'Hoạt động', 'NV'),
 ('superadmin', 'Nguyễn Văn Admin', '0908141453', '12A Nguyễn Bỉnh Khiêm, Phường Đa Kao, Quận 1, TP.HCM.', 'superadmin@gmail.com', 'Hoạt động', 'NV'),
 ('thuannguyen', 'Nguyễn Minh Thuận', '0374974097', 'tphcm', 'thuan@gmail.com', 'Hoạt động', 'NV');
 
@@ -385,7 +402,9 @@ INSERT INTO `phieunhap` (`maPhieuNhap`, `ngayNhap`, `nguoiNhap`, `TongGia`, `NCC
 (8, '2023-05-10', 'superadmin', 200, 3),
 (9, '2023-05-12', 'superadmin', 700, 1),
 (10, '2023-05-12', 'superadmin', 1000, 3),
-(11, '2023-05-12', 'superadmin', 1000, 1);
+(11, '2023-05-12', 'superadmin', 1000, 1),
+(12, '2023-09-12', 'superadmin', 200, 1),
+(13, '2023-09-12', 'phat', 300, 1);
 
 -- --------------------------------------------------------
 
@@ -472,13 +491,14 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`username`, `ngayTao`, `TrangThai`, `matKhau`, `vaiTro`) VALUES
-('abc', '2023-05-12', 'Hoạt động', 'Abc123123@', 1),
-('baobui3103', '2023-04-01', 'Hoạt động', 'Bao1234@', 1),
-('Lavied', '2023-04-15', 'Hoạt động', 'Lavied3103@', 1),
-('linh123', '2023-05-11', 'Hoạt động', 'Linh123@', 4),
-('nvBH', '2023-05-11', 'Hoạt động', 'Linh3131.', 1),
-('superadmin', '2023-04-19', 'Hoạt động', 'superadmin', 3),
-('thuannguyen', '2023-04-18', 'Hoạt động', '123Thuan@', 2);
+('abc', '2023-05-12', 'Hoạt động', 'a1717042494ee1b2ae1f58127deda575', 1),
+('baobui3103', '2023-04-01', 'Hoạt động', 'c445fa82f7c36d10c14d7a8950550abd', 1),
+('customer', '2023-09-11', 'Hoạt động', '', 1),
+('Lavied', '2023-04-15', 'Hoạt động', '30ecfbdbfa05d02cb813c9108d67d54b', 1),
+('linh123', '2023-05-11', 'Hoạt động', 'c445fa82f7c36d10c14d7a8950550abd', 4),
+('nvBH', '2023-05-11', 'Hoạt động', '96e8f20b16b0a95a345369200142cc04', 1),
+('phat', '2023-09-12', 'Hoạt động', 'c445fa82f7c36d10c14d7a8950550abd', 7),
+('superadmin', '2023-04-19', 'Hoạt động', '17c4520f6cfd1ab53d8745e84681eb49', 3);
 
 -- --------------------------------------------------------
 
@@ -527,7 +547,8 @@ INSERT INTO `vaitro` (`maVaiTro`, `tenVaiTro`, `moTa`) VALUES
 (4, 'Seller', 'dành cho nhân viên chuyên bán hàng online'),
 (5, 'Design', 'Thay đổi giao diện'),
 (6, 'Analyst', 'phần tích thông kê'),
-(7, 'Stocker', 'nhập hàng');
+(7, 'Stocker', 'nhập hàng'),
+(8, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -577,7 +598,11 @@ INSERT INTO `vaitro_quyen` (`VaiTro_maVaiTro`, `Quyen_maCTQ`) VALUES
 (6, 18),
 (7, 1),
 (7, 4),
-(7, 5);
+(7, 5),
+(8, 1),
+(8, 4),
+(8, 5),
+(8, 18);
 
 -- --------------------------------------------------------
 
@@ -596,6 +621,7 @@ CREATE TABLE `yeuthich` (
 
 INSERT INTO `yeuthich` (`album`, `nguoiDung`) VALUES
 (1, 'baobui3103'),
+(1, 'customer'),
 (1, 'Lavied'),
 (1, 'thuannguyen');
 
@@ -746,7 +772,7 @@ ALTER TABLE `yeuthich`
 -- AUTO_INCREMENT for table `baihat`
 --
 ALTER TABLE `baihat`
-  MODIFY `maBaiHat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `maBaiHat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
