@@ -54,6 +54,20 @@
     });
 
   }
+  function mahoa() {
+    var password = $('#filename').val();                    //To save file with this name
+    $.ajax({
+      url: "mahoa.php",                      //Server api to receive the file
+      type: "POST",
+      dataType: 'script',
+      data: {
+        password
+      },
+      success: function (mahoa) {
+        alert(mahoa)
+      }
+    });
+  }
 
 
 </script>
@@ -64,7 +78,7 @@
 
     <input type="file" class="fileToUpload form-control"></input><br>
     <input type="text" placeholder="File name" id="filename" class="form-control" /><br>
-    <button class="btn btn-success" onclick="uploadfile()">Upload</button>
+    <button class="btn btn-success" onclick="mahoa()">Upload</button>
 
   </div>
 

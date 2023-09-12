@@ -5,9 +5,9 @@ const addToCart = (albumID) => {
     data: { albumID: albumID, action: "addToCart" },
     success: function (res) {
       if (res == "Added to your Cart") {
-        customNotice("fa-solid fa-cart-circle-plus", res,1);
+        customNotice("fa-solid fa-cart-circle-plus", res, 1);
       } else {
-        customNotice("fa-sharp fa-light fa-circle-exclamation", res,3);
+        customNotice("fa-sharp fa-light fa-circle-exclamation", res, 3);
       }
     },
   });
@@ -24,40 +24,47 @@ const deleteByAlbumID = (albumID) => {
     success: function (res) {
       if (res == "Success") {
         summary();
-        customNotice("fa-solid fa-cart-circle-xmark", "Removed from your Cart",1);
+        customNotice("fa-solid fa-cart-circle-xmark", "Removed from your Cart", 1);
       } else {
         alert(res);
       }
     },
   });
 };
-const checkChangeQuantity = (input, change) => {
+const checkChangeQuantity = (albumID, change, input) => {
   let currentQuantityInput = input
     .closest(".product-placeholder")
     .querySelector("input.quantity-info");
-  if (!isNaN(currentQuantityInput.value)) {
+  if (currentQuantityInput.value === '') {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
-      "quantity must be a number!",3
+      "Quantity must not be empty!", 3
+    );
+    return null
+  }
+  if (!/^\d+$/.test(currentQuantityInput.value)) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "quantity must be a number!", 3
     );
     return null;
   }
   let currentQuantity = parseInt(currentQuantityInput.value);
   if (currentQuantity == 99 && change == 1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99",3);
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99", 3);
     return null;
   }
   if (currentQuantity == 1 && change == -1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1",3);
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1", 3);
     return null;
   }
   if (currentQuantity > 99) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99",3);
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Max is 99", 3);
     currentQuantityInput.value = 99;
     currentQuantity = 99;
   }
   if (currentQuantity < 1) {
-    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1",3);
+    customNotice("fa-sharp fa-light fa-circle-exclamation", "Min is 1", 3);
     currentQuantityInput.value = 1;
     currentQuantity = 1;
   }
@@ -80,7 +87,7 @@ const updateTotalPrice = (input, quantity) => {
 };
 
 const changeQuantity = (albumID, change, input) => {
-  let quantity = checkChangeQuantity(input, change);
+  let quantity = checkChangeQuantity(albumID, change, input);
   if (quantity == null) return;
   updateTotalPrice(input, quantity);
   $.ajax({

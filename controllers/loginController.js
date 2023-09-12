@@ -68,7 +68,7 @@ const register = async () => {
       if (res == "Success") {
         customNotice(
           "fa-sharp fa-light fa-circle-exclamation",
-          "Accout successfully created!",3
+          "Accout successfully created!",1
         );
         loadLoginByAjax("logIn");
         document.querySelector("#username-field").value = username;

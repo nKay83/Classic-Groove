@@ -13,9 +13,9 @@
                 <div class="bottom">
                     <div class="left-bottom">
                     </div>
-                    <div class="right-bottom">
+                    <!-- <div class="right-bottom">
                         <label><a href="#" class="color333">Forgot password?</a></label>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="submit">
                     <input type="button" value="Login" onclick="login()">

@@ -22,13 +22,14 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       case 'checkLogin':
         $username = $_POST['user'];
         $password = $_POST['pass'];
+        $md5Pass = md5($password);
         $result = $dp->getUserByUsername($username);
         if ($result != null) {
           if (mysqli_num_rows($result) == 0) {
             echo "Account does not exist!";
           } else {
             $user = $result->fetch_assoc();
-            if ($user['matKhau'] != $password) {
+            if ($user['matKhau'] != $md5Pass) {
               echo "Wrong password!";
             } else {
               $sql = "Select hoTen from nguoidung where manguoidung ='" . $username . "'";
@@ -60,11 +61,12 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $phone = $_POST['phone'];
         $username = $_POST['user'];
         $password = $_POST['pass'];
+        $md5Pass = md5($password);
         $sql1 = "INSERT INTO nguoidung
         VALUES ('" . $username . "','" . $name . "','" . $phone . "', null, null, 'Hoạt động', 'KH')";
         $result1 = $dp->excuteQuery($sql1);
         $sql2 = "INSERT INTO taikhoan
-        VALUES ('" . $username . "','" . (new Datetime())->format('Y-m-d') . "','Hoạt động','" . $password . "',1);";
+        VALUES ('" . $username . "','" . (new Datetime())->format('Y-m-d') . "','Hoạt động','" . $md5Pass . "',1);";
         $result2 = $dp->excuteQuery($sql2);
         if ($result1 && $result2) {
           echo "Success";
