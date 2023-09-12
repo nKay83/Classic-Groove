@@ -129,6 +129,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $fullname = $_GET['fullname'];
         $phone = $_GET['phone'];
         $password = $_GET['password'];
+        $md5Pass = md5($password);
         $address = $_GET['address'];
         $email = $_GET['email'];
         $role = $_GET['role'];
@@ -142,7 +143,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
                 WHERE maNguoiDung='" . $username . "'";
         $result1 = $dp->excuteQuery($sql1);
         $sql2 = "UPDATE taikhoan
-                SET matKhau='" . $password . "',
+                SET matKhau='" . $md5Pass . "',
                     vaiTro=" . $role .
           " WHERE username='" . $username . "'";
         $result2 = $dp->excuteQuery($sql2);
