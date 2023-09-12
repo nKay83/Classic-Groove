@@ -8,7 +8,7 @@ let isDiff = false;
 const setUserInfo = () => {
   fullname = document.querySelector("#myaccount #txtHoTen").value;
   phone = document.querySelector("#myaccount #txtSDT").value;
-  password = document.querySelector("#myaccount #password-field4").value;
+  // password = document.querySelector("#myaccount #password-field4").value;
   address = document.querySelector("#myaccount #txtAddress").value;
   email = document.querySelector("#myaccount #txtEmail").value;
 };
@@ -17,7 +17,7 @@ const IsInfoChange = () => {
   if (
     fullname == document.querySelector("#myaccount #txtHoTen").value &&
     phone == document.querySelector("#myaccount #txtSDT").value &&
-    password == document.querySelector("#myaccount #password-field4").value &&
+    // password == document.querySelector("#myaccount #password-field4").value &&
     address == document.querySelector("#myaccount #txtAddress").value &&
     email == document.querySelector("#myaccount #txtEmail").value
   ) {
@@ -65,24 +65,24 @@ const checkInputUpdateUser = () => {
     phoneInput.focus();
     return false;
   }
-  if (passwordInput.value == "") {
-    customNotice(
-      "fa-sharp fa-light fa-circle-exclamation",
-      "Please, enter your password!",
-      3
-    );
-    passwordInput.focus();
-    return false;
-  }
-  if (!isPasswordValid(passwordInput.value)) {
-    customNotice(
-      "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
-      3
-    );
-    passwordInput.focus();
-    return false;
-  }
+  // if (passwordInput.value == "") {
+  //   customNotice(
+  //     "fa-sharp fa-light fa-circle-exclamation",
+  //     "Please, enter your password!",
+  //     3
+  //   );
+  //   passwordInput.focus();
+  //   return false;
+  // }
+  // if (!isPasswordValid(passwordInput.value)) {
+  //   customNotice(
+  //     "fa-sharp fa-light fa-circle-exclamation",
+  //     "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
+  //     3
+  //   );
+  //   passwordInput.focus();
+  //   return false;
+  // }
   if (addressInput.value == "") {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
@@ -143,6 +143,82 @@ const updateUser = () => {
     },
   });
 };
+const checkInputUpdatePassword = () => {
+  const oldPassword = document.querySelector('#txtOldPassword')
+  const newPassword = document.querySelector('#txtNewPassword')
+  const confirmNewPassword = document.querySelector('#txtConfirmNewPassword')
+  if (oldPassword.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your old Password!",
+      3
+    );
+    oldPassword.focus();
+    return false;
+  }
+  if (newPassword.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your new Password!",
+      3
+    );
+    newPassword.focus();
+    return false;
+  }
+  if (confirmNewPassword.value == "") {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Please, enter your confirm New Password!",
+      3
+    );
+    confirmNewPassword.focus();
+    return false;
+  }
+
+  if (newPassword.value != confirmNewPassword.value) {
+    customNotice(
+      "fa-sharp fa-light fa-circle-exclamation",
+      "Password confirm is correct!",
+      3
+    );
+    return false
+  }
+  return true
+}
+const updatePassword = () => {
+  if (!checkInputUpdatePassword()) return;
+  const oldPassword = document.querySelector('#txtOldPassword').value
+  const newPassword = document.querySelector('#txtNewPassword').value
+  const confirmNewPassword = document.querySelector('#txtConfirmNewPassword').value
+  console.log(oldPassword, newPassword, confirmNewPassword)
+  $.ajax({
+    url:
+      "util/user.php?oldPassword=" +
+      oldPassword +
+      "&newPassword=" +
+      newPassword +
+      "&confirmNewPassword=" +
+      confirmNewPassword +
+      "&action=updatePassword",
+    type: "PUT",
+    success: function (res) {
+      if (res != "Success") {
+        customNotice(
+          "fa-sharp fa-light fa-circle-exclamation",
+          res,
+          3
+        );
+      }
+      else {
+        customNotice(
+          "fa-sharp fa-light fa-circle-check",
+          "Update successfully!",
+          1
+        );
+      }
+    },
+  });
+}
 
 function isEmailValid(email) {
   return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);

@@ -153,6 +153,35 @@ switch ($_SERVER["REQUEST_METHOD"]) {
           echo "Error";
         }
         break;
+      case 'updatePassword':
+        $oldPassword = $_GET['oldPassword'];
+        $newPassword = $_GET['newPassword'];
+        $confirmNewPassword = $_GET['confirmNewPassword'];
+        $username = $_SESSION['userName'];
+        $result = $dp->getUserByUsername($username);
+        if ($result != null) {
+          if (mysqli_num_rows($result) == 0) {
+            echo 'Account does not exist!';
+          } else {
+            $user = $result->fetch_assoc();
+            $password = $user['matKhau'];
+            if ($password != md5($oldPassword)) {
+              echo 'Old password is not correct!';
+            } else {
+              $md5Pass = md5($newPassword);
+              $sql = "UPDATE taikhoan
+                SET matKhau='" . $md5Pass .
+                "' WHERE username='" . $username . "'";
+              $result = $dp->excuteQuery($sql);
+              if ($result) {
+                echo "Success";
+              } else {
+                echo "Error";
+              }
+            }
+          }
+        }
+        break;
     }
     break;
 }
