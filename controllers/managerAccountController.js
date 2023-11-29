@@ -40,7 +40,10 @@ const updateAccount = () => {
       "&action=updateAccount",
     type: "PUT",
     success: function (res) {
-      if (res != "Success") alert(res);
+      if (res != "Success") 
+      {
+        alert(res);
+      }
       else {
         customNotice(
           "fa-sharp fa-light fa-circle-check",
@@ -48,6 +51,7 @@ const updateAccount = () => {
           1
         );
         isAccountInfoChange();
+        loadPageByAjax("Account");
       }
     },
   });
@@ -108,15 +112,6 @@ const checkInputUpdateAccount = () => {
     customNotice(
       "fa-sharp fa-light fa-circle-exclamation",
       "Please, enter your password!",
-      3
-    );
-    passwordInput.focus();
-    return false;
-  }
-  if (!isPasswordValid(passwordInput.value)) {
-    customNotice(
-      "fa-sharp fa-light fa-circle-exclamation",
-      "Password that contain at least eight characters, including at least one number and includes both lowercase and uppercase letters and special characters, for example #, ?, !.",
       3
     );
     passwordInput.focus();

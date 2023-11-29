@@ -50,7 +50,7 @@ session_start();
 
       </div>
 
-      <div id="song-control">
+      <div id="song-control" >
         <?php include 'views/pages/user/songControl.php' ?>
       </div>
       <div id="notice">

@@ -30,8 +30,8 @@ const loadPageByAjax = async (pageTarget) => {
     dataType: "html",
     success: function (data) {
       document.querySelector("#content").innerHTML = data;
-      if (pageTarget == "myAccount") setUserInfo();
-      if (pageTarget == "Statistic") {
+      if (pageTarget == "myAccount")setUserInfo();
+        if (pageTarget == "Statistic") {
         statistic1();
         statistic2();
         statistic3();

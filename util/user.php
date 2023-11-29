@@ -81,6 +81,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $phone = $_POST['phone'];
         $role = $_POST['role'];
         $password = $_POST['password'];
+        $md5Pass = md5($password);
         $address = $_POST['address'];
         $typeUser = ($role == 1) ? "KH" : "NV";
         $sql1 = "INSERT INTO nguoidung
@@ -89,7 +90,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $result1 = $dp->excuteQuery($sql1);
         $sql2 = "INSERT INTO taikhoan
         VALUES ('" . $username . "','" . (new Datetime())->format('Y-m-d') . "',
-                'Hoạt động','" . $password . "'," . $role . ");";
+                'Hoạt động','" . $md5Pass . "'," . $role . ");";
         $result2 = $dp->excuteQuery($sql2);
         if ($result1 && $result2) {
           echo "Success";
